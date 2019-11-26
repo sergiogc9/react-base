@@ -1,0 +1,43 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<ArticleFacets /> Test component snapshot 1`] = `
+"<Drawer id=\\"facetsDrawer\\" type=\\"floating\\" inline={true} visible={true} clickableDesktopOverlay={false} overlay={false} onVisibilityChange={[Function: onVisibilityChange]} onMediaTypeChange={[Function: onMediaTypeChange]} defaultMedia=\\"mobile\\" mobileType=\\"temporary\\" mobileMinWidth={320} tabletType=\\"persistent\\" tabletMinWidth={768} desktopType=\\"full-height\\" desktopMinWidth={1025} position=\\"left\\" transitionDuration={300} autoclose={true} constantType={true}>
+  <div className=\\"header\\">
+    <div className=\\"title\\">
+      results.sidebar.title
+    </div>
+    <div className=\\"description\\">
+      results.sidebar.description_1
+    </div>
+    <div className=\\"description\\">
+      results.sidebar.description_2
+    </div>
+  </div>
+  <SelectField id=\\"searchFacetsPeriodSelect\\" label=\\"filters.period.value\\" placeholder=\\"filters.period.value\\" menuItems={{...}} defaultValue=\\"last_month\\" value=\\"last_month\\" position=\\"tr\\" onChange={[Function: onChange]} anchor={{...}} fixedTo={{...}} itemLabel=\\"label\\" itemValue=\\"value\\" itemProps=\\"getProps\\" dropdownIcon={{...}} lineDirection=\\"left\\" defaultVisible={false} keyboardMatchingTimeout={1000} transitionName=\\"md-drop\\" transitionTime={300} repositionOnScroll={true} repositionOnResize={false} />
+  <Memo(FormButtonGroupField) element={{...}} onChangeOption={[Function]} forceValue=\\"publication_date\\" />
+  <Connect(SearchFacets) />
+</Drawer>"
+`;
+
+exports[`<ArticleFacets /> Test with custom date ranges 1`] = `
+"<Drawer id=\\"facetsDrawer\\" type=\\"floating\\" inline={true} visible={true} clickableDesktopOverlay={false} overlay={false} onVisibilityChange={[Function: onVisibilityChange]} onMediaTypeChange={[Function: onMediaTypeChange]} defaultMedia=\\"mobile\\" mobileType=\\"temporary\\" mobileMinWidth={320} tabletType=\\"persistent\\" tabletMinWidth={768} desktopType=\\"full-height\\" desktopMinWidth={1025} position=\\"left\\" transitionDuration={300} autoclose={true} constantType={true}>
+  <div className=\\"header\\">
+    <div className=\\"title\\">
+      results.sidebar.title
+    </div>
+    <div className=\\"description\\">
+      results.sidebar.description_1
+    </div>
+    <div className=\\"description\\">
+      results.sidebar.description_2
+    </div>
+  </div>
+  <SelectField id=\\"searchFacetsPeriodSelect\\" label=\\"filters.period.value\\" placeholder=\\"filters.period.value\\" menuItems={{...}} defaultValue=\\"custom\\" value=\\"custom\\" position=\\"tr\\" onChange={[Function: onChange]} anchor={{...}} fixedTo={{...}} itemLabel=\\"label\\" itemValue=\\"value\\" itemProps=\\"getProps\\" dropdownIcon={{...}} lineDirection=\\"left\\" defaultVisible={false} keyboardMatchingTimeout={1000} transitionName=\\"md-drop\\" transitionTime={300} repositionOnScroll={true} repositionOnResize={false} />
+  <div className=\\"dateRanges\\">
+     
+    <Connect(SearchDateRange) />
+  </div>
+  <Memo(FormButtonGroupField) element={{...}} onChangeOption={[Function]} forceValue=\\"publication_date\\" />
+  <Connect(SearchFacets) />
+</Drawer>"
+`;

@@ -1,0 +1,48 @@
+@import "@src/scss/_globals.scss";
+
+#notifications-snackbar {
+	width: 100%;
+	max-width: 100%;
+	height: 7rem;
+	justify-content: center;
+	align-items: center;
+	color: white;
+	font-size: 1.4rem;
+	font-weight: bold;
+	z-index: 99999;
+
+	&.success {
+		background-color: $md-green-500;
+	}
+
+	&.info {
+		background-color: $md-light-blue-500;
+	}
+
+	&.warning {
+		background-color: $md-orange-500;
+	}
+
+	&.danger {
+		background-color: $md-deep-orange-500;
+	}
+
+	p {
+		font-size: 1.4rem;
+		font-weight: bold;
+	}
+
+	button {
+		min-width: auto;
+		padding: 0.5rem;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		color: white;
+
+		i {
+			color: white;
+			font-size: 2.6rem;
+		}
+	}
+}

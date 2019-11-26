@@ -1,0 +1,96 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Form common component Component default snapshot 1`] = `"<div className=\\"discover-form\\" />"`;
+
+exports[`Form common component Component snapshot after set values 1`] = `
+"<div className=\\"discover-form\\">
+  <div className=\\"discover-form-field\\">
+    <Memo(FormTextField) element={{...}} forceValue=\\"forcedValue\\" error={false} onChangeText={[Function]} t={[Function: t]} />
+  </div>
+  <div className=\\"discover-form-field\\">
+    <Memo(FormNumberField) element={{...}} forceValue={100} error={false} onChangeNumber={[Function]} t={[Function: t]} />
+  </div>
+</div>"
+`;
+
+exports[`Form common component Component snapshot with a autocomplete field 1`] = `
+"<div className=\\"discover-form\\">
+  <div className=\\"discover-form-field\\">
+    <Memo(FormAutocompleteField) element={{...}} forceValue={[undefined]} error={false} onAutocompleteSelected={[Function]} onUpdateItems={[undefined]} t={[Function: t]} />
+  </div>
+</div>"
+`;
+
+exports[`Form common component Component snapshot with a button group field 1`] = `
+"<div className=\\"discover-form\\">
+  <div className=\\"discover-form-field\\">
+    <Memo(FormButtonGroupField) element={{...}} forceValue={[undefined]} onChangeOption={[Function]} />
+  </div>
+</div>"
+`;
+
+exports[`Form common component Component snapshot with a component field 1`] = `
+"<div className=\\"discover-form\\">
+  <div className=\\"discover-form-field\\">
+    <div />
+  </div>
+</div>"
+`;
+
+exports[`Form common component Component snapshot with a date field 1`] = `
+"<div className=\\"discover-form\\">
+  <div className=\\"discover-form-field\\">
+    <Connect(Component) element={{...}} forceValue={[undefined]} error={false} onChangeDate={[Function]} />
+  </div>
+</div>"
+`;
+
+exports[`Form common component Component snapshot with a file field 1`] = `
+"<div className=\\"discover-form\\">
+  <div className=\\"discover-form-field\\">
+    <Connect(Component) element={{...}} forceValue={[undefined]} error={false} onChangeFile={[Function]} />
+  </div>
+</div>"
+`;
+
+exports[`Form common component Component snapshot with a filed with unique in line style 1`] = `
+"<div className=\\"discover-form\\">
+  <div className=\\"discover-form-field-break-line\\" />
+  <div className=\\"discover-form-field\\">
+    <Connect(Component) element={{...}} forceValue={[undefined]} error={false} onChangeFile={[Function]} />
+  </div>
+  <div className=\\"discover-form-field-break-line\\" />
+</div>"
+`;
+
+exports[`Form common component Component snapshot with a filed with width style 1`] = `
+"<div className=\\"discover-form\\">
+  <div className=\\"discover-form-field discover-form-field-width-50\\">
+    <Connect(Component) element={{...}} forceValue={[undefined]} error={false} onChangeFile={[Function]} />
+  </div>
+</div>"
+`;
+
+exports[`Form common component Component snapshot with a number field 1`] = `
+"<div className=\\"discover-form\\">
+  <div className=\\"discover-form-field\\">
+    <Memo(FormNumberField) element={{...}} forceValue={[undefined]} error={false} onChangeNumber={[Function]} t={[Function: t]} />
+  </div>
+</div>"
+`;
+
+exports[`Form common component Component snapshot with a select field 1`] = `
+"<div className=\\"discover-form\\">
+  <div className=\\"discover-form-field\\">
+    <Memo(FormSelectField) element={{...}} forceValue={[undefined]} error={false} onSelectOption={[Function]} t={[Function: t]} />
+  </div>
+</div>"
+`;
+
+exports[`Form common component Component snapshot with a text field 1`] = `
+"<div className=\\"discover-form\\">
+  <div className=\\"discover-form-field\\">
+    <Memo(FormTextField) element={{...}} forceValue={[undefined]} error={false} onChangeText={[Function]} t={[Function: t]} />
+  </div>
+</div>"
+`;

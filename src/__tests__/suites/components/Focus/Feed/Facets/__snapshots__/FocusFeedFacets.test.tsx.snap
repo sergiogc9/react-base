@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<FocusFeedFacets /> Test component snapshot 1`] = `
+"<Drawer id=\\"facetsDrawer\\" type=\\"floating\\" inline={true} visible={true} clickableDesktopOverlay={false} overlay={false} onVisibilityChange={[Function: onVisibilityChange]} onMediaTypeChange={[Function: onMediaTypeChange]} defaultMedia=\\"mobile\\" mobileType=\\"temporary\\" mobileMinWidth={320} tabletType=\\"persistent\\" tabletMinWidth={768} desktopType=\\"full-height\\" desktopMinWidth={1025} position=\\"left\\" transitionDuration={300} autoclose={true} constantType={true}>
+  <Connect(SearchFacets) />
+</Drawer>"
+`;
+
+exports[`<FocusFeedFacets /> Test component snapshot 2`] = `
+"<Drawer id=\\"facetsDrawer\\" type=\\"floating\\" inline={true} visible={false} clickableDesktopOverlay={false} overlay={false} onVisibilityChange={[Function: onVisibilityChange]} onMediaTypeChange={[Function: onMediaTypeChange]} defaultMedia=\\"mobile\\" mobileType=\\"temporary\\" mobileMinWidth={320} tabletType=\\"persistent\\" tabletMinWidth={768} desktopType=\\"full-height\\" desktopMinWidth={1025} position=\\"left\\" transitionDuration={300} autoclose={true} constantType={true}>
+  <Connect(SearchFacets) />
+</Drawer>"
+`;

@@ -1,0 +1,108 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FocusFeed Component snapshot with save feed loading 1`] = `
+"<div id=\\"focusFeed\\">
+  <Connect(FocusFeedHeader) />
+  <div className=\\"focusFeedLoading\\">
+    <CircularProgress id=\\"focusFeedLoading\\" scale={1.25} style={{...}} determinateDashoffset={187} centered={true} />
+  </div>
+</div>"
+`;
+
+exports[`FocusFeed Online create feed component snapshot 1`] = `
+"<div id=\\"focusFeed\\">
+  <Connect(FocusFeedHeader) />
+  <Connect(FocusFeedFacets) />
+  <div className=\\"main-drawer\\">
+    <Connect(FocusFeedForm) />
+    <Connect(SearchResults) />
+    <Connect(SearchPaginator) />
+  </div>
+</div>"
+`;
+
+exports[`FocusFeed Online existing feed component snapshot 1`] = `
+"<div id=\\"focusFeed\\">
+  <Connect(FocusFeedHeader) />
+  <Connect(FocusFeedFacets) />
+  <div className=\\"main-drawer\\">
+    <Connect(FocusFeedForm) />
+    <Connect(SearchResults) />
+    <Connect(SearchPaginator) />
+  </div>
+</div>"
+`;
+
+exports[`FocusFeed Online feed fetching feed 1`] = `
+"<div id=\\"focusFeed\\">
+  <Connect(FocusFeedHeader) />
+  <div className=\\"focusFeedLoading\\">
+    <CircularProgress id=\\"focusFeedLoading\\" scale={1.25} style={{...}} determinateDashoffset={187} centered={true} />
+  </div>
+</div>"
+`;
+
+exports[`FocusFeed Online feed reseting feed 1`] = `
+"<div id=\\"focusFeed\\">
+  <Connect(FocusFeedHeader) />
+  <div className=\\"focusFeedLoading\\">
+    <CircularProgress id=\\"focusFeedLoading\\" scale={1.25} style={{...}} determinateDashoffset={187} centered={true} />
+  </div>
+</div>"
+`;
+
+exports[`FocusFeed Online feed without focus list 1`] = `
+"<div id=\\"focusFeed\\">
+  <Connect(FocusFeedHeader) />
+  <div className=\\"focusFeedLoading\\">
+    <CircularProgress id=\\"focusFeedLoading\\" scale={1.25} style={{...}} determinateDashoffset={187} centered={true} />
+  </div>
+</div>"
+`;
+
+exports[`FocusFeed Print create feed component snapshot 1`] = `
+"<div id=\\"focusFeed\\">
+  <Connect(FocusFeedHeader) />
+  <div className=\\"focusFeedLoading\\">
+    <CircularProgress id=\\"focusFeedLoading\\" scale={1.25} style={{...}} determinateDashoffset={187} centered={true} />
+  </div>
+</div>"
+`;
+
+exports[`FocusFeed Print existing feed component snapshot 1`] = `
+"<div id=\\"focusFeed\\">
+  <Connect(FocusFeedHeader) />
+  <Connect(FocusFeedFacets) />
+  <div className=\\"main-drawer\\">
+    <Connect(FocusFeedForm) />
+    <Connect(SearchResults) />
+    <Connect(SearchPaginator) />
+  </div>
+</div>"
+`;
+
+exports[`FocusFeed Social create feed component snapshot 1`] = `
+"<div id=\\"focusFeed\\">
+  <Connect(FocusFeedHeader) />
+  <Connect(FocusFeedFacets) />
+  <div className=\\"main-drawer\\">
+    <Connect(FocusFeedDefinitionSocial) />
+    <Connect(FocusFeedForm) />
+    <Connect(SearchResults) />
+    <Connect(SearchPaginator) />
+  </div>
+</div>"
+`;
+
+exports[`FocusFeed Social existing feed component snapshot 1`] = `
+"<div id=\\"focusFeed\\">
+  <Connect(FocusFeedHeader) />
+  <Connect(FocusFeedFacets) />
+  <div className=\\"main-drawer\\">
+    <Connect(FocusFeedDefinitionSocial) />
+    <Connect(FocusFeedForm) />
+    <Connect(SearchResults) />
+    <Connect(SearchPaginator) />
+  </div>
+</div>"
+`;

@@ -1,0 +1,54 @@
+@import "@src/scss/_globals.scss";
+
+.launchmetrics-simple-dialog {
+	> div {
+		width: 40rem;
+	}
+
+	.md-dialog-content {
+		padding: 0.5rem 1rem;
+	}
+
+	.dialog-container {
+		.dialog-header {
+			margin-bottom: 2rem;
+			margin-top: 0.5rem;
+			padding: 1rem;
+
+			.dialog-text {
+				line-height: 2.8rem;
+				font-size: 2rem;
+			}
+		}
+
+		.dialog-content {
+			padding: 0 1rem;
+			width: 100%;
+			color: #757575;
+			font-size: 1.4rem;
+		}
+
+		.dialog-footer {
+			margin-top: 4rem;
+			justify-content: space-between;
+			padding: 0.8rem 0;
+
+			&.center-buttons {
+				justify-content: center;
+			}
+
+			button {
+				border-radius: 3px;
+				font-size: 1.2rem;
+
+				&.btn--grey {
+					background-color: $md-grey-300;
+				}
+
+				&.btn--green {
+					background-color: $launchmetrics-green;
+				}
+			}
+		}
+	}
+}

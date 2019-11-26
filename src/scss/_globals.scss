@@ -1,0 +1,21 @@
+@import "variables";
+@import "mixins";
+
+$md-font-name: $react-base-font-name;
+
+@import "~react-md/src/scss/react-md";
+
+// Start overriding react-md variables
+$md-primary-color: $md-grey-800;
+$md-secondary-color: $react-base-green;
+
+$md-dialog-use-flex-positioning: true;
+
+// When the primary or secondary colors are not part of material design, you will need to set
+// some fallback colors for the the following components:
+$md-data-table-contextual-fallback-color: rgba($react-base-green, 0.32);
+$md-linear-progress-fallback-color: rgba($react-base-green, 0.54);
+// $md-switch-fallback-color: rgba($react-base-green, .87);
+$md-switch-ball-fallback-color: rgba($react-base-green, 0.87);
+
+$md-light-theme: true; // setting to false in v2 since the default background is dark

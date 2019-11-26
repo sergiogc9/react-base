@@ -1,0 +1,13 @@
+@import "@src/scss/_globals.scss";
+@import "@src/scss/_mixins.scss";
+@import "@src/scss/_variables.scss";
+
+.discover-form-date-field {
+	@include textInput("darker");
+	label {
+		font-size: 1.2rem;
+	}
+	.md-text-field {
+		font-size: 1.3rem;
+	}
+}

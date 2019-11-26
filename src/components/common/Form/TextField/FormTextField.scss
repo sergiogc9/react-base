@@ -1,0 +1,24 @@
+@import "@src/scss/_globals.scss";
+@import "@src/scss/_mixins.scss";
+@import "@src/scss/_variables.scss";
+
+.discover-form-text-field {
+	@include textInput("darker");
+	label {
+		font-size: 1.2rem;
+	}
+	.md-text-field {
+		font-size: 1.3rem;
+	}
+
+	&.with-border {
+		.md-text-field {
+			padding: 0.5rem;
+			border: 1px solid #000;
+			line-height: 2.5rem;
+		}
+		hr.md-divider {
+			display: none;
+		}
+	}
+}

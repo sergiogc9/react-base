@@ -1,0 +1,32 @@
+@import "@src/scss/_globals.scss";
+@import "@src/scss/_mixins.scss";
+@import "@src/scss/_variables.scss";
+
+.form-button-group-field-wrapper {
+	.form-button-group-label{
+		font-size: 1.2rem;
+	}
+
+	.form-button-group-field-buttons {
+		margin-top: 1.25rem;
+
+		.form-button-group-field-button {
+			font-size: 1.2rem;
+			text-transform: none;
+			padding: 0.8rem 1.6rem;
+
+			&.selected {
+				background-color: $launchmetrics-green;
+				border: 1px solid $launchmetrics-green;
+			}
+
+			&:not(.selected){
+				border: 1px solid $md-grey-300;
+			}
+
+			@include respond(tab-land) {
+				height: 3.2rem;
+			}
+		}
+	}
+}

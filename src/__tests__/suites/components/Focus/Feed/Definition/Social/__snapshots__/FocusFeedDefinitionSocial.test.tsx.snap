@@ -1,0 +1,1262 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Definition social Collapse expressions 1`] = `
+"<Fragment>
+  <div id=\\"focusFeedSocialDefinition\\">
+    <div id=\\"focusFeedDefinitionSocialContentSection\\" className=\\"definition-section\\">
+      <div className=\\"definition-section-header\\">
+        <div className=\\"definition-header-title\\" onClick={[Function: onClick]}>
+          <FontIcon className=\\"definition-header-title-toggle\\" iconClassName=\\"material-icons\\">
+            keyboard_arrow_right
+          </FontIcon>
+          <span className=\\"definition-header-title-text\\">
+             
+            feed.form.header_main_expression_react
+             
+          </span>
+        </div>
+        <div className=\\"definition-header-search-show-help-link\\" onClick={[Function: onClick]}>
+          definition.show_help
+        </div>
+        <withInk(withTooltip(Button)) id=\\"focusFeedDefinitionSocialSearchBtn\\" className=\\"definition-header-search-button\\" flat={true} onClick={[Function: onClick]} inkTransitionOverlap={150} inkTransitionEnterTimeout={450} inkTransitionLeaveTimeout={300}>
+          <FontIcon iconClassName=\\"material-icons\\">
+            search
+          </FontIcon>
+          form.search.value
+        </withInk(withTooltip(Button))>
+      </div>
+      <Collapse collapsed={true} animate={true} springConfig={{...}} minHeight={0}>
+        <div className=\\"definition-section-content\\">
+          <div className=\\"definition-info\\">
+            <span className=\\"definition-info-title\\">
+              feed.form.social.info.title
+              :
+            </span>
+            <span className=\\"definition-info-text\\">
+              feed.form.social.info.text
+            </span>
+          </div>
+          <div className=\\"definition-expressions\\">
+            <div className=\\"definition-expression-main\\">
+              <FocusFeedDefinitionSocialExpression expressionKey=\\"main\\" index={0} enabled={true} query=\\"kketa\\" scope={{...}} error={[undefined]} instagramAccounts={{...}} definitionInstagramAccounts={{...}} onEnabledToggled={[Function: mockConstructor]} onQueryChanged={[Function: onQueryChanged]} onCheckQuery={[Function: onCheckQuery]} onScopeChanged={[Function: onScopeChanged]} onInstagramAccountToggled={[Function: mockConstructor]} t={[Function: t]} />
+            </div>
+            <div className=\\"definition-text\\" dangerouslySetInnerHTML={{...}} />
+            <FocusFeedDefinitionSocialExpression expressionKey=\\"include_expressions\\" index={0} enabled={true} query=\\"kketa\\" scope={{...}} error={[undefined]} instagramAccounts={{...}} definitionInstagramAccounts={{...}} onEnabledToggled={[Function: onEnabledToggled]} onQueryChanged={[Function: onQueryChanged]} onCheckQuery={[Function: onCheckQuery]} onScopeChanged={[Function: onScopeChanged]} onRemoveExpression={[Function: onRemoveExpression]} onInstagramAccountToggled={[Function: mockConstructor]} t={[Function: t]} />
+            <FocusFeedDefinitionSocialExpression expressionKey=\\"include_expressions\\" index={1} enabled={true} query=\\"#kketa\\" scope={{...}} error={[undefined]} instagramAccounts={{...}} definitionInstagramAccounts={{...}} onEnabledToggled={[Function: onEnabledToggled]} onQueryChanged={[Function: onQueryChanged]} onCheckQuery={[Function: onCheckQuery]} onScopeChanged={[Function: onScopeChanged]} onRemoveExpression={[Function: onRemoveExpression]} onInstagramAccountToggled={[Function: mockConstructor]} t={[Function: t]} />
+            <div className=\\"definition-add-expression\\">
+              <withInk(withTooltip(Button)) id=\\"focusFeedDefinitionSocialAddIncludeExpressionBtn\\" className=\\"definition-add-expression-button\\" flat={true} onClick={[Function: onClick]} inkTransitionOverlap={150} inkTransitionEnterTimeout={450} inkTransitionLeaveTimeout={300}>
+                <span>
+                  +
+                </span>
+                 
+                feed.form.button.add_words_react
+              </withInk(withTooltip(Button))>
+            </div>
+            <div className=\\"definition-text\\" dangerouslySetInnerHTML={{...}} />
+            <FocusFeedDefinitionSocialExpression expressionKey=\\"exclude_expressions\\" index={0} enabled={true} query=\\"kketa\\" scope={{...}} error={[undefined]} instagramAccounts={{...}} definitionInstagramAccounts={{...}} onEnabledToggled={[Function: onEnabledToggled]} onQueryChanged={[Function: onQueryChanged]} onCheckQuery={[Function: onCheckQuery]} onScopeChanged={[Function: onScopeChanged]} onRemoveExpression={[Function: onRemoveExpression]} t={[Function: t]} />
+            <FocusFeedDefinitionSocialExpression expressionKey=\\"exclude_expressions\\" index={1} enabled={true} query=\\"#kketa\\" scope={{...}} error={[undefined]} instagramAccounts={{...}} definitionInstagramAccounts={{...}} onEnabledToggled={[Function: onEnabledToggled]} onQueryChanged={[Function: onQueryChanged]} onCheckQuery={[Function: onCheckQuery]} onScopeChanged={[Function: onScopeChanged]} onRemoveExpression={[Function: onRemoveExpression]} t={[Function: t]} />
+            <FocusFeedDefinitionSocialExpression expressionKey=\\"exclude_expressions\\" index={2} enabled={true} query=\\"@kketa\\" scope={{...}} error={[undefined]} instagramAccounts={{...}} definitionInstagramAccounts={{...}} onEnabledToggled={[Function: onEnabledToggled]} onQueryChanged={[Function: onQueryChanged]} onCheckQuery={[Function: onCheckQuery]} onScopeChanged={[Function: onScopeChanged]} onRemoveExpression={[Function: onRemoveExpression]} t={[Function: t]} />
+            <div className=\\"definition-add-expression\\">
+              <withInk(withTooltip(Button)) id=\\"focusFeedDefinitionSocialAddExcludeExpressionBtn\\" className=\\"definition-add-expression-button\\" flat={true} onClick={[Function: onClick]} inkTransitionOverlap={150} inkTransitionEnterTimeout={450} inkTransitionLeaveTimeout={300}>
+                <span>
+                  +
+                </span>
+                 
+                feed.form.button.add_words_react
+              </withInk(withTooltip(Button))>
+            </div>
+          </div>
+        </div>
+      </Collapse>
+    </div>
+    <div className=\\"definition-section\\">
+      <div className=\\"definition-section-header\\">
+        <div className=\\"definition-header-title\\" onClick={[Function: onClick]}>
+          <FontIcon className=\\"definition-header-title-toggle\\" iconClassName=\\"material-icons\\">
+            keyboard_arrow_down
+          </FontIcon>
+          <span className=\\"definition-header-title-text\\">
+             Source specifications 
+          </span>
+        </div>
+      </div>
+      <Collapse collapsed={false} animate={true} springConfig={{...}} minHeight={0}>
+        <div className=\\"definition-section-content\\">
+          <div className=\\"definition-expressions\\">
+            <div className=\\"definition-text\\" dangerouslySetInnerHTML={{...}} />
+            <FocusFeedDefinitionSocialExpressionProfile expressionKey=\\"include_profiles\\" index={0} enabled={true} query=\\"kketa\\" error={[undefined]} channel_type={30} avatar=\\"kketa\\" name=\\"kketa\\" loading={[undefined]} onEnabledToggled={[Function: onEnabledToggled]} onQueryChanged={[Function: onQueryChanged]} onRemoveExpression={[Function: onRemoveExpression]} onSearchProfile={[Function: onSearchProfile]} t={[Function: t]} />
+            <FocusFeedDefinitionSocialExpressionProfile expressionKey=\\"include_profiles\\" index={1} enabled={true} query=\\"\\" error={[undefined]} channel_type={30} avatar=\\"kketa\\" name=\\"kketa\\" loading={[undefined]} onEnabledToggled={[Function: onEnabledToggled]} onQueryChanged={[Function: onQueryChanged]} onRemoveExpression={[Function: onRemoveExpression]} onSearchProfile={[Function: onSearchProfile]} t={[Function: t]} />
+            <div className=\\"definition-add-expression\\">
+              <withInk(withTooltip(Button)) id=\\"focusFeedDefinitionSocialAddIncludeProfileBtn\\" className=\\"definition-add-expression-button\\" flat={true} onClick={[Function: onClick]} inkTransitionOverlap={150} inkTransitionEnterTimeout={450} inkTransitionLeaveTimeout={300}>
+                <span>
+                  +
+                </span>
+                 
+                feed.form.button.add_words_react
+              </withInk(withTooltip(Button))>
+            </div>
+            <div className=\\"definition-text\\" dangerouslySetInnerHTML={{...}} />
+            <FocusFeedDefinitionSocialExpressionProfile expressionKey=\\"exclude_profiles\\" index={0} enabled={true} query=\\"kketa\\" error={[undefined]} channel_type={30} avatar=\\"kketa\\" name=\\"kketa\\" loading={[undefined]} onEnabledToggled={[Function: onEnabledToggled]} onQueryChanged={[Function: onQueryChanged]} onRemoveExpression={[Function: onRemoveExpression]} onSearchProfile={[Function: onSearchProfile]} t={[Function: t]} />
+            <FocusFeedDefinitionSocialExpressionProfile expressionKey=\\"exclude_profiles\\" index={1} enabled={true} query=\\"\\" error={[undefined]} channel_type={30} avatar=\\"kketa\\" name=\\"kketa\\" loading={[undefined]} onEnabledToggled={[Function: onEnabledToggled]} onQueryChanged={[Function: onQueryChanged]} onRemoveExpression={[Function: onRemoveExpression]} onSearchProfile={[Function: onSearchProfile]} t={[Function: t]} />
+            <div className=\\"definition-add-expression\\">
+              <withInk(withTooltip(Button)) id=\\"focusFeedDefinitionSocialAddExcludeProfileBtn\\" className=\\"definition-add-expression-button\\" flat={true} onClick={[Function: onClick]} inkTransitionOverlap={150} inkTransitionEnterTimeout={450} inkTransitionLeaveTimeout={300}>
+                <span>
+                  +
+                </span>
+                 
+                feed.form.button.add_words_react
+              </withInk(withTooltip(Button))>
+            </div>
+          </div>
+        </div>
+      </Collapse>
+    </div>
+    <div id=\\"focusFeedDefinitionSocialThresholdSection\\" className=\\"definition-section\\">
+      <div className=\\"definition-section-header\\">
+        <div className=\\"definition-header-title\\" onClick={[Function: onClick]}>
+          <FontIcon className=\\"definition-header-title-toggle\\" iconClassName=\\"material-icons\\">
+            keyboard_arrow_right
+          </FontIcon>
+          <span>
+            <span className=\\"definition-header-title-text\\">
+               
+              feed.form.filter_threshold
+               
+            </span>
+            - 
+            feed.form.filter_mentions.description
+          </span>
+        </div>
+      </div>
+      <Collapse collapsed={true} animate={true} springConfig={{...}} minHeight={0}>
+        <div className=\\"thresholds-container\\">
+          <div className=\\"threshold-section-warning\\">
+            feed.form.threshold.active_profiles_warning
+          </div>
+        </div>
+      </Collapse>
+    </div>
+  </div>
+</Fragment>"
+`;
+
+exports[`Definition social Collapse social thresholds 1`] = `
+"<Fragment>
+  <div id=\\"focusFeedSocialDefinition\\">
+    <div id=\\"focusFeedDefinitionSocialContentSection\\" className=\\"definition-section\\">
+      <div className=\\"definition-section-header\\">
+        <div className=\\"definition-header-title\\" onClick={[Function: onClick]}>
+          <FontIcon className=\\"definition-header-title-toggle\\" iconClassName=\\"material-icons\\">
+            keyboard_arrow_down
+          </FontIcon>
+          <span className=\\"definition-header-title-text\\">
+             
+            feed.form.header_main_expression_react
+             
+          </span>
+        </div>
+        <div className=\\"definition-header-search-show-help-link\\" onClick={[Function: onClick]}>
+          definition.show_help
+        </div>
+        <withInk(withTooltip(Button)) id=\\"focusFeedDefinitionSocialSearchBtn\\" className=\\"definition-header-search-button\\" flat={true} onClick={[Function: onClick]} inkTransitionOverlap={150} inkTransitionEnterTimeout={450} inkTransitionLeaveTimeout={300}>
+          <FontIcon iconClassName=\\"material-icons\\">
+            search
+          </FontIcon>
+          form.search.value
+        </withInk(withTooltip(Button))>
+      </div>
+      <Collapse collapsed={false} animate={true} springConfig={{...}} minHeight={0}>
+        <div className=\\"definition-section-content\\">
+          <div className=\\"definition-info\\">
+            <span className=\\"definition-info-title\\">
+              feed.form.social.info.title
+              :
+            </span>
+            <span className=\\"definition-info-text\\">
+              feed.form.social.info.text
+            </span>
+          </div>
+          <div className=\\"definition-expressions\\">
+            <div className=\\"definition-expression-main\\">
+              <FocusFeedDefinitionSocialExpression expressionKey=\\"main\\" index={0} enabled={true} query=\\"kketa\\" scope={{...}} error={[undefined]} instagramAccounts={{...}} definitionInstagramAccounts={{...}} onEnabledToggled={[Function: mockConstructor]} onQueryChanged={[Function: onQueryChanged]} onCheckQuery={[Function: onCheckQuery]} onScopeChanged={[Function: onScopeChanged]} onInstagramAccountToggled={[Function: mockConstructor]} t={[Function: t]} />
+            </div>
+            <div className=\\"definition-text\\" dangerouslySetInnerHTML={{...}} />
+            <FocusFeedDefinitionSocialExpression expressionKey=\\"include_expressions\\" index={0} enabled={true} query=\\"kketa\\" scope={{...}} error={[undefined]} instagramAccounts={{...}} definitionInstagramAccounts={{...}} onEnabledToggled={[Function: onEnabledToggled]} onQueryChanged={[Function: onQueryChanged]} onCheckQuery={[Function: onCheckQuery]} onScopeChanged={[Function: onScopeChanged]} onRemoveExpression={[Function: onRemoveExpression]} onInstagramAccountToggled={[Function: mockConstructor]} t={[Function: t]} />
+            <FocusFeedDefinitionSocialExpression expressionKey=\\"include_expressions\\" index={1} enabled={true} query=\\"#kketa\\" scope={{...}} error={[undefined]} instagramAccounts={{...}} definitionInstagramAccounts={{...}} onEnabledToggled={[Function: onEnabledToggled]} onQueryChanged={[Function: onQueryChanged]} onCheckQuery={[Function: onCheckQuery]} onScopeChanged={[Function: onScopeChanged]} onRemoveExpression={[Function: onRemoveExpression]} onInstagramAccountToggled={[Function: mockConstructor]} t={[Function: t]} />
+            <div className=\\"definition-add-expression\\">
+              <withInk(withTooltip(Button)) id=\\"focusFeedDefinitionSocialAddIncludeExpressionBtn\\" className=\\"definition-add-expression-button\\" flat={true} onClick={[Function: onClick]} inkTransitionOverlap={150} inkTransitionEnterTimeout={450} inkTransitionLeaveTimeout={300}>
+                <span>
+                  +
+                </span>
+                 
+                feed.form.button.add_words_react
+              </withInk(withTooltip(Button))>
+            </div>
+            <div className=\\"definition-text\\" dangerouslySetInnerHTML={{...}} />
+            <FocusFeedDefinitionSocialExpression expressionKey=\\"exclude_expressions\\" index={0} enabled={true} query=\\"kketa\\" scope={{...}} error={[undefined]} instagramAccounts={{...}} definitionInstagramAccounts={{...}} onEnabledToggled={[Function: onEnabledToggled]} onQueryChanged={[Function: onQueryChanged]} onCheckQuery={[Function: onCheckQuery]} onScopeChanged={[Function: onScopeChanged]} onRemoveExpression={[Function: onRemoveExpression]} t={[Function: t]} />
+            <FocusFeedDefinitionSocialExpression expressionKey=\\"exclude_expressions\\" index={1} enabled={true} query=\\"#kketa\\" scope={{...}} error={[undefined]} instagramAccounts={{...}} definitionInstagramAccounts={{...}} onEnabledToggled={[Function: onEnabledToggled]} onQueryChanged={[Function: onQueryChanged]} onCheckQuery={[Function: onCheckQuery]} onScopeChanged={[Function: onScopeChanged]} onRemoveExpression={[Function: onRemoveExpression]} t={[Function: t]} />
+            <FocusFeedDefinitionSocialExpression expressionKey=\\"exclude_expressions\\" index={2} enabled={true} query=\\"@kketa\\" scope={{...}} error={[undefined]} instagramAccounts={{...}} definitionInstagramAccounts={{...}} onEnabledToggled={[Function: onEnabledToggled]} onQueryChanged={[Function: onQueryChanged]} onCheckQuery={[Function: onCheckQuery]} onScopeChanged={[Function: onScopeChanged]} onRemoveExpression={[Function: onRemoveExpression]} t={[Function: t]} />
+            <div className=\\"definition-add-expression\\">
+              <withInk(withTooltip(Button)) id=\\"focusFeedDefinitionSocialAddExcludeExpressionBtn\\" className=\\"definition-add-expression-button\\" flat={true} onClick={[Function: onClick]} inkTransitionOverlap={150} inkTransitionEnterTimeout={450} inkTransitionLeaveTimeout={300}>
+                <span>
+                  +
+                </span>
+                 
+                feed.form.button.add_words_react
+              </withInk(withTooltip(Button))>
+            </div>
+          </div>
+        </div>
+      </Collapse>
+    </div>
+    <div className=\\"definition-section\\">
+      <div className=\\"definition-section-header\\">
+        <div className=\\"definition-header-title\\" onClick={[Function: onClick]}>
+          <FontIcon className=\\"definition-header-title-toggle\\" iconClassName=\\"material-icons\\">
+            keyboard_arrow_down
+          </FontIcon>
+          <span className=\\"definition-header-title-text\\">
+             Source specifications 
+          </span>
+        </div>
+      </div>
+      <Collapse collapsed={false} animate={true} springConfig={{...}} minHeight={0}>
+        <div className=\\"definition-section-content\\">
+          <div className=\\"definition-expressions\\">
+            <div className=\\"definition-text\\" dangerouslySetInnerHTML={{...}} />
+            <FocusFeedDefinitionSocialExpressionProfile expressionKey=\\"include_profiles\\" index={0} enabled={true} query=\\"kketa\\" error={[undefined]} channel_type={30} avatar=\\"kketa\\" name=\\"kketa\\" loading={[undefined]} onEnabledToggled={[Function: onEnabledToggled]} onQueryChanged={[Function: onQueryChanged]} onRemoveExpression={[Function: onRemoveExpression]} onSearchProfile={[Function: onSearchProfile]} t={[Function: t]} />
+            <FocusFeedDefinitionSocialExpressionProfile expressionKey=\\"include_profiles\\" index={1} enabled={true} query=\\"\\" error={[undefined]} channel_type={30} avatar=\\"kketa\\" name=\\"kketa\\" loading={[undefined]} onEnabledToggled={[Function: onEnabledToggled]} onQueryChanged={[Function: onQueryChanged]} onRemoveExpression={[Function: onRemoveExpression]} onSearchProfile={[Function: onSearchProfile]} t={[Function: t]} />
+            <div className=\\"definition-add-expression\\">
+              <withInk(withTooltip(Button)) id=\\"focusFeedDefinitionSocialAddIncludeProfileBtn\\" className=\\"definition-add-expression-button\\" flat={true} onClick={[Function: onClick]} inkTransitionOverlap={150} inkTransitionEnterTimeout={450} inkTransitionLeaveTimeout={300}>
+                <span>
+                  +
+                </span>
+                 
+                feed.form.button.add_words_react
+              </withInk(withTooltip(Button))>
+            </div>
+            <div className=\\"definition-text\\" dangerouslySetInnerHTML={{...}} />
+            <FocusFeedDefinitionSocialExpressionProfile expressionKey=\\"exclude_profiles\\" index={0} enabled={true} query=\\"kketa\\" error={[undefined]} channel_type={30} avatar=\\"kketa\\" name=\\"kketa\\" loading={[undefined]} onEnabledToggled={[Function: onEnabledToggled]} onQueryChanged={[Function: onQueryChanged]} onRemoveExpression={[Function: onRemoveExpression]} onSearchProfile={[Function: onSearchProfile]} t={[Function: t]} />
+            <FocusFeedDefinitionSocialExpressionProfile expressionKey=\\"exclude_profiles\\" index={1} enabled={true} query=\\"\\" error={[undefined]} channel_type={30} avatar=\\"kketa\\" name=\\"kketa\\" loading={[undefined]} onEnabledToggled={[Function: onEnabledToggled]} onQueryChanged={[Function: onQueryChanged]} onRemoveExpression={[Function: onRemoveExpression]} onSearchProfile={[Function: onSearchProfile]} t={[Function: t]} />
+            <div className=\\"definition-add-expression\\">
+              <withInk(withTooltip(Button)) id=\\"focusFeedDefinitionSocialAddExcludeProfileBtn\\" className=\\"definition-add-expression-button\\" flat={true} onClick={[Function: onClick]} inkTransitionOverlap={150} inkTransitionEnterTimeout={450} inkTransitionLeaveTimeout={300}>
+                <span>
+                  +
+                </span>
+                 
+                feed.form.button.add_words_react
+              </withInk(withTooltip(Button))>
+            </div>
+          </div>
+        </div>
+      </Collapse>
+    </div>
+    <div id=\\"focusFeedDefinitionSocialThresholdSection\\" className=\\"definition-section\\">
+      <div className=\\"definition-section-header\\">
+        <div className=\\"definition-header-title\\" onClick={[Function: onClick]}>
+          <FontIcon className=\\"definition-header-title-toggle\\" iconClassName=\\"material-icons\\">
+            keyboard_arrow_down
+          </FontIcon>
+          <span>
+            <span className=\\"definition-header-title-text\\">
+               
+              feed.form.filter_threshold
+               
+            </span>
+            - 
+            feed.form.filter_mentions.description
+          </span>
+        </div>
+      </div>
+      <Collapse collapsed={false} animate={true} springConfig={{...}} minHeight={0}>
+        <div className=\\"thresholds-container\\">
+          <div className=\\"threshold-section-warning\\">
+            feed.form.threshold.active_profiles_warning
+          </div>
+        </div>
+      </Collapse>
+    </div>
+  </div>
+</Fragment>"
+`;
+
+exports[`Definition social Collapse specifications 1`] = `
+"<Fragment>
+  <div id=\\"focusFeedSocialDefinition\\">
+    <div id=\\"focusFeedDefinitionSocialContentSection\\" className=\\"definition-section\\">
+      <div className=\\"definition-section-header\\">
+        <div className=\\"definition-header-title\\" onClick={[Function: onClick]}>
+          <FontIcon className=\\"definition-header-title-toggle\\" iconClassName=\\"material-icons\\">
+            keyboard_arrow_down
+          </FontIcon>
+          <span className=\\"definition-header-title-text\\">
+             
+            feed.form.header_main_expression_react
+             
+          </span>
+        </div>
+        <div className=\\"definition-header-search-show-help-link\\" onClick={[Function: onClick]}>
+          definition.show_help
+        </div>
+        <withInk(withTooltip(Button)) id=\\"focusFeedDefinitionSocialSearchBtn\\" className=\\"definition-header-search-button\\" flat={true} onClick={[Function: onClick]} inkTransitionOverlap={150} inkTransitionEnterTimeout={450} inkTransitionLeaveTimeout={300}>
+          <FontIcon iconClassName=\\"material-icons\\">
+            search
+          </FontIcon>
+          form.search.value
+        </withInk(withTooltip(Button))>
+      </div>
+      <Collapse collapsed={false} animate={true} springConfig={{...}} minHeight={0}>
+        <div className=\\"definition-section-content\\">
+          <div className=\\"definition-info\\">
+            <span className=\\"definition-info-title\\">
+              feed.form.social.info.title
+              :
+            </span>
+            <span className=\\"definition-info-text\\">
+              feed.form.social.info.text
+            </span>
+          </div>
+          <div className=\\"definition-expressions\\">
+            <div className=\\"definition-expression-main\\">
+              <FocusFeedDefinitionSocialExpression expressionKey=\\"main\\" index={0} enabled={true} query=\\"kketa\\" scope={{...}} error={[undefined]} instagramAccounts={{...}} definitionInstagramAccounts={{...}} onEnabledToggled={[Function: mockConstructor]} onQueryChanged={[Function: onQueryChanged]} onCheckQuery={[Function: onCheckQuery]} onScopeChanged={[Function: onScopeChanged]} onInstagramAccountToggled={[Function: mockConstructor]} t={[Function: t]} />
+            </div>
+            <div className=\\"definition-text\\" dangerouslySetInnerHTML={{...}} />
+            <FocusFeedDefinitionSocialExpression expressionKey=\\"include_expressions\\" index={0} enabled={true} query=\\"kketa\\" scope={{...}} error={[undefined]} instagramAccounts={{...}} definitionInstagramAccounts={{...}} onEnabledToggled={[Function: onEnabledToggled]} onQueryChanged={[Function: onQueryChanged]} onCheckQuery={[Function: onCheckQuery]} onScopeChanged={[Function: onScopeChanged]} onRemoveExpression={[Function: onRemoveExpression]} onInstagramAccountToggled={[Function: mockConstructor]} t={[Function: t]} />
+            <FocusFeedDefinitionSocialExpression expressionKey=\\"include_expressions\\" index={1} enabled={true} query=\\"#kketa\\" scope={{...}} error={[undefined]} instagramAccounts={{...}} definitionInstagramAccounts={{...}} onEnabledToggled={[Function: onEnabledToggled]} onQueryChanged={[Function: onQueryChanged]} onCheckQuery={[Function: onCheckQuery]} onScopeChanged={[Function: onScopeChanged]} onRemoveExpression={[Function: onRemoveExpression]} onInstagramAccountToggled={[Function: mockConstructor]} t={[Function: t]} />
+            <div className=\\"definition-add-expression\\">
+              <withInk(withTooltip(Button)) id=\\"focusFeedDefinitionSocialAddIncludeExpressionBtn\\" className=\\"definition-add-expression-button\\" flat={true} onClick={[Function: onClick]} inkTransitionOverlap={150} inkTransitionEnterTimeout={450} inkTransitionLeaveTimeout={300}>
+                <span>
+                  +
+                </span>
+                 
+                feed.form.button.add_words_react
+              </withInk(withTooltip(Button))>
+            </div>
+            <div className=\\"definition-text\\" dangerouslySetInnerHTML={{...}} />
+            <FocusFeedDefinitionSocialExpression expressionKey=\\"exclude_expressions\\" index={0} enabled={true} query=\\"kketa\\" scope={{...}} error={[undefined]} instagramAccounts={{...}} definitionInstagramAccounts={{...}} onEnabledToggled={[Function: onEnabledToggled]} onQueryChanged={[Function: onQueryChanged]} onCheckQuery={[Function: onCheckQuery]} onScopeChanged={[Function: onScopeChanged]} onRemoveExpression={[Function: onRemoveExpression]} t={[Function: t]} />
+            <FocusFeedDefinitionSocialExpression expressionKey=\\"exclude_expressions\\" index={1} enabled={true} query=\\"#kketa\\" scope={{...}} error={[undefined]} instagramAccounts={{...}} definitionInstagramAccounts={{...}} onEnabledToggled={[Function: onEnabledToggled]} onQueryChanged={[Function: onQueryChanged]} onCheckQuery={[Function: onCheckQuery]} onScopeChanged={[Function: onScopeChanged]} onRemoveExpression={[Function: onRemoveExpression]} t={[Function: t]} />
+            <FocusFeedDefinitionSocialExpression expressionKey=\\"exclude_expressions\\" index={2} enabled={true} query=\\"@kketa\\" scope={{...}} error={[undefined]} instagramAccounts={{...}} definitionInstagramAccounts={{...}} onEnabledToggled={[Function: onEnabledToggled]} onQueryChanged={[Function: onQueryChanged]} onCheckQuery={[Function: onCheckQuery]} onScopeChanged={[Function: onScopeChanged]} onRemoveExpression={[Function: onRemoveExpression]} t={[Function: t]} />
+            <div className=\\"definition-add-expression\\">
+              <withInk(withTooltip(Button)) id=\\"focusFeedDefinitionSocialAddExcludeExpressionBtn\\" className=\\"definition-add-expression-button\\" flat={true} onClick={[Function: onClick]} inkTransitionOverlap={150} inkTransitionEnterTimeout={450} inkTransitionLeaveTimeout={300}>
+                <span>
+                  +
+                </span>
+                 
+                feed.form.button.add_words_react
+              </withInk(withTooltip(Button))>
+            </div>
+          </div>
+        </div>
+      </Collapse>
+    </div>
+    <div className=\\"definition-section\\">
+      <div className=\\"definition-section-header\\">
+        <div className=\\"definition-header-title\\" onClick={[Function: onClick]}>
+          <FontIcon className=\\"definition-header-title-toggle\\" iconClassName=\\"material-icons\\">
+            keyboard_arrow_right
+          </FontIcon>
+          <span className=\\"definition-header-title-text\\">
+             Source specifications 
+          </span>
+        </div>
+      </div>
+      <Collapse collapsed={true} animate={true} springConfig={{...}} minHeight={0}>
+        <div className=\\"definition-section-content\\">
+          <div className=\\"definition-expressions\\">
+            <div className=\\"definition-text\\" dangerouslySetInnerHTML={{...}} />
+            <FocusFeedDefinitionSocialExpressionProfile expressionKey=\\"include_profiles\\" index={0} enabled={true} query=\\"kketa\\" error={[undefined]} channel_type={30} avatar=\\"kketa\\" name=\\"kketa\\" loading={[undefined]} onEnabledToggled={[Function: onEnabledToggled]} onQueryChanged={[Function: onQueryChanged]} onRemoveExpression={[Function: onRemoveExpression]} onSearchProfile={[Function: onSearchProfile]} t={[Function: t]} />
+            <FocusFeedDefinitionSocialExpressionProfile expressionKey=\\"include_profiles\\" index={1} enabled={true} query=\\"\\" error={[undefined]} channel_type={30} avatar=\\"kketa\\" name=\\"kketa\\" loading={[undefined]} onEnabledToggled={[Function: onEnabledToggled]} onQueryChanged={[Function: onQueryChanged]} onRemoveExpression={[Function: onRemoveExpression]} onSearchProfile={[Function: onSearchProfile]} t={[Function: t]} />
+            <div className=\\"definition-add-expression\\">
+              <withInk(withTooltip(Button)) id=\\"focusFeedDefinitionSocialAddIncludeProfileBtn\\" className=\\"definition-add-expression-button\\" flat={true} onClick={[Function: onClick]} inkTransitionOverlap={150} inkTransitionEnterTimeout={450} inkTransitionLeaveTimeout={300}>
+                <span>
+                  +
+                </span>
+                 
+                feed.form.button.add_words_react
+              </withInk(withTooltip(Button))>
+            </div>
+            <div className=\\"definition-text\\" dangerouslySetInnerHTML={{...}} />
+            <FocusFeedDefinitionSocialExpressionProfile expressionKey=\\"exclude_profiles\\" index={0} enabled={true} query=\\"kketa\\" error={[undefined]} channel_type={30} avatar=\\"kketa\\" name=\\"kketa\\" loading={[undefined]} onEnabledToggled={[Function: onEnabledToggled]} onQueryChanged={[Function: onQueryChanged]} onRemoveExpression={[Function: onRemoveExpression]} onSearchProfile={[Function: onSearchProfile]} t={[Function: t]} />
+            <FocusFeedDefinitionSocialExpressionProfile expressionKey=\\"exclude_profiles\\" index={1} enabled={true} query=\\"\\" error={[undefined]} channel_type={30} avatar=\\"kketa\\" name=\\"kketa\\" loading={[undefined]} onEnabledToggled={[Function: onEnabledToggled]} onQueryChanged={[Function: onQueryChanged]} onRemoveExpression={[Function: onRemoveExpression]} onSearchProfile={[Function: onSearchProfile]} t={[Function: t]} />
+            <div className=\\"definition-add-expression\\">
+              <withInk(withTooltip(Button)) id=\\"focusFeedDefinitionSocialAddExcludeProfileBtn\\" className=\\"definition-add-expression-button\\" flat={true} onClick={[Function: onClick]} inkTransitionOverlap={150} inkTransitionEnterTimeout={450} inkTransitionLeaveTimeout={300}>
+                <span>
+                  +
+                </span>
+                 
+                feed.form.button.add_words_react
+              </withInk(withTooltip(Button))>
+            </div>
+          </div>
+        </div>
+      </Collapse>
+    </div>
+    <div id=\\"focusFeedDefinitionSocialThresholdSection\\" className=\\"definition-section\\">
+      <div className=\\"definition-section-header\\">
+        <div className=\\"definition-header-title\\" onClick={[Function: onClick]}>
+          <FontIcon className=\\"definition-header-title-toggle\\" iconClassName=\\"material-icons\\">
+            keyboard_arrow_right
+          </FontIcon>
+          <span>
+            <span className=\\"definition-header-title-text\\">
+               
+              feed.form.filter_threshold
+               
+            </span>
+            - 
+            feed.form.filter_mentions.description
+          </span>
+        </div>
+      </div>
+      <Collapse collapsed={true} animate={true} springConfig={{...}} minHeight={0}>
+        <div className=\\"thresholds-container\\">
+          <div className=\\"threshold-section-warning\\">
+            feed.form.threshold.active_profiles_warning
+          </div>
+        </div>
+      </Collapse>
+    </div>
+  </div>
+</Fragment>"
+`;
+
+exports[`Definition social Component snapshot with help info shwon 1`] = `
+"<Fragment>
+  <FocusFeedDefinitionHelpDialog onClose={[Function: onClose]} t={[Function: t]} />
+  <div id=\\"focusFeedSocialDefinition\\">
+    <div id=\\"focusFeedDefinitionSocialContentSection\\" className=\\"definition-section\\">
+      <div className=\\"definition-section-header\\">
+        <div className=\\"definition-header-title\\" onClick={[Function: onClick]}>
+          <FontIcon className=\\"definition-header-title-toggle\\" iconClassName=\\"material-icons\\">
+            keyboard_arrow_down
+          </FontIcon>
+          <span className=\\"definition-header-title-text\\">
+             
+            feed.form.header_main_expression_react
+             
+          </span>
+        </div>
+        <div className=\\"definition-header-search-show-help-link\\" onClick={[Function: onClick]}>
+          definition.show_help
+        </div>
+        <withInk(withTooltip(Button)) id=\\"focusFeedDefinitionSocialSearchBtn\\" className=\\"definition-header-search-button\\" flat={true} onClick={[Function: onClick]} inkTransitionOverlap={150} inkTransitionEnterTimeout={450} inkTransitionLeaveTimeout={300}>
+          <FontIcon iconClassName=\\"material-icons\\">
+            search
+          </FontIcon>
+          form.search.value
+        </withInk(withTooltip(Button))>
+      </div>
+      <Collapse collapsed={false} animate={true} springConfig={{...}} minHeight={0}>
+        <div className=\\"definition-section-content\\">
+          <div className=\\"definition-info\\">
+            <span className=\\"definition-info-title\\">
+              feed.form.social.info.title
+              :
+            </span>
+            <span className=\\"definition-info-text\\">
+              feed.form.social.info.text
+            </span>
+          </div>
+          <div className=\\"definition-expressions\\">
+            <div className=\\"definition-expression-main\\">
+              <FocusFeedDefinitionSocialExpression expressionKey=\\"main\\" index={0} enabled={true} query=\\"kketa\\" scope={{...}} error={[undefined]} instagramAccounts={{...}} definitionInstagramAccounts={{...}} onEnabledToggled={[Function: mockConstructor]} onQueryChanged={[Function: onQueryChanged]} onCheckQuery={[Function: onCheckQuery]} onScopeChanged={[Function: onScopeChanged]} onInstagramAccountToggled={[Function: mockConstructor]} t={[Function: t]} />
+            </div>
+            <div className=\\"definition-text\\" dangerouslySetInnerHTML={{...}} />
+            <FocusFeedDefinitionSocialExpression expressionKey=\\"include_expressions\\" index={0} enabled={true} query=\\"kketa\\" scope={{...}} error={[undefined]} instagramAccounts={{...}} definitionInstagramAccounts={{...}} onEnabledToggled={[Function: onEnabledToggled]} onQueryChanged={[Function: onQueryChanged]} onCheckQuery={[Function: onCheckQuery]} onScopeChanged={[Function: onScopeChanged]} onRemoveExpression={[Function: onRemoveExpression]} onInstagramAccountToggled={[Function: mockConstructor]} t={[Function: t]} />
+            <FocusFeedDefinitionSocialExpression expressionKey=\\"include_expressions\\" index={1} enabled={true} query=\\"#kketa\\" scope={{...}} error={[undefined]} instagramAccounts={{...}} definitionInstagramAccounts={{...}} onEnabledToggled={[Function: onEnabledToggled]} onQueryChanged={[Function: onQueryChanged]} onCheckQuery={[Function: onCheckQuery]} onScopeChanged={[Function: onScopeChanged]} onRemoveExpression={[Function: onRemoveExpression]} onInstagramAccountToggled={[Function: mockConstructor]} t={[Function: t]} />
+            <div className=\\"definition-add-expression\\">
+              <withInk(withTooltip(Button)) id=\\"focusFeedDefinitionSocialAddIncludeExpressionBtn\\" className=\\"definition-add-expression-button\\" flat={true} onClick={[Function: onClick]} inkTransitionOverlap={150} inkTransitionEnterTimeout={450} inkTransitionLeaveTimeout={300}>
+                <span>
+                  +
+                </span>
+                 
+                feed.form.button.add_words_react
+              </withInk(withTooltip(Button))>
+            </div>
+            <div className=\\"definition-text\\" dangerouslySetInnerHTML={{...}} />
+            <FocusFeedDefinitionSocialExpression expressionKey=\\"exclude_expressions\\" index={0} enabled={true} query=\\"kketa\\" scope={{...}} error={[undefined]} instagramAccounts={{...}} definitionInstagramAccounts={{...}} onEnabledToggled={[Function: onEnabledToggled]} onQueryChanged={[Function: onQueryChanged]} onCheckQuery={[Function: onCheckQuery]} onScopeChanged={[Function: onScopeChanged]} onRemoveExpression={[Function: onRemoveExpression]} t={[Function: t]} />
+            <FocusFeedDefinitionSocialExpression expressionKey=\\"exclude_expressions\\" index={1} enabled={true} query=\\"#kketa\\" scope={{...}} error={[undefined]} instagramAccounts={{...}} definitionInstagramAccounts={{...}} onEnabledToggled={[Function: onEnabledToggled]} onQueryChanged={[Function: onQueryChanged]} onCheckQuery={[Function: onCheckQuery]} onScopeChanged={[Function: onScopeChanged]} onRemoveExpression={[Function: onRemoveExpression]} t={[Function: t]} />
+            <FocusFeedDefinitionSocialExpression expressionKey=\\"exclude_expressions\\" index={2} enabled={true} query=\\"@kketa\\" scope={{...}} error={[undefined]} instagramAccounts={{...}} definitionInstagramAccounts={{...}} onEnabledToggled={[Function: onEnabledToggled]} onQueryChanged={[Function: onQueryChanged]} onCheckQuery={[Function: onCheckQuery]} onScopeChanged={[Function: onScopeChanged]} onRemoveExpression={[Function: onRemoveExpression]} t={[Function: t]} />
+            <div className=\\"definition-add-expression\\">
+              <withInk(withTooltip(Button)) id=\\"focusFeedDefinitionSocialAddExcludeExpressionBtn\\" className=\\"definition-add-expression-button\\" flat={true} onClick={[Function: onClick]} inkTransitionOverlap={150} inkTransitionEnterTimeout={450} inkTransitionLeaveTimeout={300}>
+                <span>
+                  +
+                </span>
+                 
+                feed.form.button.add_words_react
+              </withInk(withTooltip(Button))>
+            </div>
+          </div>
+        </div>
+      </Collapse>
+    </div>
+    <div className=\\"definition-section\\">
+      <div className=\\"definition-section-header\\">
+        <div className=\\"definition-header-title\\" onClick={[Function: onClick]}>
+          <FontIcon className=\\"definition-header-title-toggle\\" iconClassName=\\"material-icons\\">
+            keyboard_arrow_down
+          </FontIcon>
+          <span className=\\"definition-header-title-text\\">
+             Source specifications 
+          </span>
+        </div>
+      </div>
+      <Collapse collapsed={false} animate={true} springConfig={{...}} minHeight={0}>
+        <div className=\\"definition-section-content\\">
+          <div className=\\"definition-expressions\\">
+            <div className=\\"definition-text\\" dangerouslySetInnerHTML={{...}} />
+            <FocusFeedDefinitionSocialExpressionProfile expressionKey=\\"include_profiles\\" index={0} enabled={true} query=\\"kketa\\" error={[undefined]} channel_type={30} avatar=\\"kketa\\" name=\\"kketa\\" loading={[undefined]} onEnabledToggled={[Function: onEnabledToggled]} onQueryChanged={[Function: onQueryChanged]} onRemoveExpression={[Function: onRemoveExpression]} onSearchProfile={[Function: onSearchProfile]} t={[Function: t]} />
+            <FocusFeedDefinitionSocialExpressionProfile expressionKey=\\"include_profiles\\" index={1} enabled={true} query=\\"\\" error={[undefined]} channel_type={30} avatar=\\"kketa\\" name=\\"kketa\\" loading={[undefined]} onEnabledToggled={[Function: onEnabledToggled]} onQueryChanged={[Function: onQueryChanged]} onRemoveExpression={[Function: onRemoveExpression]} onSearchProfile={[Function: onSearchProfile]} t={[Function: t]} />
+            <div className=\\"definition-add-expression\\">
+              <withInk(withTooltip(Button)) id=\\"focusFeedDefinitionSocialAddIncludeProfileBtn\\" className=\\"definition-add-expression-button\\" flat={true} onClick={[Function: onClick]} inkTransitionOverlap={150} inkTransitionEnterTimeout={450} inkTransitionLeaveTimeout={300}>
+                <span>
+                  +
+                </span>
+                 
+                feed.form.button.add_words_react
+              </withInk(withTooltip(Button))>
+            </div>
+            <div className=\\"definition-text\\" dangerouslySetInnerHTML={{...}} />
+            <FocusFeedDefinitionSocialExpressionProfile expressionKey=\\"exclude_profiles\\" index={0} enabled={true} query=\\"kketa\\" error={[undefined]} channel_type={30} avatar=\\"kketa\\" name=\\"kketa\\" loading={[undefined]} onEnabledToggled={[Function: onEnabledToggled]} onQueryChanged={[Function: onQueryChanged]} onRemoveExpression={[Function: onRemoveExpression]} onSearchProfile={[Function: onSearchProfile]} t={[Function: t]} />
+            <FocusFeedDefinitionSocialExpressionProfile expressionKey=\\"exclude_profiles\\" index={1} enabled={true} query=\\"\\" error={[undefined]} channel_type={30} avatar=\\"kketa\\" name=\\"kketa\\" loading={[undefined]} onEnabledToggled={[Function: onEnabledToggled]} onQueryChanged={[Function: onQueryChanged]} onRemoveExpression={[Function: onRemoveExpression]} onSearchProfile={[Function: onSearchProfile]} t={[Function: t]} />
+            <div className=\\"definition-add-expression\\">
+              <withInk(withTooltip(Button)) id=\\"focusFeedDefinitionSocialAddExcludeProfileBtn\\" className=\\"definition-add-expression-button\\" flat={true} onClick={[Function: onClick]} inkTransitionOverlap={150} inkTransitionEnterTimeout={450} inkTransitionLeaveTimeout={300}>
+                <span>
+                  +
+                </span>
+                 
+                feed.form.button.add_words_react
+              </withInk(withTooltip(Button))>
+            </div>
+          </div>
+        </div>
+      </Collapse>
+    </div>
+    <div id=\\"focusFeedDefinitionSocialThresholdSection\\" className=\\"definition-section\\">
+      <div className=\\"definition-section-header\\">
+        <div className=\\"definition-header-title\\" onClick={[Function: onClick]}>
+          <FontIcon className=\\"definition-header-title-toggle\\" iconClassName=\\"material-icons\\">
+            keyboard_arrow_right
+          </FontIcon>
+          <span>
+            <span className=\\"definition-header-title-text\\">
+               
+              feed.form.filter_threshold
+               
+            </span>
+            - 
+            feed.form.filter_mentions.description
+          </span>
+        </div>
+      </div>
+      <Collapse collapsed={true} animate={true} springConfig={{...}} minHeight={0}>
+        <div className=\\"thresholds-container\\">
+          <div className=\\"threshold-section-warning\\">
+            feed.form.threshold.active_profiles_warning
+          </div>
+        </div>
+      </Collapse>
+    </div>
+  </div>
+</Fragment>"
+`;
+
+exports[`Definition social On add exclusive expression 1`] = `
+"<Fragment>
+  <div id=\\"focusFeedSocialDefinition\\">
+    <div id=\\"focusFeedDefinitionSocialContentSection\\" className=\\"definition-section\\">
+      <div className=\\"definition-section-header\\">
+        <div className=\\"definition-header-title\\" onClick={[Function: onClick]}>
+          <FontIcon className=\\"definition-header-title-toggle\\" iconClassName=\\"material-icons\\">
+            keyboard_arrow_down
+          </FontIcon>
+          <span className=\\"definition-header-title-text\\">
+             
+            feed.form.header_main_expression_react
+             
+          </span>
+        </div>
+        <div className=\\"definition-header-search-show-help-link\\" onClick={[Function: onClick]}>
+          definition.show_help
+        </div>
+        <withInk(withTooltip(Button)) id=\\"focusFeedDefinitionSocialSearchBtn\\" className=\\"definition-header-search-button\\" flat={true} onClick={[Function: onClick]} inkTransitionOverlap={150} inkTransitionEnterTimeout={450} inkTransitionLeaveTimeout={300}>
+          <FontIcon iconClassName=\\"material-icons\\">
+            search
+          </FontIcon>
+          form.search.value
+        </withInk(withTooltip(Button))>
+      </div>
+      <Collapse collapsed={false} animate={true} springConfig={{...}} minHeight={0}>
+        <div className=\\"definition-section-content\\">
+          <div className=\\"definition-info\\">
+            <span className=\\"definition-info-title\\">
+              feed.form.social.info.title
+              :
+            </span>
+            <span className=\\"definition-info-text\\">
+              feed.form.social.info.text
+            </span>
+          </div>
+          <div className=\\"definition-expressions\\">
+            <div className=\\"definition-expression-main\\">
+              <FocusFeedDefinitionSocialExpression expressionKey=\\"main\\" index={0} enabled={true} query=\\"kketa\\" scope={{...}} error={[undefined]} instagramAccounts={{...}} definitionInstagramAccounts={{...}} onEnabledToggled={[Function: mockConstructor]} onQueryChanged={[Function: onQueryChanged]} onCheckQuery={[Function: onCheckQuery]} onScopeChanged={[Function: onScopeChanged]} onInstagramAccountToggled={[Function: mockConstructor]} t={[Function: t]} />
+            </div>
+            <div className=\\"definition-text\\" dangerouslySetInnerHTML={{...}} />
+            <FocusFeedDefinitionSocialExpression expressionKey=\\"include_expressions\\" index={0} enabled={true} query=\\"kketa\\" scope={{...}} error={[undefined]} instagramAccounts={{...}} definitionInstagramAccounts={{...}} onEnabledToggled={[Function: onEnabledToggled]} onQueryChanged={[Function: onQueryChanged]} onCheckQuery={[Function: onCheckQuery]} onScopeChanged={[Function: onScopeChanged]} onRemoveExpression={[Function: onRemoveExpression]} onInstagramAccountToggled={[Function: mockConstructor]} t={[Function: t]} />
+            <FocusFeedDefinitionSocialExpression expressionKey=\\"include_expressions\\" index={1} enabled={true} query=\\"#kketa\\" scope={{...}} error={[undefined]} instagramAccounts={{...}} definitionInstagramAccounts={{...}} onEnabledToggled={[Function: onEnabledToggled]} onQueryChanged={[Function: onQueryChanged]} onCheckQuery={[Function: onCheckQuery]} onScopeChanged={[Function: onScopeChanged]} onRemoveExpression={[Function: onRemoveExpression]} onInstagramAccountToggled={[Function: mockConstructor]} t={[Function: t]} />
+            <div className=\\"definition-add-expression\\">
+              <withInk(withTooltip(Button)) id=\\"focusFeedDefinitionSocialAddIncludeExpressionBtn\\" className=\\"definition-add-expression-button\\" flat={true} onClick={[Function: onClick]} inkTransitionOverlap={150} inkTransitionEnterTimeout={450} inkTransitionLeaveTimeout={300}>
+                <span>
+                  +
+                </span>
+                 
+                feed.form.button.add_words_react
+              </withInk(withTooltip(Button))>
+            </div>
+            <div className=\\"definition-text\\" dangerouslySetInnerHTML={{...}} />
+            <FocusFeedDefinitionSocialExpression expressionKey=\\"exclude_expressions\\" index={0} enabled={true} query=\\"kketa\\" scope={{...}} error={[undefined]} instagramAccounts={{...}} definitionInstagramAccounts={{...}} onEnabledToggled={[Function: onEnabledToggled]} onQueryChanged={[Function: onQueryChanged]} onCheckQuery={[Function: onCheckQuery]} onScopeChanged={[Function: onScopeChanged]} onRemoveExpression={[Function: onRemoveExpression]} t={[Function: t]} />
+            <FocusFeedDefinitionSocialExpression expressionKey=\\"exclude_expressions\\" index={1} enabled={true} query=\\"#kketa\\" scope={{...}} error={[undefined]} instagramAccounts={{...}} definitionInstagramAccounts={{...}} onEnabledToggled={[Function: onEnabledToggled]} onQueryChanged={[Function: onQueryChanged]} onCheckQuery={[Function: onCheckQuery]} onScopeChanged={[Function: onScopeChanged]} onRemoveExpression={[Function: onRemoveExpression]} t={[Function: t]} />
+            <FocusFeedDefinitionSocialExpression expressionKey=\\"exclude_expressions\\" index={2} enabled={true} query=\\"@kketa\\" scope={{...}} error={[undefined]} instagramAccounts={{...}} definitionInstagramAccounts={{...}} onEnabledToggled={[Function: onEnabledToggled]} onQueryChanged={[Function: onQueryChanged]} onCheckQuery={[Function: onCheckQuery]} onScopeChanged={[Function: onScopeChanged]} onRemoveExpression={[Function: onRemoveExpression]} t={[Function: t]} />
+            <div className=\\"definition-add-expression\\">
+              <withInk(withTooltip(Button)) id=\\"focusFeedDefinitionSocialAddExcludeExpressionBtn\\" className=\\"definition-add-expression-button\\" flat={true} onClick={[Function: onClick]} inkTransitionOverlap={150} inkTransitionEnterTimeout={450} inkTransitionLeaveTimeout={300}>
+                <span>
+                  +
+                </span>
+                 
+                feed.form.button.add_words_react
+              </withInk(withTooltip(Button))>
+            </div>
+          </div>
+        </div>
+      </Collapse>
+    </div>
+    <div className=\\"definition-section\\">
+      <div className=\\"definition-section-header\\">
+        <div className=\\"definition-header-title\\" onClick={[Function: onClick]}>
+          <FontIcon className=\\"definition-header-title-toggle\\" iconClassName=\\"material-icons\\">
+            keyboard_arrow_down
+          </FontIcon>
+          <span className=\\"definition-header-title-text\\">
+             Source specifications 
+          </span>
+        </div>
+      </div>
+      <Collapse collapsed={false} animate={true} springConfig={{...}} minHeight={0}>
+        <div className=\\"definition-section-content\\">
+          <div className=\\"definition-expressions\\">
+            <div className=\\"definition-text\\" dangerouslySetInnerHTML={{...}} />
+            <FocusFeedDefinitionSocialExpressionProfile expressionKey=\\"include_profiles\\" index={0} enabled={true} query=\\"kketa\\" error={[undefined]} channel_type={30} avatar=\\"kketa\\" name=\\"kketa\\" loading={[undefined]} onEnabledToggled={[Function: onEnabledToggled]} onQueryChanged={[Function: onQueryChanged]} onRemoveExpression={[Function: onRemoveExpression]} onSearchProfile={[Function: onSearchProfile]} t={[Function: t]} />
+            <FocusFeedDefinitionSocialExpressionProfile expressionKey=\\"include_profiles\\" index={1} enabled={true} query=\\"\\" error={[undefined]} channel_type={30} avatar=\\"kketa\\" name=\\"kketa\\" loading={[undefined]} onEnabledToggled={[Function: onEnabledToggled]} onQueryChanged={[Function: onQueryChanged]} onRemoveExpression={[Function: onRemoveExpression]} onSearchProfile={[Function: onSearchProfile]} t={[Function: t]} />
+            <div className=\\"definition-add-expression\\">
+              <withInk(withTooltip(Button)) id=\\"focusFeedDefinitionSocialAddIncludeProfileBtn\\" className=\\"definition-add-expression-button\\" flat={true} onClick={[Function: onClick]} inkTransitionOverlap={150} inkTransitionEnterTimeout={450} inkTransitionLeaveTimeout={300}>
+                <span>
+                  +
+                </span>
+                 
+                feed.form.button.add_words_react
+              </withInk(withTooltip(Button))>
+            </div>
+            <div className=\\"definition-text\\" dangerouslySetInnerHTML={{...}} />
+            <FocusFeedDefinitionSocialExpressionProfile expressionKey=\\"exclude_profiles\\" index={0} enabled={true} query=\\"kketa\\" error={[undefined]} channel_type={30} avatar=\\"kketa\\" name=\\"kketa\\" loading={[undefined]} onEnabledToggled={[Function: onEnabledToggled]} onQueryChanged={[Function: onQueryChanged]} onRemoveExpression={[Function: onRemoveExpression]} onSearchProfile={[Function: onSearchProfile]} t={[Function: t]} />
+            <FocusFeedDefinitionSocialExpressionProfile expressionKey=\\"exclude_profiles\\" index={1} enabled={true} query=\\"\\" error={[undefined]} channel_type={30} avatar=\\"kketa\\" name=\\"kketa\\" loading={[undefined]} onEnabledToggled={[Function: onEnabledToggled]} onQueryChanged={[Function: onQueryChanged]} onRemoveExpression={[Function: onRemoveExpression]} onSearchProfile={[Function: onSearchProfile]} t={[Function: t]} />
+            <div className=\\"definition-add-expression\\">
+              <withInk(withTooltip(Button)) id=\\"focusFeedDefinitionSocialAddExcludeProfileBtn\\" className=\\"definition-add-expression-button\\" flat={true} onClick={[Function: onClick]} inkTransitionOverlap={150} inkTransitionEnterTimeout={450} inkTransitionLeaveTimeout={300}>
+                <span>
+                  +
+                </span>
+                 
+                feed.form.button.add_words_react
+              </withInk(withTooltip(Button))>
+            </div>
+          </div>
+        </div>
+      </Collapse>
+    </div>
+    <div id=\\"focusFeedDefinitionSocialThresholdSection\\" className=\\"definition-section\\">
+      <div className=\\"definition-section-header\\">
+        <div className=\\"definition-header-title\\" onClick={[Function: onClick]}>
+          <FontIcon className=\\"definition-header-title-toggle\\" iconClassName=\\"material-icons\\">
+            keyboard_arrow_right
+          </FontIcon>
+          <span>
+            <span className=\\"definition-header-title-text\\">
+               
+              feed.form.filter_threshold
+               
+            </span>
+            - 
+            feed.form.filter_mentions.description
+          </span>
+        </div>
+      </div>
+      <Collapse collapsed={true} animate={true} springConfig={{...}} minHeight={0}>
+        <div className=\\"thresholds-container\\">
+          <div className=\\"threshold-section-warning\\">
+            feed.form.threshold.active_profiles_warning
+          </div>
+        </div>
+      </Collapse>
+    </div>
+  </div>
+</Fragment>"
+`;
+
+exports[`Definition social On add exclusive profile 1`] = `
+"<Fragment>
+  <div id=\\"focusFeedSocialDefinition\\">
+    <div id=\\"focusFeedDefinitionSocialContentSection\\" className=\\"definition-section\\">
+      <div className=\\"definition-section-header\\">
+        <div className=\\"definition-header-title\\" onClick={[Function: onClick]}>
+          <FontIcon className=\\"definition-header-title-toggle\\" iconClassName=\\"material-icons\\">
+            keyboard_arrow_down
+          </FontIcon>
+          <span className=\\"definition-header-title-text\\">
+             
+            feed.form.header_main_expression_react
+             
+          </span>
+        </div>
+        <div className=\\"definition-header-search-show-help-link\\" onClick={[Function: onClick]}>
+          definition.show_help
+        </div>
+        <withInk(withTooltip(Button)) id=\\"focusFeedDefinitionSocialSearchBtn\\" className=\\"definition-header-search-button\\" flat={true} onClick={[Function: onClick]} inkTransitionOverlap={150} inkTransitionEnterTimeout={450} inkTransitionLeaveTimeout={300}>
+          <FontIcon iconClassName=\\"material-icons\\">
+            search
+          </FontIcon>
+          form.search.value
+        </withInk(withTooltip(Button))>
+      </div>
+      <Collapse collapsed={false} animate={true} springConfig={{...}} minHeight={0}>
+        <div className=\\"definition-section-content\\">
+          <div className=\\"definition-info\\">
+            <span className=\\"definition-info-title\\">
+              feed.form.social.info.title
+              :
+            </span>
+            <span className=\\"definition-info-text\\">
+              feed.form.social.info.text
+            </span>
+          </div>
+          <div className=\\"definition-expressions\\">
+            <div className=\\"definition-expression-main\\">
+              <FocusFeedDefinitionSocialExpression expressionKey=\\"main\\" index={0} enabled={true} query=\\"kketa\\" scope={{...}} error={[undefined]} instagramAccounts={{...}} definitionInstagramAccounts={{...}} onEnabledToggled={[Function: mockConstructor]} onQueryChanged={[Function: onQueryChanged]} onCheckQuery={[Function: onCheckQuery]} onScopeChanged={[Function: onScopeChanged]} onInstagramAccountToggled={[Function: mockConstructor]} t={[Function: t]} />
+            </div>
+            <div className=\\"definition-text\\" dangerouslySetInnerHTML={{...}} />
+            <FocusFeedDefinitionSocialExpression expressionKey=\\"include_expressions\\" index={0} enabled={true} query=\\"kketa\\" scope={{...}} error={[undefined]} instagramAccounts={{...}} definitionInstagramAccounts={{...}} onEnabledToggled={[Function: onEnabledToggled]} onQueryChanged={[Function: onQueryChanged]} onCheckQuery={[Function: onCheckQuery]} onScopeChanged={[Function: onScopeChanged]} onRemoveExpression={[Function: onRemoveExpression]} onInstagramAccountToggled={[Function: mockConstructor]} t={[Function: t]} />
+            <FocusFeedDefinitionSocialExpression expressionKey=\\"include_expressions\\" index={1} enabled={true} query=\\"#kketa\\" scope={{...}} error={[undefined]} instagramAccounts={{...}} definitionInstagramAccounts={{...}} onEnabledToggled={[Function: onEnabledToggled]} onQueryChanged={[Function: onQueryChanged]} onCheckQuery={[Function: onCheckQuery]} onScopeChanged={[Function: onScopeChanged]} onRemoveExpression={[Function: onRemoveExpression]} onInstagramAccountToggled={[Function: mockConstructor]} t={[Function: t]} />
+            <div className=\\"definition-add-expression\\">
+              <withInk(withTooltip(Button)) id=\\"focusFeedDefinitionSocialAddIncludeExpressionBtn\\" className=\\"definition-add-expression-button\\" flat={true} onClick={[Function: onClick]} inkTransitionOverlap={150} inkTransitionEnterTimeout={450} inkTransitionLeaveTimeout={300}>
+                <span>
+                  +
+                </span>
+                 
+                feed.form.button.add_words_react
+              </withInk(withTooltip(Button))>
+            </div>
+            <div className=\\"definition-text\\" dangerouslySetInnerHTML={{...}} />
+            <FocusFeedDefinitionSocialExpression expressionKey=\\"exclude_expressions\\" index={0} enabled={true} query=\\"kketa\\" scope={{...}} error={[undefined]} instagramAccounts={{...}} definitionInstagramAccounts={{...}} onEnabledToggled={[Function: onEnabledToggled]} onQueryChanged={[Function: onQueryChanged]} onCheckQuery={[Function: onCheckQuery]} onScopeChanged={[Function: onScopeChanged]} onRemoveExpression={[Function: onRemoveExpression]} t={[Function: t]} />
+            <FocusFeedDefinitionSocialExpression expressionKey=\\"exclude_expressions\\" index={1} enabled={true} query=\\"#kketa\\" scope={{...}} error={[undefined]} instagramAccounts={{...}} definitionInstagramAccounts={{...}} onEnabledToggled={[Function: onEnabledToggled]} onQueryChanged={[Function: onQueryChanged]} onCheckQuery={[Function: onCheckQuery]} onScopeChanged={[Function: onScopeChanged]} onRemoveExpression={[Function: onRemoveExpression]} t={[Function: t]} />
+            <FocusFeedDefinitionSocialExpression expressionKey=\\"exclude_expressions\\" index={2} enabled={true} query=\\"@kketa\\" scope={{...}} error={[undefined]} instagramAccounts={{...}} definitionInstagramAccounts={{...}} onEnabledToggled={[Function: onEnabledToggled]} onQueryChanged={[Function: onQueryChanged]} onCheckQuery={[Function: onCheckQuery]} onScopeChanged={[Function: onScopeChanged]} onRemoveExpression={[Function: onRemoveExpression]} t={[Function: t]} />
+            <div className=\\"definition-add-expression\\">
+              <withInk(withTooltip(Button)) id=\\"focusFeedDefinitionSocialAddExcludeExpressionBtn\\" className=\\"definition-add-expression-button\\" flat={true} onClick={[Function: onClick]} inkTransitionOverlap={150} inkTransitionEnterTimeout={450} inkTransitionLeaveTimeout={300}>
+                <span>
+                  +
+                </span>
+                 
+                feed.form.button.add_words_react
+              </withInk(withTooltip(Button))>
+            </div>
+          </div>
+        </div>
+      </Collapse>
+    </div>
+    <div className=\\"definition-section\\">
+      <div className=\\"definition-section-header\\">
+        <div className=\\"definition-header-title\\" onClick={[Function: onClick]}>
+          <FontIcon className=\\"definition-header-title-toggle\\" iconClassName=\\"material-icons\\">
+            keyboard_arrow_down
+          </FontIcon>
+          <span className=\\"definition-header-title-text\\">
+             Source specifications 
+          </span>
+        </div>
+      </div>
+      <Collapse collapsed={false} animate={true} springConfig={{...}} minHeight={0}>
+        <div className=\\"definition-section-content\\">
+          <div className=\\"definition-expressions\\">
+            <div className=\\"definition-text\\" dangerouslySetInnerHTML={{...}} />
+            <FocusFeedDefinitionSocialExpressionProfile expressionKey=\\"include_profiles\\" index={0} enabled={true} query=\\"kketa\\" error={[undefined]} channel_type={30} avatar=\\"kketa\\" name=\\"kketa\\" loading={[undefined]} onEnabledToggled={[Function: onEnabledToggled]} onQueryChanged={[Function: onQueryChanged]} onRemoveExpression={[Function: onRemoveExpression]} onSearchProfile={[Function: onSearchProfile]} t={[Function: t]} />
+            <FocusFeedDefinitionSocialExpressionProfile expressionKey=\\"include_profiles\\" index={1} enabled={true} query=\\"\\" error={[undefined]} channel_type={30} avatar=\\"kketa\\" name=\\"kketa\\" loading={[undefined]} onEnabledToggled={[Function: onEnabledToggled]} onQueryChanged={[Function: onQueryChanged]} onRemoveExpression={[Function: onRemoveExpression]} onSearchProfile={[Function: onSearchProfile]} t={[Function: t]} />
+            <div className=\\"definition-add-expression\\">
+              <withInk(withTooltip(Button)) id=\\"focusFeedDefinitionSocialAddIncludeProfileBtn\\" className=\\"definition-add-expression-button\\" flat={true} onClick={[Function: onClick]} inkTransitionOverlap={150} inkTransitionEnterTimeout={450} inkTransitionLeaveTimeout={300}>
+                <span>
+                  +
+                </span>
+                 
+                feed.form.button.add_words_react
+              </withInk(withTooltip(Button))>
+            </div>
+            <div className=\\"definition-text\\" dangerouslySetInnerHTML={{...}} />
+            <FocusFeedDefinitionSocialExpressionProfile expressionKey=\\"exclude_profiles\\" index={0} enabled={true} query=\\"kketa\\" error={[undefined]} channel_type={30} avatar=\\"kketa\\" name=\\"kketa\\" loading={[undefined]} onEnabledToggled={[Function: onEnabledToggled]} onQueryChanged={[Function: onQueryChanged]} onRemoveExpression={[Function: onRemoveExpression]} onSearchProfile={[Function: onSearchProfile]} t={[Function: t]} />
+            <FocusFeedDefinitionSocialExpressionProfile expressionKey=\\"exclude_profiles\\" index={1} enabled={true} query=\\"\\" error={[undefined]} channel_type={30} avatar=\\"kketa\\" name=\\"kketa\\" loading={[undefined]} onEnabledToggled={[Function: onEnabledToggled]} onQueryChanged={[Function: onQueryChanged]} onRemoveExpression={[Function: onRemoveExpression]} onSearchProfile={[Function: onSearchProfile]} t={[Function: t]} />
+            <div className=\\"definition-add-expression\\">
+              <withInk(withTooltip(Button)) id=\\"focusFeedDefinitionSocialAddExcludeProfileBtn\\" className=\\"definition-add-expression-button\\" flat={true} onClick={[Function: onClick]} inkTransitionOverlap={150} inkTransitionEnterTimeout={450} inkTransitionLeaveTimeout={300}>
+                <span>
+                  +
+                </span>
+                 
+                feed.form.button.add_words_react
+              </withInk(withTooltip(Button))>
+            </div>
+          </div>
+        </div>
+      </Collapse>
+    </div>
+    <div id=\\"focusFeedDefinitionSocialThresholdSection\\" className=\\"definition-section\\">
+      <div className=\\"definition-section-header\\">
+        <div className=\\"definition-header-title\\" onClick={[Function: onClick]}>
+          <FontIcon className=\\"definition-header-title-toggle\\" iconClassName=\\"material-icons\\">
+            keyboard_arrow_right
+          </FontIcon>
+          <span>
+            <span className=\\"definition-header-title-text\\">
+               
+              feed.form.filter_threshold
+               
+            </span>
+            - 
+            feed.form.filter_mentions.description
+          </span>
+        </div>
+      </div>
+      <Collapse collapsed={true} animate={true} springConfig={{...}} minHeight={0}>
+        <div className=\\"thresholds-container\\">
+          <div className=\\"threshold-section-warning\\">
+            feed.form.threshold.active_profiles_warning
+          </div>
+        </div>
+      </Collapse>
+    </div>
+  </div>
+</Fragment>"
+`;
+
+exports[`Definition social On add inclusive expression 1`] = `
+"<Fragment>
+  <div id=\\"focusFeedSocialDefinition\\">
+    <div id=\\"focusFeedDefinitionSocialContentSection\\" className=\\"definition-section\\">
+      <div className=\\"definition-section-header\\">
+        <div className=\\"definition-header-title\\" onClick={[Function: onClick]}>
+          <FontIcon className=\\"definition-header-title-toggle\\" iconClassName=\\"material-icons\\">
+            keyboard_arrow_down
+          </FontIcon>
+          <span className=\\"definition-header-title-text\\">
+             
+            feed.form.header_main_expression_react
+             
+          </span>
+        </div>
+        <div className=\\"definition-header-search-show-help-link\\" onClick={[Function: onClick]}>
+          definition.show_help
+        </div>
+        <withInk(withTooltip(Button)) id=\\"focusFeedDefinitionSocialSearchBtn\\" className=\\"definition-header-search-button\\" flat={true} onClick={[Function: onClick]} inkTransitionOverlap={150} inkTransitionEnterTimeout={450} inkTransitionLeaveTimeout={300}>
+          <FontIcon iconClassName=\\"material-icons\\">
+            search
+          </FontIcon>
+          form.search.value
+        </withInk(withTooltip(Button))>
+      </div>
+      <Collapse collapsed={false} animate={true} springConfig={{...}} minHeight={0}>
+        <div className=\\"definition-section-content\\">
+          <div className=\\"definition-info\\">
+            <span className=\\"definition-info-title\\">
+              feed.form.social.info.title
+              :
+            </span>
+            <span className=\\"definition-info-text\\">
+              feed.form.social.info.text
+            </span>
+          </div>
+          <div className=\\"definition-expressions\\">
+            <div className=\\"definition-expression-main\\">
+              <FocusFeedDefinitionSocialExpression expressionKey=\\"main\\" index={0} enabled={true} query=\\"kketa\\" scope={{...}} error={[undefined]} instagramAccounts={{...}} definitionInstagramAccounts={{...}} onEnabledToggled={[Function: mockConstructor]} onQueryChanged={[Function: onQueryChanged]} onCheckQuery={[Function: onCheckQuery]} onScopeChanged={[Function: onScopeChanged]} onInstagramAccountToggled={[Function: mockConstructor]} t={[Function: t]} />
+            </div>
+            <div className=\\"definition-text\\" dangerouslySetInnerHTML={{...}} />
+            <FocusFeedDefinitionSocialExpression expressionKey=\\"include_expressions\\" index={0} enabled={true} query=\\"kketa\\" scope={{...}} error={[undefined]} instagramAccounts={{...}} definitionInstagramAccounts={{...}} onEnabledToggled={[Function: onEnabledToggled]} onQueryChanged={[Function: onQueryChanged]} onCheckQuery={[Function: onCheckQuery]} onScopeChanged={[Function: onScopeChanged]} onRemoveExpression={[Function: onRemoveExpression]} onInstagramAccountToggled={[Function: mockConstructor]} t={[Function: t]} />
+            <FocusFeedDefinitionSocialExpression expressionKey=\\"include_expressions\\" index={1} enabled={true} query=\\"#kketa\\" scope={{...}} error={[undefined]} instagramAccounts={{...}} definitionInstagramAccounts={{...}} onEnabledToggled={[Function: onEnabledToggled]} onQueryChanged={[Function: onQueryChanged]} onCheckQuery={[Function: onCheckQuery]} onScopeChanged={[Function: onScopeChanged]} onRemoveExpression={[Function: onRemoveExpression]} onInstagramAccountToggled={[Function: mockConstructor]} t={[Function: t]} />
+            <div className=\\"definition-add-expression\\">
+              <withInk(withTooltip(Button)) id=\\"focusFeedDefinitionSocialAddIncludeExpressionBtn\\" className=\\"definition-add-expression-button\\" flat={true} onClick={[Function: onClick]} inkTransitionOverlap={150} inkTransitionEnterTimeout={450} inkTransitionLeaveTimeout={300}>
+                <span>
+                  +
+                </span>
+                 
+                feed.form.button.add_words_react
+              </withInk(withTooltip(Button))>
+            </div>
+            <div className=\\"definition-text\\" dangerouslySetInnerHTML={{...}} />
+            <FocusFeedDefinitionSocialExpression expressionKey=\\"exclude_expressions\\" index={0} enabled={true} query=\\"kketa\\" scope={{...}} error={[undefined]} instagramAccounts={{...}} definitionInstagramAccounts={{...}} onEnabledToggled={[Function: onEnabledToggled]} onQueryChanged={[Function: onQueryChanged]} onCheckQuery={[Function: onCheckQuery]} onScopeChanged={[Function: onScopeChanged]} onRemoveExpression={[Function: onRemoveExpression]} t={[Function: t]} />
+            <FocusFeedDefinitionSocialExpression expressionKey=\\"exclude_expressions\\" index={1} enabled={true} query=\\"#kketa\\" scope={{...}} error={[undefined]} instagramAccounts={{...}} definitionInstagramAccounts={{...}} onEnabledToggled={[Function: onEnabledToggled]} onQueryChanged={[Function: onQueryChanged]} onCheckQuery={[Function: onCheckQuery]} onScopeChanged={[Function: onScopeChanged]} onRemoveExpression={[Function: onRemoveExpression]} t={[Function: t]} />
+            <FocusFeedDefinitionSocialExpression expressionKey=\\"exclude_expressions\\" index={2} enabled={true} query=\\"@kketa\\" scope={{...}} error={[undefined]} instagramAccounts={{...}} definitionInstagramAccounts={{...}} onEnabledToggled={[Function: onEnabledToggled]} onQueryChanged={[Function: onQueryChanged]} onCheckQuery={[Function: onCheckQuery]} onScopeChanged={[Function: onScopeChanged]} onRemoveExpression={[Function: onRemoveExpression]} t={[Function: t]} />
+            <div className=\\"definition-add-expression\\">
+              <withInk(withTooltip(Button)) id=\\"focusFeedDefinitionSocialAddExcludeExpressionBtn\\" className=\\"definition-add-expression-button\\" flat={true} onClick={[Function: onClick]} inkTransitionOverlap={150} inkTransitionEnterTimeout={450} inkTransitionLeaveTimeout={300}>
+                <span>
+                  +
+                </span>
+                 
+                feed.form.button.add_words_react
+              </withInk(withTooltip(Button))>
+            </div>
+          </div>
+        </div>
+      </Collapse>
+    </div>
+    <div className=\\"definition-section\\">
+      <div className=\\"definition-section-header\\">
+        <div className=\\"definition-header-title\\" onClick={[Function: onClick]}>
+          <FontIcon className=\\"definition-header-title-toggle\\" iconClassName=\\"material-icons\\">
+            keyboard_arrow_down
+          </FontIcon>
+          <span className=\\"definition-header-title-text\\">
+             Source specifications 
+          </span>
+        </div>
+      </div>
+      <Collapse collapsed={false} animate={true} springConfig={{...}} minHeight={0}>
+        <div className=\\"definition-section-content\\">
+          <div className=\\"definition-expressions\\">
+            <div className=\\"definition-text\\" dangerouslySetInnerHTML={{...}} />
+            <FocusFeedDefinitionSocialExpressionProfile expressionKey=\\"include_profiles\\" index={0} enabled={true} query=\\"kketa\\" error={[undefined]} channel_type={30} avatar=\\"kketa\\" name=\\"kketa\\" loading={[undefined]} onEnabledToggled={[Function: onEnabledToggled]} onQueryChanged={[Function: onQueryChanged]} onRemoveExpression={[Function: onRemoveExpression]} onSearchProfile={[Function: onSearchProfile]} t={[Function: t]} />
+            <FocusFeedDefinitionSocialExpressionProfile expressionKey=\\"include_profiles\\" index={1} enabled={true} query=\\"\\" error={[undefined]} channel_type={30} avatar=\\"kketa\\" name=\\"kketa\\" loading={[undefined]} onEnabledToggled={[Function: onEnabledToggled]} onQueryChanged={[Function: onQueryChanged]} onRemoveExpression={[Function: onRemoveExpression]} onSearchProfile={[Function: onSearchProfile]} t={[Function: t]} />
+            <div className=\\"definition-add-expression\\">
+              <withInk(withTooltip(Button)) id=\\"focusFeedDefinitionSocialAddIncludeProfileBtn\\" className=\\"definition-add-expression-button\\" flat={true} onClick={[Function: onClick]} inkTransitionOverlap={150} inkTransitionEnterTimeout={450} inkTransitionLeaveTimeout={300}>
+                <span>
+                  +
+                </span>
+                 
+                feed.form.button.add_words_react
+              </withInk(withTooltip(Button))>
+            </div>
+            <div className=\\"definition-text\\" dangerouslySetInnerHTML={{...}} />
+            <FocusFeedDefinitionSocialExpressionProfile expressionKey=\\"exclude_profiles\\" index={0} enabled={true} query=\\"kketa\\" error={[undefined]} channel_type={30} avatar=\\"kketa\\" name=\\"kketa\\" loading={[undefined]} onEnabledToggled={[Function: onEnabledToggled]} onQueryChanged={[Function: onQueryChanged]} onRemoveExpression={[Function: onRemoveExpression]} onSearchProfile={[Function: onSearchProfile]} t={[Function: t]} />
+            <FocusFeedDefinitionSocialExpressionProfile expressionKey=\\"exclude_profiles\\" index={1} enabled={true} query=\\"\\" error={[undefined]} channel_type={30} avatar=\\"kketa\\" name=\\"kketa\\" loading={[undefined]} onEnabledToggled={[Function: onEnabledToggled]} onQueryChanged={[Function: onQueryChanged]} onRemoveExpression={[Function: onRemoveExpression]} onSearchProfile={[Function: onSearchProfile]} t={[Function: t]} />
+            <div className=\\"definition-add-expression\\">
+              <withInk(withTooltip(Button)) id=\\"focusFeedDefinitionSocialAddExcludeProfileBtn\\" className=\\"definition-add-expression-button\\" flat={true} onClick={[Function: onClick]} inkTransitionOverlap={150} inkTransitionEnterTimeout={450} inkTransitionLeaveTimeout={300}>
+                <span>
+                  +
+                </span>
+                 
+                feed.form.button.add_words_react
+              </withInk(withTooltip(Button))>
+            </div>
+          </div>
+        </div>
+      </Collapse>
+    </div>
+    <div id=\\"focusFeedDefinitionSocialThresholdSection\\" className=\\"definition-section\\">
+      <div className=\\"definition-section-header\\">
+        <div className=\\"definition-header-title\\" onClick={[Function: onClick]}>
+          <FontIcon className=\\"definition-header-title-toggle\\" iconClassName=\\"material-icons\\">
+            keyboard_arrow_right
+          </FontIcon>
+          <span>
+            <span className=\\"definition-header-title-text\\">
+               
+              feed.form.filter_threshold
+               
+            </span>
+            - 
+            feed.form.filter_mentions.description
+          </span>
+        </div>
+      </div>
+      <Collapse collapsed={true} animate={true} springConfig={{...}} minHeight={0}>
+        <div className=\\"thresholds-container\\">
+          <div className=\\"threshold-section-warning\\">
+            feed.form.threshold.active_profiles_warning
+          </div>
+        </div>
+      </Collapse>
+    </div>
+  </div>
+</Fragment>"
+`;
+
+exports[`Definition social On add inclusive profile 1`] = `
+"<Fragment>
+  <div id=\\"focusFeedSocialDefinition\\">
+    <div id=\\"focusFeedDefinitionSocialContentSection\\" className=\\"definition-section\\">
+      <div className=\\"definition-section-header\\">
+        <div className=\\"definition-header-title\\" onClick={[Function: onClick]}>
+          <FontIcon className=\\"definition-header-title-toggle\\" iconClassName=\\"material-icons\\">
+            keyboard_arrow_down
+          </FontIcon>
+          <span className=\\"definition-header-title-text\\">
+             
+            feed.form.header_main_expression_react
+             
+          </span>
+        </div>
+        <div className=\\"definition-header-search-show-help-link\\" onClick={[Function: onClick]}>
+          definition.show_help
+        </div>
+        <withInk(withTooltip(Button)) id=\\"focusFeedDefinitionSocialSearchBtn\\" className=\\"definition-header-search-button\\" flat={true} onClick={[Function: onClick]} inkTransitionOverlap={150} inkTransitionEnterTimeout={450} inkTransitionLeaveTimeout={300}>
+          <FontIcon iconClassName=\\"material-icons\\">
+            search
+          </FontIcon>
+          form.search.value
+        </withInk(withTooltip(Button))>
+      </div>
+      <Collapse collapsed={false} animate={true} springConfig={{...}} minHeight={0}>
+        <div className=\\"definition-section-content\\">
+          <div className=\\"definition-info\\">
+            <span className=\\"definition-info-title\\">
+              feed.form.social.info.title
+              :
+            </span>
+            <span className=\\"definition-info-text\\">
+              feed.form.social.info.text
+            </span>
+          </div>
+          <div className=\\"definition-expressions\\">
+            <div className=\\"definition-expression-main\\">
+              <FocusFeedDefinitionSocialExpression expressionKey=\\"main\\" index={0} enabled={true} query=\\"kketa\\" scope={{...}} error={[undefined]} instagramAccounts={{...}} definitionInstagramAccounts={{...}} onEnabledToggled={[Function: mockConstructor]} onQueryChanged={[Function: onQueryChanged]} onCheckQuery={[Function: onCheckQuery]} onScopeChanged={[Function: onScopeChanged]} onInstagramAccountToggled={[Function: mockConstructor]} t={[Function: t]} />
+            </div>
+            <div className=\\"definition-text\\" dangerouslySetInnerHTML={{...}} />
+            <FocusFeedDefinitionSocialExpression expressionKey=\\"include_expressions\\" index={0} enabled={true} query=\\"kketa\\" scope={{...}} error={[undefined]} instagramAccounts={{...}} definitionInstagramAccounts={{...}} onEnabledToggled={[Function: onEnabledToggled]} onQueryChanged={[Function: onQueryChanged]} onCheckQuery={[Function: onCheckQuery]} onScopeChanged={[Function: onScopeChanged]} onRemoveExpression={[Function: onRemoveExpression]} onInstagramAccountToggled={[Function: mockConstructor]} t={[Function: t]} />
+            <FocusFeedDefinitionSocialExpression expressionKey=\\"include_expressions\\" index={1} enabled={true} query=\\"#kketa\\" scope={{...}} error={[undefined]} instagramAccounts={{...}} definitionInstagramAccounts={{...}} onEnabledToggled={[Function: onEnabledToggled]} onQueryChanged={[Function: onQueryChanged]} onCheckQuery={[Function: onCheckQuery]} onScopeChanged={[Function: onScopeChanged]} onRemoveExpression={[Function: onRemoveExpression]} onInstagramAccountToggled={[Function: mockConstructor]} t={[Function: t]} />
+            <div className=\\"definition-add-expression\\">
+              <withInk(withTooltip(Button)) id=\\"focusFeedDefinitionSocialAddIncludeExpressionBtn\\" className=\\"definition-add-expression-button\\" flat={true} onClick={[Function: onClick]} inkTransitionOverlap={150} inkTransitionEnterTimeout={450} inkTransitionLeaveTimeout={300}>
+                <span>
+                  +
+                </span>
+                 
+                feed.form.button.add_words_react
+              </withInk(withTooltip(Button))>
+            </div>
+            <div className=\\"definition-text\\" dangerouslySetInnerHTML={{...}} />
+            <FocusFeedDefinitionSocialExpression expressionKey=\\"exclude_expressions\\" index={0} enabled={true} query=\\"kketa\\" scope={{...}} error={[undefined]} instagramAccounts={{...}} definitionInstagramAccounts={{...}} onEnabledToggled={[Function: onEnabledToggled]} onQueryChanged={[Function: onQueryChanged]} onCheckQuery={[Function: onCheckQuery]} onScopeChanged={[Function: onScopeChanged]} onRemoveExpression={[Function: onRemoveExpression]} t={[Function: t]} />
+            <FocusFeedDefinitionSocialExpression expressionKey=\\"exclude_expressions\\" index={1} enabled={true} query=\\"#kketa\\" scope={{...}} error={[undefined]} instagramAccounts={{...}} definitionInstagramAccounts={{...}} onEnabledToggled={[Function: onEnabledToggled]} onQueryChanged={[Function: onQueryChanged]} onCheckQuery={[Function: onCheckQuery]} onScopeChanged={[Function: onScopeChanged]} onRemoveExpression={[Function: onRemoveExpression]} t={[Function: t]} />
+            <FocusFeedDefinitionSocialExpression expressionKey=\\"exclude_expressions\\" index={2} enabled={true} query=\\"@kketa\\" scope={{...}} error={[undefined]} instagramAccounts={{...}} definitionInstagramAccounts={{...}} onEnabledToggled={[Function: onEnabledToggled]} onQueryChanged={[Function: onQueryChanged]} onCheckQuery={[Function: onCheckQuery]} onScopeChanged={[Function: onScopeChanged]} onRemoveExpression={[Function: onRemoveExpression]} t={[Function: t]} />
+            <div className=\\"definition-add-expression\\">
+              <withInk(withTooltip(Button)) id=\\"focusFeedDefinitionSocialAddExcludeExpressionBtn\\" className=\\"definition-add-expression-button\\" flat={true} onClick={[Function: onClick]} inkTransitionOverlap={150} inkTransitionEnterTimeout={450} inkTransitionLeaveTimeout={300}>
+                <span>
+                  +
+                </span>
+                 
+                feed.form.button.add_words_react
+              </withInk(withTooltip(Button))>
+            </div>
+          </div>
+        </div>
+      </Collapse>
+    </div>
+    <div className=\\"definition-section\\">
+      <div className=\\"definition-section-header\\">
+        <div className=\\"definition-header-title\\" onClick={[Function: onClick]}>
+          <FontIcon className=\\"definition-header-title-toggle\\" iconClassName=\\"material-icons\\">
+            keyboard_arrow_down
+          </FontIcon>
+          <span className=\\"definition-header-title-text\\">
+             Source specifications 
+          </span>
+        </div>
+      </div>
+      <Collapse collapsed={false} animate={true} springConfig={{...}} minHeight={0}>
+        <div className=\\"definition-section-content\\">
+          <div className=\\"definition-expressions\\">
+            <div className=\\"definition-text\\" dangerouslySetInnerHTML={{...}} />
+            <FocusFeedDefinitionSocialExpressionProfile expressionKey=\\"include_profiles\\" index={0} enabled={true} query=\\"kketa\\" error={[undefined]} channel_type={30} avatar=\\"kketa\\" name=\\"kketa\\" loading={[undefined]} onEnabledToggled={[Function: onEnabledToggled]} onQueryChanged={[Function: onQueryChanged]} onRemoveExpression={[Function: onRemoveExpression]} onSearchProfile={[Function: onSearchProfile]} t={[Function: t]} />
+            <FocusFeedDefinitionSocialExpressionProfile expressionKey=\\"include_profiles\\" index={1} enabled={true} query=\\"\\" error={[undefined]} channel_type={30} avatar=\\"kketa\\" name=\\"kketa\\" loading={[undefined]} onEnabledToggled={[Function: onEnabledToggled]} onQueryChanged={[Function: onQueryChanged]} onRemoveExpression={[Function: onRemoveExpression]} onSearchProfile={[Function: onSearchProfile]} t={[Function: t]} />
+            <div className=\\"definition-add-expression\\">
+              <withInk(withTooltip(Button)) id=\\"focusFeedDefinitionSocialAddIncludeProfileBtn\\" className=\\"definition-add-expression-button\\" flat={true} onClick={[Function: onClick]} inkTransitionOverlap={150} inkTransitionEnterTimeout={450} inkTransitionLeaveTimeout={300}>
+                <span>
+                  +
+                </span>
+                 
+                feed.form.button.add_words_react
+              </withInk(withTooltip(Button))>
+            </div>
+            <div className=\\"definition-text\\" dangerouslySetInnerHTML={{...}} />
+            <FocusFeedDefinitionSocialExpressionProfile expressionKey=\\"exclude_profiles\\" index={0} enabled={true} query=\\"kketa\\" error={[undefined]} channel_type={30} avatar=\\"kketa\\" name=\\"kketa\\" loading={[undefined]} onEnabledToggled={[Function: onEnabledToggled]} onQueryChanged={[Function: onQueryChanged]} onRemoveExpression={[Function: onRemoveExpression]} onSearchProfile={[Function: onSearchProfile]} t={[Function: t]} />
+            <FocusFeedDefinitionSocialExpressionProfile expressionKey=\\"exclude_profiles\\" index={1} enabled={true} query=\\"\\" error={[undefined]} channel_type={30} avatar=\\"kketa\\" name=\\"kketa\\" loading={[undefined]} onEnabledToggled={[Function: onEnabledToggled]} onQueryChanged={[Function: onQueryChanged]} onRemoveExpression={[Function: onRemoveExpression]} onSearchProfile={[Function: onSearchProfile]} t={[Function: t]} />
+            <div className=\\"definition-add-expression\\">
+              <withInk(withTooltip(Button)) id=\\"focusFeedDefinitionSocialAddExcludeProfileBtn\\" className=\\"definition-add-expression-button\\" flat={true} onClick={[Function: onClick]} inkTransitionOverlap={150} inkTransitionEnterTimeout={450} inkTransitionLeaveTimeout={300}>
+                <span>
+                  +
+                </span>
+                 
+                feed.form.button.add_words_react
+              </withInk(withTooltip(Button))>
+            </div>
+          </div>
+        </div>
+      </Collapse>
+    </div>
+    <div id=\\"focusFeedDefinitionSocialThresholdSection\\" className=\\"definition-section\\">
+      <div className=\\"definition-section-header\\">
+        <div className=\\"definition-header-title\\" onClick={[Function: onClick]}>
+          <FontIcon className=\\"definition-header-title-toggle\\" iconClassName=\\"material-icons\\">
+            keyboard_arrow_right
+          </FontIcon>
+          <span>
+            <span className=\\"definition-header-title-text\\">
+               
+              feed.form.filter_threshold
+               
+            </span>
+            - 
+            feed.form.filter_mentions.description
+          </span>
+        </div>
+      </div>
+      <Collapse collapsed={true} animate={true} springConfig={{...}} minHeight={0}>
+        <div className=\\"thresholds-container\\">
+          <div className=\\"threshold-section-warning\\">
+            feed.form.threshold.active_profiles_warning
+          </div>
+        </div>
+      </Collapse>
+    </div>
+  </div>
+</Fragment>"
+`;
+
+exports[`Definition social Social definition ready 1`] = `
+"<Fragment>
+  <div id=\\"focusFeedSocialDefinition\\">
+    <div id=\\"focusFeedDefinitionSocialContentSection\\" className=\\"definition-section\\">
+      <div className=\\"definition-section-header\\">
+        <div className=\\"definition-header-title\\" onClick={[Function: onClick]}>
+          <FontIcon className=\\"definition-header-title-toggle\\" iconClassName=\\"material-icons\\">
+            keyboard_arrow_down
+          </FontIcon>
+          <span className=\\"definition-header-title-text\\">
+             
+            feed.form.header_main_expression_react
+             
+          </span>
+        </div>
+        <div className=\\"definition-header-search-show-help-link\\" onClick={[Function: onClick]}>
+          definition.show_help
+        </div>
+        <withInk(withTooltip(Button)) id=\\"focusFeedDefinitionSocialSearchBtn\\" className=\\"definition-header-search-button\\" flat={true} onClick={[Function: onClick]} inkTransitionOverlap={150} inkTransitionEnterTimeout={450} inkTransitionLeaveTimeout={300}>
+          <FontIcon iconClassName=\\"material-icons\\">
+            search
+          </FontIcon>
+          form.search.value
+        </withInk(withTooltip(Button))>
+      </div>
+      <Collapse collapsed={false} animate={true} springConfig={{...}} minHeight={0}>
+        <div className=\\"definition-section-content\\">
+          <div className=\\"definition-info\\">
+            <span className=\\"definition-info-title\\">
+              feed.form.social.info.title
+              :
+            </span>
+            <span className=\\"definition-info-text\\">
+              feed.form.social.info.text
+            </span>
+          </div>
+          <div className=\\"definition-expressions\\">
+            <div className=\\"definition-expression-main\\">
+              <FocusFeedDefinitionSocialExpression expressionKey=\\"main\\" index={0} enabled={true} query=\\"kketa\\" scope={{...}} error={[undefined]} instagramAccounts={{...}} definitionInstagramAccounts={{...}} onEnabledToggled={[Function: mockConstructor]} onQueryChanged={[Function: onQueryChanged]} onCheckQuery={[Function: onCheckQuery]} onScopeChanged={[Function: onScopeChanged]} onInstagramAccountToggled={[Function: mockConstructor]} t={[Function: t]} />
+            </div>
+            <div className=\\"definition-text\\" dangerouslySetInnerHTML={{...}} />
+            <FocusFeedDefinitionSocialExpression expressionKey=\\"include_expressions\\" index={0} enabled={true} query=\\"kketa\\" scope={{...}} error={[undefined]} instagramAccounts={{...}} definitionInstagramAccounts={{...}} onEnabledToggled={[Function: onEnabledToggled]} onQueryChanged={[Function: onQueryChanged]} onCheckQuery={[Function: onCheckQuery]} onScopeChanged={[Function: onScopeChanged]} onRemoveExpression={[Function: onRemoveExpression]} onInstagramAccountToggled={[Function: mockConstructor]} t={[Function: t]} />
+            <FocusFeedDefinitionSocialExpression expressionKey=\\"include_expressions\\" index={1} enabled={true} query=\\"#kketa\\" scope={{...}} error={[undefined]} instagramAccounts={{...}} definitionInstagramAccounts={{...}} onEnabledToggled={[Function: onEnabledToggled]} onQueryChanged={[Function: onQueryChanged]} onCheckQuery={[Function: onCheckQuery]} onScopeChanged={[Function: onScopeChanged]} onRemoveExpression={[Function: onRemoveExpression]} onInstagramAccountToggled={[Function: mockConstructor]} t={[Function: t]} />
+            <div className=\\"definition-add-expression\\">
+              <withInk(withTooltip(Button)) id=\\"focusFeedDefinitionSocialAddIncludeExpressionBtn\\" className=\\"definition-add-expression-button\\" flat={true} onClick={[Function: onClick]} inkTransitionOverlap={150} inkTransitionEnterTimeout={450} inkTransitionLeaveTimeout={300}>
+                <span>
+                  +
+                </span>
+                 
+                feed.form.button.add_words_react
+              </withInk(withTooltip(Button))>
+            </div>
+            <div className=\\"definition-text\\" dangerouslySetInnerHTML={{...}} />
+            <FocusFeedDefinitionSocialExpression expressionKey=\\"exclude_expressions\\" index={0} enabled={true} query=\\"kketa\\" scope={{...}} error={[undefined]} instagramAccounts={{...}} definitionInstagramAccounts={{...}} onEnabledToggled={[Function: onEnabledToggled]} onQueryChanged={[Function: onQueryChanged]} onCheckQuery={[Function: onCheckQuery]} onScopeChanged={[Function: onScopeChanged]} onRemoveExpression={[Function: onRemoveExpression]} t={[Function: t]} />
+            <FocusFeedDefinitionSocialExpression expressionKey=\\"exclude_expressions\\" index={1} enabled={true} query=\\"#kketa\\" scope={{...}} error={[undefined]} instagramAccounts={{...}} definitionInstagramAccounts={{...}} onEnabledToggled={[Function: onEnabledToggled]} onQueryChanged={[Function: onQueryChanged]} onCheckQuery={[Function: onCheckQuery]} onScopeChanged={[Function: onScopeChanged]} onRemoveExpression={[Function: onRemoveExpression]} t={[Function: t]} />
+            <FocusFeedDefinitionSocialExpression expressionKey=\\"exclude_expressions\\" index={2} enabled={true} query=\\"@kketa\\" scope={{...}} error={[undefined]} instagramAccounts={{...}} definitionInstagramAccounts={{...}} onEnabledToggled={[Function: onEnabledToggled]} onQueryChanged={[Function: onQueryChanged]} onCheckQuery={[Function: onCheckQuery]} onScopeChanged={[Function: onScopeChanged]} onRemoveExpression={[Function: onRemoveExpression]} t={[Function: t]} />
+            <div className=\\"definition-add-expression\\">
+              <withInk(withTooltip(Button)) id=\\"focusFeedDefinitionSocialAddExcludeExpressionBtn\\" className=\\"definition-add-expression-button\\" flat={true} onClick={[Function: onClick]} inkTransitionOverlap={150} inkTransitionEnterTimeout={450} inkTransitionLeaveTimeout={300}>
+                <span>
+                  +
+                </span>
+                 
+                feed.form.button.add_words_react
+              </withInk(withTooltip(Button))>
+            </div>
+          </div>
+        </div>
+      </Collapse>
+    </div>
+    <div className=\\"definition-section\\">
+      <div className=\\"definition-section-header\\">
+        <div className=\\"definition-header-title\\" onClick={[Function: onClick]}>
+          <FontIcon className=\\"definition-header-title-toggle\\" iconClassName=\\"material-icons\\">
+            keyboard_arrow_down
+          </FontIcon>
+          <span className=\\"definition-header-title-text\\">
+             Source specifications 
+          </span>
+        </div>
+      </div>
+      <Collapse collapsed={false} animate={true} springConfig={{...}} minHeight={0}>
+        <div className=\\"definition-section-content\\">
+          <div className=\\"definition-expressions\\">
+            <div className=\\"definition-text\\" dangerouslySetInnerHTML={{...}} />
+            <FocusFeedDefinitionSocialExpressionProfile expressionKey=\\"include_profiles\\" index={0} enabled={true} query=\\"kketa\\" error={[undefined]} channel_type={30} avatar=\\"kketa\\" name=\\"kketa\\" loading={[undefined]} onEnabledToggled={[Function: onEnabledToggled]} onQueryChanged={[Function: onQueryChanged]} onRemoveExpression={[Function: onRemoveExpression]} onSearchProfile={[Function: onSearchProfile]} t={[Function: t]} />
+            <FocusFeedDefinitionSocialExpressionProfile expressionKey=\\"include_profiles\\" index={1} enabled={true} query=\\"\\" error={[undefined]} channel_type={30} avatar=\\"kketa\\" name=\\"kketa\\" loading={[undefined]} onEnabledToggled={[Function: onEnabledToggled]} onQueryChanged={[Function: onQueryChanged]} onRemoveExpression={[Function: onRemoveExpression]} onSearchProfile={[Function: onSearchProfile]} t={[Function: t]} />
+            <div className=\\"definition-add-expression\\">
+              <withInk(withTooltip(Button)) id=\\"focusFeedDefinitionSocialAddIncludeProfileBtn\\" className=\\"definition-add-expression-button\\" flat={true} onClick={[Function: onClick]} inkTransitionOverlap={150} inkTransitionEnterTimeout={450} inkTransitionLeaveTimeout={300}>
+                <span>
+                  +
+                </span>
+                 
+                feed.form.button.add_words_react
+              </withInk(withTooltip(Button))>
+            </div>
+            <div className=\\"definition-text\\" dangerouslySetInnerHTML={{...}} />
+            <FocusFeedDefinitionSocialExpressionProfile expressionKey=\\"exclude_profiles\\" index={0} enabled={true} query=\\"kketa\\" error={[undefined]} channel_type={30} avatar=\\"kketa\\" name=\\"kketa\\" loading={[undefined]} onEnabledToggled={[Function: onEnabledToggled]} onQueryChanged={[Function: onQueryChanged]} onRemoveExpression={[Function: onRemoveExpression]} onSearchProfile={[Function: onSearchProfile]} t={[Function: t]} />
+            <FocusFeedDefinitionSocialExpressionProfile expressionKey=\\"exclude_profiles\\" index={1} enabled={true} query=\\"\\" error={[undefined]} channel_type={30} avatar=\\"kketa\\" name=\\"kketa\\" loading={[undefined]} onEnabledToggled={[Function: onEnabledToggled]} onQueryChanged={[Function: onQueryChanged]} onRemoveExpression={[Function: onRemoveExpression]} onSearchProfile={[Function: onSearchProfile]} t={[Function: t]} />
+            <div className=\\"definition-add-expression\\">
+              <withInk(withTooltip(Button)) id=\\"focusFeedDefinitionSocialAddExcludeProfileBtn\\" className=\\"definition-add-expression-button\\" flat={true} onClick={[Function: onClick]} inkTransitionOverlap={150} inkTransitionEnterTimeout={450} inkTransitionLeaveTimeout={300}>
+                <span>
+                  +
+                </span>
+                 
+                feed.form.button.add_words_react
+              </withInk(withTooltip(Button))>
+            </div>
+          </div>
+        </div>
+      </Collapse>
+    </div>
+    <div id=\\"focusFeedDefinitionSocialThresholdSection\\" className=\\"definition-section\\">
+      <div className=\\"definition-section-header\\">
+        <div className=\\"definition-header-title\\" onClick={[Function: onClick]}>
+          <FontIcon className=\\"definition-header-title-toggle\\" iconClassName=\\"material-icons\\">
+            keyboard_arrow_right
+          </FontIcon>
+          <span>
+            <span className=\\"definition-header-title-text\\">
+               
+              feed.form.filter_threshold
+               
+            </span>
+            - 
+            feed.form.filter_mentions.description
+          </span>
+        </div>
+      </div>
+      <Collapse collapsed={true} animate={true} springConfig={{...}} minHeight={0}>
+        <div className=\\"thresholds-container\\">
+          <div className=\\"threshold-section-warning\\">
+            feed.form.threshold.active_profiles_warning
+          </div>
+        </div>
+      </Collapse>
+    </div>
+  </div>
+</Fragment>"
+`;

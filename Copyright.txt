@@ -1,0 +1,22 @@
+/****************************************************************************
+ *                                                                          *
+ * Copyright(C) 2019 Augure Spain - All Rights Reserved                     *
+ *                                                                          *
+ * NOTICE: All information contained in this repository is, and remains     *
+ * the property of Augure Spain and its affiliates, if any.                 *
+ *                                                                          *
+ * The intellectual and technical concepts contained herein are             *
+ * proprietary to Augure Spain and its suppliers and are protected by trade *
+ * secret or copyright law in the US and in the EU.                         *
+ *                                                                          *
+ * Dissemination of this information or reproduction of this material via   *
+ * any medium is strictly prohibited unless prior written permission is     *
+ * obtained from Augure Spain.                                              *
+ *                                                                          *
+ * Proprietary and confidential                                             *
+ *                                                                          *
+ * Written by Albert Vila albert.vila@launchmetrics.com, 23/01/2019         *
+ *                                                                          *
+ * DO NOT REDISTRIBUTE                                                      *
+ *                                                                          *
+ ***************************************************************************/

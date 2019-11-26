@@ -1,0 +1,35 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`App Authenticated shows routes 1`] = `
+<div
+  id="app"
+>
+  <Connect(Facebook)
+    language="en"
+  >
+    <Connect(Toolbar) />
+    <Switch>
+      <Route
+        path="/:section(article|focus|newsletter)"
+        render={[Function]}
+      />
+      <Route
+        path="/"
+        render={[Function]}
+      />
+    </Switch>
+    <Connect(Notifications) />
+  </Connect(Facebook)>
+</div>
+`;
+
+exports[`App Not authenticated shows loader 1`] = `
+<div
+  id="appLoader"
+>
+  <img
+    alt=""
+    src="/appLoader.svg"
+  />
+</div>
+`;

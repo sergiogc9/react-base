@@ -1,0 +1,60 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Search Actions Test categorize action selected 1`] = `
+"<Collapse collapsed={false} animate={true} springConfig={{...}} minHeight={0}>
+  <div id=\\"articleActions\\">
+    <div id=\\"actionsButtons\\">
+      <SelectionControl id=\\"documentSelectAll\\" name=\\"documentSelectAll\\" aria-label=\\"documentSelectAll\\" type=\\"checkbox\\" onChange={[Function: onChange]} checked={true} className=\\"checkbox-green document-actions-select-checkbox\\" uncheckedCheckboxIcon={{...}} checkedCheckboxIcon={{...}} checkedRadioIcon={{...}} uncheckedRadioIcon={{...}} />
+      <withInk(withTooltip(Button)) raised={true} className=\\" document-actions-remove\\" onClick={[Function: onClick]} inkTransitionOverlap={150} inkTransitionEnterTimeout={450} inkTransitionLeaveTimeout={300}>
+        results.bulk_action.remove.value
+      </withInk(withTooltip(Button))>
+      <withInk(withTooltip(Button)) raised={true} className=\\"action-selected document-actions-categorization\\" onClick={[Function: onClick]} inkTransitionOverlap={150} inkTransitionEnterTimeout={450} inkTransitionLeaveTimeout={300}>
+        results.bulk_action.categorize
+      </withInk(withTooltip(Button))>
+      <span>
+        1
+         
+        results.bulk_selection.articles_count
+      </span>
+    </div>
+    <div id=\\"actionsConfirm\\">
+      <Collapse collapsed={false} animate={true} springConfig={{...}} minHeight={0}>
+        <div className=\\"confirm-action-content\\" id=\\"categorizeActionContent\\">
+          <div className=\\"confirm-info\\">
+            <span className=\\"confirm-info-action\\">
+              results.bulk_action.categorize
+            </span>
+            <span className=\\"confirm-info-selected\\">
+              1
+               
+              results.bulk_action.remove.confirm.articles
+            </span>
+          </div>
+          <Connect(Categorization) tags={{...}} onAddTags={[Function: onAddTags]} onRemoveTag={[Function: onRemoveTag]} onSetCategory={[Function: onSetCategory]} />
+          <div className=\\"confirm-buttons\\">
+            <withInk(withTooltip(Button)) raised={true} className=\\"confirm-accept\\" onClick={[Function: onClick]} inkTransitionOverlap={150} inkTransitionEnterTimeout={450} inkTransitionLeaveTimeout={300}>
+              results.bulk_action.remove.confirm.yes
+            </withInk(withTooltip(Button))>
+            <span className=\\"confirm-conjuntion\\">
+              results.bulk_action.remove.confirm.or
+            </span>
+            <span className=\\"confirm-cancel\\" onClick={[Function: onClick]}>
+              results.bulk_action.remove.confirm.cancel
+            </span>
+          </div>
+        </div>
+      </Collapse>
+    </div>
+  </div>
+</Collapse>"
+`;
+
+exports[`Search Actions Test component snapshot with results checked 1`] = `"<div id=\\"articleActions\\" style=\\"overflow: hidden;\\"><div id=\\"actionsButtons\\"><div class=\\"md-selection-control-container checkbox-green document-actions-select-checkbox\\"><input id=\\"documentSelectAll\\" type=\\"checkbox\\" class=\\"md-selection-control-input\\" name=\\"documentSelectAll\\" aria-hidden=\\"true\\" value=\\"\\" checked=\\"\\"><label for=\\"documentSelectAll\\" class=\\"md-selection-control-label md-pointer--hover md-text\\"><div role=\\"checkbox\\" aria-checked=\\"true\\" aria-label=\\"documentSelectAll\\" class=\\"md-fake-btn md-pointer--hover md-fake-btn--no-outline md-selection-control-toggle md-btn md-btn--icon md-text--theme-secondary\\" tabindex=\\"0\\" aria-pressed=\\"false\\"><div class=\\"md-ink-container\\"></div><i class=\\"md-icon material-icons md-text--inherit\\">check_box</i></div></label></div><button type=\\"button\\" class=\\"md-btn md-btn--raised md-btn--text md-pointer--hover md-text md-inline-block  document-actions-remove\\"><div class=\\"md-ink-container\\"></div>results.bulk_action.remove.value</button><button type=\\"button\\" class=\\"md-btn md-btn--raised md-btn--text md-pointer--hover md-text md-inline-block  document-actions-categorization\\"><div class=\\"md-ink-container\\"></div>results.bulk_action.categorize</button><span>1 results.bulk_selection.articles_count</span></div><div id=\\"actionsConfirm\\"></div></div>"`;
+
+exports[`Search Actions Test component snapshot without results checked 1`] = `""`;
+
+exports[`Search Actions Test remove action close 1`] = `"<div id=\\"articleActions\\" style=\\"\\"><div id=\\"actionsButtons\\"><div class=\\"md-selection-control-container checkbox-green document-actions-select-checkbox\\"><input id=\\"documentSelectAll\\" type=\\"checkbox\\" class=\\"md-selection-control-input\\" name=\\"documentSelectAll\\" aria-hidden=\\"true\\" value=\\"\\" checked=\\"\\"><label for=\\"documentSelectAll\\" class=\\"md-selection-control-label md-pointer--hover md-text\\"><div role=\\"checkbox\\" aria-checked=\\"true\\" aria-label=\\"documentSelectAll\\" class=\\"md-fake-btn md-pointer--hover md-fake-btn--no-outline md-selection-control-toggle md-btn md-btn--icon md-text--theme-secondary\\" tabindex=\\"0\\" aria-pressed=\\"false\\"><div class=\\"md-ink-container\\"></div><i class=\\"md-icon material-icons md-text--inherit\\">check_box</i></div></label></div><button type=\\"button\\" class=\\"md-btn md-btn--raised md-btn--text md-pointer--hover md-text md-inline-block  document-actions-remove\\"><div class=\\"md-ink-container\\"></div>results.bulk_action.remove.value</button><button type=\\"button\\" class=\\"md-btn md-btn--raised md-btn--text md-pointer--hover md-text md-inline-block  document-actions-categorization\\"><div class=\\"md-ink-container\\"></div>results.bulk_action.categorize</button><span>1 results.bulk_selection.articles_count</span></div><div id=\\"actionsConfirm\\"></div></div>"`;
+
+exports[`Search Actions Test remove action selected 1`] = `"<div id=\\"articleActions\\" style=\\"\\"><div id=\\"actionsButtons\\"><div class=\\"md-selection-control-container checkbox-green document-actions-select-checkbox\\"><input id=\\"documentSelectAll\\" type=\\"checkbox\\" class=\\"md-selection-control-input\\" name=\\"documentSelectAll\\" aria-hidden=\\"true\\" value=\\"\\" checked=\\"\\"><label for=\\"documentSelectAll\\" class=\\"md-selection-control-label md-pointer--hover md-text\\"><div role=\\"checkbox\\" aria-checked=\\"true\\" aria-label=\\"documentSelectAll\\" class=\\"md-fake-btn md-pointer--hover md-fake-btn--no-outline md-selection-control-toggle md-btn md-btn--icon md-text--theme-secondary\\" tabindex=\\"0\\" aria-pressed=\\"false\\"><div class=\\"md-ink-container\\"></div><i class=\\"md-icon material-icons md-text--inherit\\">check_box</i></div></label></div><button type=\\"button\\" class=\\"md-btn md-btn--raised md-btn--text md-pointer--hover md-text md-inline-block action-selected document-actions-remove\\"><div class=\\"md-ink-container\\"></div>results.bulk_action.remove.value</button><button type=\\"button\\" class=\\"md-btn md-btn--raised md-btn--text md-pointer--hover md-text md-inline-block  document-actions-categorization\\"><div class=\\"md-ink-container\\"></div>results.bulk_action.categorize</button><span>1 results.bulk_selection.articles_count</span></div><div id=\\"actionsConfirm\\"><div class=\\"confirm-action-content\\" id=\\"removeActionContent\\"><div class=\\"confirm-info\\"><span class=\\"confirm-info-action\\">results.bulk_action.remove.value</span><span class=\\"confirm-info-selected\\">1 results.bulk_action.remove.confirm.articles</span></div><div class=\\"confirm-message confirm-message-remove\\">results.bulk_action.remove.confirm.question</div><div class=\\"confirm-buttons\\"><button type=\\"button\\" class=\\"md-btn md-btn--raised md-btn--text md-pointer--hover md-text md-inline-block confirm-accept\\"><div class=\\"md-ink-container\\"></div>results.bulk_action.remove.confirm.yes</button><span class=\\"confirm-conjuntion\\">results.bulk_action.remove.confirm.or</span><span class=\\"confirm-cancel\\">results.bulk_action.remove.confirm.cancel</span></div></div></div></div>"`;
+
+exports[`Search Actions Test update props 1`] = `""`;
