@@ -33,15 +33,6 @@ body {
 	background-color: #dedede;
 	height: 100%;
 	overflow: hidden;
-
-	span {
-		/* Fix to not overlay toolbar and tabs when drawer is opened */
-		.md-overlay--drawer {
-			top: 101px;
-		}
-
-		@include datePicker();
-	}
 }
 
 #root {
@@ -54,37 +45,5 @@ code {
 
 a,
 a:visited {
-	color: $launchmetrics-dark-green;
-}
-
-.btn {
-	&--no-background {
-		background: none;
-	}
-
-	&--no-ink .md-ink {
-		background: transparent;
-	}
-
-	&--green-ink .md-ink {
-		background: rgba($launchmetrics-green, 0.2);
-	}
-
-	&--red-ink .md-ink {
-		background: rgba($red-color, 0.2);
-	}
-}
-
-.md-list--menu li > div:hover {
-	background: rgba(0, 0, 0, 0.06);
-}
-
-.internal-action,
-.internal-action .md-text {
-	color: #e65100 !important;
-	font-family: "Courier New", monospace;
-}
-
-.md-tooltip-container {
-	z-index: 10;
+	color: $react-base-dark-green;
 }

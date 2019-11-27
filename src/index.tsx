@@ -2,7 +2,6 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import WebFontLoader from 'webfontloader';
 import Main from './Main';
-import GA from '@src/lib/googleAnalytics';
 
 WebFontLoader.load({
 	google: {
@@ -13,7 +12,5 @@ WebFontLoader.load({
 		urls: ['/icomoon/style.css']
 	}
 });
-
-GA.init();
 
 ReactDOM.render((<Main />), document.getElementById('root') as HTMLElement);

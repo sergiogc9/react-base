@@ -35,7 +35,6 @@ export async function setLanguage(lang: LanguageCode) {
 				case "cat":
 					langLocales = catLocales;
 					break;
-					break;
 				default:
 					langLocales = enLocales;
 			}

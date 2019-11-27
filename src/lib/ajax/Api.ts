@@ -1,10 +1,10 @@
 import axios, { AxiosInstance } from 'axios';
 import moment from 'moment';
 import { Store } from 'redux';
-import { Action } from 'typescript-fsa';
+// import { Action } from 'typescript-fsa';
 import get from 'lodash/get';
 
-import { operators as authOperators } from '@src/store/app/auth';
+// import { operators as authOperators } from '@src/store/app/auth';
 import { Session } from '@src/types/session';
 
 export const API_BASE_URL = process.env.REACT_APP_API_URL;
@@ -80,8 +80,8 @@ export default class Api {
 
 	// request updated session with new token and updated profile
 	private static async refreshSession() {
-		const session = await Api.getUpdatedSession();
-		dispatch(authOperators.setSession({ session })); // calls storeApiAccessData to refresh token
+		// const session = await Api.getUpdatedSession();
+		// dispatch(authOperators.setSession({ session })); // calls storeApiAccessData to refresh token
 	}
 
 	private static async getUpdatedSession() {
@@ -101,9 +101,9 @@ export default class Api {
 }
 
 // dispatch function requires connection with store
-let dispatch = (action: Action<any>) => {
-	console.warn('Store not connected on dispatch action from Api', action);
-};
+// let dispatch = (action: Action<any>) => {
+// 	console.warn('Store not connected on dispatch action from Api', action);
+// };
 export function connectApi(store: Store) {
-	dispatch = store.dispatch;
+	// dispatch = store.dispatch;
 }

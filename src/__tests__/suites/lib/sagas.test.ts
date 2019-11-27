@@ -1,5 +1,4 @@
 import { setWrongPath } from '@src/lib/sagas';
-import GA from '@src/lib/googleAnalytics';
 
 describe('lib sagas setWrongPath', () => {
 

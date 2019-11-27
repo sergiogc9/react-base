@@ -1,10 +1,7 @@
 import { TProps } from '@src/lib/i18n';
 import { DateFieldElement } from '@src/types/form';
-import { UserObject } from '@src/class/User';
 
-export type StateProps = {
-	user: UserObject
-};
+export type StateProps = {};
 
 export type DispatchProps = {};
 

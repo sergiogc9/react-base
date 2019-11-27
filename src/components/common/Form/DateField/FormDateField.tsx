@@ -17,7 +17,7 @@ const __validateDateField = (element: DateFieldElement, newValue: Date) => {
 };
 
 const FormDateField = (props: ComponentProps) => {
-	const { t, element, forceValue, user, error, onChangeDate } = props;
+	const { t, element, forceValue, error, onChangeDate } = props;
 
 	const [date, setDate] = React.useState(element.defaultValue || new Date());
 	useForceFieldValue(forceValue, null, element, setDate, onChangeDate, __validateDateField);
@@ -25,9 +25,9 @@ const FormDateField = (props: ComponentProps) => {
 	const handleDateChange = React.useCallback((formattedDate, rawDate, ev) => {
 		setDate(rawDate);
 
-		const parsedDate = moment.tz(moment(rawDate).format('YYYY-MM-DD'), user.settings.timezone).toDate();
+		const parsedDate = moment.tz(moment(rawDate).format('YYYY-MM-DD'), 'UTC').toDate();
 		onChangeDate(element.id, parsedDate, __validateDateField(element, parsedDate));
-	}, [element, onChangeDate, user]);
+	}, [element, onChangeDate]);
 
 	return (
 		<div className='discover-form-date-field' >
@@ -38,7 +38,6 @@ const FormDateField = (props: ComponentProps) => {
 				cancelLabel={t('filters.period.custom.dialog.cancel')}
 				icon={null}
 				value={date}
-				locales={user.settings.locale}
 				minDate={element.minDate}
 				maxDate={element.maxDate}
 				onChange={handleDateChange}
