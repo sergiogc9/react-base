@@ -77,6 +77,7 @@
 		"test:local": "react-scripts test --coverage __tests__/suites",
 		"test:local:file": "react-scripts test",
 		"env": "node env",
+		"preinstall": "rm -f node_modules/@src",
 		"postinstall": "ln -sfn ../src node_modules/@src"
 	},
 	"engines": {
