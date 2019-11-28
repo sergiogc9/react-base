@@ -12,9 +12,13 @@ exports[`App Not authenticated shows loader 1`] = `
 <div
   id="appLoader"
 >
-  <img
-    alt=""
-    src="/appLoader.svg"
+  <Loader
+    color="#4df7b9"
+    css={Object {}}
+    loading={true}
+    margin="2px"
+    size={35}
+    sizeUnit="px"
   />
 </div>
 `;
