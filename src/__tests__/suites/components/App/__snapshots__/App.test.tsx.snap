@@ -4,22 +4,7 @@ exports[`App Authenticated shows routes 1`] = `
 <div
   id="app"
 >
-  <Connect(Facebook)
-    language="en"
-  >
-    <Connect(Toolbar) />
-    <Switch>
-      <Route
-        path="/:section(article|focus|newsletter)"
-        render={[Function]}
-      />
-      <Route
-        path="/"
-        render={[Function]}
-      />
-    </Switch>
-    <Connect(Notifications) />
-  </Connect(Facebook)>
+  <Connect(Notifications) />
 </div>
 `;
 

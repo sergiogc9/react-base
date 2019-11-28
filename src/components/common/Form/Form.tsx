@@ -57,13 +57,13 @@ class Form extends React.PureComponent<ComponentProps, ComponentState> {
 		};
 	}
 
-	private __getBreakLineElement = () => <div className="discover-form-field-break-line" />;
+	private __getBreakLineElement = () => <div className="react-base-form-field-break-line" />;
 
 	private __getFieldClasses = (element: FormFieldElement) => {
 		const classes = [];
 
 		if (element.type !== "component" && element.style) {
-			if (element.style.width) classes.push(`discover-form-field-width-${element.style.width}`);
+			if (element.style.width) classes.push(`react-base-form-field-width-${element.style.width}`);
 		}
 
 		return classes;
@@ -134,7 +134,7 @@ class Form extends React.PureComponent<ComponentProps, ComponentState> {
 				break;
 		}
 
-		const classNames = ["discover-form-field", ...this.__getFieldClasses(element)].join(' ');
+		const classNames = ["react-base-form-field", ...this.__getFieldClasses(element)].join(' ');
 		const beforeElement = get(element, "style.newLine") || get(element, "style.uniqueInLine") ? this.__getBreakLineElement() : null;
 		const afterElement = get(element, "style.uniqueInLine") ? this.__getBreakLineElement() : null;
 		return (
@@ -195,7 +195,7 @@ class Form extends React.PureComponent<ComponentProps, ComponentState> {
 		const { elements } = this.props;
 
 		return (
-			<div className="discover-form">
+			<div className="react-base-form">
 				{elements.map(el => this.__getFieldFromElement(el))}
 			</div>
 		);

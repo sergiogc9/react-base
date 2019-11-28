@@ -26,18 +26,18 @@ describe('<Dialog />', () => {
 	it("Test Dialog component snapshot", () => {
 		expect(wrapper.html()).toMatchSnapshot();
 		expect(wrapper.find('#dialog-content')).toHaveLength(1);
-		expect(wrapper.find('#launchmetricsDialogAcceptBtn')).toHaveLength(1);
-		expect(wrapper.find('#launchmetricsDialogCancelBtn')).toHaveLength(1);
+		expect(wrapper.find('#react-baseDialogAcceptBtn')).toHaveLength(1);
+		expect(wrapper.find('#react-baseDialogCancelBtn')).toHaveLength(1);
 	});
 
 	it("Test Dialog without accept button", () => {
 		wrapper.setProps({ onAccept: undefined });
-		expect(wrapper.find('#launchmetricsDialogAcceptBtn')).toHaveLength(0);
+		expect(wrapper.find('#react-baseDialogAcceptBtn')).toHaveLength(0);
 	});
 
 	it("Test Dialog without cancel button", () => {
 		wrapper.setProps({ onCancel: undefined });
-		expect(wrapper.find('#launchmetricsDialogCancelBtn')).toHaveLength(0);
+		expect(wrapper.find('#react-baseDialogCancelBtn')).toHaveLength(0);
 	});
 
 	it("Test Dialog footer centered buttons class", () => {

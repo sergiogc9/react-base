@@ -38,7 +38,7 @@ const FormSelectField = (props: ComponentProps) => {
 
 	return <SelectField
 		id={`formSelectField-${element.id}`}
-		className={`discover-form-select-field ${element.className || ""}`}
+		className={`react-base-form-select-field ${element.className || ""}`}
 		label={has(element, 'label.key') ? t(get(element, 'label.key')) : element.label}
 		defaultValue={element.defaultValue}
 		value={value}

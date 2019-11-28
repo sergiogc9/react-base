@@ -16,8 +16,8 @@
 			padding: 0.8rem 1.6rem;
 
 			&.selected {
-				background-color: $launchmetrics-green;
-				border: 1px solid $launchmetrics-green;
+				background-color: $react-base-green;
+				border: 1px solid $react-base-green;
 			}
 
 			&:not(.selected){

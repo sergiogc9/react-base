@@ -1,6 +1,6 @@
 @import "@src/scss/_globals.scss";
 
-.launchmetrics-simple-dialog {
+.react-base-simple-dialog {
 	> div {
 		width: 40rem;
 	}
@@ -46,7 +46,7 @@
 				}
 
 				&.btn--green {
-					background-color: $launchmetrics-green;
+					background-color: $react-base-green;
 				}
 			}
 		}

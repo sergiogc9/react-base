@@ -1,6 +1,6 @@
 @import "../../../scss/globals";
 
-.launchmetrics-dialog {
+.react-base-dialog {
 	> div {
 		display: flex;
 		flex-direction: column;
@@ -25,7 +25,7 @@
 			margin-right: 3.5rem;
 
 			i {
-				color: $launchmetrics-green;
+				color: $react-base-green;
 				font-size: 7rem;
 			}
 
@@ -87,7 +87,7 @@
 			}
 
 			&.btn--green {
-				background-color: $launchmetrics-green;
+				background-color: $react-base-green;
 			}
 		}
 	}

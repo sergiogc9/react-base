@@ -21,19 +21,19 @@ const SimpleDialog = (props: ComponentProps) => {
 			</div>
 			<div className="dialog-content">{content}</div>
 			<div className={footerClassName}>
-				{onCancel ? <Button id="launchmetricsDialogCancelBtn" className="btn--grey btn--no-background" flat onClick={onCancel}>{onCancelText}</Button> : null}
-				{onAccept ? <Button id="launchmetricsDialogAcceptBtn" className="btn--green btn--no-background" flat onClick={onAccept}>{onAcceptText}</Button> : null}
+				{onCancel ? <Button id="react-baseDialogCancelBtn" className="btn--grey btn--no-background" flat onClick={onCancel}>{onCancelText}</Button> : null}
+				{onAccept ? <Button id="react-baseDialogAcceptBtn" className="btn--green btn--no-background" flat onClick={onAccept}>{onAcceptText}</Button> : null}
 			</div>
 		</div>
 	);
 
 	return <DialogContainer
 		id={id}
-		className="launchmetrics-simple-dialog"
+		className="react-base-simple-dialog"
 		visible={true}
 		onHide={onCancel ? onCancel : () => { }}
 		focusOnMount={false}
-		aria-labelledby="launchmetrics-dialog"
+		aria-labelledby="react-base-dialog"
 		children={dialogContent}
 	/>;
 };

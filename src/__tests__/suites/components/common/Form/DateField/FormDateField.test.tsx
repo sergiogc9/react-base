@@ -11,7 +11,7 @@ import TestHelper from "@src/__tests__/utils/Helper/TestHelper";
 const element = TestHelper.dateFieldElement;
 const user = TestHelper.getUser();
 const date = new Date();
-const expectedDate = moment.tz(moment(date).format('YYYY-MM-DD'), user.settings.timezone).toDate();
+const expectedDate = moment.tz(moment(date).format('YYYY-MM-DD'), "UTC").toDate();
 
 let onChangeMock = jest.fn();
 describe("Date field common component", () => {

@@ -1,7 +1,0 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`Definition social instagram account Component default snaphsot 1`] = `"<div id=\\"focusFeedDefinitionSocialInstagramAccountid1\\" class=\\"instagram-account \\"><img src=\\"fakeurl.com\\" alt=\\"\\"/><span>Girona FC</span><span>(@gironafc)</span></div>"`;
-
-exports[`Definition social instagram account Component snaphsot with not valid account 1`] = `"<div id=\\"focusFeedDefinitionSocialInstagramAccountid1\\" class=\\"instagram-account not_valid\\" title=\\"feed.form.instagram.expired_account\\"><img src=\\"fakeurl.com\\" alt=\\"\\"/><span>Girona FC</span><span>(@gironafc)</span><span class=\\"no-line-through\\"> [expired]</span></div>"`;
-
-exports[`Definition social instagram account Component snaphsot with removable props 1`] = `"<div id=\\"focusFeedDefinitionSocialInstagramAccountid1\\" class=\\"instagram-account \\"><img src=\\"fakeurl.com\\" alt=\\"\\"/><span>Girona FC</span><span>(@gironafc)</span><i class=\\"md-icon material-icons\\">clear</i></div>"`;

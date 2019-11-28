@@ -30,7 +30,7 @@ const FormDateField = (props: ComponentProps) => {
 	}, [element, onChangeDate]);
 
 	return (
-		<div className='discover-form-date-field' >
+		<div className='react-base-form-date-field' >
 			<DatePicker
 				id={`formDateField-${element.id}`}
 				label={t("insert_article.modal.form.date")}

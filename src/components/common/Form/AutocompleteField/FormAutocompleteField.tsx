@@ -64,7 +64,7 @@ const FormAutocompleteField = (props: ComponentProps) => {
 		<>
 			<Autocomplete
 				id={`formAutocompleteField-${element.id}`}
-				className={`discover-form-autocomplete-field ${element.closeButton ? "with-button " : ""}${element.className || ""}`}
+				className={`react-base-form-autocomplete-field ${element.closeButton ? "with-button " : ""}${element.className || ""}`}
 				label={has(element, 'label.key') ? t(get(element, 'label.key')) : element.label}
 				data={items}
 				dataLabel="label"

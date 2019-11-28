@@ -2,7 +2,7 @@
 @import "@src/scss/_mixins.scss";
 @import "@src/scss/_variables.scss";
 
-.discover-form-autocomplete-field {
+.react-base-form-autocomplete-field {
 	@include selectInput("darker");
 	label {
 		font-size: 1.2rem;

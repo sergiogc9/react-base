@@ -33,7 +33,7 @@
 				margin-right: 1.5rem;
 
 				label {
-					background: $launchmetrics-green;
+					background: $react-base-green;
 					white-space: nowrap;
 					overflow: hidden;
 					text-overflow: ellipsis;
@@ -128,15 +128,15 @@
 		}
 	}
 	&.highlighted-container {
-		border-color: $launchmetrics-green;
+		border-color: $react-base-green;
 
 		.dropzone-inner-container {
 			.dropzone-buttons {
 				.dropzone-help {
-					color: $launchmetrics-green;
+					color: $react-base-green;
 
 					.icon-upload {
-						color: $launchmetrics-green;
+						color: $react-base-green;
 					}
 				}
 			}

@@ -1,9 +1,9 @@
 @import "@src/scss/_globals.scss";
+@import "@src/scss/_mixins.scss";
 div#appLoader {
-	position: absolute;
-	top: 200px;
 	width: 100%;
-	text-align: center;
+	height: 100%;
+	@include flexCenter();
 }
 
 #app {
@@ -14,39 +14,6 @@ div#appLoader {
 		height: calc(100% - #{$toolbar-height});
 		display: flex;
 		flex-direction: column;
-	}
-	.app-tabs-line {
-		background-color: #2f2f2f;
-	}
-	.app-tabs-wrapper {
-		width: 100%;
-		max-width: $max-layout-width;
-		margin: auto;
-		.md-tabs {
-			max-width: 450px;
-			height: 45px;
-			@include respond(tab-port) {
-				max-width: none;
-			}
-			.md-tab {
-				height: 45px;
-				padding-bottom: 15px;
-				color: white;
-				text-transform: capitalize;
-				&.md-tab--active .md-tab-label {
-					font-weight: bold;
-				}
-				&.md-tab--inactive:hover {
-					background-color: $md-grey-900;
-				}
-				.md-tab-label {
-					font-size: 14px;
-				}
-				.md-ink {
-					background: rgba($react-base-green, 0.2);
-				}
-			}
-		}
 	}
 	#appContent {
 		flex-grow: 1;

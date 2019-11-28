@@ -6,7 +6,7 @@ import { DispatchProps, StateProps } from './types';
 
 import App from './App';
 
-const mapStateToProps = ({ app: { auth, profile } }: State): StateProps => ({
+const mapStateToProps = ({ app: { auth } }: State): StateProps => ({
 	authenticated: auth.authenticated
 });
 

@@ -1,5 +1,0 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`Document item images Should render one image 1`] = `"<div class=\\"document-item-image\\"><a href=\\"http://discover.sprint.launchmetrics.com/r/d/2GT8E24urGs=_ckkDAAAAAAAAAAAAAAAAAA==\\" target=\\"_blank\\" rel=\\"noopener noreferrer\\" type=\\"main\\" class=\\"document-item-image-link active-image\\"><img src=\\"fake\\" alt=\\"\\"></a></div>"`;
-
-exports[`Document item images Should render two images 1`] = `"<div class=\\"document-item-image two-images\\"><a href=\\"http://discover.sprint.launchmetrics.com/r/d/2GT8E24urGs=_ckkDAAAAAAAAAAAAAAAAAA==?cover=1\\" target=\\"_blank\\" rel=\\"noopener noreferrer\\" type=\\"secondary\\" class=\\"document-item-image-link\\"><img src=\\"fake\\" alt=\\"\\"></a><a href=\\"http://discover.sprint.launchmetrics.com/r/d/2GT8E24urGs=_ckkDAAAAAAAAAAAAAAAAAA==\\" target=\\"_blank\\" rel=\\"noopener noreferrer\\" type=\\"main\\" class=\\"document-item-image-link active-image\\"><img src=\\"fake\\" alt=\\"\\"></a></div>"`;

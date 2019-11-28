@@ -40,7 +40,7 @@ const FormNumberField = (props: ComponentProps) => {
 	return <TextField
 		type="number"
 		id={`formNumberField-${element.id}`}
-		className={`discover-form-number-field ${element.className || ""}`}
+		className={`react-base-form-number-field ${element.className || ""}`}
 		label={has(element, 'label.key') ? t(get(element, 'label.key')) : element.label}
 		value={value}
 		onChange={__onChangeHandler}

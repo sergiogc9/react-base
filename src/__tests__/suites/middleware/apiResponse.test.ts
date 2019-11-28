@@ -19,8 +19,8 @@ jest.mock('@src/config/apiSuccess', () => (
 			API_CALL_ACTION_2: {
 				t: "success_translation_key",
 				level: "success"
-			},
-		},
+			}
+		}
 	}
 ));
 
@@ -49,9 +49,9 @@ jest.mock('@src/config/apiErrors', () => (
 				API_USER_ERROR_2: {
 					t: ["user_error_translation_2", { user: "The user call failed" }],
 					level: "warning"
-				},
+				}
 			}
-		},
+		}
 	}
 ));
 
@@ -133,7 +133,6 @@ describe("Test api response middleware", () => {
 	it("Notification should contain text response from api error message", () => {
 		const error = 'API_ERROR_2';
 		store.dispatch(buildAction('error', 'api_actions_group', 'API_ERROR_ACTION', { error }));
-		const lastAction = store.getActions()[0];
 		expect(getNotificationAction(store)).toMatchObject({
 			t: "translation_key",
 			level: "info"

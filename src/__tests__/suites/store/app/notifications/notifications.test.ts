@@ -162,26 +162,6 @@ describe('TenantListMentions reducer', () => {
 			.silentRun(); // silentRun to hide timeout warning. this saga uses takeLatest so it never ends. Default timeout is 250 ms
 	});
 
-	it('saga should queue config translated notification', () => {
-		const text = 'notification_text_plural';
-		i18n.addResourceBundle(i18n.language, 'translation', { _testText_plural: text });
-		const translatedQueueNotification = { ...queueNotification, text } as QueueNotification;
-		return expectSaga(sagas)
-			.withReducer(reducers)
-			.withState(getFullState()) // withState always after withReducer
-			.put(operators.queue({ notification: translatedQueueNotification }))
-			.dispatch(operators.add({ notification: { t: ['_testText', { count: 2 }] } }))
-			.hasFinalState(getFullState({
-				app: {
-					notifications: {
-						queue: [translatedQueueNotification],
-						nextId: 2
-					}
-				}
-			}))
-			.silentRun(); // silentRun to hide timeout warning. this saga uses takeLatest so it never ends. Default timeout is 250 ms
-	});
-
 	it('saga should queue buttonText notification', () => {
 		const buttonTextQueueNotification = { ...queueNotification, buttonText: 'some_text' } as QueueNotification;
 		return expectSaga(sagas)

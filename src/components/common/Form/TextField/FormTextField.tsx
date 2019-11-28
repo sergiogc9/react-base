@@ -42,7 +42,7 @@ const FormTextField = (props: ComponentProps) => {
 	return <TextField
 		type="text"
 		id={`formTextField-${element.id}`}
-		className={`discover-form-text-field ${element.className || ""}`}
+		className={`react-base-form-text-field ${element.className || ""}`}
 		label={has(element, 'label.key') ? t(get(element, 'label.key')) : element.label}
 		value={value}
 		onChange={__onChangeHandler}

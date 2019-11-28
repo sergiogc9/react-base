@@ -38,7 +38,7 @@ const FormFileField = (props: ComponentProps) => {
 	const onRemoveFile = React.useCallback(() => setFiles(null), []);
 
 	return (
-		<div className='discover-form-file-field' >
+		<div className='react-base-form-file-field' >
 			<Dropzone
 				files={files || []}
 				multiple={element.multiple}

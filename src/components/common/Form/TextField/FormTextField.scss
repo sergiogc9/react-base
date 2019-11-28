@@ -2,7 +2,7 @@
 @import "@src/scss/_mixins.scss";
 @import "@src/scss/_variables.scss";
 
-.discover-form-text-field {
+.react-base-form-text-field {
 	@include textInput("darker");
 	label {
 		font-size: 1.2rem;
