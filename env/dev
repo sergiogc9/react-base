@@ -1,1 +1,3 @@
-REACT_APP_API_URL=https://test.api-base.com
+REACT_APP_ENVIRONMENT=dev
+
+HTTPS=true

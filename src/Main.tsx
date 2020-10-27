@@ -1,22 +1,33 @@
 import React from 'react';
+import { BrowserRouter as Router } from 'react-router-dom';
 import { Provider } from 'react-redux';
-import { ConnectedRouter } from 'connected-react-router';
-import { I18nextProvider } from 'react-i18next';
+import { ReactQueryCacheProvider, QueryCache } from "react-query";
+import { ReactQueryDevtools } from "react-query-devtools";
 
-import i18n from '@src/lib/i18n';
-import { history, store } from './store';
-import App from './components/App';
+import { store } from 'store';
+import ThemeProvider from 'ui/components/ThemeProvider';
+import App from 'components/App';
+import config from 'config';
 
-import './Main.scss';
+const queryCache = new QueryCache();
 
-export default function Main() {
+const Main: React.FC = () => {
+
 	return (
 		<Provider store={store}>
-			<I18nextProvider i18n={i18n}>
-				<ConnectedRouter history={history}>
-					<App />
-				</ConnectedRouter>
-			</I18nextProvider>
+			<Router>
+				<ReactQueryCacheProvider queryCache={queryCache}>
+					<ThemeProvider>
+						<>
+							<App />
+							{config.isDevelopmentEnvironment() && <ReactQueryDevtools />}
+						</>
+					</ThemeProvider>
+				</ReactQueryCacheProvider>
+			</Router>
 		</Provider>
 	);
-}
+};
+
+
+export default React.memo(Main);

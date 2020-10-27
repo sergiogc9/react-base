@@ -1,0 +1,3 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Button should render text 1`] = `"<div><button class=\\"MuiButtonBase-root MuiButton-root MuiButton-text sc-bdnylx hpzcRJ MuiButton-colorInherit\\" tabindex=\\"0\\" type=\\"button\\"><span class=\\"MuiButton-label\\">This is a test button!</span><span class=\\"MuiTouchRipple-root\\"></span></button></div>"`;

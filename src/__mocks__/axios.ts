@@ -1,14 +1,3 @@
-import axiosMock from 'jest-mock-axios';
-
-// add missing axios request mock
-axiosMock.request = jest.fn(({ url, method, ...config }: { url: string, method: string, config: object }) => axiosMock.get(url, null, config));
-
-const mockReset = axiosMock.reset;
-axiosMock.reset = () => {
-	mockReset();
-	// add missing mockClear
-	axiosMock.request.mockClear();
-	axiosMock.create.mockClear();
-};
-
-export default axiosMock;
+import mockAxios from 'jest-mock-axios';
+mockAxios.create = (() => ({ request: (config: any) => mockAxios.request(config) })) as any; // Needed after CRA v4 and jest v26
+export default mockAxios;

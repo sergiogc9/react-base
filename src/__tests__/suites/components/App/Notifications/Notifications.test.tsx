@@ -1,108 +1,73 @@
-import React from 'react';
+import React from "react";
+import { waitFor } from "@testing-library/react";
+import userEvent from '@testing-library/user-event';
 
-import { mount } from 'enzyme';
-import Snackbar from 'react-md/lib/Snackbars/SnackbarContainer';
+import { renderWithStore, StateSlice } from "__tests__/utils/redux";
+import { actions } from 'store/notifications';
+import Notifications from "components/App/Notifications/NotificationsProvider";
 
-import Notifications from '@src/components/App/Notifications/Notifications';
+const reloadPageMock = jest.fn();
+describe('Notifications', () => {
 
-describe('<Notifications />', () => {
-	let wrapper: any;
+	const renderComponent = (stateSlice: StateSlice = {}) => renderWithStore(<Notifications />, stateSlice);
 
 	beforeEach(() => {
-		wrapper = mount((<Notifications
-			notifications={[]}
-			onAddNotification={() => { }}
-			onUnqueueNotification={() => { }}
-		></Notifications>));
-		jest.useFakeTimers();
-	});
-
-	it('should not render <Snackbar /> when not receiving notifications', () => {
-		expect(wrapper.find(Snackbar)).toHaveLength(0);
-	});
-
-	it('should render <Snackbar /> when receiving notifications', () => {
-		wrapper.setProps({ notifications: [{ text: "Notificació", level: "info" }] });
-		expect(wrapper.find(Snackbar)).toHaveLength(1);
-	});
-
-	it('should render <Snackbar /> with success class only', () => {
-		wrapper.setProps({ notifications: [{ text: "Notificació", level: "success" }] });
-		expect(wrapper.find(Snackbar).hasClass('success')).toEqual(true);
-		expect(wrapper.find(Snackbar).hasClass('info')).toEqual(false);
-		expect(wrapper.find(Snackbar).hasClass('warning')).toEqual(false);
-		expect(wrapper.find(Snackbar).hasClass('danger')).toEqual(false);
-	});
-
-	it('should render <Snackbar /> with info class only', () => {
-		wrapper.setProps({ notifications: [{ text: "Notificació", level: "info" }] });
-		expect(wrapper.find(Snackbar).hasClass('success')).toEqual(false);
-		expect(wrapper.find(Snackbar).hasClass('info')).toEqual(true);
-		expect(wrapper.find(Snackbar).hasClass('warning')).toEqual(false);
-		expect(wrapper.find(Snackbar).hasClass('danger')).toEqual(false);
-	});
-
-	it('should render <Snackbar /> with warning class only', () => {
-		wrapper.setProps({ notifications: [{ text: "Notificació", level: "warning" }] });
-		expect(wrapper.find(Snackbar).hasClass('success')).toEqual(false);
-		expect(wrapper.find(Snackbar).hasClass('info')).toEqual(false);
-		expect(wrapper.find(Snackbar).hasClass('warning')).toEqual(true);
-		expect(wrapper.find(Snackbar).hasClass('danger')).toEqual(false);
-	});
-
-	it('should render <Snackbar /> with danger class only', () => {
-		wrapper.setProps({ notifications: [{ text: "Notificació", level: "danger" }] });
-		expect(wrapper.find(Snackbar).hasClass('success')).toEqual(false);
-		expect(wrapper.find(Snackbar).hasClass('info')).toEqual(false);
-		expect(wrapper.find(Snackbar).hasClass('warning')).toEqual(false);
-		expect(wrapper.find(Snackbar).hasClass('danger')).toEqual(true);
-	});
-
-	it('should render <Snackbar /> and then disappear after timeout', done => {
-		wrapper.setProps({
-			notifications: [{ text: "Notificació", level: "info", timeout: 3000 }],
-			onUnqueueNotification: () => {
-				wrapper.setProps({ notifications: [] });
-			}
+		Object.defineProperty(window, 'location', {
+			writable: true,
+			value: { reload: reloadPageMock }
 		});
-		expect(wrapper.find(Snackbar)).toHaveLength(1);
-
-		setTimeout(() => {
-			expect(wrapper.find(Snackbar)).toHaveLength(0);
-			done();
-		}, 4000);
-
-		jest.runAllTimers();
 	});
 
-	it('should render <Snackbar /> and keep it without timeout', done => {
-		wrapper.setProps({
-			notifications: [{ text: "Notificació", level: "info", timeout: false }],
-			onUnqueueNotification: () => {
-				wrapper.setProps({ notifications: [] });
-			}
-		});
-		expect(wrapper.find(Snackbar)).toHaveLength(1);
-
-		setTimeout(() => {
-			expect(wrapper.find(Snackbar)).toHaveLength(1);
-			done();
-		}, 4000);
-
-		jest.runAllTimers();
+	it("should render a notification with text", async () => {
+		const { getByText, store } = renderComponent();
+		store.dispatch(actions.addNotification({ text: 'Fake notification' }));
+		await waitFor(() => expect(getByText('Fake notification')).toBeInTheDocument());
 	});
 
-	it("check bug when notifications have same id", done => {
-		wrapper.setProps({ notifications: [{ id: 1, text: "First notification", level: "danger" }] });
-		expect(wrapper.find(Snackbar).props().toasts).toEqual([{ id: 1, text: "First notification", level: "danger" }]);
-		setTimeout(() => {
-			wrapper.setProps({ notifications: [] });
-			expect(wrapper.find(Snackbar)).toHaveLength(0);
-			wrapper.setProps({ notifications: [{ id: 1, text: "Second notification", level: "success" }] });
-			expect(wrapper.find(Snackbar).props().toasts).toEqual([{ id: 1, text: "Second notification", level: "success" }]);
-			done();
-		}, 6000);
+	it("should render a notification using a simple i18n key", async () => {
+		const { getByText, store } = renderComponent();
+		store.dispatch(actions.addNotification({ t: 'fake-key' }));
+		await waitFor(() => expect(getByText('fake-key')).toBeInTheDocument());
+	});
 
-		jest.runAllTimers();
+	it("should render a notification using a interpolated i18n key", async () => {
+		const { getByText, store } = renderComponent();
+		store.dispatch(actions.addNotification({ t: ['fake-key', { message: 'Message' }] }));
+		await waitFor(() => expect(getByText('fake-key')).toBeInTheDocument());
+	});
+
+	it("should render a reload button", async () => {
+		const { getByText, store } = renderComponent();
+		store.dispatch(actions.addNotification({ text: 'Fake notification', reload: true }));
+		await waitFor(() => expect(getByText('Reload')).toBeInTheDocument());
+	});
+
+	it("should reload page if reload button is clicked", async () => {
+		const { getByText, store } = renderComponent();
+		store.dispatch(actions.addNotification({ text: 'Fake notification', reload: true }));
+		await waitFor(() => expect(getByText('Reload')).toBeInTheDocument());
+		userEvent.click(getByText('Reload'));
+		expect(reloadPageMock).toHaveBeenCalledTimes(1);
+	});
+
+	it("should render a close button if timeout is disabled", async () => {
+		const { getByText, store } = renderComponent();
+		store.dispatch(actions.addNotification({ text: 'Fake notification', timeout: false }));
+		await waitFor(() => expect(getByText('Close')).toBeInTheDocument());
+	});
+
+	it("should close notification when close button is clicked", async () => {
+		const { getByText, queryByText, store } = renderComponent();
+		store.dispatch(actions.addNotification({ text: 'Fake notification', timeout: false }));
+		await waitFor(() => expect(getByText('Close')).toBeInTheDocument());
+		userEvent.click(getByText('Close'));
+		await waitFor(() => expect(queryByText('Close')).toBe(null));
+	});
+
+	it("should not render multiple times a notification when more than one is added", async () => {
+		const { getAllByText, store } = renderComponent();
+		store.dispatch(actions.addNotification({ text: 'Fake notification', timeout: false }));
+		store.dispatch(actions.addNotification({ text: 'Fake notification 2', timeout: false }));
+		await waitFor(() => expect(getAllByText(/Fake notification/).length).toBe(2));
 	});
 });

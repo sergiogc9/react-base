@@ -1,0 +1,9 @@
+{
+  "example_text_with_interpolation": "Example of text using interpolation. Environment is {{environment}}",
+  "example_text_without_interpolation": "Example of text using i18n",
+  "api": {
+    "default_error": "An API error ocurred. Please try again.",
+    "error_with_message": "An API error ocurred with message: {{message}}",
+    "success": "The action has been performed successfully"
+  }
+}

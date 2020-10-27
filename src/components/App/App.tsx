@@ -1,30 +1,26 @@
 import React from 'react';
-import PacmanLoader from "react-spinners/PacmanLoader";
 
-import Notifications from '@src/components/App/Notifications';
-import { ComponentProps } from './types';
+import NotificationsProvider from './Notifications/NotificationsProvider';
+import PublicRoutes from './Routes/PublicRoutes';
+import PrivateRoutes from './Routes/PrivateRoutes';
+import GlobalStyle from './GlobalStyle';
 
-import { withT } from '@src/lib/i18n';
+// TODO remove css file!
+import './App.css';
 
-import './App.scss';
+const App: React.FC = () => {
 
-class App extends React.Component<ComponentProps> {
+	const authenticated = true; // TODO: get correct value
 
-	public componentDidMount() {
-		const { authenticated, onAuth } = this.props;
-		if (!authenticated) onAuth();
-	}
+	return (
+		<div id="app" className="App">
+			<GlobalStyle />
+			<NotificationsProvider>
+				{authenticated && <PrivateRoutes />}
+				<PublicRoutes />
+			</NotificationsProvider>
+		</div>
+	);
+};
 
-	public render() {
-		const { authenticated } = this.props;
-
-		if (!authenticated) return (<div id="appLoader"><PacmanLoader color="#4df7b9" size={35} /></div>);
-		return (
-			<div id="app">
-				<Notifications />
-			</div>
-		);
-	}
-}
-
-export default withT(App);
+export default React.memo(App);

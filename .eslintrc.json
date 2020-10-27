@@ -1,8 +1,16 @@
 {
-	"extends": "react-app",
+	"extends": [
+		"react-app",
+		"plugin:testing-library/react",
+		"plugin:jest-dom/recommended"
+	],
+	"plugins": [
+		"testing-library",
+		"jest-dom"
+	],
 	"rules": {
 		"semi": [
-			"error",
+			"warn",
 			"always"
 		],
 		"arrow-parens": [
@@ -43,6 +51,7 @@
 			}
 		],
 		"no-throw-literal": "off",
-		"no-useless-escape": "off"
+		"no-useless-escape": "off",
+		"import/no-anonymous-default-export": "off"
 	}
 }

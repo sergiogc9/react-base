@@ -1,9 +1,0 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`Image common component Component default snapshot 1`] = `"<img src=\\"http://fakeurl.com\\" alt=\\"\\">"`;
-
-exports[`Image common component Component snapshot with component fallback 1`] = `"<div>Fallback component</div>"`;
-
-exports[`Image common component Component snapshot with component fallback in children 1`] = `"<div>Fallback component in children</div>"`;
-
-exports[`Image common component Component snapshot with fallbackUrl 1`] = `"<img src=\\"http://fallback.fake.url\\" alt=\\"\\">"`;

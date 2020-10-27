@@ -1,8 +1,10 @@
-import { RouterState } from 'connected-react-router';
-import { State as AppState } from './app';
+import { State as entitiesState } from './entities';
+import { State as notificationsState } from './notifications';
+import { State as UIState } from './ui';
 
 // export root store state interface
 export interface State {
-	app: AppState;
-	router: RouterState;
+	entities: entitiesState
+	notifications: notificationsState
+	ui: UIState
 }
