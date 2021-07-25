@@ -1,5 +1,10 @@
 ℹ️ This repository has the boilerplate code based on React (CRA), Typescript, jest and others for my personal projects.
 
+It uses other personal React projects:
+
+- [React UI Library](https://github.com/sergiogc9/react-ui)
+- [React Libraries](https://github.com/sergiogc9/react)
+
 ## Getting started
 
 1. First, install the correct NodeJS version. You can check the version in `.nvmrc` file.
