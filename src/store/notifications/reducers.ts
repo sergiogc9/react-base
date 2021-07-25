@@ -1,8 +1,8 @@
-import { createSlice, getReducer } from 'lib/store/reducer';
+import { createSlice, getReducer } from '@sergiogc9/react-utils';
 import { Notification } from 'types/notification';
 
 export type State = {
-	items: Record<string, Notification>
+	readonly items: Record<string, Notification>;
 };
 
 export const INITIAL_STATE: State = {
@@ -13,7 +13,9 @@ const addNotification = getReducer<State, Notification>((state, { payload: notif
 	const key = `${new Date().getTime()}${Math.floor(Math.random() * 1000000)}`;
 	state.items[key] = notification;
 });
-const removeNotification = getReducer<State, string>((state, { payload: key }) => { delete state.items[key]; });
+const removeNotification = getReducer<State, string>((state, { payload: key }) => {
+	delete state.items[key];
+});
 
 const { actions, reducer } = createSlice({
 	name: '@@notifications',

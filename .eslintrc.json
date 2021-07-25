@@ -1,57 +1,7 @@
 {
-	"extends": [
-		"react-app",
-		"plugin:testing-library/react",
-		"plugin:jest-dom/recommended"
-	],
-	"plugins": [
-		"testing-library",
-		"jest-dom"
-	],
-	"rules": {
-		"semi": [
-			"warn",
-			"always"
-		],
-		"arrow-parens": [
-			"error",
-			"as-needed"
-		],
-		"max-len": [
-			"error",
-			{
-				"code": 200,
-				"ignoreComments": true
-			}
-		],
-		"indent": [
-			"error",
-			"tab",
-			{
-				"SwitchCase": 1
-			}
-		],
-		"comma-dangle": [
-			"error",
-			"never"
-		],
-		"sort-keys": "off",
-		"sort-imports": "off",
-		"max-classes-per-file": "off",
-		"curly": "off",
-		"no-empty": "error",
-		"space-in-parens": [
-			"error",
-			"never"
-		],
-		"array-callback-return": [
-			"warn",
-			{
-				"allowImplicit": true
-			}
-		],
-		"no-throw-literal": "off",
-		"no-useless-escape": "off",
-		"import/no-anonymous-default-export": "off"
+	"root": true,
+	"extends": ["@sergiogc9/eslint-config/all"],
+	"parserOptions": {
+		"project": "./tsconfig.json"
 	}
 }

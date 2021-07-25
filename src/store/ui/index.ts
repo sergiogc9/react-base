@@ -9,7 +9,7 @@ export const reducer = combineReducers({
 });
 
 export interface State {
-	_: _root.State,
+	_: _root.State;
 	counter: counter.State;
 }
 
@@ -18,5 +18,6 @@ export const INITIAL_STATE = {
 	counter: counter.INITIAL_STATE
 };
 
-const actions = _root.actions;
+const { actions } = _root;
+
 export { actions };

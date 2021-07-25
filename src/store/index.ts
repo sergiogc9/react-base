@@ -5,12 +5,14 @@ import sagas from 'store/sagas';
 import { getMiddleware, sagaMiddleware } from 'middleware';
 import { State } from './types';
 
+import * as auth from './auth';
 import * as entities from './entities';
 import * as notifications from './notifications';
 import * as ui from './ui';
 
 // create reducers
 export const reducers = combineReducers({
+	auth: auth.reducer,
 	entities: entities.reducer,
 	notifications: notifications.reducer,
 	ui: ui.reducer

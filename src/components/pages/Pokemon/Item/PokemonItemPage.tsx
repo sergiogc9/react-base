@@ -1,17 +1,43 @@
 import React from 'react';
+import { useParams } from 'react-router-dom';
+import { Box, Content, Grid, Title } from '@sergiogc9/react-ui';
+
+import Loading from 'components/ui/Loading';
 import { useGetPokemonItem } from 'queries/pokemon';
 
 const PokemonItemPage: React.FC = () => {
-	const { data, isLoading } = useGetPokemonItem("10");
+	const params = useParams();
+
+	const { data: pokemon, isLoading } = useGetPokemonItem(params.id);
 
 	return (
-		<div>
-			<p>Pokemon item page</p>
-			{isLoading && <p>Loading!</p>}
-			{data && <p>Name: {data.name}</p>}
-			{data && <p>Experience: {data.base_experience}</p>}
-		</div>
+		<Box alignItems="center" flexDirection="column" id="pokemonItemPage" width="100%">
+			<Title aspectSize="l">Pokemon item page</Title>
+			{isLoading && <Loading />}
+			{pokemon && (
+				<Grid mt={5} width={300}>
+					<Grid.Box columns={6}>
+						<Content fontWeight="bold">ID:</Content>{' '}
+					</Grid.Box>
+					<Grid.Box columns={6} justifyContent="flex-end">
+						{pokemon.id}
+					</Grid.Box>
+					<Grid.Box columns={6}>
+						<Content fontWeight="bold">Name:</Content>{' '}
+					</Grid.Box>
+					<Grid.Box columns={6} justifyContent="flex-end">
+						{pokemon.name}
+					</Grid.Box>
+					<Grid.Box columns={6}>
+						<Content fontWeight="bold">Base experience:</Content>{' '}
+					</Grid.Box>
+					<Grid.Box columns={6} justifyContent="flex-end">
+						{pokemon.base_experience}
+					</Grid.Box>
+				</Grid>
+			)}
+		</Box>
 	);
 };
 
-export default PokemonItemPage;
+export default React.memo(PokemonItemPage);

@@ -11,13 +11,10 @@ const resources = {
 	es: { translation: esLocales }
 };
 
-i18n
-	.use(LanguageDetector)
-	.use(initReactI18next)
-	.init({
-		debug: config.isDevelopmentEnvironment(),
-		resources,
-		fallbackLng: 'en'
-	});
+i18n.use(LanguageDetector).use(initReactI18next).init({
+	debug: config.isDevelopmentEnvironment(),
+	resources,
+	fallbackLng: 'en'
+});
 
 export default i18n;

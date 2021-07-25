@@ -1,18 +1,20 @@
 import axios, { AxiosInstance, AxiosRequestConfig } from 'axios';
-import { get } from 'lib/imports/lodash';
+// import { DateTime } from 'luxon';
+import { get, lowerFirst, transform } from 'lib/imports/lodash';
 
-import config from 'config';
+import appConfig from 'config';
+import authManager from 'lib/auth';
 
-type Method = 'get' | 'post' | 'put' | 'patch' | 'delete';
+import { ApiLanguage, ApiMethod } from './types';
 
 export default class Api {
-
-	private _client: AxiosInstance;
-	private _refreshSessionPromise: Promise<void> | null = null;
+	protected _client: AxiosInstance;
+	private static language: ApiLanguage = 'en';
 
 	constructor() {
 		const apiConfig: AxiosRequestConfig = {
-			baseURL: config.apiUrl + 'Web/v1/',
+			maxRedirects: 0,
+			baseURL: `${appConfig.apiUrl}/v2/`,
 			headers: {
 				'Content-Type': 'application/json'
 			}
@@ -20,11 +22,22 @@ export default class Api {
 		this._client = axios.create(apiConfig);
 	}
 
-	private async _request<T = any>(method: Method, url: string, config: AxiosRequestConfig = {}, retry: number = 0): Promise<T> {
-		// if (Api._isTokenExpired()) await this._refreshSession(); // TODO use instance method instead of static?
+	private async _request<T = any>(
+		method: ApiMethod,
+		url: string,
+		config: AxiosRequestConfig = {},
+		retry = 0
+	): Promise<T> {
+		// if (await this.__isTokenExpired()) await this.__refreshSession(); // TODO! uncomment once implemented
 
-		const requestConfig: AxiosRequestConfig = { headers: {}, ...config, method, url };
-		// requestConfig.headers.Authorization = 'Bearer ' + Api._token(); // TODO use instance method instead of static?
+		const requestConfig: AxiosRequestConfig = {
+			headers: {},
+			...config,
+			method,
+			url
+		};
+		// requestConfig.headers['Accept-Language'] = Api.language; // TODO! uncomment once implemented
+		// requestConfig.headers.Authorization = `Bearer ${await this.__getToken()}`; // TODO! uncomment once implemented
 
 		try {
 			const response = await this._client.request(requestConfig);
@@ -32,17 +45,36 @@ export default class Api {
 		} catch (err) {
 			if (axios.isCancel(err)) throw { code: 'AXIOS_CANCELLED', message: 'request cancelled' };
 
-			const error = get(err, "response.data");
-			// if (!error) throw { code: 'API_DOWN', message: 'Api is down' };
-			// if (!error.code) throw { code: 'API_UNKNOWN_ERROR', message: 'Api unknown error' };
-			// if (error.code === 'OAUTH2_TOKEN_NOT_VALID') {
-			// 	if (retry < 2) {
-			// 		// await this._refreshSession();
-			// 		return this._request(method, url, config, ++retry);
-			// 	}
-			// 	throw { code: 'API_AUTHENTICATION_FAILED', message: 'Could not authenticate' };
-			// }
-			throw error;
+			const errorCode = get(err, 'response.data.code');
+			// Handle non controlled api errors
+			if (!errorCode) {
+				const statusCode = get(err, 'response.status');
+				if (statusCode === 401) {
+					// Authentication error
+					if (retry < 2) {
+						await this.__refreshSession();
+						return this._request(method, url, config, ++retry);
+					}
+					authManager.redirectToSSO();
+					throw { code: 'API_AUTHENTICATION_FAILED', message: 'Could not authenticate' };
+				} else if (statusCode) throw { code: 'API_ERROR', message: `API error: (${statusCode})` };
+				else throw { code: 'API_DOWN', message: 'Api is down' };
+			}
+			// Handle controlled api errors
+			if (get(err, 'response.data.validationErrors')) {
+				err.response.data.validationErrors = transform<string, Record<string, string>>(
+					err.response.data.validationErrors,
+					(result, value, key: string) => {
+						result[lowerFirst(key)] = value;
+					},
+					{}
+				);
+			}
+			throw {
+				code: errorCode,
+				message: get(err, 'response.data.userMessages[0]'),
+				data: get(err, 'response.data')
+			};
 		}
 	}
 
@@ -66,53 +98,27 @@ export default class Api {
 		return this._request<T>('delete', url, config);
 	}
 
-	// request updated session with new token and updated profile
-	// private async _refreshSession() {
-	// 	if (this._refreshSessionPromise) {
-	// 		await this._refreshSessionPromise;
-	// 	} else {
-	// 		this._refreshSessionPromise = new Promise(async resolve => {
-	// 			Api.clearAuthData(); // prevent new requests with expired token
-	// 			const session = await server.getUpdatedSession();
-	// 			Api.setAuthData(session.api); // update token
-	// 			dispatchSetProfile(session.profile); // update profile
-	// 			resolve();
-	// 		});
-	// 		await this._refreshSessionPromise;
-	// 		this._refreshSessionPromise = null;
-	// 	}
-	// }
-
-	// private static _token(): string | null {
-	// 	return terStorage.getToken();
-	// }
-
-	// private static _isTokenExpired(): boolean {
-	// 	const expiration = terStorage.getTokenExpiresAt();
-	// 	return !expiration || moment().isAfter(expiration);
-	// }
-
-	// public static setAuthData(sessionApiData: Session['api']) {
-	// 	terStorage.setToken(sessionApiData.token);
-	// 	terStorage.setTokenExpiresAt(sessionApiData.token_expires_at);
-	// }
-
-	// public static clearAuthData() {
-	// 	terStorage.clear();
-	// }
+	public static setLanguage(language: ApiLanguage) {
+		Api.language = language;
+	}
 
 	public static getCancelTokenSource() {
 		return axios.CancelToken.source();
 	}
-}
 
-// dispatch function requires connection with store
-// type DispatchSetProfile = (session: Session['profile']) => void;
-// let dispatchSetProfile: DispatchSetProfile = () => {
-// 	console.error('[Api] Store not connected in order to dispatch setSession action');
-// };
-// export function connectApi(store: Store) {
-// 	dispatchSetProfile = (profile: Session['profile']) => {
-// 		store.dispatch(profileOperators.setProfile(profile));
-// 	};
-// }
+	private async __refreshSession() {
+		await authManager.doLogin();
+	}
+
+	// private async __getToken() {
+	// 	const user = await authManager.getUser();
+	// 	if (!user) return null;
+	// 	return user.access_token;
+	// }
+
+	// private async __isTokenExpired() {
+	// 	const user = await authManager.getUser();
+	// 	if (!user) return true;
+	// 	return DateTime.fromSeconds(user.expires_at) < DateTime.now();
+	// }
+}

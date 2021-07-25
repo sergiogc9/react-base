@@ -9,6 +9,7 @@ import selectors from 'store/notifications/selectors';
 
 const notificationsQueued: Record<string, true> = {};
 
+// TODO: stop using notistack and material-ui dependency!
 const NotificationsNotifier: React.FC = () => {
 	const { t } = useTranslation();
 
@@ -24,10 +25,25 @@ const NotificationsNotifier: React.FC = () => {
 			if (notificationsQueued[key]) return;
 
 			let action;
-			if (notification.reload) action = () => <button onClick={__reloadPage}>Reload</button>;
-			else if (notification.timeout === false) action = (key: string) => <button onClick={() => { closeSnackbar(key); }}>Close</button>;
+			if (notification.reload)
+				action = () => (
+					<button onClick={__reloadPage} type="button">
+						Reload
+					</button>
+				);
+			else if (notification.timeout === false)
+				action = (notificationKey: string) => (
+					<button
+						onClick={() => {
+							closeSnackbar(notificationKey);
+						}}
+						type="button"
+					>
+						Close
+					</button>
+				);
 
-			let text: string = "";
+			let text = '';
 			if (notification.text) text = notification.text;
 			// If using i18n interpolation
 			else if (notification.t && isArray(notification.t)) text = t(notification.t[0], notification.t[1]);

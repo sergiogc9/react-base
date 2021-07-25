@@ -127,9 +127,15 @@ Disable notifications for a specific api response code:
 }
 */
 
+const __isNotificationConfig = (candidate: any) => {
+	if (candidate === false) return true;
+	if (isObject(candidate) && ('t' in candidate || 'text' in candidate)) return true;
+	return false;
+};
+
 export const defaultApiErrorNotification: Notification = {
-	t: "api.default_error",
-	level: "error"
+	t: 'api.default_error',
+	level: 'error'
 };
 
 export const getNotificationFromConfigResult = (response: any, configResult?: ApiConfigNotification): Notification => {
@@ -156,7 +162,13 @@ export const getNotificationFromConfigResult = (response: any, configResult?: Ap
 		- false if config found with a false value
 		- null if not config found
 */
-export const getNotificationConfig = (library: 'redux' | 'reactQuery', config: ApiConfig, actionGroup: string, actionName: string, responseCode: string): Notification | false | undefined => {
+export const getNotificationConfig = (
+	library: 'redux' | 'reactQuery',
+	config: ApiConfig,
+	actionGroup: string,
+	actionName: string,
+	responseCode: string
+): Notification | false | undefined => {
 	// Check for action type and code specific config
 	let result = get(config, [library, actionGroup, actionName, responseCode]);
 	if (__isNotificationConfig(result)) return result;
@@ -167,13 +179,7 @@ export const getNotificationConfig = (library: 'redux' | 'reactQuery', config: A
 	result = get(config, [library, actionGroup]);
 	if (__isNotificationConfig(result)) return result;
 	// Check for common response type config
-	result = get(config, ["common", responseCode]);
+	result = get(config, ['common', responseCode]);
 	if (__isNotificationConfig(result)) return result;
 	return undefined;
-};
-
-const __isNotificationConfig = (candidate: any) => {
-	if (candidate === false) return true;
-	if (isObject(candidate) && ('t' in candidate || 'text' in candidate)) return true;
-	return false;
 };

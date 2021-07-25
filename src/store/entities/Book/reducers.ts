@@ -1,11 +1,13 @@
 import { createEntityAdapter, createSlice } from '@reduxjs/toolkit';
-import { getEntityFetchReducers } from 'lib/store/reducer';
+import { getEntityFetchReducers } from '@sergiogc9/react-utils';
 
 import { Book, State } from './types';
 
 const entityAdapter = createEntityAdapter<Book>();
 
-export const INITIAL_STATE: State = entityAdapter.getInitialState({ status: 'pending' });
+export const INITIAL_STATE: State = entityAdapter.getInitialState({
+	status: 'pending'
+});
 
 const [fetchBooksStart, fetchBooksSuccess, fetchBooksError] = getEntityFetchReducers<Book>();
 
@@ -22,7 +24,9 @@ const { actions, reducer } = createSlice({
 		updateMany: entityAdapter.updateMany,
 		upsertOne: entityAdapter.upsertOne,
 		upsertMany: entityAdapter.upsertMany,
-		fetchBooksStart, fetchBooksSuccess, fetchBooksError
+		fetchBooksStart,
+		fetchBooksSuccess,
+		fetchBooksError
 	}
 });
 

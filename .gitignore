@@ -19,10 +19,11 @@
 .env.test.local
 .env.production.local
 .env
+.eslintcache
 
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
-# Storybook
-/storybook-static
+# HTTPS local certificates
+.cert

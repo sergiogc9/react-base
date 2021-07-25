@@ -1,11 +1,20 @@
 import { createSelector } from '@reduxjs/toolkit';
 
 import { State as RootState } from 'store/types';
-import { EntityResource } from '.';
+
+type EntityResource = 'author' | 'book';
 
 const rootSelector = (state: RootState) => state.entities;
 
 export default {
-	getEntityFetchStatus: createSelector(rootSelector, (_: RootState, entityType: EntityResource) => entityType, (state, resource) => state[resource].status),
-	isEntityFetched: createSelector(rootSelector, (_: RootState, entityType: EntityResource) => entityType, (state, resource) => state[resource].status === 'loaded')
+	getEntityFetchStatus: createSelector(
+		rootSelector,
+		(rootState: RootState, entityType: EntityResource) => entityType,
+		(state, resource) => state[resource].status
+	),
+	isEntityFetched: createSelector(
+		rootSelector,
+		(rootState: RootState, entityType: EntityResource) => entityType,
+		(state, resource) => state[resource].status === 'loaded'
+	)
 };

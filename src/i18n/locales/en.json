@@ -1,9 +1,44 @@
 {
-  "example_text_with_interpolation": "Example of text using interpolation. Environment is {{environment}}",
-  "example_text_without_interpolation": "Example of text using i18n",
-  "api": {
-    "default_error": "An API error ocurred. Please try again.",
-    "error_with_message": "An API error ocurred with message: {{message}}",
-    "success": "The action has been performed successfully"
-  }
+	"api": {
+		"default_error": "An API error ocurred. Please try again.",
+		"error_with_message": "An API error ocurred with message: {{message}}",
+		"google_maps_api_error": "The Google Maps API is not available right now"
+	},
+	"form": {
+		"changes_saved": "Changes saved successfully",
+		"error": {
+			"fields_required": "All fields are required",
+			"incorrect_option": "Select a valid option",
+			"input_required": "This field is required",
+			"wrong_email_format": "Enter a valid email address",
+			"wrong_phone_number": "Enter a valid phone number"
+		},
+		"label": {
+			"email": "Email",
+			"first_name": "Name",
+			"language": "Language",
+			"last_name": "Last name",
+			"phone_number": "Phone number"
+		},
+		"save_profile": "Save changes",
+		"stepper": {
+			"btn": {
+				"go_back": "Go Back",
+				"go_next": "Next Step"
+			}
+		}
+	},
+	"general": {
+		"language": {
+			"english": "English",
+			"spanish": "Spanish"
+		},
+		"logout": "Log out"
+	},
+	"pages": {
+		"main": {
+			"example_text_with_interpolation": "Example of text using interpolation. Environment is {{environment}}",
+			"example_text_without_interpolation": "Example of text using i18n"
+		}
+	}
 }

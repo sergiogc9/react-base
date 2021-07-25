@@ -1,8 +1,8 @@
 import { Config } from 'config';
 
 const prodConfig: Config = {
-	environment: "prod",
-	apiUrl: 'https://localhost:5001/API'
+	environment: 'prod',
+	apiUrl: 'https://pokeapi.co/api'
 };
 
 export default prodConfig;

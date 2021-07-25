@@ -1,4 +1,3 @@
-
 /**
  Property docs:
 	- text: The text itself to show in notification
@@ -36,7 +35,7 @@ This should show 'You don't have enough permissions'
 This should show: The user sergio does not exists
 */
 
-export type NotificationLevels = "success" | "info" | "warning" | "error";
+export type NotificationLevels = 'success' | 'info' | 'warning' | 'error';
 
 export type Notification = {
 	text?: string;
@@ -44,18 +43,18 @@ export type Notification = {
 	level?: NotificationLevels;
 	timeout?: number | false;
 	reload?: boolean;
-}
+};
 
 // From here, only used in config for api response middleware
 type InterpolationObject = {
 	[key: string]: string | { path: string }; // Path in payload for use in middleware, e.g.: "error.tenant"
-}
+};
 
 export type ApiConfigNotification = Omit<Notification, 'text' | 't'> & {
-	text?: string | { path: string },
-	t?: string | [string, InterpolationObject]
-}
+	text?: string | { path: string };
+	t?: string | [string, InterpolationObject];
+};
 
 export type ApiConfig = {
-	[key: string]: ApiConfig | ApiConfigNotification | false
-}
+	[key: string]: ApiConfig | ApiConfigNotification | false;
+};

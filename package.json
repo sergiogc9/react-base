@@ -1,113 +1,125 @@
 {
-  "name": "react-base",
-  "version": "0.1.0",
-  "private": true,
-  "author": "Sergio Gómez Cosgaya <sergiogcosgaya@gmail.com>",
-  "devDependencies": {
-    "@babel/core": "7.12.3",
-    "@storybook/addon-actions": "6.1.0-alpha.30",
-    "@storybook/addon-essentials": "6.1.0-alpha.30",
-    "@storybook/addon-links": "6.1.0-alpha.30",
-    "@storybook/node-logger": "6.1.0-alpha.30",
-    "@storybook/preset-create-react-app": "3.1.4",
-    "@storybook/react": "6.1.0-alpha.30",
-    "@testing-library/jest-dom": "5.11.5",
-    "@testing-library/react": "11.1.0",
-    "@testing-library/user-event": "12.1.10",
-    "@types/jest": "26.0.15",
-    "@types/lodash": "4.14.162",
-    "@types/node": "14.14.3",
-    "@types/react": "16.9.53",
-    "@types/react-dom": "16.9.8",
-    "@types/react-redux": "7.1.9",
-    "@types/redux-mock-store": "1.0.2",
-    "@types/styled-components": "5.1.4",
-    "@types/styled-system": "5.1.10",
-    "babel-loader": "8.1.0",
-    "eslint-plugin-jest-dom": "3.2.4",
-    "eslint-plugin-testing-library": "3.9.2",
-    "jest-junit": "12.0.0",
-    "jest-mock-axios": "4.2.1",
-    "mockdate": "3.0.2",
-    "react-is": "17.0.1",
-    "react-scripts": "4.0.0",
-    "redux-devtools-extension": "2.13.8",
-    "redux-mock-store": "1.5.4",
-    "redux-saga-test-plan": "4.0.1",
-    "typescript": "4.0.3"
-  },
-  "dependencies": {
-    "@material-ui/core": "4.11.0",
-    "@material-ui/icons": "4.9.1",
-    "@reduxjs/toolkit": "1.4.0",
-    "axios": "0.21.0",
-    "history": "5.0.0",
-    "i18next": "19.8.3",
-    "i18next-browser-languagedetector": "6.0.1",
-    "lodash": "4.17.20",
-    "notistack": "1.0.1",
-    "react": "17.0.1",
-    "react-dom": "17.0.1",
-    "react-i18next": "11.7.3",
-    "react-query": "2.25.2",
-    "react-query-devtools": "2.6.0",
-    "react-redux": "7.2.1",
-    "react-router-dom": "6.0.0-beta.0",
-    "redux-saga": "1.1.3",
-    "reselect": "4.0.0",
-    "styled-components": "5.2.0",
-    "styled-system": "5.1.5"
-  },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test --coverage --watchAll=false __tests__/suites --reporters=default --reporters=jest-junit",
-    "test:local": "react-scripts test __tests__/suites",
-    "test:local:file": "react-scripts test",
-    "env": "node env",
-    "storybook": "start-storybook -p 6006 -s public",
-    "build-storybook": "build-storybook -s public"
-  },
-  "engines": {
-    "node": "14.x.x",
-    "npm": ">=6.0.0"
-  },
-  "eslintConfig": {
-    "extends": "react-app"
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
-  },
-  "jest": {
-    "coverageReporters": [
-      "json",
-      "lcov",
-      "text",
-      "clover",
-      "text-summary",
-      "cobertura"
-    ],
-    "collectCoverageFrom": [
-      "**/*.{ts,tsx}",
-      "!**/index.tsx",
-      "!src/serviceWorker.ts"
-    ],
-    "coverageThreshold": {
-      "global": {
-        "statements": 95,
-        "branches": 95,
-        "functions": 95,
-        "lines": 95
-      }
-    }
-  }
+	"name": "@sergiogc9/react-base",
+	"version": "0.1.0",
+	"private": true,
+	"author": "Sergio Gómez Cosgaya <sergiogcosgaya@gmail.com>",
+	"devDependencies": {
+		"@babel/core": "7.12.3",
+		"@craco/craco": "6.1.1",
+		"@sergiogc9/eslint-config": "1.0.6",
+		"@testing-library/jest-dom": "5.11.5",
+		"@testing-library/react": "11.1.0",
+		"@testing-library/user-event": "12.1.10",
+		"@types/faker": "5.5.0",
+		"@types/jest": "26.0.15",
+		"@types/lodash": "4.14.162",
+		"@types/luxon": "1.26.0",
+		"@types/node": "14.14.3",
+		"@types/react": "17.0.0",
+		"@types/react-dom": "17.0.0",
+		"@types/react-redux": "7.1.9",
+		"@types/react-table": "7.7.1",
+		"@types/redux-mock-store": "1.0.2",
+		"@types/styled-components": "5.1.4",
+		"@types/styled-system": "5.1.10",
+		"@types/styled-system__css": "5.0.15",
+		"@types/yup": "0.29.9",
+		"@typescript-eslint/eslint-plugin": "4.28.2",
+		"babel-loader": "8.1.0",
+		"eslint": "7.30.0",
+		"eslint-plugin-eslint-comments": "3.2.0",
+		"eslint-plugin-import": "2.23.4",
+		"eslint-plugin-jest": "24.3.6",
+		"eslint-plugin-jsx-a11y": "6.4.1",
+		"eslint-plugin-prettier": "3.4.0",
+		"eslint-plugin-react": "7.24.0",
+		"eslint-plugin-react-hooks": "4.2.0",
+		"faker": "5.5.2",
+		"fox-awesome-cli": "1.1.0",
+		"husky": "4.3.8",
+		"jest-junit": "12.0.0",
+		"jest-mock-axios": "4.2.1",
+		"jest-styled-components": "7.0.3",
+		"mockdate": "3.0.2",
+		"prettier": "2.2.1",
+		"react-is": "17.0.1",
+		"react-scripts": "4.0.1",
+		"redux-devtools-extension": "2.13.8",
+		"redux-mock-store": "1.5.4",
+		"redux-saga-test-plan": "4.0.1",
+		"source-map-explorer": "2.5.2",
+		"typescript": "4.0.3"
+	},
+	"dependencies": {
+		"@sergiogc9/react": "0.0.1",
+		"@sergiogc9/react-hooks": "0.0.1",
+		"@sergiogc9/react-ui": "0.0.2-alpha.3",
+		"@sergiogc9/react-ui-theme": "0.0.2-alpha.3",
+		"@sergiogc9/react-utils": "0.0.1",
+		"@material-ui/core": "4.11.0",
+		"@material-ui/icons": "4.9.1",
+		"@reduxjs/toolkit": "1.4.0",
+		"@styled-system/css": "5.1.5",
+		"axios": "0.21.0",
+		"formik": "2.2.1",
+		"history": "5.0.0",
+		"i18next": "19.8.3",
+		"i18next-browser-languagedetector": "6.0.1",
+		"lodash": "4.17.20",
+		"luxon": "1.26.0",
+		"notistack": "1.0.1",
+		"react": "17.0.1",
+		"react-dom": "17.0.1",
+		"react-easy-crop": "3.3.2",
+		"react-i18next": "11.7.3",
+		"react-query": "3.13.0",
+		"react-redux": "7.2.1",
+		"react-router-dom": "6.0.0-beta.0",
+		"react-table": "7.7.0",
+		"redux-saga": "1.1.3",
+		"reselect": "4.0.0",
+		"styled-components": "5.2.1",
+		"styled-system": "5.1.5",
+		"yup": "0.29.3"
+	},
+	"scripts": {
+		"analyze": "source-map-explorer 'build/static/js/*.js' --only-mapped",
+		"start": "craco start",
+		"build": "craco build",
+		"test": "craco test --coverage --watchAll=false --reporters=default --reporters=jest-junit",
+		"test:local": "craco test",
+		"test:local:file": "craco test",
+		"env": "node env",
+		"lint": "eslint . --ignore-path .gitignore",
+		"prettier": "prettier --write . --ignore-path .gitignore",
+		"prettier:check": "prettier --check . --ignore-path .gitignore",
+		"typescript:check": "tsc --noEmit",
+		"link:ui": "yarn link @sergiogc9/react-ui @sergiogc9/react-ui-theme",
+		"unlink:ui": "yarn unlink @sergiogc9/react-ui @sergiogc9/react-ui-theme && yarn install --force",
+		"link:utils": "yarn link @sergiogc9/react @sergiogc9/react-utils @sergiogc9/react-hooks",
+		"unlink:utils": "yarn unlink @sergiogc9/react-ui @sergiogc9/react-ui-theme && yarn install --force",
+		"update-lang": "node src/scripts/updateLocales.js && prettier --write ./src/i18n/locales"
+	},
+	"husky": {
+		"hooks": {
+			"pre-commit": "yarn prettier:check && yarn lint && yarn typescript:check && yarn test",
+			"pre-push": "foxcli is-branch-synced"
+		}
+	},
+	"engines": {
+		"node": ">=14.x.x",
+		"npm": ">=6.0.0"
+	},
+	"browserslist": {
+		"production": [
+			">0.2%",
+			"not dead",
+			"not op_mini all"
+		],
+		"development": [
+			"last 1 chrome version",
+			"last 1 firefox version",
+			"last 1 safari version"
+		]
+	}
 }

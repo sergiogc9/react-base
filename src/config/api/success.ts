@@ -1,23 +1,10 @@
-import { ApiConfig } from "types/notification";
+import { ApiConfig } from 'types/notification';
 
 const successConfig: ApiConfig = {
 	common: {},
-	redux: {
-		"@@ui/counter": {
-			fetchCounterSuccess: {
-				t: 'api.success',
-				level: 'success',
-				timeout: false
-			}
-		}
-	},
+	redux: {},
 	reactQuery: {
-		pokemon: {
-			getPokemonList: {
-				t: 'api.success',
-				level: 'success'
-			}
-		}
+		// TODO!! use some example for pokemon api calls
 	}
 };
 

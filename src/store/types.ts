@@ -1,10 +1,12 @@
-import { State as entitiesState } from './entities';
-import { State as notificationsState } from './notifications';
+import { State as AuthState } from './auth';
+import { State as EntitiesState } from './entities';
+import { State as NotificationsState } from './notifications';
 import { State as UIState } from './ui';
 
 // export root store state interface
 export interface State {
-	entities: entitiesState
-	notifications: notificationsState
-	ui: UIState
+	auth: AuthState;
+	entities: EntitiesState;
+	notifications: NotificationsState;
+	ui: UIState;
 }

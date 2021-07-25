@@ -1,11 +1,7 @@
 {
 	"compilerOptions": {
 		"target": "es5",
-		"lib": [
-			"dom",
-			"dom.iterable",
-			"esnext"
-		],
+		"lib": ["dom", "dom.iterable", "esnext"],
 		"allowJs": true,
 		"skipLibCheck": true,
 		"esModuleInterop": true,
@@ -21,10 +17,5 @@
 		"jsx": "react",
 		"baseUrl": "src"
 	},
-	"include": [
-		"src"
-	],
-	"exclude": [
-		"src/setupTests.ts" // Needed to be able to use types in jest-dom.d.ts. Should be removed when jest is upgraded
-	]
+	"include": ["src", "env"]
 }

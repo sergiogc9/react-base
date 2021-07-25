@@ -1,20 +1,28 @@
-import axios from 'axios';
+import Api from 'lib/ajax/api';
 
 import { useApiQuery } from 'middleware/api/react-query';
+import { ListPokemon, Pokemon } from 'types/entities/pokemon';
 
 const apiActionBase = 'pokemon/';
 
 export const useGetPokemonList = () => {
 	const getData = async () => {
-		// throw new Error();
-		return (await axios.get<{ results: { name: string, url: string }[] }>('https://pokeapi.co/api/v2/pokemon')).data.results;
+		const api = new Api();
+		await new Promise(resolve => setTimeout(resolve, 700));
+		const { results } = await api.get<{ results: ListPokemon[] }>('/pokemon', { params: { limit: 50 } });
+
+		return results.map((pokemon, i) => ({ ...pokemon, id: i + 1 }));
 	};
-	return useApiQuery(apiActionBase + 'getPokemonList', 'pokemons', getData, { refetchOnMount: false, refetchOnWindowFocus: false });
+
+	return useApiQuery<ListPokemon[]>(`${apiActionBase}getPokemonList`, 'pokemons', getData);
 };
 
 export const useGetPokemonItem = (id: string) => {
 	const getData = async () => {
-		return (await axios.get<{ name: string, base_experience: number }>(`https://pokeapi.co/api/v2/pokemon/${id}`)).data;
+		const api = new Api();
+		await new Promise(resolve => setTimeout(resolve, 1000));
+		return api.get(`/pokemon/${id}`);
 	};
-	return useApiQuery(apiActionBase + 'getPokemonItem', ['pokemons', { id }], getData, { refetchOnMount: false, refetchOnWindowFocus: false });
+
+	return useApiQuery<Pokemon>(`${apiActionBase}getPokemonItem`, ['pokemons', { id }], getData);
 };

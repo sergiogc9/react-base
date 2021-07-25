@@ -9,11 +9,6 @@ export const reducer = combineReducers({
 	book: book.reducer
 });
 
-export type EntityResource = 'author' | 'book';
-export type EntitiesFetchData = {
-	status: 'pending' | 'loading' | 'loaded' | 'error'
-}
-
 export interface State {
 	author: typeof author.INITIAL_STATE;
 	book: typeof book.INITIAL_STATE;
