@@ -29,6 +29,11 @@
 		}
 	},
 	"general": {
+		"error": {
+			"btn_text": "Refresh the page",
+			"text": "The page experienced an issue. Please, refresh the page and try it again.",
+			"title_text": "Something went wrong"
+		},
 		"language": {
 			"english": "English",
 			"spanish": "Spanish"

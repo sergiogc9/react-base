@@ -1,10 +1,31 @@
 import React from 'react';
-import { Box, Title } from '@sergiogc9/react-ui';
+import { useTranslation } from 'react-i18next';
+import { Box } from '@sergiogc9/react-ui';
+import { UserFeedback } from '@sergiogc9/react-ui-collections';
 
-const FallbackError: React.FC = () => {
+import { FallbackErrorProps } from './types';
+
+const FallbackError: React.FC<FallbackErrorProps> = () => {
+	const { t } = useTranslation();
+
+	const onButtonClick = React.useCallback(() => window.location.reload(), []);
+
 	return (
-		<Box width="100%" height="100%" justifyContent="center" alignItems="center">
-			<Title>Error</Title>
+		<Box
+			alignItems="center"
+			data-testid="fallbackError"
+			height="95vh"
+			justifyContent="center"
+			maxHeight="100%"
+			width="100%"
+		>
+			<UserFeedback
+				buttonText={t('general.error.btn_text')}
+				imageSrc="/assets/images/robot-404.png"
+				onButtonClick={onButtonClick}
+				text={t('general.error.text')}
+				titleText={t('general.error.title_text')}
+			/>
 		</Box>
 	);
 };

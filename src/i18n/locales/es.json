@@ -29,6 +29,11 @@
 		}
 	},
 	"general": {
+		"error": {
+			"btn_text": "Actualizar la página",
+			"text": "La página ha experimentado un problema. Por favor, actualiza la página e inténtalo de nuevo.",
+			"title_text": "Algo ha ha ido mal"
+		},
 		"language": {
 			"english": "Inglés",
 			"spanish": "Español"

@@ -1,5 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useErrorHandler } from 'react-error-boundary';
 import { useTheme } from 'styled-components';
 import { Column } from 'react-table';
 import { Box, Button, Content, Title } from '@sergiogc9/react-ui';
@@ -14,7 +15,10 @@ import PokemonsListSkeleton from './skeleton';
 const PokemonItemList: React.FC = () => {
 	const navigate = useNavigate();
 
-	const { data } = useGetPokemonList();
+	const { data, error } = useGetPokemonList();
+
+	// TODO! don't use the hook, use the config in react-query middleware
+	useErrorHandler(error);
 
 	const theme = useTheme();
 

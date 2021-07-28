@@ -77,4 +77,28 @@ describe('Link', () => {
 		userEvent.click(link);
 		expect(mockNavigate).toHaveBeenCalledTimes(0);
 	});
+
+	it('should render the children text as string with a LinkText component', () => {
+		TestUtils.renderWithMockedStore(
+			<Link data-testid={linkTestId} to="/fake">
+				Awesome text
+			</Link>
+		);
+
+		const link = screen.getByTestId(linkTestId);
+
+		expect(link.querySelector('a > span')).toBeInTheDocument();
+	});
+
+	it('should render the children text as string array with a LinkText component', () => {
+		TestUtils.renderWithMockedStore(
+			<Link data-testid={linkTestId} to="/fake">
+				{['Awesome text']}
+			</Link>
+		);
+
+		const link = screen.getByTestId(linkTestId);
+
+		expect(link.querySelector('a > span')).toBeInTheDocument();
+	});
 });

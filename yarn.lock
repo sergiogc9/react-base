@@ -1725,29 +1725,34 @@
     eslint-config-airbnb-typescript "12.3.1"
     eslint-config-prettier "7.2.0"
 
-"@sergiogc9/react-hooks@0.0.0-alpha.3":
-  version "0.0.0-alpha.3"
-  resolved "https://registry.yarnpkg.com/@sergiogc9/react-hooks/-/react-hooks-0.0.0-alpha.3.tgz#2cc559bb4a5a1d72a4024d757dda6e96000a176a"
-  integrity sha512-DlpdX45kCwVNIqdi3Zm2J38WI93IOWLQRMn03Nl4qqdpEwO9QbMv/kIQ7CQLodLjo8y6RDdXVbMjU0v8uLe5tg==
-
 "@sergiogc9/react-hooks@0.1.1":
   version "0.1.1"
   resolved "https://registry.yarnpkg.com/@sergiogc9/react-hooks/-/react-hooks-0.1.1.tgz#8622b5f95346af4ff715bfb8f0a91c3a34b69d10"
   integrity sha512-3IoUl1xF62IMqOdQoJwrR9Glq7+zqggTIUtN0crYnWxmt/ZqTl7PxdKNVh1/uM2iW+J8fGAZtUU8vVt0cnFlqw==
 
-"@sergiogc9/react-ui-theme@0.0.4", "@sergiogc9/react-ui-theme@^0.0.4":
-  version "0.0.4"
-  resolved "https://registry.yarnpkg.com/@sergiogc9/react-ui-theme/-/react-ui-theme-0.0.4.tgz#c39645497f271f9f39e9396601535d570ef09fbe"
-  integrity sha512-5psQrMDBTrqNA6o0PGQQ2zf5FhJmpVYEFFCmkyKcOtl/2V1cZzpwLiCcHIrSeURJVWo3/2GwmkpiFt8rMHLWnA==
-
-"@sergiogc9/react-ui@0.0.4":
-  version "0.0.4"
-  resolved "https://registry.yarnpkg.com/@sergiogc9/react-ui/-/react-ui-0.0.4.tgz#b0462ce72dfa89fb0f4124cbeedc5dfd28162f2c"
-  integrity sha512-iXNJRR5Ecj+tEtz7EHsBc3f+BRwzYWgyos5QPxe1BmJvnQsFIOBWuAoUvNi9tWzcfDbJWIxFvxTa1AyO2wSymw==
+"@sergiogc9/react-ui-collections@0.0.5":
+  version "0.0.5"
+  resolved "https://registry.yarnpkg.com/@sergiogc9/react-ui-collections/-/react-ui-collections-0.0.5.tgz#1557b3b698d85b524a46c1475b0aea237cdb4d5f"
+  integrity sha512-VpXDQkXs4ux1Q+E6a30AUyvbCfHbZ2IHsO8KxT9Q33q1vgp5VH7wkIz/Ehe/QHuJZELYLEZ+aLBTHbBmSUik5Q==
   dependencies:
-    "@sergiogc9/react-hooks" "0.0.0-alpha.3"
-    "@sergiogc9/react-ui-theme" "^0.0.4"
-    "@sergiogc9/react-utils" "0.0.0-alpha.3"
+    "@sergiogc9/react-hooks" "0.1.1"
+    "@sergiogc9/react-ui" "^0.0.5"
+    "@sergiogc9/react-ui-theme" "^0.0.5"
+    "@sergiogc9/react-utils" "0.0.4"
+
+"@sergiogc9/react-ui-theme@0.0.5", "@sergiogc9/react-ui-theme@^0.0.5":
+  version "0.0.5"
+  resolved "https://registry.yarnpkg.com/@sergiogc9/react-ui-theme/-/react-ui-theme-0.0.5.tgz#ae0c9f6a1e89a292a36e24966514dcbacf84367d"
+  integrity sha512-bXFeJ5RFTNpis+p4pD55hOpirNQPrmCcvoPDUkiKq/em3h/bc0t+8FBlL194aTdbOx8EU6/YuoPnfqwkhuhCKQ==
+
+"@sergiogc9/react-ui@0.0.5", "@sergiogc9/react-ui@^0.0.5":
+  version "0.0.5"
+  resolved "https://registry.yarnpkg.com/@sergiogc9/react-ui/-/react-ui-0.0.5.tgz#ac72e1d9073e0d531f2be5a4ee5f4cf9a6ed4455"
+  integrity sha512-u5VEFrGYkziJRObXkzIRFOaAJ5hRMJFTisGYW8DOzt07vf+QN9WJQQBaUd+bkkgYRnVLe/UrRpkqRz8AJA7M0A==
+  dependencies:
+    "@sergiogc9/react-hooks" "0.1.1"
+    "@sergiogc9/react-ui-theme" "^0.0.5"
+    "@sergiogc9/react-utils" "0.0.4"
     "@styled-system/css" "5.1.5"
     "@styled-system/should-forward-prop" "5.1.5"
     "@tippyjs/react" "4.2.4"
@@ -1756,16 +1761,20 @@
     react-day-picker "7.4.10"
     styled-system "5.1.5"
 
-"@sergiogc9/react-utils@0.0.0-alpha.3":
-  version "0.0.0-alpha.3"
-  resolved "https://registry.yarnpkg.com/@sergiogc9/react-utils/-/react-utils-0.0.0-alpha.3.tgz#9084cdf31622e1c70a2d405bdb98e25a1846077d"
-  integrity sha512-I3DoNonFdwAW8ibCU6G9kBV75IZEa3ACZ13T5VH8a20QHagSTFIrTR06w9iyslKI76Xq8mptDyxQWtuOb/h+pQ==
-
 "@sergiogc9/react-utils@0.0.3":
   version "0.0.3"
   resolved "https://registry.yarnpkg.com/@sergiogc9/react-utils/-/react-utils-0.0.3.tgz#00dc9941f3affe047c7b8daa17a87189bbcbebdd"
   integrity sha512-Ovo+/wVlWhMsKW9xHdJqdnMzqiCXQ5i5DPs62IwYpJjitfK7oPbJ7RTcwCyqkaSpMkdevFyM8P5d/DBX2BofZQ==
   dependencies:
+    lodash "4.17.20"
+    luxon "1.26.0"
+
+"@sergiogc9/react-utils@0.0.4":
+  version "0.0.4"
+  resolved "https://registry.yarnpkg.com/@sergiogc9/react-utils/-/react-utils-0.0.4.tgz#2582e27a1f33df0d31005dc55d2cdd9ad8c59611"
+  integrity sha512-7eknc3isG+HOdpYnmdKPi4N1o9tyBImwOn/mVNd1QDCeXjOTCTJ35SinhNrz7mmZ3iWSn7KQOs+wjqmXz+tJgw==
+  dependencies:
+    "@reduxjs/toolkit" "1.4.0"
     lodash "4.17.20"
     luxon "1.26.0"
 
@@ -10266,6 +10275,13 @@ react-easy-crop@3.3.2:
   dependencies:
     normalize-wheel "^1.0.1"
     tslib "2.0.1"
+
+react-error-boundary@3.1.3:
+  version "3.1.3"
+  resolved "https://registry.yarnpkg.com/react-error-boundary/-/react-error-boundary-3.1.3.tgz#276bfa05de8ac17b863587c9e0647522c25e2a0b"
+  integrity sha512-A+F9HHy9fvt9t8SNDlonq01prnU8AmkjvGKV4kk8seB9kU3xMEO8J/PQlLVmoOIDODl5U2kufSBs4vrWIqhsAA==
+  dependencies:
+    "@babel/runtime" "^7.12.5"
 
 react-error-overlay@^6.0.9:
   version "6.0.9"
