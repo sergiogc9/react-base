@@ -54,18 +54,20 @@ const TableContent: React.FC<TableContentProps> = (props: TableContentProps) => 
 			</StyledContentTable>
 			{hasScroll && (
 				<TableContentGradient
-					data-testId="gradient-left"
-					duration="1s"
+					data-testid="gradient-left"
+					duration="0.25s"
 					isVisible={roundedPercentage !== 0}
 					location="left"
+					timingFunction={roundedPercentage !== 0 ? 'ease-in' : 'ease-out'}
 				/>
 			)}
 			{hasScroll && (
 				<TableContentGradient
-					data-testId="gradient-right"
-					duration="1s"
+					data-testid="gradient-right"
+					duration="0.25s"
 					isVisible={roundedPercentage !== 100}
 					location="right"
+					timingFunction={roundedPercentage !== 100 ? 'ease-in' : 'ease-out'}
 				/>
 			)}
 		</Box>
