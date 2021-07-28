@@ -1,12 +1,14 @@
 import React from 'react';
 import { waitFor } from '@testing-library/react';
 import MockDate from 'mockdate';
-import { UseMutationOptions, UseQueryOptions, QueryKey, QueryFunction } from 'react-query';
+import { QueryFunction, QueryKey } from 'react-query';
 
 import TestUtils from 'lib/tests';
 import { actions } from 'store/notifications';
-import { useApiMutate, useApiQuery } from 'middleware/api/react-query';
 import { store } from 'store';
+
+import { useApiMutate, useApiQuery } from '.';
+import { MutationConfig, QueryConfig } from './types';
 
 jest.mock('config/api/success', () => ({
 	reactQuery: {
@@ -42,20 +44,20 @@ describe('Api response middleware', () => {
 		actionKey: string,
 		queryKey: QueryKey,
 		queryFn: QueryFunction<any>,
-		queryConfig?: UseQueryOptions<any, unknown>
+		queryConfig?: QueryConfig<any>
 	) => {
 		const Component = () => {
 			const { data } = useApiQuery(actionKey, queryKey, queryFn, queryConfig);
 
 			return <div>{data}</div>;
 		};
-		return TestUtils.renderWithMockedStore(<Component />);
+		return TestUtils.renderWithStore(<Component />);
 	};
 
 	const getComponentWithMutation = (
 		actionKey: string,
 		queryFn: QueryFunction<any>,
-		mutateConfig?: UseMutationOptions<any, any, any>
+		mutateConfig?: MutationConfig<any, any, any>
 	) => {
 		const Component = () => {
 			const { mutate } = useApiMutate<any, any, any>(actionKey, queryFn, mutateConfig);
@@ -66,7 +68,7 @@ describe('Api response middleware', () => {
 
 			return <div />;
 		};
-		return TestUtils.renderWithMockedStore(<Component />);
+		return TestUtils.renderWithStore(<Component />);
 	};
 
 	beforeAll(() => {
@@ -160,5 +162,33 @@ describe('Api response middleware', () => {
 		});
 		await waitFor(() => expect(store.getState().notifications.items[123456789123450]?.text).toBe('Error raw text'));
 		expect(onErrorFn).toHaveBeenCalledTimes(1);
+	});
+
+	it('should show and hide loading bar in query', async () => {
+		getComponentWithQuery('test', 'test', fn, { showLoadingBar: true });
+
+		expect(store.getState().ui._.pendingLoadingBarApiCalls).toBe(1);
+
+		await waitFor(() => expect(store.getState().ui._.pendingLoadingBarApiCalls).toBe(0));
+	});
+
+	it('should show and hide loading bar in mutate', async () => {
+		getComponentWithMutation('test', async () => new Promise(resolve => setTimeout(resolve, 300)), {
+			showLoadingBar: true
+		});
+
+		await waitFor(() => expect(store.getState().ui._.pendingLoadingBarApiCalls).toBe(1));
+
+		await waitFor(() => expect(store.getState().ui._.pendingLoadingBarApiCalls).toBe(0));
+	});
+
+	it('should show and hide loading bar in mutate error', async () => {
+		getComponentWithMutation('test', async () => new Promise((_, reject) => setTimeout(reject, 300)), {
+			showLoadingBar: true
+		});
+
+		await waitFor(() => expect(store.getState().ui._.pendingLoadingBarApiCalls).toBe(1));
+
+		await waitFor(() => expect(store.getState().ui._.pendingLoadingBarApiCalls).toBe(0));
 	});
 });

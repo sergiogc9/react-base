@@ -14,7 +14,7 @@ export const useGetPokemonList = () => {
 		return results.map((pokemon, i) => ({ ...pokemon, id: i + 1 }));
 	};
 
-	return useApiQuery<ListPokemon[]>(`${apiActionBase}getPokemonList`, 'pokemons', getData);
+	return useApiQuery<ListPokemon[]>(`${apiActionBase}getPokemonList`, 'pokemons', getData, { showLoadingBar: true });
 };
 
 export const useGetPokemonItem = (id: string) => {
@@ -24,5 +24,7 @@ export const useGetPokemonItem = (id: string) => {
 		return api.get(`/pokemon/${id}`);
 	};
 
-	return useApiQuery<Pokemon>(`${apiActionBase}getPokemonItem`, ['pokemons', { id }], getData);
+	return useApiQuery<Pokemon>(`${apiActionBase}getPokemonItem`, ['pokemons', { id }], getData, {
+		showLoadingBar: true
+	});
 };

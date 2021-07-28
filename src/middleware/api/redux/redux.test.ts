@@ -5,6 +5,7 @@ import find from 'lodash/find';
 import middleware from 'middleware/api/redux';
 import { Notification } from 'types/notification';
 import { actions } from 'store/notifications';
+import { actions as uiActions } from 'store/ui';
 
 // eslint-disable-next-line no-console
 const consoleError = console.error;
@@ -66,7 +67,7 @@ jest.mock('config/api/error', () => ({
 }));
 
 const buildApiAction = (
-	status: 'success' | 'error',
+	status: 'start' | 'success' | 'error',
 	group: string,
 	name: string,
 	payload: any,
@@ -83,6 +84,14 @@ const buildApiAction = (
 const getNotificationAction = (): Notification | null => {
 	const notificationAction = find(store.getActions(), ['type', actions.addNotification.type]);
 	return notificationAction ? notificationAction.payload : null;
+};
+
+const getShowLoadingBarNotificationAction = (): any | null => {
+	return find(store.getActions(), ['type', uiActions.addPendingLoadingBarApiCall.type]);
+};
+
+const getRemoveLoadingBarNotificationAction = (): any | null => {
+	return find(store.getActions(), ['type', uiActions.removePendingLoadingBarApiCall.type]);
 };
 
 describe('Api response middleware', () => {
@@ -246,5 +255,29 @@ describe('Api response middleware', () => {
 		const error = { code: 'API_ERROR_1', message: 'some api message error' };
 		store.dispatch(buildApiAction('error', 'disabled_action_group', 'API_ERROR_ACTION', error));
 		expect(getNotificationAction()).toEqual(null);
+	});
+
+	it('should show loading at api call start', () => {
+		store.dispatch(buildApiAction('start', 'test', 'TEST', {}, { showLoadingBar: true }));
+
+		expect(getShowLoadingBarNotificationAction()).toBeTruthy();
+	});
+
+	it('should not show loading at api call start if not api action', () => {
+		store.dispatch(buildApiAction('start', 'test', 'TEST', {}, { api: undefined, showLoadingBar: true }));
+
+		expect(getShowLoadingBarNotificationAction()).toBeFalsy();
+	});
+
+	it('should hide loading at api call success', () => {
+		store.dispatch(buildApiAction('success', 'test', 'TEST', {}, { showLoadingBar: true }));
+
+		expect(getRemoveLoadingBarNotificationAction()).toBeTruthy();
+	});
+
+	it('should hide loading at api call error', () => {
+		store.dispatch(buildApiAction('error', 'test', 'TEST', {}, { showLoadingBar: true }));
+
+		expect(getRemoveLoadingBarNotificationAction()).toBeTruthy();
 	});
 });

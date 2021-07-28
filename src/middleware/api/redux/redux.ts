@@ -1,11 +1,26 @@
 import { Middleware, AnyAction } from 'redux';
 import { get } from 'lib/imports/lodash';
 
-import { actions } from 'store/notifications';
+import { actions as notificationActions } from 'store/notifications';
+import { actions as uiActions } from 'store/ui';
 import { ApiConfigNotification, Notification } from 'types/notification';
 import errorsConfig from 'config/api/error';
 import successConfig from 'config/api/success';
-import { defaultApiErrorNotification, getNotificationConfig, getNotificationFromConfigResult } from '.';
+import {
+	defaultApiErrorNotification,
+	getNotificationConfig,
+	getNotificationFromConfigResult
+} from 'middleware/api/notifications';
+
+const __updateLoadingBar = (action: AnyAction, store: any) => {
+	if (get(action, 'meta.showLoadingBar')) {
+		const apiAction = get(action, 'meta.api');
+
+		if (apiAction === 'start') store.dispatch(uiActions.addPendingLoadingBarApiCall());
+		else if (apiAction === 'error' || apiAction === 'success')
+			store.dispatch(uiActions.removePendingLoadingBarApiCall());
+	}
+};
 
 const __getNotificationFromConfigResult = (action: AnyAction, configResult?: ApiConfigNotification): Notification => {
 	const notification = getNotificationFromConfigResult(action.payload, configResult);
@@ -16,8 +31,7 @@ const __getNotificationFromConfigResult = (action: AnyAction, configResult?: Api
 	return notification;
 };
 
-const __getNotification = (action: AnyAction): Notification | null => {
-	// eslint-disable-next-line react/destructuring-assignment
+const _getNotification = (action: AnyAction): Notification | null => {
 	const [actionGroup, actionName] = action.type.split(/\/(?=[^/]+$)/);
 
 	if (get(action, ['meta', 'api'], '') === 'success') {
@@ -41,8 +55,10 @@ const __getNotification = (action: AnyAction): Notification | null => {
 };
 
 const middleware: Middleware = store => next => (action: AnyAction) => {
-	const notification = __getNotification(action);
-	if (notification) store.dispatch(actions.addNotification(notification));
+	const notification = _getNotification(action);
+	if (notification) store.dispatch(notificationActions.addNotification(notification));
+
+	__updateLoadingBar(action, store);
 
 	next(action);
 };

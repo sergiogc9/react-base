@@ -1761,18 +1761,19 @@
     react-day-picker "7.4.10"
     styled-system "5.1.5"
 
-"@sergiogc9/react-utils@0.0.3":
-  version "0.0.3"
-  resolved "https://registry.yarnpkg.com/@sergiogc9/react-utils/-/react-utils-0.0.3.tgz#00dc9941f3affe047c7b8daa17a87189bbcbebdd"
-  integrity sha512-Ovo+/wVlWhMsKW9xHdJqdnMzqiCXQ5i5DPs62IwYpJjitfK7oPbJ7RTcwCyqkaSpMkdevFyM8P5d/DBX2BofZQ==
-  dependencies:
-    lodash "4.17.20"
-    luxon "1.26.0"
-
 "@sergiogc9/react-utils@0.0.4":
   version "0.0.4"
   resolved "https://registry.yarnpkg.com/@sergiogc9/react-utils/-/react-utils-0.0.4.tgz#2582e27a1f33df0d31005dc55d2cdd9ad8c59611"
   integrity sha512-7eknc3isG+HOdpYnmdKPi4N1o9tyBImwOn/mVNd1QDCeXjOTCTJ35SinhNrz7mmZ3iWSn7KQOs+wjqmXz+tJgw==
+  dependencies:
+    "@reduxjs/toolkit" "1.4.0"
+    lodash "4.17.20"
+    luxon "1.26.0"
+
+"@sergiogc9/react-utils@0.0.5":
+  version "0.0.5"
+  resolved "https://registry.yarnpkg.com/@sergiogc9/react-utils/-/react-utils-0.0.5.tgz#ffe68174576badfd5f5e63b5b26f48b258790124"
+  integrity sha512-3LgUhCqthdMFLEpX/r+7YPu3S9QdYyObzf6R8pGMqbXhuTqhBWzvvBkjPOthsALgvb063EUu5hjBOdhpSRx7oQ==
   dependencies:
     "@reduxjs/toolkit" "1.4.0"
     lodash "4.17.20"

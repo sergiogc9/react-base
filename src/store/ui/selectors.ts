@@ -6,5 +6,6 @@ const rootSelector = (state: State) => state.ui._;
 export default {
 	getRootState: rootSelector,
 	getIsFakeLoading: createSelector(rootSelector, state => state.isFakeLoading),
-	getIsPageScrolled: createSelector(rootSelector, state => state.isPageScrolled)
+	getIsPageScrolled: createSelector(rootSelector, state => state.isPageScrolled),
+	getPendingLoadingBarApiCalls: createSelector(rootSelector, state => state.pendingLoadingBarApiCalls)
 };

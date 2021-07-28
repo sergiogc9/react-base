@@ -30,7 +30,31 @@ describe('UI Store', () => {
 	it('should call getIsPageScrolled selector', () => {
 		store = getStore();
 		expect(selectors.getIsPageScrolled(store.getState())).toEqual(false);
+
 		store.dispatch(actions.setIsPageScrolled(true));
 		expect(selectors.getIsPageScrolled(store.getState())).toEqual(true);
+	});
+
+	it('should increase pending loading bar api calls', () => {
+		expect(reducers(getFullState(), actions.addPendingLoadingBarApiCall()).ui).toMatchObject({
+			_: { pendingLoadingBarApiCalls: 1 }
+		});
+	});
+
+	it('should decrease pending loading bar api calls', () => {
+		expect(
+			reducers(getFullState({ ui: { _: { pendingLoadingBarApiCalls: 10 } } }), actions.removePendingLoadingBarApiCall())
+				.ui
+		).toMatchObject({
+			_: { pendingLoadingBarApiCalls: 9 }
+		});
+	});
+
+	it('should call getPendingLoadingBarApiCalls selector', () => {
+		store = getStore();
+		expect(selectors.getPendingLoadingBarApiCalls(store.getState())).toEqual(0);
+
+		store.dispatch(actions.addPendingLoadingBarApiCall());
+		expect(selectors.getPendingLoadingBarApiCalls(store.getState())).toEqual(1);
 	});
 });
