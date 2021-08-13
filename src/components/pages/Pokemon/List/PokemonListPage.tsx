@@ -74,7 +74,7 @@ const PokemonItemList: React.FC = () => {
 	}, [columns, data, theme.breakpoints.lg]);
 
 	return (
-		<Box id="pokemonListPage" flexDirection="column" height="calc(100vh - 100px)" px={{ md: 6, xs: 3 }} py={4}>
+		<Box id="pokemonListPage" flexDirection="column" px={{ md: 6, xs: 3 }} py={4}>
 			{data ? (
 				<>
 					<Title aspectSize="s">Pokemons</Title>
