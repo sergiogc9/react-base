@@ -7,7 +7,7 @@ export type State = {
 };
 
 export const INITIAL_STATE: State = {
-	isFakeLoading: false,
+	isFakeLoading: true,
 	isPageScrolled: false,
 	pendingLoadingBarApiCalls: 0
 };

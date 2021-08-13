@@ -4,8 +4,8 @@ import { useSelector } from 'react-redux';
 import ErrorBoundary from 'components/common/ErrorBoundary';
 import FallbackLoader from 'components/common/FallbackLoader';
 import LoadingBar from 'components/ui/LoadingBar';
-
 import uiSelectors from 'store/ui/selectors';
+
 import NotificationsProvider from './Notifications/NotificationsProvider';
 import Routes from './Routes';
 import GlobalStyle from './GlobalStyle';

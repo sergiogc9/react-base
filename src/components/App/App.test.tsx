@@ -1,4 +1,5 @@
 import React from 'react';
+import { screen } from '@testing-library/react';
 import { find } from 'lib/imports/lodash';
 
 import { renderWithMockedStore, StateSlice } from 'lib/tests/redux';
@@ -9,8 +10,9 @@ const renderComponent = (stateSlice: StateSlice = {}) => renderWithMockedStore(<
 
 describe('App', () => {
 	it('should render authenticating page in private route if not authenticated', () => {
-		const { getByText, store } = renderComponent();
-		expect(getByText(/Authenticating/i)).toBeInTheDocument();
+		const { store } = renderComponent();
+
+		expect(screen.getByTestId('loadingLogoSpinner')).toBeInTheDocument();
 		expect(find(store.getActions(), { type: authActions.fetchAuth.type })).toBeTruthy();
 	});
 
@@ -18,6 +20,7 @@ describe('App', () => {
 		const { getByTestId } = renderComponent({
 			auth: { isAuthenticated: true, profile: {} }
 		});
+
 		expect(getByTestId('logo-wrapper')).toBeInTheDocument();
 	});
 });

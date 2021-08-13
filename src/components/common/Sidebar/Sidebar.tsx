@@ -2,7 +2,7 @@ import React from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { Box, Icon, IconProps, Tooltip } from '@sergiogc9/react-ui';
 
-import { ReactComponent as PokeBallLogo } from 'assets/logos/poke-ball2.svg';
+import { ReactComponent as PokeBallLogo } from 'assets/logos/poke-ball.svg';
 import Responsive from 'components/common/Responsive';
 
 import StyledSidebar from './styled';

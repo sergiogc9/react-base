@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { Box } from '@sergiogc9/react-ui';
 
-import { ReactComponent as PokeBallLogo } from 'assets/logos/poke-ball2.svg';
+import { ReactComponent as PokeBallLogo } from 'assets/logos/poke-ball.svg';
 import uiSelectors from 'store/ui/selectors';
 
 import Responsive from '../Responsive';
