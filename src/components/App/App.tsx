@@ -1,9 +1,9 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
+import { LoadingBar } from '@sergiogc9/react-ui';
 
 import ErrorBoundary from 'components/common/ErrorBoundary';
 import FallbackLoader from 'components/common/FallbackLoader';
-import LoadingBar from 'components/ui/LoadingBar';
 import uiSelectors from 'store/ui/selectors';
 
 import NotificationsProvider from './Notifications/NotificationsProvider';
