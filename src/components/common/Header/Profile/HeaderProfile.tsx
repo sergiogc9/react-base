@@ -4,10 +4,10 @@ import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import theme from '@sergiogc9/react-ui-theme';
 import { Avatar, Box, Button } from '@sergiogc9/react-ui';
+import { DropdownMenu } from '@sergiogc9/react-ui-collections';
 
 import authManager from 'lib/auth';
 import selectors from 'store/auth/selectors';
-import DropdownMenu from 'components/ui/DropdownMenu';
 
 const HeaderProfile: React.FC = () => {
 	const { t } = useTranslation();
