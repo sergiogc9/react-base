@@ -51,15 +51,15 @@
 		"typescript": "4.0.3"
 	},
 	"dependencies": {
+		"@material-ui/core": "4.11.0",
+		"@material-ui/icons": "4.9.1",
+		"@reduxjs/toolkit": "1.4.0",
 		"@sergiogc9/react": "0.0.2",
 		"@sergiogc9/react-hooks": "0.1.1",
 		"@sergiogc9/react-ui": "0.0.5",
 		"@sergiogc9/react-ui-collections": "0.0.5",
 		"@sergiogc9/react-ui-theme": "0.0.5",
 		"@sergiogc9/react-utils": "0.0.5",
-		"@material-ui/core": "4.11.0",
-		"@material-ui/icons": "4.9.1",
-		"@reduxjs/toolkit": "1.4.0",
 		"@styled-system/css": "5.1.5",
 		"axios": "0.21.0",
 		"formik": "2.2.1",

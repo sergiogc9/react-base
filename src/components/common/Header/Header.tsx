@@ -7,6 +7,7 @@ import { ReactComponent as PokeBallLogo } from 'assets/logos/poke-ball.svg';
 import uiSelectors from 'store/ui/selectors';
 
 import Responsive from '../Responsive';
+import HeaderFullscreen from './Fullscreen';
 import HeaderProfile from './Profile';
 import StyledHeader from './styled';
 
@@ -24,6 +25,7 @@ const Header: React.FC = () => {
 				</Box>
 			</Responsive>
 			<HeaderProfile />
+			<HeaderFullscreen />
 		</StyledHeader>
 	);
 };
