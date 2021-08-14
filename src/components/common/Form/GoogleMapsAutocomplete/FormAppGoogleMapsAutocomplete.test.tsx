@@ -8,7 +8,7 @@ import { GoogleMapsPlace } from 'types/google';
 import Form from 'components/common/Form';
 
 import FormMapsAutocomplete from '.';
-import { FormGoogleMapsAutocompleteProps } from './types';
+import { FormAppGoogleMapsAutocompleteProps } from './types';
 
 const onSubmitMock = jest.fn();
 const mockOnGetPlacePredictions = jest.fn();
@@ -18,7 +18,7 @@ jest.useFakeTimers('modern');
 
 const getComponent = (
 	initialValues?: { location: GoogleMapsPlace },
-	props: Partial<FormGoogleMapsAutocompleteProps> = {}
+	props: Partial<FormAppGoogleMapsAutocompleteProps> = {}
 ) => {
 	const defaultLocation: GoogleMapsPlace = { placeId: 'fake-id', longitude: 10, latitude: 20, name: 'Awesome place' };
 
@@ -36,7 +36,7 @@ const getComponent = (
 	);
 };
 
-describe('FormGoogleMapsAutocomplete', () => {
+describe('FormAppGoogleMapsAutocomplete', () => {
 	beforeEach(() => {
 		jest.clearAllMocks();
 		TestUtils.mockGoogleMapsAPI(mockOnGetPlacePredictions, mockOnGeoCode);

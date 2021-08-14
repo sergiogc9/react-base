@@ -23,7 +23,10 @@ const queryClient = new QueryClient({
 const Main: React.FC = () => {
 	const { i18n } = useTranslation();
 
-	const finalTheme = merge(theme, { locale: i18n.language });
+	const finalTheme = merge(theme, {
+		keys: { googleMapsAPI: 'EDIT_KEY' },
+		locale: i18n.language
+	});
 
 	return (
 		<Provider store={store}>

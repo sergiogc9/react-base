@@ -1,11 +1,11 @@
 import React from 'react';
 import { useField } from 'formik';
 
-import GoogleMapsAutocomplete from 'components/ui/GoogleMapsAutocomplete';
+import AppGoogleMapsAutocomplete from 'components/ui/AppGoogleMapsAutocomplete';
 import { GoogleMapsPlace } from 'types/google';
-import { FormGoogleMapsAutocompleteProps } from './types';
+import { FormAppGoogleMapsAutocompleteProps } from './types';
 
-const FormGoogleMapsAutocomplete: React.FC<FormGoogleMapsAutocompleteProps> = props => {
+const FormAppGoogleMapsAutocomplete: React.FC<FormAppGoogleMapsAutocompleteProps> = props => {
 	const { helperText, name, ...rest } = props;
 
 	const [field, meta, helpers] = useField(name);
@@ -21,7 +21,7 @@ const FormGoogleMapsAutocomplete: React.FC<FormGoogleMapsAutocompleteProps> = pr
 	);
 
 	return (
-		<GoogleMapsAutocomplete
+		<AppGoogleMapsAutocomplete
 			{...rest}
 			defaultPlace={field.value}
 			helperText={isError ? meta.error : helperText}
@@ -33,4 +33,4 @@ const FormGoogleMapsAutocomplete: React.FC<FormGoogleMapsAutocompleteProps> = pr
 	);
 };
 
-export default React.memo(FormGoogleMapsAutocomplete);
+export default React.memo(FormAppGoogleMapsAutocomplete);
