@@ -1,8 +1,6 @@
 import React from 'react';
 import { useTheme } from 'styled-components';
-import { Skeleton, SkeletonProps } from '@sergiogc9/react-ui';
-
-import Table from 'components/ui/Table';
+import { Skeleton, SkeletonProps, Table } from '@sergiogc9/react-ui';
 
 const PokemonListPageSkeleton: React.FC<SkeletonProps> = () => {
 	const theme = useTheme();

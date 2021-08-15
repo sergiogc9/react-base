@@ -1,11 +1,9 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useTheme } from 'styled-components';
-import { Column } from 'react-table';
-import { Box, Button, Content, Title } from '@sergiogc9/react-ui';
+import { Box, Button, Content, Table, TableColumn, Title } from '@sergiogc9/react-ui';
 
 import Link from 'components/ui/Link';
-import Table from 'components/ui/Table';
 import { useGetPokemonList } from 'queries/pokemon';
 import { ListPokemon } from 'types/entities/pokemon';
 
@@ -18,7 +16,7 @@ const PokemonItemList: React.FC = () => {
 
 	const theme = useTheme();
 
-	const columns = React.useMemo<Column<ListPokemon>[]>(
+	const columns = React.useMemo<TableColumn<ListPokemon>[]>(
 		() => [
 			{
 				accessor: 'id',
