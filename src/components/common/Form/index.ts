@@ -1,5 +1,6 @@
 import { createNameSpacedComponent } from '@sergiogc9/react-utils';
 
+import FormButtonCancel from './Button/Cancel';
 import FormButtonSubmit from './Button/Submit';
 import FormCheckBox from './CheckBox';
 import FormAppGoogleMapsAutocomplete from './AppGoogleMapsAutocomplete';
@@ -11,6 +12,7 @@ import Form from './Form';
 
 export default createNameSpacedComponent(Form, {
 	AppGoogleMapsAutocomplete: FormAppGoogleMapsAutocomplete,
+	ButtonCancel: FormButtonCancel,
 	ButtonSubmit: FormButtonSubmit,
 	CheckBox: FormCheckBox,
 	Select: FormSelect,
