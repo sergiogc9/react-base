@@ -12,6 +12,7 @@ import keys from 'lodash/keys';
 import lowerFirst from 'lodash/lowerFirst';
 import merge from 'lodash/merge';
 import range from 'lodash/range';
+import reject from 'lodash/reject';
 import transform from 'lodash/transform';
 
 // TODO USE ONLY NEEDED ONES
@@ -30,5 +31,6 @@ export {
 	lowerFirst,
 	merge,
 	range,
+	reject,
 	transform
 };

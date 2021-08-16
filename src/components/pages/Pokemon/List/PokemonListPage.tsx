@@ -1,10 +1,10 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useTheme } from 'styled-components';
-import { Box, Button, Content, Table, TableColumn, Title } from '@sergiogc9/react-ui';
+import { Box, Button, Content, Icon, IconButton, Table, TableColumn, Title } from '@sergiogc9/react-ui';
 
 import Link from 'components/ui/Link';
-import { useGetPokemonList } from 'queries/pokemon';
+import { useGetPokemonList, useRemovePokemon } from 'queries/pokemon';
 import { ListPokemon } from 'types/entities/pokemon';
 
 import PokemonsListSkeleton from './skeleton';
@@ -13,6 +13,8 @@ const PokemonItemList: React.FC = () => {
 	const navigate = useNavigate();
 
 	const { data } = useGetPokemonList();
+
+	const { mutateAsync: removePokemon } = useRemovePokemon();
 
 	const theme = useTheme();
 
@@ -42,14 +44,23 @@ const PokemonItemList: React.FC = () => {
 				accessor: 'id',
 				Header: '',
 				Cell: props => (
-					<Button aspectSize="s" onClick={() => navigate(`/pokemon/${props.value}`)} variant="primary" {...props}>
-						See pokemon
-					</Button>
+					<Box justifyContent="flex-end" width="100%">
+						<Button aspectSize="s" onClick={() => navigate(`/pokemon/${props.value}`)} variant="primary" {...props}>
+							See pokemon
+						</Button>
+						<IconButton
+							ml={3}
+							onClick={() => removePokemon({ pokemonId: props.cell.row.original.id })}
+							variant="default"
+						>
+							<Icon icon="delete" fill="primary.700" styling="outlined" />
+						</IconButton>
+					</Box>
 				),
 				getCellWidthText: () => 'See pokemon'
 			}
 		],
-		[navigate]
+		[navigate, removePokemon]
 	);
 
 	const tableContent = React.useMemo(() => {
