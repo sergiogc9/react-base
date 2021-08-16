@@ -1,5 +1,5 @@
 import React from 'react';
-import { SnackbarProvider } from 'notistack';
+import { Toasts } from '@sergiogc9/react-ui';
 
 import NotificationsNotifier from './NotificationsNotifier';
 
@@ -7,10 +7,10 @@ const NotificationsProvider: React.FC = props => {
 	const { children } = props;
 
 	return (
-		<SnackbarProvider>
+		<Toasts>
 			<NotificationsNotifier />
 			{children}
-		</SnackbarProvider>
+		</Toasts>
 	);
 };
 

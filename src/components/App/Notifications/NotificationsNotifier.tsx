@@ -1,21 +1,20 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
-import { useSnackbar } from 'notistack';
 import { forEach, isArray } from 'lib/imports/lodash';
+import { Button, useToasts } from '@sergiogc9/react-ui';
 
 import { actions } from 'store/notifications';
 import selectors from 'store/notifications/selectors';
 
 const notificationsQueued: Record<string, true> = {};
 
-// TODO: stop using notistack and material-ui dependency!
 const NotificationsNotifier: React.FC = () => {
 	const { t } = useTranslation();
 
 	const dispatch = useDispatch();
 	const notifications = useSelector(selectors.getNotifications);
-	const { enqueueSnackbar, closeSnackbar } = useSnackbar();
+	const { addToast } = useToasts();
 
 	const __reloadPage = React.useCallback(() => window.location.reload(), []);
 
@@ -24,24 +23,11 @@ const NotificationsNotifier: React.FC = () => {
 			// Do nothing if already queued
 			if (notificationsQueued[key]) return;
 
-			let action;
-			if (notification.reload)
-				action = () => (
-					<button onClick={__reloadPage} type="button">
-						Reload
-					</button>
-				);
-			else if (notification.timeout === false)
-				action = (notificationKey: string) => (
-					<button
-						onClick={() => {
-							closeSnackbar(notificationKey);
-						}}
-						type="button"
-					>
-						Close
-					</button>
-				);
+			const actionContent = notification.reload ? (
+				<Button aspectSize="s" bg="transparent" color="currentColor" onClick={__reloadPage} variant="subtle">
+					Reload
+				</Button>
+			) : null;
 
 			let text = '';
 			if (notification.text) text = notification.text;
@@ -50,21 +36,17 @@ const NotificationsNotifier: React.FC = () => {
 			// If using only i18n key
 			else text = t(notification.t!);
 
-			const options = {
-				text,
-				persist: notification.timeout === false,
-				autoHideDuration: notification.timeout || 5000,
-				variant: notification.level || 'info',
-				action
-			};
-
 			// Queue notification
-			enqueueSnackbar(options.text, {
+			addToast({
+				actionContent,
+				duration: notification.timeout !== false ? notification.timeout : 'always',
 				key,
-				...options,
-				onExited: (event, myKey) => {
+				hasCloseBtn: notification.timeout === false,
+				message: text,
+				status: notification.level || 'info',
+				onClose: () => {
 					// remove this snackbar from redux store
-					dispatch(actions.removeNotification(myKey.toString()));
+					dispatch(actions.removeNotification(key));
 					delete notificationsQueued[key];
 				}
 			});
@@ -72,7 +54,7 @@ const NotificationsNotifier: React.FC = () => {
 			// Set as queued
 			notificationsQueued[key] = true;
 		});
-	}, [t, notifications, closeSnackbar, enqueueSnackbar, dispatch, __reloadPage]);
+	}, [__reloadPage, addToast, dispatch, notifications, t]);
 
 	return null;
 };
