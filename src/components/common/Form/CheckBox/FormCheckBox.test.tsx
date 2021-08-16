@@ -9,11 +9,11 @@ import FormCheckBox from '.';
 
 const mockOnSubmit = jest.fn();
 
-const getComponent = (initialValues = { enabled: false }) => {
+const getComponent = (defaultValues = { enabled: false }) => {
 	return TestUtils.renderWithMockedStore(
 		<Form
 			onSubmit={mockOnSubmit}
-			initialValues={initialValues}
+			defaultValues={defaultValues}
 			validationSchema={Yup.object({
 				enabled: Yup.boolean().required()
 			})}

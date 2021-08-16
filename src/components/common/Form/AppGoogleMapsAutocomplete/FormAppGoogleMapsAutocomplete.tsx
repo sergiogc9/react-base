@@ -1,33 +1,37 @@
 import React from 'react';
-import { useField } from 'formik';
+import { useController } from 'react-hook-form';
+import { GoogleMapsPlace } from '@sergiogc9/react-ui';
 
 import AppGoogleMapsAutocomplete from 'components/ui/AppGoogleMapsAutocomplete';
-import { GoogleMapsPlace } from 'types/google';
 import { FormAppGoogleMapsAutocompleteProps } from './types';
 
 const FormAppGoogleMapsAutocomplete: React.FC<FormAppGoogleMapsAutocompleteProps> = props => {
 	const { helperText, name, ...rest } = props;
 
-	const [field, meta, helpers] = useField(name);
+	const { field, fieldState } = useController({ name });
 
-	const isError = meta.touched && !!meta.error;
+	const isError = fieldState.isTouched && fieldState.invalid;
+
+	const onGoogleMapsBlurred = React.useCallback(() => {
+		if (!fieldState.isTouched) field.onBlur();
+	}, [field, fieldState.isTouched]);
 
 	const onPlaceSelected = React.useCallback(
 		(place: GoogleMapsPlace | null) => {
-			helpers.setTouched(true);
-			helpers.setValue(place);
+			field.onChange(place);
+			field.onBlur();
 		},
-		[helpers]
+		[field]
 	);
 
 	return (
 		<AppGoogleMapsAutocomplete
 			{...rest}
 			defaultPlace={field.value}
-			helperText={isError ? meta.error : helperText}
+			helperText={isError ? fieldState.error?.message : helperText}
 			isError={isError}
 			name={name}
-			onBlur={field.onBlur}
+			onBlur={onGoogleMapsBlurred}
 			onPlaceChange={onPlaceSelected}
 		/>
 	);

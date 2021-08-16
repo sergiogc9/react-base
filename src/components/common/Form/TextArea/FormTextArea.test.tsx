@@ -10,11 +10,11 @@ const textAreaTestId = 'AwesomeTextArea';
 
 let onSubmitMock = jest.fn();
 describe('FormTextArea', () => {
-	const getComponent = (initialValues = { textarea: '' }) => {
+	const getComponent = (defaultValues = { textarea: '' }) => {
 		return TestUtils.renderWithMockedStore(
 			<Form
 				onSubmit={onSubmitMock}
-				initialValues={initialValues}
+				defaultValues={defaultValues}
 				validationSchema={Yup.object({
 					textarea: Yup.string().required('Awesome textarea error')
 				})}
@@ -31,19 +31,24 @@ describe('FormTextArea', () => {
 
 	it('should render textarea', () => {
 		getComponent();
+
 		const textAreaTest = screen.getByTestId(textAreaTestId);
 		const textarea = textAreaTest.querySelector('textarea[label="TextArea"]')!;
+
 		expect(textarea).toBeInTheDocument();
 	});
 
 	it('should not render error if not touched', () => {
 		getComponent({ textarea: 'wrong-textarea' });
+
 		expect(screen.queryByText('Awesome textarea error')).toBe(null);
 	});
 
 	it('should render error if empty textarea', async () => {
 		getComponent({ textarea: '' });
+
 		fireEvent.click(screen.getByText('Submit'));
+
 		await waitFor(() => expect(screen.getByText('Awesome textarea error')).toBeInTheDocument());
 	});
 });

@@ -1,5 +1,5 @@
 import React from 'react';
-import { useField } from 'formik';
+import { useController } from 'react-hook-form';
 import { TextField, TextFieldDateProps } from '@sergiogc9/react-ui';
 
 import { FormTextFieldProps } from './types';
@@ -7,27 +7,26 @@ import { FormTextFieldProps } from './types';
 const FormInput: React.FC<FormTextFieldProps> = props => {
 	const { helperText, name, type, ...rest } = props;
 
-	const [field, meta, helpers] = useField(name);
+	const { field, fieldState, formState } = useController({ name });
 
-	const isError = meta.touched && !!meta.error;
+	const isError = (fieldState.isTouched || formState.isSubmitted) && fieldState.invalid;
 
 	const dateProps = React.useMemo<TextFieldDateProps>(() => {
 		if (type !== 'date') return {};
 		return {
 			defaultDate: field.value || undefined,
 			onDateChange: date => {
-				helpers.setTouched(true);
-				helpers.setValue(date || null);
+				field.onChange(date);
 			}
 		};
-	}, [field.value, helpers, type]);
+	}, [field, type]);
 
 	return (
 		<TextField
 			{...rest}
 			{...field}
 			{...dateProps}
-			helperText={isError ? meta.error : helperText}
+			helperText={isError ? fieldState.error?.message : helperText}
 			isError={isError}
 			type={type}
 		/>

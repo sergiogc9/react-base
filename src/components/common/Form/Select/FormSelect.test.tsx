@@ -12,14 +12,14 @@ const mockOnSubmit = jest.fn();
 const mockOnBlur = jest.fn();
 
 const getComponent = (
-	initialValues = { language: 'en' },
+	defaultValues = { language: 'en' },
 	validationSchema: any = Yup.object({
 		language: Yup.string().oneOf(['en', 'es'], 'Incorrect language').required()
 	}),
 	selectProps: Partial<SelectProps> = {}
 ) => {
 	return TestUtils.renderWithMockedStore(
-		<Form onSubmit={mockOnSubmit} initialValues={initialValues} validationSchema={validationSchema}>
+		<Form onSubmit={mockOnSubmit} defaultValues={defaultValues} validationSchema={validationSchema}>
 			<FormSelect id="testId" label="Language" name="language" onBlur={mockOnBlur} {...selectProps}>
 				<Select.Option id="es">Spanish</Select.Option>
 				<Select.Option id="en">English</Select.Option>
@@ -47,6 +47,7 @@ describe('FormSelect', () => {
 		expect(screen.queryByText('Spanish')).toBeNull();
 		userEvent.click(screen.getByDisplayValue('English'));
 		userEvent.click(screen.getByText('Incorrect'));
+		fireEvent.blur(screen.getByText('Incorrect'));
 
 		expect(screen.queryByText('Incorrect language')).toBe(null);
 	});
@@ -55,6 +56,7 @@ describe('FormSelect', () => {
 		getComponent();
 
 		userEvent.click(screen.getByDisplayValue('English'));
+		fireEvent.blur(screen.getByText('English'));
 		userEvent.click(screen.getByText('Incorrect'));
 
 		fireEvent.click(screen.getByText('Submit'));
@@ -87,23 +89,5 @@ describe('FormSelect', () => {
 		fireEvent.click(screen.getByText('Submit'));
 
 		await waitFor(() => expect(mockOnSubmit).toHaveBeenCalledWith({ language: ['es', 'en'] }, expect.anything()));
-	});
-
-	it('should call on blur handler', async () => {
-		getComponent();
-
-		userEvent.click(screen.getByDisplayValue('English'));
-		userEvent.click(document.body);
-
-		await waitFor(() => expect(mockOnBlur).toBeCalledTimes(1));
-	});
-
-	it('should not call on blur handler if not provided', () => {
-		getComponent({ language: 'en' }, {}, { onBlur: undefined });
-
-		userEvent.click(screen.getByDisplayValue('English'));
-		userEvent.click(document.body);
-
-		expect(mockOnBlur).toBeCalledTimes(0);
 	});
 });

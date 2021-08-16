@@ -8,7 +8,7 @@ import Form from 'components/common/Form';
 import FormButtonSubmit from 'components/common/Form/Button/Submit';
 import { FormButtonSubmitProps } from './types';
 
-const initialValues = { email: 'test@google.es' };
+const defaultValues = { email: 'test@fake.com' };
 
 const onSubmitMock = jest.fn();
 
@@ -17,7 +17,7 @@ const renderComponent = (props: Partial<FormButtonSubmitProps> = { isDefaultEnab
 	return TestUtils.renderWithMockedStore(
 		<Form
 			onSubmit={onSubmitMock}
-			initialValues={initialValues}
+			defaultValues={defaultValues}
 			validationSchema={Yup.object({
 				email: Yup.string().email('Should be an email').required()
 			})}

@@ -6,7 +6,7 @@ import { GoogleMapsAutocompleteProps } from '@sergiogc9/react-ui';
 import { actions as notificationActions } from 'store/notifications';
 import TestUtils from 'lib/tests';
 
-import PanelGoogleMapsAutocomplete from './AppGoogleMapsAutocomplete';
+import AppGoogleMapsAutocomplete from './AppGoogleMapsAutocomplete';
 
 jest.mock('@sergiogc9/react-ui', () => {
 	const currentPackage = jest.requireActual('@sergiogc9/react-ui');
@@ -24,7 +24,7 @@ jest.mock('@sergiogc9/react-ui', () => {
 
 const mockOnApiError = jest.fn();
 const renderComponent = (props: Partial<GoogleMapsAutocompleteProps> = {}) => {
-	return TestUtils.renderWithMockedStore(<PanelGoogleMapsAutocomplete onApiError={mockOnApiError} {...props} />);
+	return TestUtils.renderWithMockedStore(<AppGoogleMapsAutocomplete onApiError={mockOnApiError} {...props} />);
 };
 
 describe('AppGoogleMapsAutocomplete component', () => {

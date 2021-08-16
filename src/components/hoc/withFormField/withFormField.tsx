@@ -1,5 +1,5 @@
 import React from 'react';
-import { useField } from 'formik';
+import { useController } from 'react-hook-form';
 
 import { FormFieldProps } from './types';
 
@@ -14,20 +14,26 @@ const withFormField = <V extends any = string, P extends FormFieldProps<V> = For
 	return React.memo<P & { name: string }>(props => {
 		const { name } = props;
 
-		const [field, meta] = useField<V>({ name });
+		const { field, fieldState, formState } = useController({ name });
 
-		const isError = meta.touched && !!meta.error;
+		const isError = (fieldState.isTouched || formState.isSubmitted) && fieldState.invalid;
 
-		const { onChange } = field;
 		const onValueChanged = React.useCallback(
 			(value: V) => {
-				if (typeof value === 'object' && ((value as any).target || (value as any).currentTarget)) onChange(value);
-				else onChange({ target: { name, value } });
+				if (typeof value === 'object' && ((value as any).target || (value as any).currentTarget)) field.onChange(value);
+				else field.onChange({ target: { name, value } });
 			},
-			[name, onChange]
+			[name, field]
 		);
 
-		return <Component {...props} {...field} error={isError ? meta.error : undefined} onChange={onValueChanged} />;
+		return (
+			<Component
+				{...props}
+				{...field}
+				error={isError ? fieldState.error?.message : undefined}
+				onChange={onValueChanged}
+			/>
+		);
 	});
 };
 export default withFormField;

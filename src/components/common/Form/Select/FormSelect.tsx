@@ -1,38 +1,35 @@
 import React from 'react';
-import { useField } from 'formik';
+import { useController } from 'react-hook-form';
 import { Select, SelectProps } from '@sergiogc9/react-ui';
 
 import { FormSelectProps } from './types';
 
 const FormSelect: React.FC<FormSelectProps> = props => {
-	const { helperText, name, onBlur, ...rest } = props;
+	const { helperText, name, ...rest } = props;
 
-	const [field, meta, helpers] = useField(name);
+	const { field, fieldState } = useController({ name });
 
-	const isError = meta.touched && !!meta.error;
+	const isError = fieldState.isTouched && fieldState.invalid;
 
-	const onSelectBlurred = React.useCallback<NonNullable<SelectProps['onBlur']>>(
-		ev => {
-			helpers.setTouched(true);
-			if (onBlur) onBlur(ev);
-		},
-		[helpers, onBlur]
-	);
+	const onSelectBlurred = React.useCallback<NonNullable<SelectProps['onBlur']>>(() => {
+		if (!fieldState.isTouched) field.onBlur();
+	}, [field, fieldState.isTouched]);
 
-	const onOptionChanged = React.useCallback<NonNullable<SelectProps['onOptionChange']>>(
+	const onSelectChanged = React.useCallback<NonNullable<SelectProps['onOptionChange']>>(
 		ids => {
-			helpers.setValue(ids);
+			field.onChange(ids);
+			field.onBlur();
 		},
-		[helpers]
+		[field]
 	);
 
 	return (
 		<Select
 			{...rest}
-			helperText={isError ? meta.error : helperText}
+			helperText={isError ? fieldState.error?.message : helperText}
 			isError={isError}
 			onBlur={onSelectBlurred}
-			onOptionChange={onOptionChanged}
+			onOptionChange={onSelectChanged}
 			value={field.value}
 		/>
 	);

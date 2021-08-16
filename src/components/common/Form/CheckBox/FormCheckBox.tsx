@@ -1,5 +1,5 @@
 import React from 'react';
-import { useField } from 'formik';
+import { useController } from 'react-hook-form';
 import { CheckBox } from '@sergiogc9/react-ui';
 
 import { FormCheckBoxProps } from './types';
@@ -7,9 +7,17 @@ import { FormCheckBoxProps } from './types';
 const FormCheckBox: React.FC<FormCheckBoxProps> = props => {
 	const { name, ...rest } = props;
 
-	const [field] = useField<boolean>(name);
+	const { field } = useController({ name });
 
-	return <CheckBox {...rest} {...field} isDefaultSelected={field.value} isSelected={field.value} value={undefined} />;
+	return (
+		<CheckBox
+			{...rest}
+			isDefaultSelected={field.value}
+			name={field.name}
+			onBlur={field.onBlur}
+			onChange={field.onChange}
+		/>
+	);
 };
 
 export default React.memo(FormCheckBox);

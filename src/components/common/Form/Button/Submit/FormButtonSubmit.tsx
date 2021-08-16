@@ -1,6 +1,5 @@
 import React from 'react';
-import { useFormikContext } from 'formik';
-import { isEmpty } from 'lib/imports/lodash';
+import { useFormState } from 'react-hook-form';
 import { Button } from '@sergiogc9/react-ui';
 
 import { FormButtonSubmitProps } from './types';
@@ -8,11 +7,11 @@ import { FormButtonSubmitProps } from './types';
 const FormButtonSubmit: React.FC<FormButtonSubmitProps> = props => {
 	const { children, isDefaultEnabled, ...rest } = props;
 
-	const { errors, isSubmitting, touched } = useFormikContext();
+	const { isValid, isSubmitting, isDirty } = useFormState();
 
 	const isButtonDisabled = React.useMemo(() => {
-		return !isEmpty(errors) || (isEmpty(touched) && !isDefaultEnabled);
-	}, [errors, isDefaultEnabled, touched]);
+		return !isValid || (!isDirty && !isDefaultEnabled);
+	}, [isDefaultEnabled, isDirty, isValid]);
 
 	return (
 		<Button type="submit" {...rest} isDisabled={isButtonDisabled} isLoading={isSubmitting}>

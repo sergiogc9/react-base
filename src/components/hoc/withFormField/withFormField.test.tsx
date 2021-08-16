@@ -19,7 +19,7 @@ const FormCustomInput = withFormField(CustomInput);
 const renderInputComponent = () =>
 	TestUtils.renderWithMockedStore(
 		<Form<{ test: string }>
-			initialValues={{ test: stringValue }}
+			defaultValues={{ test: stringValue }}
 			validationSchema={Yup.object({
 				test: Yup.string().required()
 			})}
@@ -39,7 +39,7 @@ const FormCustomObjectField = withFormField(CustomObjectField);
 const renderFakeObjectComponent = () =>
 	TestUtils.renderWithMockedStore(
 		<Form<{ test: { awesome: string } }>
-			initialValues={{ test: { awesome: stringValue } }}
+			defaultValues={{ test: { awesome: stringValue } }}
 			validationSchema={Yup.object({
 				test: Yup.object()
 			})}

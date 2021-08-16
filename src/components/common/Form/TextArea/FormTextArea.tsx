@@ -1,5 +1,5 @@
 import React from 'react';
-import { useField } from 'formik';
+import { useController } from 'react-hook-form';
 import { TextArea } from '@sergiogc9/react-ui';
 
 import { FormTextAreaProps } from './types';
@@ -7,11 +7,13 @@ import { FormTextAreaProps } from './types';
 const FormTextArea: React.FC<FormTextAreaProps> = props => {
 	const { helperText, name, ...rest } = props;
 
-	const [field, meta] = useField(name);
+	const { field, fieldState, formState } = useController({ name });
 
-	const isError = meta.touched && !!meta.error;
+	const isError = (fieldState.isTouched || formState.isSubmitted) && fieldState.invalid;
 
-	return <TextArea {...rest} {...field} helperText={isError ? meta.error : helperText} isError={isError} />;
+	return (
+		<TextArea {...rest} {...field} helperText={isError ? fieldState.error?.message : helperText} isError={isError} />
+	);
 };
 
 export default React.memo(FormTextArea);
