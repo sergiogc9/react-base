@@ -15,7 +15,7 @@ const PokemonItemPage: React.FC = () => {
 			<Title aspectSize="l">Pokemon item page</Title>
 			{isLoading && <Loading />}
 			{pokemon && (
-				<Grid mt={5} width={300}>
+				<Grid columns={12} mt={5} width={300}>
 					<Grid.Box columns={6}>
 						<Content fontWeight="bold">ID:</Content>{' '}
 					</Grid.Box>

@@ -16,8 +16,6 @@ const StyledHeader = styled.header`
 		#headerLogo > svg,
 		#headerMenuIcon {
 			color: ${props => props.theme.colors.neutral[700]};
-			opacity: 0.5;
-			transition: opacity 0.25s ease-in-out;
 
 			&:hover {
 				opacity: 1;

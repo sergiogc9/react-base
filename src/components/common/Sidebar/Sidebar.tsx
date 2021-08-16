@@ -62,8 +62,7 @@ const Sidebar: React.FC = () => {
 				<ul>
 					{sidebarNavItems.map(item => {
 						const isSelected =
-							location.pathname === item.url ||
-							(!!item.url.match(`^${location.pathname}.*`) && location.pathname !== '/');
+							location.pathname === item.url || (!!location.pathname.match(`^${item.url}`) && item.url !== '/');
 						return (
 							<Tooltip key={item.label}>
 								<Tooltip.Trigger as="li">

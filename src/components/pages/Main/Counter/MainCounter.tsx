@@ -14,7 +14,7 @@ const MainCounter: React.FC<ComponentProps> = props => {
 	const [value, setValue] = React.useState(defaultValue);
 
 	return (
-		<Grid id="mainCounter" flexDirection="column">
+		<Grid columns={12} id="mainCounter" flexDirection="column">
 			<Grid.Row>
 				<TextField
 					data-testid="counter-input"
