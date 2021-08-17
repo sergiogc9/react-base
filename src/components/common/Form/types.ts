@@ -9,7 +9,7 @@ export type FormHelpers = {
 
 export type Props<FormValues extends Record<string, unknown> = Record<string, unknown>> = {
 	readonly children: React.ReactNode;
-	readonly defaultValues: FormValues;
+	readonly defaultValues: Partial<FormValues>;
 	readonly onChange?: (values: FormValues) => void;
 	readonly onSubmit?: (values: FormValues, formHelpers: FormHelpers) => void;
 	readonly onValidChange?: (isValid: boolean, errors: DeepMap<FormValues, FieldError>) => void;

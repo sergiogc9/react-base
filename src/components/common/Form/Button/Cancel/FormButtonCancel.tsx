@@ -10,7 +10,7 @@ const FormButtonCancel: React.FC<FormButtonCancelProps> = props => {
 	const { isSubmitting } = useFormState();
 
 	return (
-		<Button {...rest} isDisabled={isSubmitting}>
+		<Button variant="secondary" {...rest} isDisabled={isSubmitting}>
 			{children}
 		</Button>
 	);
