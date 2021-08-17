@@ -4,7 +4,12 @@ const successConfig: ApiConfig = {
 	common: {},
 	redux: {},
 	reactQuery: {
-		// TODO!! use some example for pokemon api calls
+		pokemon: {
+			addPokemon: {
+				level: 'success',
+				t: 'pages.pokemon_add.save.success'
+			}
+		}
 	}
 };
 

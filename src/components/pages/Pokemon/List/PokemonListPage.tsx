@@ -86,7 +86,13 @@ const PokemonItemList: React.FC = () => {
 		<Box id="pokemonListPage" flexDirection="column" px={{ md: 6, xs: 3 }} py={4}>
 			{data ? (
 				<>
-					<Title aspectSize="s">Pokemons</Title>
+					<Box alignItems="center" justifyContent="space-between">
+						<Title aspectSize="s">Pokemons</Title>
+						<Button aspectSize="s" onClick={() => navigate('add')} variant="secondary">
+							<Button.Icon aspectSize="s" icon="add" styling="outlined" />
+							<Button.Text aspectSize="s">Add pokemon</Button.Text>
+						</Button>
+					</Box>
 					{tableContent}
 				</>
 			) : (

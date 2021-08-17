@@ -9,3 +9,6 @@ export type ListPokemon = {
 	name: string;
 	url: string;
 };
+
+export const pokemonTypes = ['poison', 'electric', 'fire', 'ghost', 'grass'] as const;
+export type PokemonType = typeof pokemonTypes[number];

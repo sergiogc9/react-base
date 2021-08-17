@@ -3,7 +3,7 @@ import { useQueryClient } from 'react-query';
 import { reject } from 'lib/imports/lodash';
 
 import { useApiMutate, useApiQuery } from 'middleware/api/react-query';
-import { ListPokemon, Pokemon } from 'types/entities/pokemon';
+import { ListPokemon, Pokemon, PokemonType } from 'types/entities/pokemon';
 
 const apiActionBase = 'pokemon/';
 
@@ -30,8 +30,20 @@ export const useGetPokemonItem = (id: string) => {
 	};
 
 	return useApiQuery<Pokemon>(`${apiActionBase}getPokemonItem`, ['pokemons', { id }], getData, {
+		useErrorBoundary: true,
 		showLoadingBar: true
 	});
+};
+
+export const useAddPokemon = () => {
+	type Args = { pokemonData: { name: string; baseExperience: number; description: string; type: PokemonType } };
+	const addPokemon = async () => {
+		// Simulate API call
+		await new Promise(resolve => setTimeout(resolve, 1000));
+		// await Promise.reject(); // Simulate failure if wanted
+	};
+
+	return useApiMutate<any, any, Args>(`${apiActionBase}addPokemon`, addPokemon);
 };
 
 export const useRemovePokemon = () => {

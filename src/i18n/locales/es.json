@@ -20,7 +20,10 @@
 			"last_name": "Apellidos",
 			"phone_number": "Teléfono"
 		},
-		"save_profile": "Guardar cambios",
+		"buttons": {
+			"cancel": "Cancelar",
+			"save": "Guardar"
+		},
 		"stepper": {
 			"btn": {
 				"go_back": "Atrás",

@@ -20,7 +20,10 @@
 			"last_name": "Last name",
 			"phone_number": "Phone number"
 		},
-		"save_profile": "Save changes",
+		"buttons": {
+			"cancel": "Cancel",
+			"save": "Save"
+		},
 		"stepper": {
 			"btn": {
 				"go_back": "Go Back",
@@ -44,6 +47,12 @@
 		"main": {
 			"example_text_with_interpolation": "Example of text using interpolation. Environment is {{environment}}",
 			"example_text_without_interpolation": "Example of text using i18n"
+		},
+		"pokemon_add": {
+			"save": {
+				"error": "The pokemon could not be saved. Try again.",
+				"success": "The pokemon has been added"
+			}
 		}
 	}
 }

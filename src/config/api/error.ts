@@ -10,7 +10,12 @@ const errorConfig: ApiConfig = {
 		}
 	},
 	reactQuery: {
-		// TODO!! use some example for pokemon api calls
+		pokemon: {
+			addPokemon: {
+				level: 'error',
+				t: 'pages.pokemon_add.save.error'
+			}
+		}
 	}
 };
 

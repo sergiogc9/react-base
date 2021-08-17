@@ -12,11 +12,13 @@ import MainLayout from 'components/layouts/Main/MainLayout';
 // Pages
 const MainPage = lazyLoadComponent(() => import('components/pages/Main'));
 const PokemonListPage = lazyLoadComponent(() => import('components/pages/Pokemon/List'));
+const PokemonAddPage = lazyLoadComponent(() => import('components/pages/Pokemon/Add'));
 const PokemonItemPage = lazyLoadComponent(() => import('components/pages/Pokemon/Item'));
 
 // Error bounded pages
 const ErrorBoundedMainPage = withErrorBoundary(MainPage);
 const ErrorBoundedPokemonListPage = withErrorBoundary(PokemonListPage);
+const ErrorBoundedPokemonAddPage = withErrorBoundary(PokemonAddPage);
 const ErrorBoundedPokemonItemPage = withErrorBoundary(PokemonItemPage);
 
 // Authenticated Layouts
@@ -33,6 +35,7 @@ const privateRoutes: RoutesObject = [
 		element: <AuthMainLayout />,
 		children: [
 			{ path: '/', element: <ErrorBoundedPokemonListPage /> },
+			{ path: '/add', element: <ErrorBoundedPokemonAddPage /> },
 			{ path: ':id', element: <ErrorBoundedPokemonItemPage /> },
 			{ path: '*', element: <Navigate to="/pokemon" replace /> }
 		]
