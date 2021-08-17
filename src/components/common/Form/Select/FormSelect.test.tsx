@@ -11,15 +11,19 @@ import FormSelect from 'components/common/Form/Select';
 const mockOnSubmit = jest.fn();
 const mockOnBlur = jest.fn();
 
+type FormValues = {
+	language: 'en' | 'es';
+};
+
 const getComponent = (
-	defaultValues = { language: 'en' },
+	defaultValues: Partial<FormValues> = { language: 'en' },
 	validationSchema: any = Yup.object({
 		language: Yup.string().oneOf(['en', 'es'], 'Incorrect language').required()
 	}),
 	selectProps: Partial<SelectProps> = {}
 ) => {
 	return TestUtils.renderWithMockedStore(
-		<Form onSubmit={mockOnSubmit} defaultValues={defaultValues} validationSchema={validationSchema}>
+		<Form onSubmit={mockOnSubmit} defaultValues={defaultValues as any} validationSchema={validationSchema}>
 			<FormSelect id="testId" label="Language" name="language" onBlur={mockOnBlur} {...selectProps}>
 				<Select.Option id="es">Spanish</Select.Option>
 				<Select.Option id="en">English</Select.Option>

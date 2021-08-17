@@ -3,13 +3,15 @@ import * as yup from 'yup';
 import { DeepMap, FieldError, UseFormProps } from 'react-hook-form';
 import { BoxProps } from '@sergiogc9/react-ui';
 
+import { RecursivePartial } from 'types/generics';
+
 export type FormHelpers = {
 	setErrors: (errors: Record<string, string>) => void;
 };
 
 export type Props<FormValues extends Record<string, unknown> = Record<string, unknown>> = {
 	readonly children: React.ReactNode;
-	readonly defaultValues: Partial<FormValues>;
+	readonly defaultValues: RecursivePartial<FormValues>;
 	readonly onChange?: (values: FormValues) => void;
 	readonly onSubmit?: (values: FormValues, formHelpers: FormHelpers) => void;
 	readonly onValidChange?: (isValid: boolean, errors: DeepMap<FormValues, FieldError>) => void;
