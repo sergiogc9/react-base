@@ -1,114 +1,69 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
+import systemCSS from '@styled-system/css';
+import { Box, Tooltip } from '@sergiogc9/react-ui';
 
-const StyledSidebar = styled.div`
-	background-color: ${props => props.theme.colors.primary['800']};
-	width: 72px;
-	border-right: thin solid ${props => props.theme.colors.neutral[500]};
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	transition: width 0.5s ease-in-out;
-	overflow: hidden;
+import { StyledSidebarItemProps } from './types';
 
-	#sidebarSquareLogo {
-		width: 32px;
-		height: 32px;
-		margin-top: 16px;
-	}
+const StyledSidebar = styled(Box)``;
 
-	ul > li {
-		width: 100%;
-		margin: 5px auto;
-		> a {
-			width: 100%;
-			height: 40px;
-			display: flex;
-			align-items: center;
-			color: ${props => props.theme.colors.neutral[0]};
-			opacity: 0.6;
-			position: relative;
+StyledSidebar.defaultProps = {
+	alignItems: 'center',
+	bg: 'primary.800',
+	borderRightColor: 'neutral.500',
+	borderRightStyle: 'solid',
+	borderRightWidth: 'thin',
+	flexDirection: { xs: 'row', md: 'column' },
+	height: { xs: 'auto', md: '100vh' },
+	justifyContent: { xs: 'space-evenly', md: 'flex-start' },
+	pb: { xs: 0, md: 4 },
+	width: { xs: '100%', md: 72 }
+};
 
-			&::before {
-				content: '';
-				position: absolute;
-				top: 0;
-				left: 0;
-				width: 3px;
-				height: 100%;
-				border-radius: 10px;
-				background-color: ${props => props.theme.colors.primary[500]};
-				opacity: 1;
-				transform: scaleY(0);
-			}
+const getSelectedItemCss = () => css`
+	opacity: 1;
 
-			&.selected,
-			&:hover {
-				font-weight: bold;
-				opacity: 1;
-
-				&::before {
-					transform: scaleY(1);
-					transition: transform 0.15s linear;
-				}
-			}
-
-			> div:first-child {
-				cursor: pointer;
-				margin-left: 24px;
-				svg {
-					font-size: 20px;
-				}
-			}
-		}
-	}
-
-	@media (max-width: ${props => parseInt(props.theme.breakpoints[2], 10) - 1}px) {
-		width: 100%;
-
-		nav {
-			height: 100%;
-			ul {
-				height: 100%;
-				display: flex;
-				justify-content: space-around;
-
-				> li {
-					height: 100%;
-					flex-basis: 0;
-					flex-grow: 1;
-					margin: 0;
-					display: flex;
-					justify-content: center;
-					align-items: center;
-
-					> a {
-						height: 100%;
-						justify-content: center;
-
-						&::before {
-							top: inherit;
-							bottom: 0;
-							left: 20%;
-							width: 60%;
-							height: 3px;
-							transform: scaleX(0);
-						}
-
-						> div:first-child {
-							margin: 0;
-						}
-
-						&.selected,
-						&:hover {
-							&::before {
-								transform: scaleX(1);
-							}
-						}
-					}
-				}
-			}
-		}
+	&:before {
+		${systemCSS({
+			transform: ['scaleX(1)', 'scaleX(1)', 'scaleX(1)', 'scaleY(1)'],
+			transition: 'transform 0.15s ease'
+		})}
 	}
 `;
 
+const StyledSidebarItem = styled(Tooltip.Trigger)<StyledSidebarItemProps>`
+	&::before {
+		content: '';
+
+		${systemCSS({
+			bg: 'primary.500',
+			borderRadius: 100,
+			bottom: 0,
+			height: [2, 2, 2, '100%'],
+			left: 0,
+			position: 'absolute',
+			transform: ['scaleX(0)', 'scaleX(0)', 'scaleX(0)', 'scaleY(0)'],
+			width: ['100%', '100%', '100%', 2]
+		})}
+	}
+
+	@media (hover: hover) {
+		&:hover {
+			${getSelectedItemCss()}
+		}
+	}
+
+	${props => props.isSelected && getSelectedItemCss()}
+`;
+
+StyledSidebarItem.defaultProps = {
+	alignItems: 'center',
+	cursor: 'pointer',
+	height: { xs: '100%', md: 40 },
+	justifyContent: 'center',
+	mt: { xs: 0, md: 2 },
+	opacity: 0.6,
+	width: { xs: 40, md: '100%' }
+};
+
+export { StyledSidebarItem };
 export default StyledSidebar;

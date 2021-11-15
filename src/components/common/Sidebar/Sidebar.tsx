@@ -1,20 +1,19 @@
 import React from 'react';
-import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { Box, Icon, IconProps, Tooltip } from '@sergiogc9/react-ui';
+import { useLocation, useNavigate } from 'react-router-dom';
+import { Box, Icon, Tooltip } from '@sergiogc9/react-ui';
 
 import { ReactComponent as PokeBallLogo } from 'assets/logos/poke-ball.svg';
 import Responsive from 'components/common/Responsive';
+import Link from 'components/ui/Link';
 
-import StyledSidebar from './styled';
+import StyledSidebar, { StyledSidebarItem } from './styled';
+import { MenuItem, SidebarProps } from './types';
 
-type MenuItem = {
-	label: string;
-	icon: IconProps['icon'];
-	iconStyling: IconProps['styling'];
-	url: string;
+const isItemSelected = (item: MenuItem, pathname: string) => {
+	return pathname === item.url || (!!item.url.match(`^${pathname}.*`) && pathname !== '/');
 };
 
-const Sidebar: React.FC = () => {
+const Sidebar: React.FC<SidebarProps> = () => {
 	const location = useLocation();
 	const navigate = useNavigate();
 
@@ -39,80 +38,51 @@ const Sidebar: React.FC = () => {
 	);
 
 	return (
-		<StyledSidebar className="sidebar">
+		<StyledSidebar>
 			<Responsive visibility={['md', 'lg', 'xl']}>
-				<Box width="100%" px="19px">
-					<Box
-						width="100%"
-						minHeight="48px"
-						justifyContent="center"
-						alignItems="center"
-						position="relative"
-						overflow="hidden"
-						cursor="pointer"
-						mb="30px"
-						onClick={onLogoClicked}
-						data-testid="logo-wrapper"
-					>
-						<PokeBallLogo id="sidebarSquareLogo" />
-					</Box>
+				<Box data-testid="logo-wrapper" mb={6} mt={3}>
+					<PokeBallLogo cursor="pointer" height={32} id="sidebarSquareLogo" onClick={onLogoClicked} width={32} />
 				</Box>
 			</Responsive>
-			<Box className="sidebar-menu nav-menu" as="nav" width="100%" display="block">
-				<ul>
-					{sidebarNavItems.map(item => {
-						const isSelected =
-							location.pathname === item.url || (!!location.pathname.match(`^${item.url}`) && item.url !== '/');
-						return (
-							<Tooltip key={item.label}>
-								<Tooltip.Trigger as="li">
-									<Link to={item.url} className={isSelected ? 'selected' : ''}>
-										<Box width="24px" height="24px" justifyContent="center" alignItems="center">
-											<Icon styling={item.iconStyling} icon={item.icon} fill="neutral.0" />
-										</Box>
-									</Link>
-								</Tooltip.Trigger>
-								<Tooltip.Content
-									distance={10}
-									enterDelay={500}
-									exitDelay={0}
-									duration={100}
-									placement="auto"
-									touch={['hold', 500]}
-								>
-									{item.label}
-								</Tooltip.Content>
-							</Tooltip>
-						);
-					})}
-				</ul>
-			</Box>
+			{sidebarNavItems.map(item => (
+				<Tooltip key={item.label}>
+					<StyledSidebarItem isSelected={isItemSelected(item, location.pathname)}>
+						<Link alignItems="center" justifyContent="center" to={item.url} width="100%">
+							<Icon fill="neutral.0" icon={item.icon} styling={item.iconStyling} />
+						</Link>
+					</StyledSidebarItem>
+					<Tooltip.Content
+						distance={10}
+						duration={100}
+						enterDelay={500}
+						exitDelay={0}
+						placement="auto"
+						touch={['hold', 500]}
+					>
+						{item.label}
+					</Tooltip.Content>
+				</Tooltip>
+			))}
 			<Responsive visibility={['md', 'lg', 'xl']}>
-				<Box className="sidebar-menu extra-menu" as="ul" width="100%" display="block" mt="auto" mb={4}>
-					{sidebarExtraItems.map(item => {
-						return (
-							<Tooltip key={item.label}>
-								<Tooltip.Trigger as="li">
-									<Link to={item.url}>
-										<Box width="24px" height="24px" justifyContent="center" alignItems="center">
-											<Icon styling={item.iconStyling} icon={item.icon} fill="neutral.0" />
-										</Box>
-									</Link>
-								</Tooltip.Trigger>
-								<Tooltip.Content
-									distance={10}
-									enterDelay={500}
-									exitDelay={0}
-									duration={100}
-									placement="auto"
-									touch={['hold', 500]}
-								>
-									{item.label}
-								</Tooltip.Content>
-							</Tooltip>
-						);
-					})}
-				</Box>
+				{sidebarExtraItems.map((item, index) => (
+					<Tooltip key={item.label}>
+						<StyledSidebarItem isSelected={isItemSelected(item, location.pathname)} mt={index === 0 ? 'auto' : 2}>
+							<Link alignItems="center" justifyContent="center" to={item.url} width="100%">
+								<Icon fill="neutral.0" icon={item.icon} styling={item.iconStyling} />
+							</Link>
+						</StyledSidebarItem>
+						<Tooltip.Content
+							distance={10}
+							duration={100}
+							enterDelay={500}
+							exitDelay={0}
+							placement="auto"
+							touch={['hold', 500]}
+						>
+							{item.label}
+						</Tooltip.Content>
+					</Tooltip>
+				))}
 			</Responsive>
 		</StyledSidebar>
 	);
