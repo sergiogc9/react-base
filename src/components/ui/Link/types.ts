@@ -12,4 +12,4 @@ type Props = {
 };
 
 export type LinkProps = Props & Omit<BoxProps<React.AnchorHTMLAttributes<HTMLAnchorElement>>, 'href'>;
-export type LinkBoxProps = Props & BoxProps<React.AnchorHTMLAttributes<HTMLAnchorElement>>;
+export type LinkBoxProps = BoxProps<React.AnchorHTMLAttributes<HTMLAnchorElement>>;
