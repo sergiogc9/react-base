@@ -1,6 +1,6 @@
 import React from 'react';
 import * as yup from 'yup';
-import { DeepMap, FieldError, UseFormProps } from 'react-hook-form';
+import { DeepMap, DeepPartial, FieldError, UseFormProps } from 'react-hook-form';
 import { BoxProps } from '@sergiogc9/react-ui';
 
 import { RecursivePartial } from 'types/generics';
@@ -14,7 +14,7 @@ export type Props<FormValues extends Record<string, unknown> = Record<string, un
 	readonly defaultValues: RecursivePartial<FormValues>;
 	readonly onChange?: (values: FormValues) => void;
 	readonly onSubmit?: (values: FormValues, formHelpers: FormHelpers) => void;
-	readonly onValidChange?: (isValid: boolean, errors: DeepMap<FormValues, FieldError>) => void;
+	readonly onValidChange?: (isValid: boolean, errors: DeepMap<DeepPartial<FormValues>, FieldError>) => void;
 	readonly useFormProps?: Omit<UseFormProps<FormValues>, 'defaultValues'>;
 	readonly validationSchema?: yup.ObjectSchema<FormValues | undefined>;
 };
