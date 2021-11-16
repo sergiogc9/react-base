@@ -5,11 +5,11 @@ import { Select, SelectProps } from '@sergiogc9/react-ui';
 import { FormSelectProps } from './types';
 
 const FormSelect: React.FC<FormSelectProps> = props => {
-	const { helperText, name, ...rest } = props;
+	const { helperText, isDisabled, name, ...rest } = props;
 
-	const { field, fieldState } = useController({ name });
+	const { field, fieldState, formState } = useController({ name });
 
-	const isError = fieldState.isTouched && fieldState.invalid;
+	const isError = fieldState.invalid && (fieldState.isTouched || formState.isSubmitted);
 
 	const onSelectBlurred = React.useCallback<NonNullable<SelectProps['onBlur']>>(() => {
 		if (!fieldState.isTouched) field.onBlur();
@@ -27,6 +27,7 @@ const FormSelect: React.FC<FormSelectProps> = props => {
 		<Select
 			{...rest}
 			helperText={isError ? fieldState.error?.message : helperText}
+			isDisabled={isDisabled || formState.isSubmitting}
 			isError={isError}
 			onBlur={onSelectBlurred}
 			onOptionChange={onSelectChanged}

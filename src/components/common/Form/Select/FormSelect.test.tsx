@@ -18,7 +18,7 @@ type FormValues = {
 const getComponent = (
 	defaultValues: Partial<FormValues> = { language: 'en' },
 	validationSchema: any = Yup.object({
-		language: Yup.string().oneOf(['en', 'es'], 'Incorrect language').required()
+		language: Yup.string().oneOf(['en', 'es'], 'Incorrect language').required('Required')
 	}),
 	selectProps: Partial<SelectProps> = {}
 ) => {
@@ -45,11 +45,13 @@ describe('FormSelect', () => {
 		expect(screen.getByDisplayValue('English')).toBeInTheDocument();
 	});
 
-	it('should render change selected to value', () => {
+	it('should render change selected to value', async () => {
 		getComponent();
 
 		expect(screen.queryByText('Spanish')).toBeNull();
 		userEvent.click(screen.getByDisplayValue('English'));
+
+		await waitFor(() => expect(screen.getByText('Incorrect')).toBeInTheDocument());
 		userEvent.click(screen.getByText('Incorrect'));
 		fireEvent.blur(screen.getByText('Incorrect'));
 
@@ -60,6 +62,8 @@ describe('FormSelect', () => {
 		getComponent();
 
 		userEvent.click(screen.getByDisplayValue('English'));
+
+		await waitFor(() => expect(screen.getByText('English')).toBeInTheDocument());
 		fireEvent.blur(screen.getByText('English'));
 		userEvent.click(screen.getByText('Incorrect'));
 
@@ -67,14 +71,25 @@ describe('FormSelect', () => {
 		await waitFor(() => expect(screen.getByText('Incorrect language')).toBeInTheDocument());
 	});
 
+	it('should render error if form is submitted', async () => {
+		getComponent({ language: undefined });
+
+		userEvent.click(screen.getByText('Submit'));
+
+		await waitFor(() => expect(screen.getByText('Required')).toBeInTheDocument());
+	});
+
 	it('should handle a unique value with single select', async () => {
 		getComponent();
 
 		userEvent.click(screen.getByDisplayValue('English'));
+		await waitFor(() => expect(screen.getByText('Spanish')).toBeInTheDocument());
 		userEvent.click(screen.getByText('Spanish'));
 		fireEvent.click(screen.getByText('Submit'));
 
-		await waitFor(() => expect(mockOnSubmit).toHaveBeenCalledWith({ language: 'es' }, expect.anything()));
+		await waitFor(() =>
+			expect(mockOnSubmit).toHaveBeenCalledWith({ language: 'es' }, expect.anything(), expect.anything())
+		);
 	});
 
 	it('should handle a multiple value with multi select', async () => {
@@ -87,11 +102,24 @@ describe('FormSelect', () => {
 		);
 
 		userEvent.click(screen.getByDisplayValue('English'));
+		await waitFor(() => expect(screen.getByText('English')).toBeInTheDocument());
 		userEvent.click(screen.getByText('English'));
 		userEvent.click(screen.getByText('Spanish'));
 		userEvent.click(screen.getByText('English'));
 		fireEvent.click(screen.getByText('Submit'));
 
-		await waitFor(() => expect(mockOnSubmit).toHaveBeenCalledWith({ language: ['es', 'en'] }, expect.anything()));
+		await waitFor(() =>
+			expect(mockOnSubmit).toHaveBeenCalledWith({ language: ['es', 'en'] }, expect.anything(), expect.anything())
+		);
+	});
+
+	it('should render the select as disabled when submitting', async () => {
+		const { container } = getComponent();
+
+		const input = container.querySelector('input')!;
+
+		fireEvent.click(screen.getByText('Submit'));
+
+		expect(input).toBeDisabled();
 	});
 });

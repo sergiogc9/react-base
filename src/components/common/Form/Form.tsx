@@ -1,5 +1,13 @@
 import React from 'react';
-import { FormProvider, SubmitHandler, useForm, UseFormProps, useFormState, useWatch } from 'react-hook-form';
+import {
+	FormProvider,
+	SubmitErrorHandler,
+	SubmitHandler,
+	useForm,
+	UseFormProps,
+	useFormState,
+	useWatch
+} from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { isEmpty } from 'lib/imports/lodash';
 import { useUpdateEffect } from '@sergiogc9/react-hooks';
@@ -9,9 +17,9 @@ import { FormEffectProps, FormProps } from './types';
 
 // This component is needed to avoid fully re-render the whole Form component when form state changes.
 const FormEffect = <FormValues extends Record<string, unknown>>(props: FormEffectProps<FormValues>) => {
-	const { onChange, onValidChange } = props;
+	const { onChange, onDirtyChange, onValidChange } = props;
 
-	const { errors, isValid, touchedFields } = useFormState<FormValues>();
+	const { errors, isDirty, isValid, touchedFields } = useFormState<FormValues>();
 
 	const values = useWatch<FormValues>({});
 
@@ -25,11 +33,26 @@ const FormEffect = <FormValues extends Record<string, unknown>>(props: FormEffec
 		}
 	}, [errors, touchedFields, isValid]);
 
+	useUpdateEffect(() => {
+		if (onDirtyChange) onDirtyChange(isDirty);
+	}, [isDirty]);
+
 	return null;
 };
 
 const Form = <FormValues extends Record<string, unknown>>(props: FormProps<FormValues>) => {
-	const { children, defaultValues, onChange, onValidChange, onSubmit, validationSchema, useFormProps, ...rest } = props;
+	const {
+		children,
+		defaultValues,
+		onChange,
+		onDirtyChange,
+		onValidChange,
+		onSubmit,
+		onSubmitError,
+		validationSchema,
+		useFormProps,
+		...rest
+	} = props;
 
 	const finalUseFormProps = React.useMemo<UseFormProps<FormValues>>(
 		() => ({
@@ -47,7 +70,9 @@ const Form = <FormValues extends Record<string, unknown>>(props: FormProps<FormV
 		getValues,
 		handleSubmit,
 		reset,
-		setError
+		setError,
+		setValue,
+		trigger
 	} = methods;
 
 	React.useEffect(() => {
@@ -66,18 +91,25 @@ const Form = <FormValues extends Record<string, unknown>>(props: FormProps<FormV
 	);
 
 	const onFormSubmitted = React.useCallback<SubmitHandler<FormValues>>(
-		async data => {
-			if (onSubmit) await onSubmit(data as FormValues, { setErrors });
+		async (data, ev) => {
+			if (onSubmit) await onSubmit(data as FormValues, { reset, setErrors, setValue, trigger }, ev as any);
 		},
-		[onSubmit, setErrors]
+		[onSubmit, reset, setErrors, setValue, trigger]
+	);
+
+	const onFormSubmittedError = React.useCallback<SubmitErrorHandler<FormValues>>(
+		async (errors, ev) => {
+			if (onSubmitError) await onSubmitError(errors, { reset, setErrors, setValue, trigger }, ev as any);
+		},
+		[onSubmitError, reset, setErrors, setValue, trigger]
 	);
 
 	return (
 		<FormProvider {...methods}>
-			<StyledForm {...rest} onSubmit={handleSubmit(onFormSubmitted)}>
+			<StyledForm {...rest} onSubmit={handleSubmit(onFormSubmitted, onFormSubmittedError)}>
 				{children}
 			</StyledForm>
-			<FormEffect onChange={onChange} onValidChange={onValidChange} />
+			<FormEffect onChange={onChange} onDirtyChange={onDirtyChange} onValidChange={onValidChange} />
 		</FormProvider>
 	);
 };

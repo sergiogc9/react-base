@@ -1,5 +1,6 @@
 import React from 'react';
-import { screen } from '@testing-library/react';
+import { screen, waitFor } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import * as Yup from 'yup';
 import { GoogleMapsPlace } from '@sergiogc9/react-ui';
 
@@ -26,7 +27,7 @@ const getComponent = (
 			onSubmit={onSubmitMock}
 			defaultValues={defaultValues ?? { location: defaultLocation }}
 			validationSchema={Yup.object({
-				location: Yup.object<GoogleMapsPlace>().required('Should be an object')
+				location: Yup.object<GoogleMapsPlace>().required('Required')
 			})}
 		>
 			<FormAppGoogleMapsAutocomplete label="Location" name="location" {...props} />
@@ -45,5 +46,13 @@ describe('FormAppGoogleMapsAutocomplete', () => {
 		getComponent();
 
 		expect(screen.getByDisplayValue('Awesome place')).toBeInTheDocument();
+	});
+
+	it('should render error if form is submitted', async () => {
+		getComponent({ location: undefined } as any);
+
+		userEvent.click(screen.getByText('Submit'));
+
+		await waitFor(() => expect(screen.getByText('Required')).toBeInTheDocument());
 	});
 });

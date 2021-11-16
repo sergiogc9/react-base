@@ -4,4 +4,4 @@ type Props = {
 	readonly isDefaultEnabled?: boolean;
 };
 
-export type FormButtonSubmitProps = Props & Omit<ButtonProps, 'isDisabled'>;
+export type FormButtonSubmitProps = Props & ButtonProps;

@@ -8,9 +8,9 @@ import { FormAppGoogleMapsAutocompleteProps } from './types';
 const FormAppGoogleMapsAutocomplete: React.FC<FormAppGoogleMapsAutocompleteProps> = props => {
 	const { helperText, name, ...rest } = props;
 
-	const { field, fieldState } = useController({ name });
+	const { field, fieldState, formState } = useController({ name });
 
-	const isError = fieldState.isTouched && fieldState.invalid;
+	const isError = fieldState.invalid && (fieldState.isTouched || formState.isSubmitted);
 
 	const onGoogleMapsBlurred = React.useCallback(() => {
 		if (!fieldState.isTouched) field.onBlur();

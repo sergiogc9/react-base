@@ -50,7 +50,9 @@ describe('FormSwitchBox', () => {
 
 		userEvent.click(screen.getByText('Submit'));
 
-		await waitFor(() => expect(mockOnFormSubmit).toHaveBeenCalledWith({ isCheckedTest: true }, expect.anything()));
+		await waitFor(() =>
+			expect(mockOnFormSubmit).toHaveBeenCalledWith({ isCheckedTest: true }, expect.anything(), expect.anything())
+		);
 	});
 
 	it('should show submit disabled without switch pressed', () => {

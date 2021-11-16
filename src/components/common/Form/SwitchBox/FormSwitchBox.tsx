@@ -5,9 +5,9 @@ import { SwitchBox } from '@sergiogc9/react-ui-collections';
 import { FormSwitchBoxProps } from './types';
 
 const FormSwitchBox: React.FC<FormSwitchBoxProps> = props => {
-	const { name, ...rest } = props;
+	const { isDisabled, name, ...rest } = props;
 
-	const { field } = useController({ name });
+	const { field, formState } = useController({ name });
 
 	const onSwitchChanged = React.useCallback(
 		(isSwitchChecked: boolean) => {
@@ -17,7 +17,14 @@ const FormSwitchBox: React.FC<FormSwitchBoxProps> = props => {
 		[field]
 	);
 
-	return <SwitchBox {...rest} isDefaultChecked={field.value} onChange={onSwitchChanged} />;
+	return (
+		<SwitchBox
+			{...rest}
+			isDefaultChecked={field.value}
+			isDisabled={isDisabled || formState.isSubmitting}
+			onChange={onSwitchChanged}
+		/>
+	);
 };
 
 export default React.memo(FormSwitchBox);

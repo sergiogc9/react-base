@@ -43,7 +43,9 @@ describe('FormCheckBox', () => {
 		userEvent.click(baseElement.querySelector('input[name="enabled"]')!);
 		userEvent.click(screen.getByText('Submit'));
 
-		await waitFor(() => expect(mockOnSubmit).toHaveBeenCalledWith({ enabled: true }, expect.anything()));
+		await waitFor(() =>
+			expect(mockOnSubmit).toHaveBeenCalledWith({ enabled: true }, expect.anything(), expect.anything())
+		);
 	});
 
 	it('should submit with toggled value and default true value', async () => {
@@ -52,6 +54,8 @@ describe('FormCheckBox', () => {
 		userEvent.click(baseElement.querySelector('input[name="enabled"]')!);
 		userEvent.click(screen.getByText('Submit'));
 
-		await waitFor(() => expect(mockOnSubmit).toHaveBeenCalledWith({ enabled: false }, expect.anything()));
+		await waitFor(() =>
+			expect(mockOnSubmit).toHaveBeenCalledWith({ enabled: false }, expect.anything(), expect.anything())
+		);
 	});
 });

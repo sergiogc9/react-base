@@ -11,8 +11,15 @@ import { FormTextFieldProps } from './types';
 
 let onSubmitMock = jest.fn();
 
+const getTextFieldComponent = (type: FormTextFieldProps['type'], props: Partial<TextFieldProps>) => {
+	if (type === 'date') return <FormTextField label="Datepicker" name="datepicker" type="date" {...props} />;
+	if (type === 'number') return <FormTextField label="Age" name="age" type="number" {...props} />;
+
+	return <FormTextField label="Email" name="email" {...props} />;
+};
+
 const getComponent = (
-	defaultValues = { email: '', date: new Date() },
+	defaultValues = { age: 20, email: '', date: new Date() },
 	type: FormTextFieldProps['type'] = 'email',
 	props: Partial<TextFieldProps> = {}
 ) => {
@@ -21,15 +28,12 @@ const getComponent = (
 			defaultValues={defaultValues}
 			onSubmit={onSubmitMock}
 			validationSchema={Yup.object({
+				age: Yup.number().required(),
 				email: Yup.string().email('Should be an email').required(),
 				date: Yup.date().required()
 			})}
 		>
-			{type === 'date' ? (
-				<FormTextField label="Datepicker" name="datepicker" type="date" {...props} />
-			) : (
-				<FormTextField label="Email" name="email" {...props} />
-			)}
+			{getTextFieldComponent(type, props)}
 			<button type="submit">Submit</button>
 		</Form>
 	);
@@ -60,13 +64,13 @@ describe('FormTextField', () => {
 	});
 
 	it('should not render error if not touched', () => {
-		const { queryByText } = getComponent({ email: 'wrong-mail', date: new Date() });
+		const { queryByText } = getComponent({ age: 20, email: 'wrong-mail', date: new Date() });
 
 		expect(queryByText('Should be an email')).toBe(null);
 	});
 
 	it('should remove value when clicking on the datepicker remove button', async () => {
-		const { container } = getComponent({ email: 'fake@email.com', date: new Date(2021, 4, 3) }, 'date', {
+		const { container } = getComponent({ age: 20, email: 'fake@email.com', date: new Date(2021, 4, 3) }, 'date', {
 			hasRemoveButton: true
 		});
 
@@ -76,10 +80,36 @@ describe('FormTextField', () => {
 	});
 
 	it('should render error if wrong email after submit', async () => {
-		getComponent({ email: 'wrong-email', date: new Date() });
+		getComponent({ age: 20, email: 'wrong-email', date: new Date() });
 
 		fireEvent.click(screen.getByText('Submit'));
 
 		await waitFor(() => expect(screen.getByText('Should be an email')).toBeInTheDocument());
+	});
+
+	it('should render numeric textfield', async () => {
+		const { container } = getComponent(undefined, 'number');
+
+		const input = container.querySelector('input')!;
+
+		expect(input).toHaveValue('20');
+
+		userEvent.type(input, '0');
+
+		expect(input).toHaveValue('200');
+
+		userEvent.clear(input);
+
+		expect(input).toHaveAttribute('value', '');
+	});
+
+	it('should render the textfield as disabled when submitting', async () => {
+		const { container } = getComponent({ age: 20, email: 'valid@email.com', date: new Date() });
+
+		const input = container.querySelector('input')!;
+
+		fireEvent.click(screen.getByText('Submit'));
+
+		expect(input).toBeDisabled();
 	});
 });

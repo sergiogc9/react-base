@@ -5,7 +5,7 @@ import { Button } from '@sergiogc9/react-ui';
 import { FormButtonSubmitProps } from './types';
 
 const FormButtonSubmit: React.FC<FormButtonSubmitProps> = props => {
-	const { children, isDefaultEnabled, ...rest } = props;
+	const { children, isDefaultEnabled, isDisabled, ...rest } = props;
 
 	const { isValid, isSubmitting, isDirty } = useFormState();
 
@@ -14,7 +14,7 @@ const FormButtonSubmit: React.FC<FormButtonSubmitProps> = props => {
 	}, [isDefaultEnabled, isDirty, isValid]);
 
 	return (
-		<Button type="submit" {...rest} isDisabled={isButtonDisabled} isLoading={isSubmitting}>
+		<Button type="submit" {...rest} isDisabled={isDisabled ?? isButtonDisabled} isLoading={isSubmitting}>
 			{children}
 		</Button>
 	);

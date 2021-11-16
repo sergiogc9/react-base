@@ -51,4 +51,15 @@ describe('FormTextArea', () => {
 
 		await waitFor(() => expect(screen.getByText('Awesome textarea error')).toBeInTheDocument());
 	});
+
+	it('should render the textarea as disabled when submitting', async () => {
+		getComponent({ textarea: 'Awesome' });
+
+		const textAreaWrapper = screen.getByTestId(textAreaTestId);
+		const textarea = textAreaWrapper.querySelector('textarea[label="TextArea"]')!;
+
+		fireEvent.click(screen.getByText('Submit'));
+
+		expect(textarea).toBeDisabled();
+	});
 });

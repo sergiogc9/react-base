@@ -10,6 +10,7 @@ import FormTextArea from './TextArea';
 import FormSwitchBox from './SwitchBox';
 import Form from './Form';
 
+export type { FormErrors, FormHelpers, FormProps } from './types';
 export default createNameSpacedComponent(Form, {
 	AppGoogleMapsAutocomplete: FormAppGoogleMapsAutocomplete,
 	ButtonCancel: FormButtonCancel,

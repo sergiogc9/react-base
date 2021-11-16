@@ -2,6 +2,7 @@ import React from 'react';
 import { fireEvent, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import * as Yup from 'yup';
+import { Button } from '@sergiogc9/react-ui';
 
 import TestUtils from 'lib/tests';
 import Form from 'components/common/Form';
@@ -18,18 +19,24 @@ const validationSchema = Yup.object({
 const onChangeMock = jest.fn();
 const onValidChangeMock = jest.fn();
 const onSubmitMock = jest.fn();
+const onSubmitErrorMock = jest.fn();
+const onDirtyChangeMock = jest.fn();
+
 const getComponent = (props: Partial<FormProps> = {}) => {
 	return TestUtils.renderWithMockedStore(
 		<Form
 			defaultValues={defaultValues}
-			onSubmit={onSubmitMock}
 			onChange={onChangeMock}
+			onDirtyChange={onDirtyChangeMock}
+			onSubmit={onSubmitMock}
+			onSubmitError={onSubmitErrorMock}
 			onValidChange={onValidChangeMock}
 			validationSchema={validationSchema}
 			{...props}
 		>
 			<Form.TextField name="name" placeholder="name" />
 			<Form.ButtonSubmit>Submit</Form.ButtonSubmit>
+			<Button type="submit">Submit always enabled</Button>
 		</Form>
 	);
 };
@@ -50,6 +57,12 @@ describe('Form', () => {
 
 		expect(onChangeMock).toHaveBeenCalledTimes(0);
 		expect(onValidChangeMock).toHaveBeenCalledTimes(0);
+	});
+
+	it('should not call on dirty change handlers at mount', () => {
+		getComponent();
+
+		expect(onDirtyChangeMock).toHaveBeenCalledTimes(0);
 	});
 
 	it('should call change and valid handlers', async () => {
@@ -76,6 +89,31 @@ describe('Form', () => {
 		);
 	});
 
+	it('should call onDirtyChange handlers when form is edited', async () => {
+		const { container } = getComponent();
+
+		const input = container.querySelector('input')!;
+		userEvent.clear(input);
+		userEvent.type(input, 'nice');
+		fireEvent.blur(input);
+
+		await waitFor(() => expect(onChangeMock).toHaveBeenCalledWith({ name: 'nice' }));
+		expect(onDirtyChangeMock).toHaveBeenCalledWith(true);
+	});
+
+	it('should call onDirtyChange handlers when form have the initial state', async () => {
+		const { container } = getComponent();
+
+		const input = container.querySelector('input')!;
+		userEvent.type(input, 'nice');
+		userEvent.clear(input);
+
+		fireEvent.blur(input);
+
+		await waitFor(() => expect(onChangeMock).toHaveBeenCalledWith({ name: 'nice' }));
+		expect(onDirtyChangeMock).toHaveBeenCalledWith(false);
+	});
+
 	it('should call on submit function when form is submitted', async () => {
 		const { container } = getComponent();
 
@@ -89,6 +127,27 @@ describe('Form', () => {
 		fireEvent.click(screen.getByText('Submit'));
 
 		await waitFor(() => expect(onSubmitMock).toHaveBeenCalledTimes(1));
+	});
+
+	it('should call on submit error function when form is submitted with errors', async () => {
+		getComponent();
+
+		fireEvent.click(screen.getByText('Submit always enabled'));
+
+		await waitFor(() => expect(onSubmitErrorMock).toHaveBeenCalledTimes(1));
+		expect(onSubmitErrorMock).toHaveBeenCalledWith(
+			{ name: expect.objectContaining({ message: 'Required' }) },
+			expect.anything(),
+			expect.anything()
+		);
+	});
+
+	it('should not call on submit error function when form is submitted with errors if not provided', () => {
+		getComponent({ onSubmitError: undefined });
+
+		fireEvent.click(screen.getByText('Submit always enabled'));
+
+		expect(onSubmitErrorMock).toHaveBeenCalledTimes(0);
 	});
 
 	it('should set errors from outside in on submit', async () => {
