@@ -20,7 +20,13 @@ const getComponent = (
 	defaultValues?: { location: GoogleMapsPlace },
 	props: Partial<FormAppGoogleMapsAutocompleteProps> = {}
 ) => {
-	const defaultLocation: GoogleMapsPlace = { placeId: 'fake-id', longitude: 10, latitude: 20, name: 'Awesome place' };
+	const defaultLocation: GoogleMapsPlace = {
+		placeId: 'fake-id',
+		longitude: 10,
+		latitude: 20,
+		name: 'Awesome place',
+		placeComponents: { country: 'testCountry' }
+	};
 
 	return TestUtils.renderWithMockedStore(
 		<Form
