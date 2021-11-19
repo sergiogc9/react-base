@@ -10,7 +10,7 @@ import StyledSidebar, { StyledSidebarItem } from './styled';
 import { MenuItem, SidebarProps } from './types';
 
 const isItemSelected = (item: MenuItem, pathname: string) => {
-	return pathname === item.url || (!!item.url.match(`^${pathname}.*`) && pathname !== '/');
+	return pathname === item.url || (pathname !== '/' && item.url !== '/' && !!pathname.match(`^${item.url}.*`));
 };
 
 const Sidebar: React.FC<SidebarProps> = () => {
