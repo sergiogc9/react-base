@@ -34,8 +34,8 @@ const privateRoutes: RoutesObject = [
 		path: 'pokemon',
 		element: <AuthMainLayout />,
 		children: [
-			{ path: '/', element: <ErrorBoundedPokemonListPage /> },
-			{ path: '/add', element: <ErrorBoundedPokemonAddPage /> },
+			{ index: true, element: <ErrorBoundedPokemonListPage /> },
+			{ path: 'add', element: <ErrorBoundedPokemonAddPage /> },
 			{ path: ':id', element: <ErrorBoundedPokemonItemPage /> },
 			{ path: '*', element: <Navigate to="/pokemon" replace /> }
 		]

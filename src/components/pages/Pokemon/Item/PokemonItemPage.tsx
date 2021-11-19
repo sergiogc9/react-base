@@ -8,7 +8,7 @@ import { useGetPokemonItem } from 'queries/pokemon';
 const PokemonItemPage: React.FC = () => {
 	const params = useParams();
 
-	const { data: pokemon, isLoading } = useGetPokemonItem(params.id);
+	const { data: pokemon, isLoading } = useGetPokemonItem(params.id!);
 
 	return (
 		<Box alignItems="center" flexDirection="column" id="pokemonItemPage" width="100%">
