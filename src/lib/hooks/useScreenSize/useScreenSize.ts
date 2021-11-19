@@ -1,3 +1,4 @@
+/* eslint-disable radix */
 import React from 'react';
 import { useTheme } from 'styled-components';
 import { debounce, isEmpty } from 'lib/imports/lodash';
@@ -14,10 +15,10 @@ export type Breakpoint = Exclude<Extract<keyof Theme['breakpoints'], string>, ke
 
 const getScreenSize = (theme: Theme): Breakpoint => {
 	const screenWidth = window.innerWidth;
-	if (screenWidth < parseInt(theme.breakpoints.sm!, 10)) return 'xs';
-	if (screenWidth < parseInt(theme.breakpoints.md!, 10)) return 'sm';
-	if (screenWidth < parseInt(theme.breakpoints.lg!, 10)) return 'md';
-	if (screenWidth < parseInt(theme.breakpoints.xl!, 10)) return 'lg';
+	if (screenWidth < parseInt(theme.breakpoints.sm!)) return 'xs';
+	if (screenWidth < parseInt(theme.breakpoints.md!)) return 'sm';
+	if (screenWidth < parseInt(theme.breakpoints.lg!)) return 'md';
+	if (screenWidth < parseInt(theme.breakpoints.xl!)) return 'lg';
 	return 'xl';
 };
 
@@ -42,7 +43,11 @@ const useScreenSize = () => {
 		};
 	}, []); // eslint-disable-line react-hooks/exhaustive-deps
 
-	return size;
+	const isMobile = React.useMemo(() => ['xs', 'sm'].includes(size), [size]);
+	const isTablet = React.useMemo(() => ['md'].includes(size), [size]);
+	const isDesktop = React.useMemo(() => ['lg', 'xl'].includes(size), [size]);
+
+	return { isMobile, isTablet, isDesktop, size };
 };
 
 export default useScreenSize;

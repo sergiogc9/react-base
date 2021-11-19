@@ -1,14 +1,21 @@
 import React from 'react';
 import useScreenSize from 'lib/hooks/useScreenSize';
 
-import { ComponentProps } from './types';
+import { ResponsiveProps } from './types';
 
-const Responsive: React.FC<ComponentProps> = props => {
+const Responsive: React.FC<ResponsiveProps> = props => {
 	const { children, visibility } = props;
 
-	const size = useScreenSize();
+	const { isDesktop, isMobile, isTablet, size } = useScreenSize();
 
-	if (visibility.includes(size)) return <>{children}</>;
+	if (
+		visibility.includes(size) ||
+		(visibility === 'mobile' && isMobile) ||
+		(visibility === 'tablet' && isTablet) ||
+		(visibility === 'desktop' && isDesktop)
+	)
+		return <>{children}</>;
+
 	return null;
 };
 

@@ -10,7 +10,8 @@ const usePromptDialog: PromptDialogProps = (isEnabled, dialogText) => {
 
 	React.useEffect(() => {
 		if (isEnabled) {
-			unblockRef.current = navigationContext.navigator.block(tx => {
+			unblockRef.current = (navigationContext.navigator as any).block((tx: any) => {
+				// eslint-disable-next-line no-alert
 				if (window.confirm(dialogText)) {
 					unblockRef.current!();
 

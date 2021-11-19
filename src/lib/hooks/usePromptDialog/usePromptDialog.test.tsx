@@ -44,7 +44,7 @@ const MockComponentNavigationProvider: React.FC = () => {
 			value={{
 				basename: '/',
 				static: false,
-				navigator: { ...navigationContext.navigator, block: mockBlock }
+				navigator: { ...navigationContext.navigator, block: mockBlock } as any
 			}}
 		>
 			<MockComponent />

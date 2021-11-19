@@ -1,54 +1,116 @@
 import React from 'react';
+import { screen } from '@testing-library/react';
 
 import TestUtils from 'lib/tests';
 import Responsive from 'components/common/Responsive';
-import { ComponentProps } from 'components/common/Responsive/types';
+
+import { ResponsiveProps } from './types';
 
 const text = 'Awesome!';
 const xsWidth = 100;
 const mdWidth = 1000;
 const lgWidth = 1500;
-describe('Responsive', () => {
-	const getComponent = (props: Partial<ComponentProps> = {}) =>
-		TestUtils.renderWithStore(
-			<Responsive visibility={['xs', 'sm', 'md']} {...props}>
-				<div>{text}</div>
-			</Responsive>
-		);
 
+const simulateScreenWidthChange = (width: number) => {
+	Object.defineProperty(window, 'innerWidth', {
+		writable: true,
+		configurable: true,
+		value: width
+	});
+
+	window.dispatchEvent(new Event('resize'));
+};
+
+const getComponent = (props: Partial<ResponsiveProps> = {}) => {
+	return TestUtils.renderWithMockedStore(
+		<Responsive visibility={['xs', 'sm', 'md']} {...props}>
+			<div>{text}</div>
+		</Responsive>
+	);
+};
+
+describe('Responsive', () => {
 	it('should render content if visibility includes mobile and size is xs', () => {
-		TestUtils.simulateScreenWidthChange(xsWidth);
-		const { getByText } = getComponent({ visibility: ['xs'] });
-		expect(getByText(text)).toBeInTheDocument();
+		simulateScreenWidthChange(xsWidth);
+		getComponent({ visibility: ['xs'] });
+
+		expect(screen.getByText(text)).toBeInTheDocument();
 	});
 
 	it('should not render content if visibility not includes xs and size is xs', () => {
-		TestUtils.simulateScreenWidthChange(xsWidth);
-		const { queryByText } = getComponent({ visibility: ['md', 'lg'] });
-		expect(queryByText(text)).toBeNull();
+		simulateScreenWidthChange(xsWidth);
+		getComponent({ visibility: ['md', 'lg'] });
+
+		expect(screen.queryByText(text)).toBeNull();
 	});
 
 	it('should render content if visibility includes md and size is md', () => {
-		TestUtils.simulateScreenWidthChange(mdWidth);
-		const { getByText } = getComponent({ visibility: ['md'] });
-		expect(getByText(text)).toBeInTheDocument();
+		simulateScreenWidthChange(mdWidth);
+		getComponent({ visibility: ['md'] });
+
+		expect(screen.getByText(text)).toBeInTheDocument();
 	});
 
 	it('should not render content if visibility not includes md and size is md', () => {
-		TestUtils.simulateScreenWidthChange(mdWidth);
-		const { queryByText } = getComponent({ visibility: ['xs', 'lg'] });
-		expect(queryByText(text)).toBeNull();
+		simulateScreenWidthChange(mdWidth);
+		getComponent({ visibility: ['xs', 'lg'] });
+
+		expect(screen.queryByText(text)).toBeNull();
 	});
 
 	it('should render content if visibility includes lg and size is lg', () => {
-		TestUtils.simulateScreenWidthChange(lgWidth);
-		const { getByText } = getComponent({ visibility: ['lg'] });
-		expect(getByText(text)).toBeInTheDocument();
+		simulateScreenWidthChange(lgWidth);
+		getComponent({ visibility: ['lg'] });
+
+		expect(screen.getByText(text)).toBeInTheDocument();
 	});
 
 	it('should not render content if visibility not includes lg and size is lg', () => {
-		TestUtils.simulateScreenWidthChange(lgWidth);
-		const { queryByText } = getComponent({ visibility: ['xs', 'md'] });
-		expect(queryByText(text)).toBeNull();
+		simulateScreenWidthChange(lgWidth);
+		getComponent({ visibility: ['xs', 'md'] });
+
+		expect(screen.queryByText(text)).toBeNull();
+	});
+
+	it('should render content if visibility is mobile', () => {
+		simulateScreenWidthChange(xsWidth);
+		getComponent({ visibility: 'mobile' });
+
+		expect(screen.getByText(text)).toBeInTheDocument();
+	});
+
+	it('should render content if visibility is mobile and screen is not mobile', () => {
+		simulateScreenWidthChange(mdWidth);
+		getComponent({ visibility: 'mobile' });
+
+		expect(screen.queryByText(text)).toBeNull();
+	});
+
+	it('should render content if visibility is tablet', () => {
+		simulateScreenWidthChange(mdWidth);
+		getComponent({ visibility: 'tablet' });
+
+		expect(screen.getByText(text)).toBeInTheDocument();
+	});
+
+	it('should render content if visibility is tablet and screen is not tablet', () => {
+		simulateScreenWidthChange(lgWidth);
+		getComponent({ visibility: 'tablet' });
+
+		expect(screen.queryByText(text)).toBeNull();
+	});
+
+	it('should render content if visibility is desktop', () => {
+		simulateScreenWidthChange(lgWidth);
+		getComponent({ visibility: 'desktop' });
+
+		expect(screen.getByText(text)).toBeInTheDocument();
+	});
+
+	it('should render content if visibility is desktop and screen is not desktop', () => {
+		simulateScreenWidthChange(xsWidth);
+		getComponent({ visibility: 'desktop' });
+
+		expect(screen.queryByText(text)).toBeNull();
 	});
 });
