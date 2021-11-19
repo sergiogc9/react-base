@@ -1,6 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useTheme } from 'styled-components';
+import { Helmet } from 'react-helmet-async';
 import { Box, Button, Content, Icon, IconButton, Table, TableColumn, Title } from '@sergiogc9/react-ui';
 
 import Link from 'components/ui/Link';
@@ -86,6 +87,9 @@ const PokemonItemList: React.FC = () => {
 		<Box id="pokemonListPage" flexDirection="column" px={{ md: 6, xs: 3 }} py={4}>
 			{data ? (
 				<>
+					<Helmet>
+						<title>Your pokemons</title>
+					</Helmet>
 					<Box alignItems="center" justifyContent="space-between">
 						<Title aspectSize="s">Pokemons</Title>
 						<Button aspectSize="s" onClick={() => navigate('add')} variant="secondary">

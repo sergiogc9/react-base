@@ -1,5 +1,6 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
+import { Helmet, HelmetProvider } from 'react-helmet-async';
 import { LoadingBar } from '@sergiogc9/react-ui';
 
 import ErrorBoundary from 'components/common/ErrorBoundary';
@@ -14,15 +15,20 @@ const App: React.FC = () => {
 	const loadingBarApiCalls = useSelector(uiSelectors.getPendingLoadingBarApiCalls);
 
 	return (
-		<ErrorBoundary>
+		<HelmetProvider>
+			<Helmet>
+				<title>React Boilerplate</title>
+			</Helmet>
 			<GlobalStyle />
-			<NotificationsProvider>
-				<LoadingBar isVisible={loadingBarApiCalls > 0} />
-				<React.Suspense fallback={<FallbackLoader />}>
-					<Routes />
-				</React.Suspense>
-			</NotificationsProvider>
-		</ErrorBoundary>
+			<ErrorBoundary>
+				<NotificationsProvider>
+					<LoadingBar isVisible={loadingBarApiCalls > 0} />
+					<React.Suspense fallback={<FallbackLoader />}>
+						<Routes />
+					</React.Suspense>
+				</NotificationsProvider>
+			</ErrorBoundary>
+		</HelmetProvider>
 	);
 };
 

@@ -1,5 +1,6 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 import { Box, Content, Grid, Title } from '@sergiogc9/react-ui';
 
 import Loading from 'components/ui/Loading';
@@ -12,6 +13,11 @@ const PokemonItemPage: React.FC = () => {
 
 	return (
 		<Box alignItems="center" flexDirection="column" id="pokemonItemPage" width="100%">
+			{pokemon && (
+				<Helmet>
+					<title>Pokemon: {pokemon.name}</title>
+				</Helmet>
+			)}
 			<Title aspectSize="l">Pokemon item page</Title>
 			{isLoading && <Loading />}
 			{pokemon && (

@@ -2,6 +2,7 @@ import React from 'react';
 import * as Yup from 'yup';
 import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
+import { Helmet } from 'react-helmet-async';
 import { capitalize } from 'lib/imports/lodash';
 import { Box, Grid, Select, Title } from '@sergiogc9/react-ui';
 
@@ -46,6 +47,9 @@ const PokemonItemPage: React.FC = () => {
 
 	return (
 		<Box alignItems="center" flexDirection="column" id="pokemonAddPage" width="100%">
+			<Helmet>
+				<title>Add new pokemon</title>
+			</Helmet>
 			<Title aspectSize="l">Add new pokemon</Title>
 			<Form defaultValues={defaultValues} onSubmit={onFormSubmit} validationSchema={validationSchema}>
 				<Grid
