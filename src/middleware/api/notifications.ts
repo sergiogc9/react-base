@@ -134,12 +134,17 @@ const __isNotificationConfig = (candidate: any) => {
 };
 
 export const defaultApiErrorNotification: Notification = {
-	t: 'api.default_error',
-	level: 'error'
+	level: 'error',
+	t: 'api.default_error'
+};
+
+export const defaultApiErrorNotificationConfig: ApiConfigNotification = {
+	...defaultApiErrorNotification,
+	text: { path: 'message' }
 };
 
 export const getNotificationFromConfigResult = (response: any, configResult?: ApiConfigNotification): Notification => {
-	const notification = configResult || defaultApiErrorNotification;
+	const notification = configResult || defaultApiErrorNotificationConfig;
 
 	if (notification.t && isArray(notification.t)) {
 		const interpolation = notification.t[1];
