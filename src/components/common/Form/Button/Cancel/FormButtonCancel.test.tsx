@@ -7,7 +7,7 @@ import Form from 'components/common/Form';
 
 import FormButtonCancel from '.';
 
-const defaultValues = { email: 'test@eurofirms.com' };
+const defaultValues = { email: 'test@fake.com' };
 
 const mockOnClick = jest.fn();
 

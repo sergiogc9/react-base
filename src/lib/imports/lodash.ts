@@ -2,6 +2,7 @@ import capitalize from 'lodash/capitalize';
 import debounce from 'lodash/debounce';
 import filter from 'lodash/filter';
 import find from 'lodash/find';
+import findIndex from 'lodash/findIndex';
 import forEach from 'lodash/forEach';
 import get from 'lodash/get';
 import has from 'lodash/has';
@@ -21,6 +22,7 @@ export {
 	debounce,
 	filter,
 	find,
+	findIndex,
 	forEach,
 	get,
 	has,
