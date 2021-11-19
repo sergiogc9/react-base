@@ -6,7 +6,7 @@ import storage from 'lib/storage';
 import TestUtils from 'lib/tests';
 import useGetTableSort from 'lib/hooks/useGetTableSort';
 
-const getComponent = (shouldRemove: boolean = false) => {
+const getComponent = (shouldRemove = false) => {
 	const Component = () => {
 		const { onSortChange, sortBy } = useGetTableSort('test', { id: 'id_test', desc: true });
 
@@ -19,7 +19,9 @@ const getComponent = (shouldRemove: boolean = false) => {
 			<div>
 				<span>{sortBy.id}</span>
 				<span>{sortBy.desc.toString()}</span>
-				<button onClick={onBtnClicked}>Click me</button>
+				<button onClick={onBtnClicked} type="button">
+					Click me
+				</button>
 			</div>
 		);
 	};

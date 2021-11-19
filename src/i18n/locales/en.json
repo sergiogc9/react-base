@@ -21,6 +21,7 @@
 			"phone_number": "Phone number"
 		},
 		"buttons": {
+			"add": "Add",
 			"cancel": "Cancel",
 			"save": "Save"
 		},

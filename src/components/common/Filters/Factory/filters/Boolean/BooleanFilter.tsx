@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { FilterBoolean } from '../../..';
+import { FilterBoolean } from '../../../types';
 import BaseFilter from '../BaseFilter';
 
 class BooleanFilter extends BaseFilter {

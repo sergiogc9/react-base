@@ -1,16 +1,16 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { Animation, Box, Button, Divider, Icon, IconButton, Popover, Select, Title } from '@sergiogc9/react-ui';
+import { useUpdateEffect } from '@sergiogc9/react-hooks';
 
+import Form from 'components/common/Form';
 import Responsive from 'components/common/Responsive';
 import useBackdrop from 'lib/hooks/useBackdrop';
-import useUpdateEffect from 'lib/hooks/useUpdateEffect';
 
 import FiltersContext from '../Context';
 import FiltersFactory from '../Factory';
 import { FilterField } from '..';
 import { FiltersPopoverProps, FiltersPopoverContentProps } from './types';
-import Form from 'components/common/Form';
 
 const FiltersPopoverContent: React.FC<FiltersPopoverContentProps> = props => {
 	const { editFilterId, onClose } = props;
@@ -25,7 +25,7 @@ const FiltersPopoverContent: React.FC<FiltersPopoverContentProps> = props => {
 	]);
 
 	const [field, setField] = React.useState<FilterField>(() =>
-		editFilterId === 'new' ? fields[0] : fields.find(field => field.field === selectedFilter?.field)!
+		editFilterId === 'new' ? fields[0] : fields.find(currentField => currentField.field === selectedFilter?.field)!
 	);
 
 	const filterInstance = React.useMemo(
@@ -47,7 +47,7 @@ const FiltersPopoverContent: React.FC<FiltersPopoverContentProps> = props => {
 						ml={{ xs: 0, md: 2, lg: 0 }}
 						mr={{ xs: 0, lg: 2 }}
 					>
-						{editFilterId === 'new' ? t('form.button.add') : t('form.button.save')}
+						{editFilterId === 'new' ? t('form.buttons.add') : t('form.buttons.save')}
 					</Form.ButtonSubmit>
 					<Button
 						aspectSize="l"
@@ -58,7 +58,7 @@ const FiltersPopoverContent: React.FC<FiltersPopoverContentProps> = props => {
 						onClick={onClose}
 						variant="secondary"
 					>
-						{t('form.button.cancel')}
+						{t('form.buttons.cancel')}
 					</Button>
 				</Box>
 			</Box>
@@ -73,12 +73,12 @@ const FiltersPopoverContent: React.FC<FiltersPopoverContentProps> = props => {
 					data-testid="filtersPopoverFieldsSelect"
 					label={t('filters.popover.add.field_label')}
 					mb={4}
-					onOptionChange={option => setField(fields.find(field => field.field === option)!)}
+					onOptionChange={option => setField(fields.find(currentField => currentField.field === option)!)}
 					value={field.field}
 				>
-					{fields.map(field => (
-						<Select.Option id={field.field} key={field.field}>
-							{field.text}
+					{fields.map(currentField => (
+						<Select.Option id={currentField.field} key={currentField.field}>
+							{currentField.text}
 						</Select.Option>
 					))}
 				</Select>

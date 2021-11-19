@@ -27,7 +27,9 @@ const FakeComponent: React.FC<{
 
 	return (
 		<Box ref={containerRef} height={100} width={100}>
-			<button onClick={() => setIsVisible(true)}>Open</button>
+			<button onClick={() => setIsVisible(true)} type="button">
+				Open
+			</button>
 			<FiltersProvider
 				containerRef={containerRef}
 				defaultFilters={[filter]}
@@ -85,8 +87,8 @@ describe('FiltersPopover', () => {
 
 		userEvent.click(screen.getByText('Open'));
 
-		await waitFor(() => expect(screen.getByText(locales.form.button.cancel)).toBeInTheDocument());
-		userEvent.click(screen.getByText(locales.form.button.cancel));
+		await waitFor(() => expect(screen.getByText(locales.form.buttons.cancel)).toBeInTheDocument());
+		userEvent.click(screen.getByText(locales.form.buttons.cancel));
 
 		expect(mockOnClose).toHaveBeenCalled();
 	});
@@ -121,7 +123,7 @@ describe('FiltersPopover', () => {
 		userEvent.type(input, 'Nice');
 		fireEvent.blur(input);
 
-		const addBtn = screen.getByText(locales.form.button.add).closest('button')!;
+		const addBtn = screen.getByText(locales.form.buttons.add).closest('button')!;
 		await waitFor(() => expect(addBtn).toBeEnabled());
 		userEvent.click(addBtn);
 
@@ -145,7 +147,7 @@ describe('FiltersPopover', () => {
 		userEvent.type(input, 'Nice');
 		fireEvent.blur(input);
 
-		const saveBtn = screen.getByText(locales.form.button.save).closest('button')!;
+		const saveBtn = screen.getByText(locales.form.buttons.save).closest('button')!;
 		await waitFor(() => expect(saveBtn).toBeEnabled());
 		userEvent.click(saveBtn);
 

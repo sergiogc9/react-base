@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { FilterMultiSelect } from '../../../';
+import { FilterMultiSelect } from '../../../types';
 import BaseFilter from '../BaseFilter';
 
 export const MULTI_SELECT_FILTER_CONDITIONS = ['any_of', 'not_any_of'] as const;

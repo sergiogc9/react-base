@@ -26,7 +26,7 @@ describe('Header', () => {
 			ui: { _: { isPageScrolled: true } }
 		});
 		expect(screen.getByTestId('header-wrapper')).toHaveClass('with-border');
-		expect(screen.getByTestId('header-wrapper')).toHaveStyle('box-shadow: 0px 2px 4px 1px rgba(11,21,25,0.16);');
+		expect(screen.getByTestId('header-wrapper')).toHaveStyle('box-shadow: 0px 4px 16px 2px rgba(11,21,25,0.06);');
 	});
 
 	it('should hide elements in mobile', () => {

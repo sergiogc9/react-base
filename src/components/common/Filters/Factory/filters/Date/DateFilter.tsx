@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { FilterDate } from '../../../';
+import { FilterDate } from '../../../types';
 import BaseFilter from '../BaseFilter';
 
 export const DATE_FILTER_CONDITIONS = ['after_date', 'before_date', 'between_dates'] as const;

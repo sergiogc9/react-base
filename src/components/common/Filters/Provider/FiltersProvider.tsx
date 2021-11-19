@@ -1,7 +1,6 @@
 import React from 'react';
 import { findIndex, reject } from 'lib/imports/lodash';
-
-import useUpdateEffect from 'lib/hooks/useUpdateEffect';
+import { useUpdateEffect } from '@sergiogc9/react-hooks';
 
 import FiltersContext, { FiltersContextData } from '../Context';
 import { Filter } from '..';
@@ -17,7 +16,7 @@ const FiltersProvider: React.FC<FiltersProviderProps> = props => {
 	}, [filters]);
 
 	const addFilter = React.useCallback((filter: Filter) => {
-		setFilters(filters => [filter, ...filters]);
+		setFilters(currentFilters => [filter, ...currentFilters]);
 	}, []);
 
 	const clearAllFilters = React.useCallback(() => {
@@ -25,12 +24,12 @@ const FiltersProvider: React.FC<FiltersProviderProps> = props => {
 	}, []);
 
 	const removeFilter = React.useCallback((filter: Filter) => {
-		setFilters(filters => reject(filters, { id: filter.id }));
+		setFilters(currentFilters => reject(currentFilters, { id: filter.id }));
 	}, []);
 
 	const updateFilter = React.useCallback((filter: Filter) => {
-		setFilters(filters => {
-			const newArray = [...filters];
+		setFilters(currentFilters => {
+			const newArray = [...currentFilters];
 			const filterIndex = findIndex(newArray, f => f.id === filter.id);
 			newArray[filterIndex] = filter;
 			return newArray;

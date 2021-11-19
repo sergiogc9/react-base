@@ -5,7 +5,7 @@ import { Box, Select } from '@sergiogc9/react-ui';
 
 import Form from 'components/common/Form';
 
-import { FilterNumber } from '../../../';
+import { FilterNumber } from '../../../types';
 import { FiltersFactoryFormProps } from '../../types';
 import BaseFilter from '../BaseFilter';
 

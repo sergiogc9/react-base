@@ -88,26 +88,4 @@ describe('FiltersChips', () => {
 		expect(screen.queryAllByTestId('filtersChipsChip')).toHaveLength(1);
 		expect(screen.queryByTestId('filtersChipsClearAllBtn')).toBeInTheDocument();
 	});
-
-	it("should show and hide the popover when clicking the chip's overlay", async () => {
-		renderComponent();
-
-		const chip = screen.getAllByTestId('filtersChipsChip')[0];
-		expect(chip.querySelector('.overlay')).toBeInTheDocument();
-
-		userEvent.hover(chip);
-		const chipOverlay = chip.querySelector('.overlay');
-		fireEvent.transitionEnd(chipOverlay!);
-
-		userEvent.click(chipOverlay!);
-
-		expect(screen.getByTestId('filtersPopover')).toBeInTheDocument();
-
-		await waitFor(() => expect(screen.getByText(locales.form.buttons.cancel)).toBeInTheDocument());
-		userEvent.click(chip);
-
-		fireEvent.transitionEnd(screen.getByTestId('filtersPopover'));
-
-		await waitFor(() => expect(screen.queryByTestId('filtersPopover')).toBeNull());
-	});
 });

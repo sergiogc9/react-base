@@ -14,15 +14,16 @@ jest.mock('react-router-dom', () => {
 	};
 });
 
-describe('Sidebar', () => {
-	const renderComponent = (stateSlice: StateSlice = {}) =>
-		renderWithStore(
-			<div>
-				<Sidebar />
-			</div>,
-			stateSlice
-		);
+const renderComponent = (stateSlice: StateSlice = {}, path?: string) =>
+	renderWithStore(
+		<div>
+			<Sidebar />
+		</div>,
+		stateSlice,
+		path
+	);
 
+describe('Sidebar', () => {
 	it('should show menu and buttons', () => {
 		const { container } = renderComponent();
 

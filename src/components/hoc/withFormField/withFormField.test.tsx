@@ -67,7 +67,7 @@ describe('withFormField hoc', () => {
 		userEvent.type(screen.getByDisplayValue(stringValue), 'wow');
 		userEvent.click(screen.getByText('Submit'));
 		await waitFor(() => expect(mockOnFormSubmit).toHaveBeenCalledTimes(1));
-		expect(mockOnFormSubmit).toHaveBeenCalledWith({ test: `${stringValue}wow` }, expect.anything());
+		expect(mockOnFormSubmit).toHaveBeenCalledWith({ test: `${stringValue}wow` }, expect.anything(), expect.anything());
 	});
 
 	it('should catch onchange event with an object', async () => {
@@ -75,7 +75,7 @@ describe('withFormField hoc', () => {
 		userEvent.click(screen.getByText(stringValue));
 		userEvent.click(screen.getByText('Submit'));
 		await waitFor(() => expect(mockOnFormSubmit).toHaveBeenCalledTimes(1));
-		expect(mockOnFormSubmit).toHaveBeenCalledWith({ test: { awesome: 'yes' } }, expect.anything());
+		expect(mockOnFormSubmit).toHaveBeenCalledWith({ test: { awesome: 'yes' } }, expect.anything(), expect.anything());
 	});
 
 	it('should should show error', async () => {

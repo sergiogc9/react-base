@@ -21,6 +21,7 @@
 			"phone_number": "Teléfono"
 		},
 		"buttons": {
+			"add": "Añadir",
 			"cancel": "Cancelar",
 			"save": "Guardar"
 		},

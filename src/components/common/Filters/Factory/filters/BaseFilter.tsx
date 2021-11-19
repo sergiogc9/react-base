@@ -1,4 +1,4 @@
-import { Filter, FilterField } from '../..';
+import { Filter, FilterField } from '../../types';
 import { FiltersFactoryFormProps } from '../types';
 
 const isFilter = (filter: Filter | FilterField): filter is Filter => {
