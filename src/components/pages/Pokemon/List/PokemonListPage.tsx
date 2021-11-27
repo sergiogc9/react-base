@@ -2,7 +2,19 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useTheme } from 'styled-components';
 import { Helmet } from 'react-helmet-async';
-import { Box, Button, Content, Icon, IconButton, Table, TableColumn, Title } from '@sergiogc9/react-ui';
+import {
+	Box,
+	Button,
+	Content,
+	Icon,
+	IconButton,
+	Popover,
+	Table,
+	TableCellProps,
+	TableColumn,
+	Title
+} from '@sergiogc9/react-ui';
+import { ActionMenu, Dialog } from '@sergiogc9/react-ui-collections';
 
 import Link from 'components/ui/Link';
 import { useGetPokemonList, useRemovePokemon } from 'queries/pokemon';
@@ -18,6 +30,12 @@ const PokemonItemList: React.FC = () => {
 	const { mutateAsync: removePokemon } = useRemovePokemon();
 
 	const theme = useTheme();
+
+	const [deletingPokemonId, setDeletingPokemonId] = React.useState<number>();
+	const onArchiveDialogCancelled = React.useCallback(() => setDeletingPokemonId(undefined), []);
+	const onArchiveDialogConfirmed = React.useCallback(() => {
+		setDeletingPokemonId(undefined);
+	}, []);
 
 	const columns = React.useMemo<TableColumn<ListPokemon>[]>(
 		() => [
@@ -59,9 +77,39 @@ const PokemonItemList: React.FC = () => {
 					</Box>
 				),
 				getCellWidthText: () => 'See pokemon'
+			},
+			{
+				id: 'actionMenu',
+				Cell: (props: TableCellProps<ListPokemon>) => (
+					<Popover>
+						<Popover.Trigger>
+							<IconButton aspectSize="l" data-testid="jobsListPageJobsActionMenuBtn">
+								<Icon fill="neutral.900" icon="kebab-vertical" styling="outlined" />
+							</IconButton>
+						</Popover.Trigger>
+						<ActionMenu
+							distance={4}
+							isVisible={deletingPokemonId ? false : undefined}
+							placement="left-start"
+							trigger="click"
+						>
+							<ActionMenu.Item onClick={() => navigate(`/pokemon/${props.row.original.id}`)}>
+								See details
+							</ActionMenu.Item>
+							<ActionMenu.Item onClick={() => setDeletingPokemonId(undefined)}>Clone</ActionMenu.Item>
+							<ActionMenu.Item onClick={() => setDeletingPokemonId(undefined)}>Sell</ActionMenu.Item>
+							<ActionMenu.Item onClick={() => setDeletingPokemonId(+props.row.original.id)} variant="danger">
+								Delete
+							</ActionMenu.Item>
+						</ActionMenu>
+					</Popover>
+				),
+				Header: '',
+				maxWidth: 70,
+				minWidth: 70
 			}
 		],
-		[navigate, removePokemon]
+		[deletingPokemonId, navigate, removePokemon]
 	);
 
 	const tableContent = React.useMemo(() => {
@@ -84,25 +132,37 @@ const PokemonItemList: React.FC = () => {
 	}, [columns, data, theme.breakpoints.lg]);
 
 	return (
-		<Box id="pokemonListPage" flexDirection="column" px={{ md: 6, xs: 3 }} py={4}>
-			{data ? (
-				<>
-					<Helmet>
-						<title>Your pokemons</title>
-					</Helmet>
-					<Box alignItems="center" justifyContent="space-between">
-						<Title aspectSize="s">Pokemons</Title>
-						<Button aspectSize="s" onClick={() => navigate('add')} variant="secondary">
-							<Button.Icon aspectSize="s" icon="add" styling="outlined" />
-							<Button.Text aspectSize="s">Add pokemon</Button.Text>
-						</Button>
-					</Box>
-					{tableContent}
-				</>
-			) : (
-				<PokemonsListSkeleton />
-			)}
-		</Box>
+		<>
+			<Box id="pokemonListPage" flexDirection="column" px={{ md: 6, xs: 3 }} py={4}>
+				{data ? (
+					<>
+						<Helmet>
+							<title>Your pokemons</title>
+						</Helmet>
+						<Box alignItems="center" justifyContent="space-between">
+							<Title aspectSize="s">Pokemons</Title>
+							<Button aspectSize="s" onClick={() => navigate('add')} variant="secondary">
+								<Button.Icon aspectSize="s" icon="add" styling="outlined" />
+								<Button.Text aspectSize="s">Add pokemon</Button.Text>
+							</Button>
+						</Box>
+						{tableContent}
+					</>
+				) : (
+					<PokemonsListSkeleton />
+				)}
+			</Box>
+			<Dialog
+				confirmBtnVariant="danger"
+				confirmText="Delete"
+				cancelText="Cancel"
+				content="You are going to delete a pokemon. Are you sure?"
+				isVisible={!!deletingPokemonId}
+				onCancel={onArchiveDialogCancelled}
+				onConfirm={onArchiveDialogConfirmed}
+				titleText="Remove a pokemon"
+			/>
+		</>
 	);
 };
 
