@@ -14,6 +14,6 @@ describe('MainLayout', () => {
 
 	it('should render sidebar', () => {
 		renderComponent();
-		expect(screen.getByTestId('logo-wrapper')).toBeInTheDocument();
+		expect(screen.getByTestId('headerLogo')).toBeInTheDocument();
 	});
 });

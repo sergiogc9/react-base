@@ -1,5 +1,5 @@
 import React from 'react';
-import userEvent from '@testing-library/user-event';
+import { screen } from '@testing-library/dom';
 
 import TestUtils from 'lib/tests';
 import { renderWithStore, StateSlice } from 'lib/tests/redux';
@@ -25,10 +25,10 @@ const renderComponent = (stateSlice: StateSlice = {}, path?: string) =>
 
 describe('Sidebar', () => {
 	it('should show menu and buttons', () => {
-		const { container } = renderComponent();
+		renderComponent();
 
-		expect(container.querySelector('a[href="/"]')).toBeInTheDocument();
-		expect(container.querySelector('a[href="/pokemon"]')).toBeInTheDocument();
+		expect(screen.getByText('Home')).toBeInTheDocument();
+		expect(screen.getByText('Pokemons')).toBeInTheDocument();
 	});
 
 	it('should hide elements in mobile', () => {
@@ -37,14 +37,5 @@ describe('Sidebar', () => {
 
 		expect(container.querySelector('#sidebarAddOfferBtn')).toBeNull();
 		expect(container.querySelector('.extra-menu')).toBeNull();
-	});
-
-	it('should go to home when clicking the logo', () => {
-		TestUtils.simulateScreenWidthChange(2000);
-		const { container } = renderComponent();
-		userEvent.click(container.querySelector('#sidebarSquareLogo')!);
-
-		expect(mockNavigate).toHaveBeenCalledTimes(1);
-		expect(mockNavigate).toHaveBeenCalledWith('/');
 	});
 });

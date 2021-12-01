@@ -27,12 +27,28 @@ describe('UI Store', () => {
 		});
 	});
 
+	it('should change state with set pageScrollPosition reducer', () => {
+		expect(reducers(getFullState(), actions.setIsPageFullScrolled(true)).ui).toMatchObject({
+			_: { isPageFullScrolled: true }
+		});
+	});
+
 	it('should call getIsPageScrolled selector', () => {
 		store = getStore();
 		expect(selectors.getIsPageScrolled(store.getState())).toEqual(false);
 
 		store.dispatch(actions.setIsPageScrolled(true));
 		expect(selectors.getIsPageScrolled(store.getState())).toEqual(true);
+	});
+
+	it('should call getIsPageFullScrolled selector', () => {
+		store = getStore();
+
+		expect(selectors.getIsPageFullScrolled(store.getState())).toEqual(false);
+
+		store.dispatch(actions.setIsPageFullScrolled(true));
+
+		expect(selectors.getIsPageFullScrolled(store.getState())).toEqual(true);
 	});
 
 	it('should increase pending loading bar api calls', () => {

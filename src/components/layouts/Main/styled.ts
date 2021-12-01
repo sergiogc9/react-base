@@ -8,7 +8,7 @@ const StyledMainLayout = styled.div`
 		grid-template-columns: auto 1fr;
 		grid-template-rows: 60px auto;
 		grid-template-areas:
-			'sidebar header'
+			'header header'
 			'sidebar content';
 
 		> header {
@@ -25,7 +25,7 @@ const StyledMainLayout = styled.div`
 			grid-area: sidebar;
 		}
 
-		@media (max-width: ${props => parseInt(props.theme.breakpoints[2], 10) - 1}px) {
+		@media (max-width: ${props => parseInt(props.theme.breakpoints[3], 10) - 1}px) {
 			grid-template-columns: auto;
 			grid-template-rows: 60px 1fr 50px;
 			grid-template-areas:

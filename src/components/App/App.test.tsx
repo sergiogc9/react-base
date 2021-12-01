@@ -21,6 +21,6 @@ describe('App', () => {
 			auth: { isAuthenticated: true, profile: {} }
 		});
 
-		expect(getByTestId('logo-wrapper')).toBeInTheDocument();
+		expect(getByTestId('headerLogo')).toBeInTheDocument();
 	});
 });

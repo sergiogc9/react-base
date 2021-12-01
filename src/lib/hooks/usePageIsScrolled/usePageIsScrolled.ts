@@ -8,8 +8,9 @@ import { actions as uiActions } from 'store/ui';
 const usePageIsScrolled = (ref: React.RefObject<HTMLElement>) => {
 	const dispatch = useDispatch();
 
-	React.useEffect(() => {
+	React.useLayoutEffect(() => {
 		let lastScrollTop = 0;
+		let isLastFullScroll = false;
 		const element = ref.current;
 		const handleScroll = () => {
 			if (element) {
@@ -19,6 +20,10 @@ const usePageIsScrolled = (ref: React.RefObject<HTMLElement>) => {
 					dispatch(uiActions.setIsPageScrolled(false));
 				}
 				lastScrollTop = element.scrollTop;
+				const isFullScroll = element.scrollTop === element.scrollHeight - element.clientHeight;
+				if (isFullScroll && !isLastFullScroll) dispatch(uiActions.setIsPageFullScrolled(true));
+				else if (!isFullScroll && isLastFullScroll) dispatch(uiActions.setIsPageFullScrolled(false));
+				isLastFullScroll = isFullScroll;
 			}
 		};
 

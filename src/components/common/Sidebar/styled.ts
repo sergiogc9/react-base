@@ -1,49 +1,73 @@
 import styled, { css } from 'styled-components';
 import systemCSS from '@styled-system/css';
-import { Box, Tooltip } from '@sergiogc9/react-ui';
+import { Box } from '@sergiogc9/react-ui';
 
-import { StyledSidebarItemProps } from './types';
+import { StyledSidebarItemProps, StyledSidebarProps } from './types';
 
-const StyledSidebar = styled(Box)``;
+const __getHoverBackgroundElementTopPosition = (selectedIndex?: number) => {
+	if (selectedIndex === undefined) return -99999;
+
+	if (selectedIndex >= 0) return `${13 + (60 + 8) * selectedIndex}px`;
+	return `calc(100% - ${14 + (60 + 8) * (-1 * selectedIndex)}px)`;
+};
+
+const __getHoverBackgroundElementLeftPosition = (elementWidth: number, selectedIndex?: number) => {
+	if (selectedIndex === undefined) return -99999;
+
+	return `${8 + (elementWidth + 16) * selectedIndex}px`;
+};
+
+const StyledSidebar: React.FC<StyledSidebarProps> = styled(Box)<StyledSidebarProps>`
+	${props =>
+		systemCSS({
+			boxShadow: props.isDesktop || props.isPageFullScrolled ? 'none' : 'up'
+		})}
+
+	&:before {
+		content: '';
+		${props => {
+			const elementWidth = (props.screenWidth - 16 - (props.numberOfItems - 1) * 16) / props.numberOfItems;
+
+			return systemCSS({
+				bg: 'primary.800',
+				borderRadius: 1,
+				height: props.isDesktop ? 60 : 'calc(100% - 8px)',
+				left: props.isDesktop ? 2 : __getHoverBackgroundElementLeftPosition(elementWidth, props.selectedIndex),
+				opacity: props.selectedIndex !== undefined ? 1 : 0,
+				position: 'absolute',
+				top: props.isDesktop ? __getHoverBackgroundElementTopPosition(props.selectedIndex) : '4px',
+				transition:
+					props.selectedIndex !== undefined
+						? 'top 0.15s ease, left 0.15s ease, opacity 0.15s ease 0.15s'
+						: 'top 0.15s ease 0.15s, left 0.15s ease 0.15s, opacity 0.15s ease',
+				width: props.isDesktop ? 74 : elementWidth
+			});
+		}}
+	}
+`;
 
 StyledSidebar.defaultProps = {
 	alignItems: 'center',
-	bg: 'primary.800',
-	borderRightColor: 'neutral.500',
-	borderRightStyle: 'solid',
-	borderRightWidth: 'thin',
-	flexDirection: { xs: 'row', md: 'column' },
-	height: { xs: 'auto', md: '100vh' },
-	justifyContent: { xs: 'space-evenly', md: 'flex-start' },
-	pb: { xs: 0, md: 4 },
-	width: { xs: '100%', md: 72 }
+	bg: 'primary.700',
+	flexDirection: { xs: 'row', lg: 'column' },
+	height: { xs: 'auto', lg: '100%' },
+	justifyContent: { xs: 'space-evenly', lg: 'flex-start' },
+	overflow: 'hidden',
+	px: { xs: 0, lg: 2 },
+	pb: { xs: 1, lg: 3 },
+	pt: { xs: 1, lg: '10px' },
+	transition: 'box-shadow 0.15s ease-in-out',
+	width: { xs: '100%', lg: 90 }
 };
 
 const getSelectedItemCss = () => css`
 	opacity: 1;
-
-	&:before {
-		${systemCSS({
-			transform: ['scaleX(1)', 'scaleX(1)', 'scaleX(1)', 'scaleY(1)'],
-			transition: 'transform 0.15s ease'
-		})}
-	}
+	transition: opacity 0.15s ease-in-out 0.15s;
 `;
 
-const StyledSidebarItem = styled(Tooltip.Trigger)<StyledSidebarItemProps>`
-	&::before {
-		content: '';
-
-		${systemCSS({
-			bg: 'primary.500',
-			borderRadius: 100,
-			bottom: 0,
-			height: [2, 2, 2, '100%'],
-			left: 0,
-			position: 'absolute',
-			transform: ['scaleX(0)', 'scaleX(0)', 'scaleX(0)', 'scaleY(0)'],
-			width: ['100%', '100%', '100%', 2]
-		})}
+const StyledSidebarItem = styled(Box)<StyledSidebarItemProps>`
+	& {
+		transition: opacity 0.15s ease-in-out;
 	}
 
 	@media (hover: hover) {
@@ -57,12 +81,18 @@ const StyledSidebarItem = styled(Tooltip.Trigger)<StyledSidebarItemProps>`
 
 StyledSidebarItem.defaultProps = {
 	alignItems: 'center',
+	color: 'neutral.0',
 	cursor: 'pointer',
-	height: { xs: '100%', md: 40 },
+	flexDirection: 'column',
+	flexGrow: { xs: 1, lg: 'unset' },
+	height: { xs: '100%', lg: 68 },
 	justifyContent: 'center',
-	mt: { xs: 0, md: 2 },
+	minHeight: { xs: '100%', lg: 68 },
 	opacity: 0.6,
-	width: { xs: 40, md: '100%' }
+	overflow: 'hidden',
+	px: { xs: 3, lg: 1 },
+	py: { xs: '1px', lg: 1 },
+	width: { xs: 'unset', lg: '100%' }
 };
 
 export { StyledSidebarItem };

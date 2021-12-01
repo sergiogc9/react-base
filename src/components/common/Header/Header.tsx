@@ -1,7 +1,7 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { Box } from '@sergiogc9/react-ui';
+import { Box, Divider, Image } from '@sergiogc9/react-ui';
 
 import { ReactComponent as PokeBallLogo } from 'assets/logos/poke-ball.svg';
 import uiSelectors from 'store/ui/selectors';
@@ -18,7 +18,10 @@ const Header: React.FC = () => {
 	const onLogoClicked = React.useCallback(() => navigate('/'), [navigate]);
 
 	return (
-		<StyledHeader className={isPageScrolled ? 'with-border' : ''} data-testid="header-wrapper">
+		<StyledHeader boxShadow={isPageScrolled ? 'down' : undefined} data-testid="header-wrapper">
+			<Responsive visibility={['md', 'lg', 'xl']}>
+				<Image data-testid="headerLogo" src="/assets/images/pokemon-logo.png" height={40} />
+			</Responsive>
 			<Responsive visibility={['xs', 'sm']}>
 				<Box id="headerLogo" ml="20px" mr="auto" onClick={onLogoClicked} width="30px">
 					<PokeBallLogo />
@@ -26,6 +29,14 @@ const Header: React.FC = () => {
 			</Responsive>
 			<HeaderProfile />
 			<HeaderFullscreen />
+			<Divider
+				bottom="-1px"
+				left={{ xs: 0, lg: 90 }}
+				opacity={isPageScrolled ? 0 : 1}
+				position="absolute"
+				transition="opacity 0.15s ease-in-out"
+				width={{ xs: '100%', lg: 'calc(100% - 90px)' }}
+			/>
 		</StyledHeader>
 	);
 };

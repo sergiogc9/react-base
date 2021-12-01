@@ -1,10 +1,11 @@
 import React from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
-import { Box, Icon, Tooltip } from '@sergiogc9/react-ui';
+import { Content, Icon } from '@sergiogc9/react-ui';
+import { useSelector } from 'react-redux';
 
-import { ReactComponent as PokeBallLogo } from 'assets/logos/poke-ball.svg';
 import Responsive from 'components/common/Responsive';
-import Link from 'components/ui/Link';
+import useScreenSize from 'lib/hooks/useScreenSize';
+import uiSelectors from 'store/ui/selectors';
 
 import StyledSidebar, { StyledSidebarItem } from './styled';
 import { MenuItem, SidebarProps } from './types';
@@ -15,9 +16,16 @@ const isItemSelected = (item: MenuItem, pathname: string) => {
 
 const Sidebar: React.FC<SidebarProps> = () => {
 	const location = useLocation();
+
 	const navigate = useNavigate();
 
-	const onLogoClicked = React.useCallback(() => navigate('/'), [navigate]);
+	const isPageFullScrolled = useSelector(uiSelectors.getIsPageFullScrolled);
+
+	const { isDesktop, isMobile, screenWidth } = useScreenSize();
+
+	const sidebarRef = React.useRef<HTMLElement>(null);
+
+	const [hoverElementIndex, setHoverElementIndex] = React.useState<number>();
 
 	const sidebarNavItems = React.useMemo<MenuItem[]>(
 		() => [
@@ -37,51 +45,57 @@ const Sidebar: React.FC<SidebarProps> = () => {
 		[]
 	);
 
+	const selectedItemIndex = React.useMemo(() => {
+		const topIndex = sidebarNavItems.findIndex(item => isItemSelected(item, location.pathname));
+		if (topIndex !== -1) return topIndex;
+
+		const bottomIndex = sidebarExtraItems.findIndex(item => isItemSelected(item, location.pathname));
+		if (bottomIndex !== -1) return bottomIndex;
+	}, [location.pathname, sidebarExtraItems, sidebarNavItems]);
+
 	return (
-		<StyledSidebar>
-			<Responsive visibility={['md', 'lg', 'xl']}>
-				<Box data-testid="logo-wrapper" mb={6} mt={3}>
-					<PokeBallLogo cursor="pointer" height={32} id="sidebarSquareLogo" onClick={onLogoClicked} width={32} />
-				</Box>
-			</Responsive>
-			{sidebarNavItems.map(item => (
-				<Tooltip key={item.label}>
-					<StyledSidebarItem isSelected={isItemSelected(item, location.pathname)}>
-						<Link alignItems="center" justifyContent="center" to={item.url} width="100%">
-							<Icon fill="neutral.0" icon={item.icon} styling={item.iconStyling} />
-						</Link>
-					</StyledSidebarItem>
-					<Tooltip.Content
-						distance={10}
-						duration={100}
-						enterDelay={500}
-						exitDelay={0}
-						placement="auto"
-						touch={['hold', 500]}
-					>
+		<StyledSidebar
+			data-testid="sidebar"
+			isDesktop={isDesktop}
+			isPageFullScrolled={isPageFullScrolled}
+			numberOfItems={isMobile ? sidebarNavItems.length : sidebarNavItems.length + sidebarExtraItems.length}
+			ref={sidebarRef}
+			screenWidth={screenWidth}
+			selectedIndex={hoverElementIndex ?? selectedItemIndex}
+		>
+			{sidebarNavItems.map((item, index) => (
+				<StyledSidebarItem
+					flexBasis={{ xs: 0, lg: 'unset' }}
+					isSelected={selectedItemIndex === index}
+					key={item.label}
+					onClick={() => navigate(item.url)}
+					onMouseEnter={() => setHoverElementIndex(index)}
+					onMouseLeave={() => setHoverElementIndex(undefined)}
+				>
+					<Icon icon={item.icon} styling={item.iconStyling} />
+					<Content aspectSize="xs" mt={{ xs: 0, lg: 1 }} overflow="hidden" textAlign="center" width="100%">
 						{item.label}
-					</Tooltip.Content>
-				</Tooltip>
+					</Content>
+				</StyledSidebarItem>
 			))}
 			<Responsive visibility={['md', 'lg', 'xl']}>
 				{sidebarExtraItems.map((item, index) => (
-					<Tooltip key={item.label}>
-						<StyledSidebarItem isSelected={isItemSelected(item, location.pathname)} mt={index === 0 ? 'auto' : 2}>
-							<Link alignItems="center" justifyContent="center" to={item.url} width="100%">
-								<Icon fill="neutral.0" icon={item.icon} styling={item.iconStyling} />
-							</Link>
-						</StyledSidebarItem>
-						<Tooltip.Content
-							distance={10}
-							duration={100}
-							enterDelay={500}
-							exitDelay={0}
-							placement="auto"
-							touch={['hold', 500]}
-						>
+					<StyledSidebarItem
+						flexBasis={{ xs: 0, lg: 'unset' }}
+						isSelected={isItemSelected(item, location.pathname)}
+						key={item.label}
+						mt={index === 0 ? 'auto' : undefined}
+						onClick={() => navigate(item.url)}
+						onMouseEnter={() =>
+							setHoverElementIndex(isDesktop ? -1 * (sidebarExtraItems.length - index) : sidebarNavItems.length + index)
+						}
+						onMouseLeave={() => setHoverElementIndex(undefined)}
+					>
+						<Icon icon={item.icon} styling={item.iconStyling} />
+						<Content aspectSize="xs" mt={{ xs: 0, lg: 1 }} overflow="hidden" textAlign="center" width="100%">
 							{item.label}
-						</Tooltip.Content>
-					</Tooltip>
+						</Content>
+					</StyledSidebarItem>
 				))}
 			</Responsive>
 		</StyledSidebar>
