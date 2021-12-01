@@ -4,14 +4,15 @@ import { useTranslation } from 'react-i18next';
 import { Box, Select } from '@sergiogc9/react-ui';
 
 import Form from 'components/common/Form';
+import i18n from 'i18n';
 
-import { FilterText } from '../../..';
+import { FilterText, FilterFieldText } from '../../../types';
 import { FiltersFactoryFormProps } from '../../types';
 import BaseFilter from '../BaseFilter';
 
 export const TEXT_FILTER_CONDITIONS = ['contains', 'not_contains'] as const;
 
-const TextFilterForm: React.FC<FiltersFactoryFormProps<FilterText>> = props => {
+const TextFilterForm: React.FC<FiltersFactoryFormProps<FilterText, FilterFieldText>> = props => {
 	const { children, defaultValues, onSubmit } = props;
 
 	const { t } = useTranslation();
@@ -58,20 +59,23 @@ const TextFilterForm: React.FC<FiltersFactoryFormProps<FilterText>> = props => {
 class TextFilter extends BaseFilter {
 	public Form = TextFilterForm;
 
-	public getDefaultFilterData(field: string) {
+	public getDefaultFilterData(field: FilterFieldText) {
 		const defaultFilter: FilterText = {
 			condition: 'contains',
-			field,
+			field: field.field,
 			id: this._generateId('text'),
-			value: '',
+			value: field.defaultValue ?? '',
 			type: 'text'
 		};
 		return defaultFilter;
 	}
 
 	public renderChipText() {
-		const { field, value } = this._filter as FilterText;
-		return `${field}: ${value}`;
+		const { condition, value } = this._filter as FilterText;
+		const { text: fieldText } = this._field;
+
+		if (condition === 'contains') return i18n.t('filters.filter.text.chip.contains', { field: fieldText, value });
+		return i18n.t('filters.filter.text.chip.not_contains', { field: fieldText, value });
 	}
 }
 

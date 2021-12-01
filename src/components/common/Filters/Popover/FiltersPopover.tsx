@@ -1,7 +1,7 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import { Animation, Box, Button, Divider, Icon, IconButton, Popover, Select, Title } from '@sergiogc9/react-ui';
 import { useUpdateEffect } from '@sergiogc9/react-hooks';
+import { Animation, Box, Button, Divider, Icon, IconButton, Popover, Select, Title } from '@sergiogc9/react-ui';
 
 import Form from 'components/common/Form';
 import Responsive from 'components/common/Responsive';
@@ -31,9 +31,9 @@ const FiltersPopoverContent: React.FC<FiltersPopoverContentProps> = props => {
 	const filterInstance = React.useMemo(
 		() =>
 			editFilterId === 'new' || !selectedFilter
-				? FiltersFactory.getFilter(field)
-				: FiltersFactory.getFilter(selectedFilter),
-		[editFilterId, field, selectedFilter]
+				? FiltersFactory.getFilter(field, fields)
+				: FiltersFactory.getFilter(selectedFilter, fields),
+		[editFilterId, field, fields, selectedFilter]
 	);
 
 	const buttonsContent = React.useMemo(
@@ -44,6 +44,7 @@ const FiltersPopoverContent: React.FC<FiltersPopoverContentProps> = props => {
 					<Form.ButtonSubmit
 						aspectSize="l"
 						flexBasis={{ xs: '100%', md: '50%' }}
+						isDefaultEnabled={['boolean', 'date'].includes(field.type) || field.defaultValue !== undefined}
 						ml={{ xs: 0, md: 2, lg: 0 }}
 						mr={{ xs: 0, lg: 2 }}
 					>
@@ -63,7 +64,7 @@ const FiltersPopoverContent: React.FC<FiltersPopoverContentProps> = props => {
 				</Box>
 			</Box>
 		),
-		[editFilterId, onClose, t]
+		[editFilterId, field.defaultValue, field.type, onClose, t]
 	);
 
 	return (
@@ -85,6 +86,7 @@ const FiltersPopoverContent: React.FC<FiltersPopoverContentProps> = props => {
 			)}
 			<filterInstance.Form
 				defaultValues={filterInstance.getFilterData()}
+				field={field}
 				filter={filterInstance.getFilterData()}
 				onSubmit={(data: any) => {
 					if (editFilterId === 'new') addFilter({ ...data, field: field.field, type: field.type });

@@ -55,7 +55,7 @@ describe('FiltersPopover', () => {
 	it('should not render popover in desktop', () => {
 		renderComponent();
 
-		expect(screen.queryByTestId('filtersPopover')).toBeNull();
+		expect(screen.queryByTestId('filtersPopover')?.querySelector('form')).toBeNull();
 	});
 
 	it('should not render popover in mobile', () => {

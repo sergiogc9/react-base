@@ -1,5 +1,5 @@
 import React from 'react';
-import { fireEvent, screen, waitFor } from '@testing-library/react';
+import { screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
 import { renderWithStore, StateSlice } from 'lib/tests/redux';
@@ -77,8 +77,6 @@ describe('Notifications', () => {
 		await waitFor(() => expect(screen.getByTestId('toast').querySelector('button')).toBeInTheDocument());
 
 		userEvent.click(screen.getByTestId('toast').querySelector('button')!);
-
-		fireEvent.animationEnd(screen.getByTestId('toast'));
 
 		await waitFor(() => expect(screen.queryByTestId('toast')).toBe(null));
 	});

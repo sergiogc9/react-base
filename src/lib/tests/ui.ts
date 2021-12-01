@@ -7,3 +7,7 @@ export const simulateScreenWidthChange = (width: number) => {
 
 	window.dispatchEvent(new Event('resize'));
 };
+
+export const useAnimationsInTests = () => {
+	(window as any).useAnimationsInTests = true;
+};

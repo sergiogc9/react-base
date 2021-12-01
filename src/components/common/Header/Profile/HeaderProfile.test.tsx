@@ -35,23 +35,10 @@ describe('HeaderProfile', () => {
 		expect(screen.getByTestId('headerProfileAvatar')).toBeInTheDocument();
 	});
 
-	it('should not show dropdown menu by default', () => {
-		renderComponent();
-		expect(screen.queryByTestId('headerProfileUserDropdownMenu')).toBeNull();
-	});
-
 	it('should show dropdown menu by clicking', async () => {
 		renderComponent();
 		userEvent.click(screen.getByTestId('headerProfileAvatar'));
 		await waitFor(() => expect(screen.getByTestId('headerProfileUserDropdownMenu')).toBeVisible());
-	});
-
-	it('should hide dropdown menu by clicking', async () => {
-		renderComponent();
-		userEvent.click(screen.getByTestId('headerProfileAvatar'));
-		await waitFor(() => expect(screen.getByTestId('headerProfileUserDropdownMenu')).toBeVisible());
-		userEvent.click(screen.getByTestId('headerProfileAvatar'));
-		await waitFor(() => expect(screen.getByTestId('headerProfileUserDropdownMenu')).not.toBeVisible());
 	});
 
 	it('should hide dropdown menu by clicking outside', async () => {

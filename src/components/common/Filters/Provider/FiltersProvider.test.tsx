@@ -10,13 +10,11 @@ import FiltersProvider from '.';
 import { Filter, FilterDate, FilterField, FilterNumber, FilterText } from '..';
 import { FiltersProviderProps } from './types';
 
-const today = new Date();
 const dateFilter: FilterDate = {
-	condition: 'after_date',
 	field: 'fake-date',
 	id: 'fake-id-1',
 	type: 'date',
-	value: today
+	value: 'today'
 };
 const numberFilter: FilterNumber = { condition: 'less', field: 'fake', id: 'fake-id-2', type: 'number', value: 100 };
 const textFilter: FilterText = {

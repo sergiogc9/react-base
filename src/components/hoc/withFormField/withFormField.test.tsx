@@ -78,7 +78,7 @@ describe('withFormField hoc', () => {
 		expect(mockOnFormSubmit).toHaveBeenCalledWith({ test: { awesome: 'yes' } }, expect.anything(), expect.anything());
 	});
 
-	it('should should show error', async () => {
+	it('should show error', async () => {
 		renderInputComponent();
 		const input = screen.getByDisplayValue(stringValue);
 		userEvent.clear(input);

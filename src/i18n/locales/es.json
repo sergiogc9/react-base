@@ -4,6 +4,84 @@
 		"error_with_message": "Ha ocurrido un error en la API con el siguiente mensaje: {{message}}",
 		"google_maps_api_error": "La API de Google Maps no se encuentra disponible"
 	},
+	"filters": {
+		"chips": {
+			"clear_all_btn": "Eliminar todos"
+		},
+		"filter": {
+			"boolean": {
+				"label": {
+					"value": "Habilitado"
+				}
+			},
+			"common": {
+				"label": {
+					"condition": "Condición"
+				}
+			},
+			"date": {
+				"label": {
+					"value": "Intervalo"
+				},
+				"options": {
+					"last_two_weeks": "Últimos 15 días",
+					"last_week": "Últimos 7 días",
+					"today": "Hoy",
+					"yesterday": "Ayer"
+				}
+			},
+			"multi_select": {
+				"chip": {
+					"any_of": "{{field}} incluye {{value}}",
+					"not_any_of": "{{field}} no incluye {{value}}"
+				},
+				"condition": {
+					"any_of": "Incluye",
+					"not_any_of": "No incluye"
+				},
+				"label": {
+					"value": "Opciones"
+				}
+			},
+			"number": {
+				"chip": {
+					"equal": "{{field}} igual a {{value}}",
+					"less": "{{field}} menos de {{value}}",
+					"more": "{{field}} más de {{value}}"
+				},
+				"condition": {
+					"equal": "Igual",
+					"less": "Menor",
+					"more": "Mayor"
+				},
+				"label": {
+					"value": "Valor"
+				}
+			},
+			"text": {
+				"chip": {
+					"contains": "{{field}} contiene {{value}}",
+					"not_contains": "{{field}} no contiene {{value}}"
+				},
+				"condition": {
+					"contains": "Contiene",
+					"not_contains": "No contiene"
+				},
+				"label": {
+					"value": "Texto"
+				}
+			}
+		},
+		"popover": {
+			"add": {
+				"field_label": "Campo",
+				"title": "Añadir filtro"
+			},
+			"edit": {
+				"title": "Editar filtro"
+			}
+		}
+	},
 	"form": {
 		"changes_saved": "Los cambios se han guardado correctamente",
 		"error": {
@@ -23,6 +101,7 @@
 		"buttons": {
 			"add": "Añadir",
 			"cancel": "Cancelar",
+			"edit": "Edit",
 			"save": "Guardar"
 		},
 		"stepper": {
@@ -42,7 +121,9 @@
 			"english": "Inglés",
 			"spanish": "Español"
 		},
-		"logout": "Cerrar sesión"
+		"logout": "Cerrar sesión",
+		"yes": "Sí",
+		"no": "No"
 	},
 	"pages": {
 		"main": {

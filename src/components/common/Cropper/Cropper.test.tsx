@@ -39,12 +39,12 @@ describe('Cropper', () => {
 		expect(screen.getByText(text)).toBeInTheDocument();
 	});
 
-	it('should should return cropped image at mount', async () => {
+	it('should return cropped image at mount', async () => {
 		renderComponent();
 		await waitFor(() => expect(mockOnImageCropped).toHaveBeenCalled());
 	});
 
-	it('should should return cropped image when crop ends', async () => {
+	it('should return cropped image when crop ends', async () => {
 		renderComponent();
 		fireEvent.click(screen.getByText(text));
 		await waitFor(() => expect(mockOnImageCropped).toHaveBeenCalled());

@@ -1,10 +1,10 @@
 import { BaseAnimationProps } from '@sergiogc9/react-ui';
 
-import { Filter } from '../..';
+import BaseFilter from '../../Factory/filters/BaseFilter';
 
 export type FilterChipsChipProps = {
 	animateAtMount?: BaseAnimationProps['animateAtMount']; // Needed for AnimationList in FiltersChips
-	filterData: Filter;
+	filter: BaseFilter;
 	isChipEditing: boolean;
 	isVisible?: BaseAnimationProps['isVisible']; // Needed for AnimationList in FiltersChips
 	onChipClick: () => void;

@@ -7,12 +7,19 @@ const isFilter = (filter: Filter | FilterField): filter is Filter => {
 
 abstract class BaseFilter {
 	protected _filter: Filter;
+	protected _field: FilterField;
 
-	public constructor(filter: Filter | FilterField) {
-		this._filter = isFilter(filter) ? filter : this.getDefaultFilterData(filter.field);
+	public constructor(filter: Filter | FilterField, fields: FilterField[]) {
+		if (isFilter(filter)) {
+			this._filter = filter;
+			this._field = fields.find(({ field }) => field === filter.field)!;
+		} else {
+			this._filter = this.getDefaultFilterData(filter);
+			this._field = filter;
+		}
 	}
 
-	public abstract getDefaultFilterData(field: string): Filter;
+	public abstract getDefaultFilterData(field: FilterField): Filter;
 
 	public getFilterData(): Filter {
 		return this._filter;
@@ -20,7 +27,7 @@ abstract class BaseFilter {
 
 	public abstract renderChipText(): string;
 
-	public abstract Form: React.FC<FiltersFactoryFormProps<any>>;
+	public abstract Form: React.FC<FiltersFactoryFormProps<any, any>>;
 
 	protected _generateId(type: Filter['type']) {
 		return `${type}-${new Date().getTime()}-${Math.floor(Math.random() * 100000000)}`;

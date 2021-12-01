@@ -67,11 +67,7 @@ const PokemonItemList: React.FC = () => {
 						<Button aspectSize="s" onClick={() => navigate(`/pokemon/${props.value}`)} variant="primary" {...props}>
 							See pokemon
 						</Button>
-						<IconButton
-							ml={3}
-							onClick={() => removePokemon({ pokemonId: props.cell.row.original.id })}
-							variant="default"
-						>
+						<IconButton ml={3} onClick={() => removePokemon({ pokemonId: props.cell.row.original.id })}>
 							<Icon icon="delete" fill="primary.700" styling="outlined" />
 						</IconButton>
 					</Box>

@@ -1,25 +1,88 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
+import * as Yup from 'yup';
+import { Box, Select } from '@sergiogc9/react-ui';
 
-import { FilterBoolean } from '../../../types';
+import Form from 'components/common/Form';
+import i18n from 'i18n';
+
+import { FilterBoolean, FilterFieldBoolean } from '../../../types';
+import { FiltersFactoryFormProps } from '../../types';
 import BaseFilter from '../BaseFilter';
 
-class BooleanFilter extends BaseFilter {
-	public Form = () => {
-		return <div>BOOLEAN FORM</div>;
-	};
+const SelectFilterForm: React.FC<FiltersFactoryFormProps<FilterBoolean, FilterFieldBoolean>> = props => {
+	const { children, defaultValues, onSubmit } = props;
 
-	public getDefaultFilterData(field: string) {
+	const { t } = useTranslation();
+
+	const validationSchema = React.useMemo(
+		() =>
+			Yup.object({
+				value: Yup.string().required(t('form.error.input_required'))
+			}),
+		[t]
+	);
+
+	const onFormattedSubmit = React.useCallback(
+		(data: any) => {
+			onSubmit({ ...data, value: data.value === 'yes' });
+		},
+		[onSubmit]
+	);
+
+	const formattedDefaultValues = React.useMemo(() => {
+		return { ...defaultValues, value: defaultValues.value ? 'yes' : 'no' };
+	}, [defaultValues]);
+
+	return (
+		<Form
+			defaultValues={formattedDefaultValues}
+			height="100%"
+			onSubmit={onFormattedSubmit}
+			useFormProps={{ mode: 'onChange' }}
+			validationSchema={validationSchema}
+		>
+			<Box flexDirection="column" height="100%" justifyContent="space-between">
+				<Box flexDirection="column" gap={4}>
+					<Form.Select
+						data-testid="filtersBooleanFilterValueSelect"
+						label={t('filters.filter.boolean.label.value')}
+						name="value"
+					>
+						<Select.Option id="yes" key="yes">
+							{t('general.yes')}
+						</Select.Option>
+						<Select.Option id="no" key="no">
+							{t('general.no')}
+						</Select.Option>
+					</Form.Select>
+				</Box>
+				{children}
+			</Box>
+		</Form>
+	);
+};
+
+class BooleanFilter extends BaseFilter {
+	public Form = SelectFilterForm;
+
+	public getDefaultFilterData(field: FilterFieldBoolean) {
 		const defaultFilter: FilterBoolean = {
-			field,
+			field: field.field,
 			id: this._generateId('boolean'),
-			value: true,
+			value: field.defaultValue ?? true,
 			type: 'boolean'
 		};
 		return defaultFilter;
 	}
 
 	public renderChipText() {
-		return 'Boolean Chip';
+		const { value } = this._filter as FilterBoolean;
+		const { text: fieldText } = this._field as FilterFieldBoolean;
+
+		const formattedValue = value ? i18n.t('general.yes') : i18n.t('general.no');
+
+		return `${fieldText}: ${formattedValue}`;
 	}
 }
 

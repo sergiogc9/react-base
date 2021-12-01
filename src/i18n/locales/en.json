@@ -4,6 +4,84 @@
 		"error_with_message": "An API error ocurred with message: {{message}}",
 		"google_maps_api_error": "The Google Maps API is not available right now"
 	},
+	"filters": {
+		"chips": {
+			"clear_all_btn": "Clear all"
+		},
+		"filter": {
+			"boolean": {
+				"label": {
+					"value": "Enabled"
+				}
+			},
+			"common": {
+				"label": {
+					"condition": "Condition"
+				}
+			},
+			"date": {
+				"label": {
+					"value": "Range"
+				},
+				"options": {
+					"last_two_weeks": "Last 15 days",
+					"last_week": "Last 7 days",
+					"today": "Today",
+					"yesterday": "Yesterday"
+				}
+			},
+			"multi_select": {
+				"chip": {
+					"any_of": "{{field}} any of {{value}}",
+					"not_any_of": "{{field}} not any of {{value}}"
+				},
+				"condition": {
+					"any_of": "Is any of",
+					"not_any_of": "Is not any of"
+				},
+				"label": {
+					"value": "Options"
+				}
+			},
+			"number": {
+				"chip": {
+					"equal": "{{field}} equal {{value}}",
+					"less": "{{field}} less than {{value}}",
+					"more": "{{field}} more than {{value}}"
+				},
+				"condition": {
+					"equal": "Equal",
+					"less": "Less",
+					"more": "More"
+				},
+				"label": {
+					"value": "Value"
+				}
+			},
+			"text": {
+				"chip": {
+					"contains": "{{field}} contains {{value}}",
+					"not_contains": "{{field}} not contains {{value}}"
+				},
+				"condition": {
+					"contains": "Contains",
+					"not_contains": "Not contains"
+				},
+				"label": {
+					"value": "Text"
+				}
+			}
+		},
+		"popover": {
+			"add": {
+				"field_label": "Field",
+				"title": "Add filter"
+			},
+			"edit": {
+				"title": "Edit filter"
+			}
+		}
+	},
 	"form": {
 		"changes_saved": "Changes saved successfully",
 		"error": {
@@ -23,6 +101,7 @@
 		"buttons": {
 			"add": "Add",
 			"cancel": "Cancel",
+			"edit": "Edit",
 			"save": "Save"
 		},
 		"stepper": {
@@ -42,7 +121,9 @@
 			"english": "English",
 			"spanish": "Spanish"
 		},
-		"logout": "Log out"
+		"logout": "Log out",
+		"yes": "Yes",
+		"no": "No"
 	},
 	"pages": {
 		"main": {

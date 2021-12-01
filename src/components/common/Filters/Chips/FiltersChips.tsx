@@ -4,6 +4,7 @@ import { isEmpty } from 'lib/imports/lodash';
 import { Animation, Button } from '@sergiogc9/react-ui';
 
 import FiltersContext from '../Context';
+import FiltersFactory from '../Factory';
 import StyledFilterChips, { filterChipWrapperAnimation } from './styled';
 import { FiltersChipsProps } from './types';
 import FiltersChipsChip from './Chip';
@@ -13,7 +14,7 @@ const FiltersChips: React.FC<FiltersChipsProps> = props => {
 
 	const [editingChipId, setEditingChipId] = React.useState<string>();
 
-	const { clearAllFilters, filters, removeFilter } = React.useContext(FiltersContext);
+	const { clearAllFilters, fields, filters, removeFilter } = React.useContext(FiltersContext);
 
 	const chipsWrapperRef = React.useRef(null);
 
@@ -23,9 +24,11 @@ const FiltersChips: React.FC<FiltersChipsProps> = props => {
 
 	const chipsContent = React.useMemo(() => {
 		return filters.map(filterData => {
+			const filter = FiltersFactory.getFilter(filterData, fields);
+
 			return (
 				<FiltersChipsChip
-					filterData={filterData}
+					filter={filter}
 					key={filterData.id}
 					isChipEditing={editingChipId === filterData.id}
 					onChipClick={() => {
@@ -40,7 +43,7 @@ const FiltersChips: React.FC<FiltersChipsProps> = props => {
 				/>
 			);
 		});
-	}, [editingChipId, filters, onClosePopover, removeFilter]);
+	}, [editingChipId, fields, filters, onClosePopover, removeFilter]);
 
 	return (
 		<StyledFilterChips

@@ -1,29 +1,90 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
+import * as Yup from 'yup';
+import { Box, Select } from '@sergiogc9/react-ui';
 
-import { FilterMultiSelect } from '../../../types';
+import i18n from 'i18n';
+import Form from 'components/common/Form';
+
+import { FilterMultiSelect, FilterFieldMultiSelect } from '../../../types';
+import { FiltersFactoryFormProps } from '../../types';
 import BaseFilter from '../BaseFilter';
 
 export const MULTI_SELECT_FILTER_CONDITIONS = ['any_of', 'not_any_of'] as const;
 
-class MultiSelectFilter extends BaseFilter {
-	public Form = () => {
-		return <div>MULTI SELECT FORM</div>;
-	};
+const MultiSelectFilterForm: React.FC<FiltersFactoryFormProps<FilterMultiSelect, FilterFieldMultiSelect>> = props => {
+	const { children, defaultValues, field, onSubmit } = props;
 
-	public getDefaultFilterData(field: string) {
+	const { t } = useTranslation();
+
+	const validationSchema = React.useMemo(
+		() =>
+			Yup.object({
+				condition: Yup.string().oneOf(MULTI_SELECT_FILTER_CONDITIONS).required(),
+				value: Yup.array<string>().required(t('form.error.input_required'))
+			}),
+		[t]
+	);
+
+	return (
+		<Form
+			defaultValues={defaultValues}
+			height="100%"
+			onSubmit={onSubmit}
+			useFormProps={{ mode: 'onChange' }}
+			validationSchema={validationSchema}
+		>
+			<Box flexDirection="column" height="100%" justifyContent="space-between">
+				<Box flexDirection="column" gap={4}>
+					<Form.Select label={t('filters.filter.common.label.condition')} name="condition">
+						{MULTI_SELECT_FILTER_CONDITIONS.map(condition => (
+							<Select.Option id={condition} key={condition}>
+								{t(`filters.filter.multi_select.condition.${condition}`)}
+							</Select.Option>
+						))}
+					</Form.Select>
+					<Form.Select
+						data-testid="filtersMultiSelectFilterValueSelect"
+						isMultiSelect
+						label={t('filters.filter.multi_select.label.value')}
+						name="value"
+					>
+						{field.options.map(options => (
+							<Select.Option id={options.value} key={options.value}>
+								{options.label}
+							</Select.Option>
+						))}
+					</Form.Select>
+				</Box>
+				{children}
+			</Box>
+		</Form>
+	);
+};
+
+class MultiSelectFilter extends BaseFilter {
+	public Form = MultiSelectFilterForm;
+
+	public getDefaultFilterData(field: FilterFieldMultiSelect) {
 		const defaultFilter: FilterMultiSelect = {
 			condition: 'any_of',
-			field,
+			field: field.field,
 			id: this._generateId('multi_select'),
-			options: [],
-			value: [],
+			value: field.defaultValue ?? [],
 			type: 'multi_select'
 		};
 		return defaultFilter;
 	}
 
 	public renderChipText() {
-		return 'Multi select chip';
+		const { condition, value } = this._filter as FilterMultiSelect;
+		const { options, text: fieldText } = this._field as FilterFieldMultiSelect;
+
+		const formattedValue = value.map(id => options.find(option => option.value === id)?.label).join(', ');
+
+		if (condition === 'any_of')
+			return i18n.t('filters.filter.multi_select.chip.any_of', { field: fieldText, value: formattedValue });
+		return i18n.t('filters.filter.multi_select.chip.not_any_of', { field: fieldText, value: formattedValue });
 	}
 }
 

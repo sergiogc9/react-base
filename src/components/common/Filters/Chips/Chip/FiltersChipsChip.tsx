@@ -2,14 +2,13 @@ import React from 'react';
 import { Animation, Chip, Popover } from '@sergiogc9/react-ui';
 import { useTranslation } from 'react-i18next';
 
-import FiltersFactory from '../../Factory';
 import FiltersPopover from '../../Popover';
 import { FilterChipsChipProps } from './types';
 import { filterChipAnimation } from './styled';
 
 const FilterChipsChip: React.FC<FilterChipsChipProps> = ({
 	animateAtMount,
-	filterData,
+	filter,
 	isChipEditing,
 	isVisible,
 	onChipClick,
@@ -17,8 +16,6 @@ const FilterChipsChip: React.FC<FilterChipsChipProps> = ({
 	onClosePopover
 }) => {
 	const [isPopoverMounted, setIsPopoverMounted] = React.useState(isChipEditing);
-
-	const filter = FiltersFactory.getFilter(filterData);
 
 	const { t } = useTranslation();
 
@@ -57,7 +54,7 @@ const FilterChipsChip: React.FC<FilterChipsChipProps> = ({
 						maxWidth={300}
 						mr={3}
 						onClick={onChipClick}
-						overlayContent={t('form.button.edit')}
+						overlayContent={t('form.buttons.edit')}
 						variant="green"
 					>
 						<Chip.Label>{filter.renderChipText()}</Chip.Label>
@@ -66,7 +63,7 @@ const FilterChipsChip: React.FC<FilterChipsChipProps> = ({
 				</Animation.BaseAnimation>
 			</Popover.Trigger>
 			<FiltersPopover
-				editFilterId={filterData.id}
+				editFilterId={filter.getFilterData().id}
 				isVisible={isChipEditing}
 				onClose={onClosePopover}
 				placement="bottom"

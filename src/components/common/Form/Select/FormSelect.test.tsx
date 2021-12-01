@@ -53,7 +53,6 @@ describe('FormSelect', () => {
 
 		await waitFor(() => expect(screen.getByText('Incorrect')).toBeInTheDocument());
 		userEvent.click(screen.getByText('Incorrect'));
-		fireEvent.blur(screen.getByText('Incorrect'));
 
 		expect(screen.queryByText('Incorrect language')).toBe(null);
 	});
@@ -64,7 +63,8 @@ describe('FormSelect', () => {
 		userEvent.click(screen.getByDisplayValue('English'));
 
 		await waitFor(() => expect(screen.getByText('English')).toBeInTheDocument());
-		fireEvent.blur(screen.getByText('English'));
+
+		await waitFor(() => expect(screen.getByText('Incorrect')).toBeInTheDocument());
 		userEvent.click(screen.getByText('Incorrect'));
 
 		fireEvent.click(screen.getByText('Submit'));

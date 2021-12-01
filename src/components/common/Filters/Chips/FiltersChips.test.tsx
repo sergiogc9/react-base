@@ -3,15 +3,16 @@ import { fireEvent, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { Box } from '@sergiogc9/react-ui';
 
+import TestUtils from 'lib/tests';
 import { renderWithMockedStore } from 'lib/tests/redux';
 import locales from 'i18n/locales/en.json';
 
 import FilterProvider, { FiltersProviderProps } from '../Provider';
-import { Filter } from '..';
+import { Filter, FilterField } from '..';
 import FiltersChips from '.';
 import { FiltersChipsProps } from './types';
 
-const filter: Filter = { condition: 'contains', field: 'fake_text', id: 'fake-id', type: 'text', value: 'Awesome' };
+const textFilter: Filter = { condition: 'contains', field: 'fake_text', id: 'fake-id', type: 'text', value: 'Awesome' };
 const numberFilter: Filter = {
 	condition: 'more',
 	field: 'fake_number',
@@ -19,6 +20,9 @@ const numberFilter: Filter = {
 	type: 'number',
 	value: 10
 };
+
+const numberField: FilterField = { field: numberFilter.field, text: 'Number Fake', type: numberFilter.type };
+const textField: FilterField = { field: textFilter.field, text: 'Fake', type: textFilter.type };
 
 const FakeComponent: React.FC<{ props: Partial<FiltersChipsProps>; providerProps: Partial<FiltersProviderProps> }> = ({
 	props = {},
@@ -29,11 +33,8 @@ const FakeComponent: React.FC<{ props: Partial<FiltersChipsProps>; providerProps
 	return (
 		<FilterProvider
 			containerRef={containerRef}
-			defaultFilters={[filter, numberFilter]}
-			fields={[
-				{ field: filter.field, text: 'Fake', type: filter.type },
-				{ field: numberFilter.field, text: 'Number Fake', type: numberFilter.type }
-			]}
+			defaultFilters={[textFilter, numberFilter]}
+			fields={[textField, numberField]}
 			{...providerProps}
 		>
 			<Box ref={containerRef}>
@@ -49,6 +50,7 @@ const renderComponent = (props: Partial<FiltersChipsProps> = {}, providerProps: 
 describe('FiltersChips', () => {
 	beforeEach(() => {
 		jest.clearAllMocks();
+		TestUtils.useAnimationsInTests();
 	});
 
 	it('should render filters chips and clear button if there are filters', () => {
@@ -65,8 +67,15 @@ describe('FiltersChips', () => {
 		expect(screen.queryByTestId('filtersChipsClearAllBtn')).toBeNull();
 	});
 
+	it('should render filters chips texts', () => {
+		renderComponent();
+
+		expect(screen.getByText(`${textField.text} contains ${textFilter.value}`)).toBeInTheDocument();
+		expect(screen.getByText(`${numberField.text} more than ${numberFilter.value}`)).toBeInTheDocument();
+	});
+
 	it('should clear all filters', () => {
-		renderComponent({}, { defaultFilters: [filter, filter] });
+		renderComponent({}, { defaultFilters: [textFilter, numberFilter] });
 
 		userEvent.click(screen.getByTestId('filtersChipsClearAllBtn'));
 
@@ -78,14 +87,32 @@ describe('FiltersChips', () => {
 	});
 
 	it('should remove a filter', () => {
-		renderComponent({}, { defaultFilters: [filter, filter] });
+		renderComponent({}, { defaultFilters: [textFilter, numberFilter] });
 
-		// eslint-disable-next-line @typescript-eslint/no-non-null-asserted-optional-chain
-		userEvent.click(screen.queryAllByTestId('filtersChipsChip')[0]?.querySelector('svg')!);
+		userEvent.click(screen.queryAllByTestId('filtersChipsChip')[0].querySelector('svg')!);
 
 		fireEvent.animationEnd(screen.queryAllByTestId('filtersChipsChipAnimatedWrapper')[0]);
 
 		expect(screen.queryAllByTestId('filtersChipsChip')).toHaveLength(1);
 		expect(screen.queryByTestId('filtersChipsClearAllBtn')).toBeInTheDocument();
+	});
+
+	it("should show and hide the popover when clicking the chip's overlay", async () => {
+		renderComponent();
+
+		const chip = screen.getAllByTestId('filtersChipsChip')[0];
+		expect(chip.querySelector('.overlay')).toBeInTheDocument();
+
+		userEvent.hover(chip);
+		const chipOverlay = chip.querySelector('.overlay');
+
+		userEvent.click(chipOverlay!);
+
+		expect(screen.getByTestId('filtersPopover')).toBeInTheDocument();
+
+		await waitFor(() => expect(screen.getByText(locales.form.buttons.cancel)).toBeInTheDocument());
+		userEvent.click(chip);
+
+		await waitFor(() => expect(screen.queryByTestId('filtersPopover')).toBeNull());
 	});
 });

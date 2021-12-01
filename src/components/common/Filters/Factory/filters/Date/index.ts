@@ -1,1 +1,1 @@
-export { default, DATE_FILTER_CONDITIONS } from './DateFilter';
+export { default, DATE_FILTER_VALUES } from './DateFilter';
