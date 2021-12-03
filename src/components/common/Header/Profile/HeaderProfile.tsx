@@ -34,7 +34,7 @@ const HeaderProfile: React.FC = () => {
 	}, []);
 
 	return (
-		<Box mr={3} ml="auto">
+		<Box ml="auto">
 			<Box cursor="pointer" ref={avatarRef} onClick={() => setIsUserMenuVisible(isVisible => !isVisible)}>
 				<Avatar
 					aspectSize="s"
@@ -47,6 +47,7 @@ const HeaderProfile: React.FC = () => {
 			<UserMenu
 				boxShadow="down"
 				data-testid="headerProfileUserDropdownMenu"
+				distance={24}
 				isInteractive
 				isVisible={isUserMenuVisible}
 				minWidth="210px"

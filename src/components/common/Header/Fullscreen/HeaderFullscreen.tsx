@@ -8,7 +8,7 @@ const HeaderFullscreen: React.FC = () => {
 	const onButtonClicked = React.useCallback(() => toggleFullscreen(), [toggleFullscreen]);
 
 	return (
-		<IconButton data-testid="header-fullscreen" mr={3} onClick={onButtonClicked}>
+		<IconButton data-testid="header-fullscreen" ml={3} onClick={onButtonClicked}>
 			{isFullscreen ? (
 				<Icon data-testid="fullscreen-exit-icon" icon="fullscreen-exit" styling="outlined" />
 			) : (
