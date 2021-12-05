@@ -1661,28 +1661,28 @@
   dependencies:
     screenfull "5.1.0"
 
-"@sergiogc9/react-ui-collections@0.1.1":
-  version "0.1.1"
-  resolved "https://registry.yarnpkg.com/@sergiogc9/react-ui-collections/-/react-ui-collections-0.1.1.tgz#75a1da8006876b8a82eab40db51dac307537c7bb"
-  integrity sha512-h7Q69/gpblc1oM+aF5Em7KIH6VGvrIqwEqXFuRO3OTKHUy9GS4DjByWm2MXqp4LcAmiRDx4NUU1YTzWgq67PyQ==
+"@sergiogc9/react-ui-collections@0.2.0":
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/@sergiogc9/react-ui-collections/-/react-ui-collections-0.2.0.tgz#5d9a065f345dfabcc1527da85505435b804d6adf"
+  integrity sha512-Gt0MFXdu0kpsj54W0MvY/84zAEPKsyy6cfqvfv2IfLHMa9GBAw0AgC32hSBLAunEN9/p64ukajbJ6dJFdlstOg==
   dependencies:
     "@sergiogc9/react-hooks" "0.2.1"
-    "@sergiogc9/react-ui" "^0.1.1"
-    "@sergiogc9/react-ui-theme" "^0.1.0"
+    "@sergiogc9/react-ui" "^0.2.0"
+    "@sergiogc9/react-ui-theme" "^0.2.0"
     "@sergiogc9/react-utils" "0.0.6"
 
-"@sergiogc9/react-ui-theme@0.1.0", "@sergiogc9/react-ui-theme@^0.1.0":
-  version "0.1.0"
-  resolved "https://registry.yarnpkg.com/@sergiogc9/react-ui-theme/-/react-ui-theme-0.1.0.tgz#bcc3aea6334f14d886afe1dfcd6c1160c317a921"
-  integrity sha512-OLXqEbL7AiQPfoZjd62pU7kI7yg2dQuvwA8f7SXYRz9AKysMCUJ77nFZI89LSJwhAjuwUFWFRqWm3XhV4QG1OQ==
+"@sergiogc9/react-ui-theme@0.2.0", "@sergiogc9/react-ui-theme@^0.2.0":
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/@sergiogc9/react-ui-theme/-/react-ui-theme-0.2.0.tgz#48e74335509164bf293a1234002326bfadb3c7d5"
+  integrity sha512-n9ZuF4j5IqgbXf9FEmqGlJjlpNdcFmpFcRyVw4HXNkdsq/STZQFBKezgoMeUbsqA/bo8mOncNZ2cDGnHKUStGQ==
 
-"@sergiogc9/react-ui@0.1.1", "@sergiogc9/react-ui@^0.1.1":
-  version "0.1.1"
-  resolved "https://registry.yarnpkg.com/@sergiogc9/react-ui/-/react-ui-0.1.1.tgz#d146679830bdb34c030cb67b866430312eed6b41"
-  integrity sha512-7VprwFckPmrqSELG30IJLWU/vavdjJ+dGx7lrAhkJlmRCXCz3kV9UZR2MwUd1yXJyB6pg5WG+zc/aFuxbXdiAA==
+"@sergiogc9/react-ui@0.2.0", "@sergiogc9/react-ui@^0.2.0":
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/@sergiogc9/react-ui/-/react-ui-0.2.0.tgz#5bd97d6331ed42465c9669ab3fd8a558257005fe"
+  integrity sha512-qRyB5CuLJxRvSRDqYis+Oua3STrUstaEuaxVOwNN7MUq0FTvMbOW3OABQB29mwuqMYDI3k2AOw9mZ6AtmO/IFA==
   dependencies:
     "@sergiogc9/react-hooks" "0.2.1"
-    "@sergiogc9/react-ui-theme" "^0.1.0"
+    "@sergiogc9/react-ui-theme" "^0.2.0"
     "@sergiogc9/react-utils" "0.0.6"
     "@styled-system/css" "5.1.5"
     "@styled-system/should-forward-prop" "5.1.5"
