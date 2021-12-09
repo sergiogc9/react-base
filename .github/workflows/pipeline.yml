@@ -64,3 +64,4 @@ jobs:
           password: ${{ secrets.PASSWORD }}
           local-directory: './build'
           remote-directory: ${{ secrets.REMOTE_DIRECTORY }}
+          remove-content: true
