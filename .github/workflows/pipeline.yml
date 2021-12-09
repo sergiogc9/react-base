@@ -55,9 +55,12 @@ jobs:
         run: yarn test
       - name: Production build
         run: yarn env prod && yarn build
-
-      # NEXT STEPS:
-      # - Push build to storage service (eg. S3 in AWS):
-      #    aws s3 sync build/ s3://$BUCKET_NAME/ --delete
-      # - Invalidate cache in your CDN service (eg. Cloudfront in AWS)
-      #    aws cloudfront create-invalidation --distribution-id $DISTRIBUTION_ID --paths "/*"
+      - name: Upload build to server
+        uses: sergiogc9/github-action-sync-ssh@latest
+        with:
+          host: ${{ secrets.HOST }}
+          port: ${{ secrets.PORT }}
+          username: ${{ secrets.USERNAME }}
+          password: ${{ secrets.PASSWORD }}
+          local-directory: './build'
+          remote-directory: ${{ secrets.REMOTE_DIRECTORY }}
