@@ -17,7 +17,7 @@ const App: React.FC = () => {
 	return (
 		<HelmetProvider>
 			<Helmet>
-				<title>React Boilerplate</title>
+				<title>SergioGCosgaya React Boilerplate</title>
 			</Helmet>
 			<GlobalStyle />
 			<ErrorBoundary>
