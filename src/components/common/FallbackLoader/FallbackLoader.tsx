@@ -5,7 +5,7 @@ import Loading from 'components/ui/Loading';
 
 const FallbackLoader: React.FC = () => {
 	const [show, setShow] = React.useState(false);
-	const timeoutRef = React.useRef<number | null>(null);
+	const timeoutRef = React.useRef<NodeJS.Timeout | null>(null);
 
 	React.useEffect(() => {
 		timeoutRef.current = setTimeout(() => setShow(true), 500);
