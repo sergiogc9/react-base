@@ -1,6 +1,6 @@
 import { ChangeEventHandler } from 'react';
 
-export type FormFieldProps<V extends any> = {
+export type FormFieldProps<V> = {
 	readonly error?: string;
 	readonly name?: string;
 	readonly onChange?: ((value: V) => void) | ChangeEventHandler<any>;

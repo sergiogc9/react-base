@@ -6,7 +6,7 @@ import { UserProfile } from 'types/entities/user';
 
 let __user: UserProfile | null = null;
 
-const redirectToSSO = () => window.top.location.assign(`https://gironafc.cat`); // Should get SSO url from config
+const redirectToSSO = () => window.top?.location.assign(`https://gironafc.cat`); // Should get SSO url from config
 
 const doLogin = async () => {
 	await new Promise(resolve => setTimeout(resolve, 1000)); // Simulating authentication waiting timeF

@@ -8,9 +8,7 @@ import { FormFieldProps } from './types';
  * @param Component The component to be used. It has to implement the props defined in FormFieldProps.
  * @returns A new component that can be used inside a form
  */
-const withFormField = <V extends any = string, P extends FormFieldProps<V> = FormFieldProps<V>>(
-	Component: React.FC<P>
-) => {
+const withFormField = <V, P extends FormFieldProps<V> = FormFieldProps<V>>(Component: React.FC<P>) => {
 	return React.memo<P & { name: string }>(props => {
 		const { name } = props;
 

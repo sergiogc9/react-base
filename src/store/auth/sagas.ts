@@ -14,7 +14,7 @@ function* startAuth({ payload }: PayloadAction<Payloads['fetchAuth']>) {
 
 		yield put(actions.setProfile(user));
 		yield put(actions.fetchAuthSuccess());
-	} catch (e) {
+	} catch (e: any) {
 		// eslint-disable-next-line no-console
 		console.error(`Error authenticating: ${e.message}`);
 		yield put(actions.fetchAuthError(e));

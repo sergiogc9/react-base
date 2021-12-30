@@ -42,7 +42,7 @@ export default class Api {
 		try {
 			const response = await this._client.request(requestConfig);
 			return response.data;
-		} catch (err) {
+		} catch (err: any) {
 			if (axios.isCancel(err)) throw { code: 'AXIOS_CANCELLED', message: 'request cancelled' };
 
 			const errorCode = get(err, 'response.data.code');

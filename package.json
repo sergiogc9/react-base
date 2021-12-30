@@ -23,7 +23,7 @@
 		"@types/styled-system": "5.1.10",
 		"@types/styled-system__css": "5.0.15",
 		"@types/yup": "0.29.9",
-		"@typescript-eslint/eslint-plugin": "4.28.2",
+		"@typescript-eslint/eslint-plugin": "5.8.1",
 		"babel-loader": "8.1.0",
 		"eslint": "7.30.0",
 		"eslint-plugin-eslint-comments": "3.2.0",
@@ -47,7 +47,7 @@
 		"redux-mock-store": "1.5.4",
 		"redux-saga-test-plan": "4.0.1",
 		"source-map-explorer": "2.5.2",
-		"typescript": "4.3.5"
+		"typescript": "4.5.4"
 	},
 	"dependencies": {
 		"@hookform/resolvers": "2.7.1",
