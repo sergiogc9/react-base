@@ -2,8 +2,8 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 import * as Yup from 'yup';
 import { Flex, Select } from '@sergiogc9/react-ui';
+import { Form } from '@sergiogc9/react-ui-form';
 
-import Form from 'components/common/Form';
 import i18n from 'i18n';
 
 import { FilterBoolean, FilterFieldBoolean } from '../../../types';

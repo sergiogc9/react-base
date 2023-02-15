@@ -2,11 +2,11 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { Flex, Divider, Image } from '@sergiogc9/react-ui';
+import { Responsive } from '@sergiogc9/react-ui-utils';
 
 import { ReactComponent as PokeBallLogo } from 'assets/logos/poke-ball.svg';
 import uiSelectors from 'store/ui/selectors';
 
-import Responsive from '../Responsive';
 import HeaderFullscreen from './Fullscreen';
 import HeaderProfile from './Profile';
 import StyledHeader from './styled';

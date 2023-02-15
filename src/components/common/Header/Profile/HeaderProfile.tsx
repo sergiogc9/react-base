@@ -2,11 +2,11 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import theme from '@sergiogc9/react-ui-theme';
 import { Avatar, Button, Flex } from '@sergiogc9/react-ui';
+import theme from '@sergiogc9/react-ui-theme';
+import { Responsive } from '@sergiogc9/react-ui-utils';
 import { UserMenu } from '@sergiogc9/react-ui-collections';
 
-import Responsive from 'components/common/Responsive';
 import authManager from 'lib/auth';
 import selectors from 'store/auth/selectors';
 

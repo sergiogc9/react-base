@@ -1,10 +1,9 @@
 import React from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { Icon, Text } from '@sergiogc9/react-ui';
+import { Responsive, useScreenSize } from '@sergiogc9/react-ui-utils';
 import { useSelector } from 'react-redux';
 
-import Responsive from 'components/common/Responsive';
-import useScreenSize from 'lib/hooks/useScreenSize';
 import uiSelectors from 'store/ui/selectors';
 
 import StyledSidebar, { StyledSidebarItem } from './styled';

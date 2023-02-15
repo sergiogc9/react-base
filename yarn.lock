@@ -1164,12 +1164,12 @@
   dependencies:
     regenerator-runtime "^0.13.4"
 
-"@babel/runtime@^7.14.0":
-  version "7.14.8"
-  resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.14.8.tgz#7119a56f421018852694290b9f9148097391b446"
-  integrity sha512-twj3L8Og5SaCRCErB4x4ajbvBIVV77CGeFglHpeg5WC5FF8TZzBWXtTJ4MqaD9QszLYTtr+IsaAL2rEUevb+eg==
+"@babel/runtime@^7.17.8":
+  version "7.20.13"
+  resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.20.13.tgz#7055ab8a7cff2b8f6058bf6ae45ff84ad2aded4b"
+  integrity sha512-gt3PKXs0DBoL9xCvOIIZ2NEqAGZqHjAnmVbfQtB620V0uReIQutpel14KcneZuer7UioY8ALKZ7iocavvzTNFA==
   dependencies:
-    regenerator-runtime "^0.13.4"
+    regenerator-runtime "^0.13.11"
 
 "@babel/template@^7.10.4", "@babel/template@^7.14.5", "@babel/template@^7.3.3":
   version "7.14.5"
@@ -1704,44 +1704,67 @@
   dependencies:
     screenfull "5.1.0"
 
-"@sergiogc9/react-ui-collections@0.7.1":
-  version "0.7.1"
-  resolved "https://registry.yarnpkg.com/@sergiogc9/react-ui-collections/-/react-ui-collections-0.7.1.tgz#2f575bfbb86d2f8520fb0837a5014d830726829d"
-  integrity sha512-8SpDNvkiiUyfVbfKid7RYQH5hFo6F4o2SUZKCkr5BVvOt8EY4NJsw2OVQw0YWVZ83WyG5xrzT98Yw94nXQBsyw==
+"@sergiogc9/react-ui-collections@0.9.2", "@sergiogc9/react-ui-collections@^0.9.0":
+  version "0.9.2"
+  resolved "https://registry.yarnpkg.com/@sergiogc9/react-ui-collections/-/react-ui-collections-0.9.2.tgz#b017c5815f05e836a2ee1806f22645db18b92671"
+  integrity sha512-wn75Bls63zGtA90nrIDD0tytOye9QepgUZ10RV/9tRb5rWuDDr00/NY6i9WHGCoImMG5P/cCzn12XU7IFDU5dQ==
   dependencies:
     "@sergiogc9/react-hooks" "^0.2.2"
-    "@sergiogc9/react-ui" "^0.7.1"
-    "@sergiogc9/react-ui-theme" "^0.7.1"
+    "@sergiogc9/react-ui" "^0.9.0"
+    "@sergiogc9/react-ui-theme" "^0.9.0"
+    "@sergiogc9/react-ui-utils" "^0.9.2"
     "@sergiogc9/react-utils" "^0.0.7"
 
-"@sergiogc9/react-ui-theme@0.7.1", "@sergiogc9/react-ui-theme@^0.7.1":
-  version "0.7.1"
-  resolved "https://registry.yarnpkg.com/@sergiogc9/react-ui-theme/-/react-ui-theme-0.7.1.tgz#e3c245d51b14a7a7220330415478d0678f0e0d15"
-  integrity sha512-dbyCakeGwPAuajEyuQuaQWVowAERe/LfpX9wgqKMRLykXWkzwUhYtDaap7/TNXsGSFRPAScGmQpGn0f23aZsEA==
+"@sergiogc9/react-ui-form@0.9.2":
+  version "0.9.2"
+  resolved "https://registry.yarnpkg.com/@sergiogc9/react-ui-form/-/react-ui-form-0.9.2.tgz#4f2d5aa75537225b2bcf6edc440e67fedb4695c4"
+  integrity sha512-2plbS75ndDUFLP1KyFFiNChCkeVeXhZbC9wjL6KRZckcfersZev/+25mO7B+n9ZMvs+YTtJubZZKo9Axvv2Xtg==
+  dependencies:
+    "@hookform/resolvers" "2.7.1"
+    "@sergiogc9/react-ui" "^0.9.0"
+    "@sergiogc9/react-ui-collections" "^0.9.0"
+    "@sergiogc9/react-ui-theme" "^0.9.0"
+    lodash "^4.17.21"
+    react-hook-form "7.15.0"
+    yup "0.29.3"
+
+"@sergiogc9/react-ui-theme@0.9.0", "@sergiogc9/react-ui-theme@^0.9.0":
+  version "0.9.0"
+  resolved "https://registry.yarnpkg.com/@sergiogc9/react-ui-theme/-/react-ui-theme-0.9.0.tgz#7cd8d7a9a82331bf98ec837ab0788f4abc963aeb"
+  integrity sha512-XDggrxGvFym4Q+rzD1BBhA81x2r7iqia0nfVV+7JmGFoYf90EhSfwDE0MHIfqCwl66ToRDcdeesvQTMU1bH5xA==
   dependencies:
     lodash "^4.17.21"
 
-"@sergiogc9/react-ui@0.7.1", "@sergiogc9/react-ui@^0.7.1":
-  version "0.7.1"
-  resolved "https://registry.yarnpkg.com/@sergiogc9/react-ui/-/react-ui-0.7.1.tgz#17c9cecaf047df0f435d52d31d047bc747920f8f"
-  integrity sha512-9Ziim5ixOBpz/F/Qz90OGlARXoMbvyJF6spYXgQl9AGQ6ZQXYZZqKmwSTzQDwzGIuz8uPiEdxSL7yq0i2ds5Iw==
+"@sergiogc9/react-ui-utils@0.9.2", "@sergiogc9/react-ui-utils@^0.9.2":
+  version "0.9.2"
+  resolved "https://registry.yarnpkg.com/@sergiogc9/react-ui-utils/-/react-ui-utils-0.9.2.tgz#df8cc84e4b9b8518c095c5746bed05114199e432"
+  integrity sha512-b5vjbeHa1rM1NzVi8Cea2E6qSqtoowgiJY8jZ9yZfg1df/S8gaWF/+1vqah30RBulqdT58DZfBXq1BpaBryiJw==
+  dependencies:
+    "@sergiogc9/react-ui" "^0.9.0"
+    "@sergiogc9/react-ui-theme" "^0.9.0"
+    lodash "^4.17.21"
+
+"@sergiogc9/react-ui@0.9.0", "@sergiogc9/react-ui@^0.9.0":
+  version "0.9.0"
+  resolved "https://registry.yarnpkg.com/@sergiogc9/react-ui/-/react-ui-0.9.0.tgz#2c1a6759b98f0d68b0dc7fb9892b785777c2e0c8"
+  integrity sha512-RGT5MkM8DMCjHXE0lIFpIBdCD6Sclq+7WC+xcXXKep2KTmRDl+Kq7Aie8x55dURWUSVgQ2jlFMRnb/3/bNiu4w==
   dependencies:
     "@fortawesome/fontawesome-svg-core" "^6.1.1"
     "@fortawesome/free-solid-svg-icons" "6.1.1"
     "@fortawesome/react-fontawesome" "^0.1.18"
     "@sergiogc9/react-hooks" "^0.2.2"
-    "@sergiogc9/react-ui-theme" "^0.7.1"
+    "@sergiogc9/react-ui-theme" "^0.9.0"
     "@sergiogc9/react-utils" "^0.0.7"
-    "@styled-system/css" "5.1.5"
-    "@styled-system/should-forward-prop" "5.1.5"
-    "@tippyjs/react" "4.2.6"
-    "@types/react-table" "7.7.2"
-    "@types/styled-system__should-forward-prop" "5.1.2"
+    "@styled-system/css" "^5.1.5"
+    "@styled-system/should-forward-prop" "^5.1.5"
+    "@tippyjs/react" "^4.2.6"
+    "@types/react-table" "^7.7.12"
+    "@types/styled-system__should-forward-prop" "^5.1.2"
     lodash "^4.17.21"
-    polished "4.1.3"
-    react-day-picker "7.4.10"
-    react-table "7.7.0"
-    styled-system "5.1.5"
+    polished "^4.2.2"
+    react-day-picker "^7.4.10"
+    react-table "^7.8.0"
+    styled-system "^5.1.5"
 
 "@sergiogc9/react-utils@0.0.6":
   version "0.0.6"
@@ -1849,7 +1872,7 @@
   dependencies:
     "@styled-system/core" "^5.1.2"
 
-"@styled-system/should-forward-prop@5.1.5":
+"@styled-system/should-forward-prop@^5.1.5":
   version "5.1.5"
   resolved "https://registry.yarnpkg.com/@styled-system/should-forward-prop/-/should-forward-prop-5.1.5.tgz#c392008c6ae14a6eb78bf1932733594f7f7e5c76"
   integrity sha512-+rPRomgCGYnUIaFabDoOgpSDc4UUJ1KsmlnzcEp0tu5lFrBQKgZclSo18Z1URhaZm7a6agGtS5Xif7tuC2s52Q==
@@ -2034,7 +2057,7 @@
   dependencies:
     "@babel/runtime" "^7.10.2"
 
-"@tippyjs/react@4.2.6":
+"@tippyjs/react@^4.2.6":
   version "4.2.6"
   resolved "https://registry.yarnpkg.com/@tippyjs/react/-/react-4.2.6.tgz#971677a599bf663f20bb1c60a62b9555b749cc71"
   integrity sha512-91RicDR+H7oDSyPycI13q3b7o4O60wa2oRbjlz2fyRLmHImc4vyDwuUP8NtZaN0VARJY5hybvDYrFzhY9+Lbyw==
@@ -2254,10 +2277,10 @@
     hoist-non-react-statics "^3.3.0"
     redux "^4.0.0"
 
-"@types/react-table@7.7.2":
-  version "7.7.2"
-  resolved "https://registry.yarnpkg.com/@types/react-table/-/react-table-7.7.2.tgz#434f8230eb011c7eed8f3550fdf25befafebcfac"
-  integrity sha512-NwB78t3YV5pZ1NK3m2vylb/d0DKVyWH4y4GMCtlE4tg2n5ENM4ejzKnT46YKuqG2cPjWc+PIxuRVMd5OYX1z4A==
+"@types/react-table@^7.7.12":
+  version "7.7.14"
+  resolved "https://registry.yarnpkg.com/@types/react-table/-/react-table-7.7.14.tgz#b880f1ae140ed065bca2e21b3008ca1ebe71595a"
+  integrity sha512-TYrv7onCiakaG1uAu/UpQ9FojNEt/4/ht87EgJQaEGFoWV606ZLWUZAcUHzMxgc3v1mywP1cDyz3qB4ho3hWOw==
   dependencies:
     "@types/react" "*"
 
@@ -2331,7 +2354,7 @@
   dependencies:
     csstype "^3.0.2"
 
-"@types/styled-system__should-forward-prop@5.1.2":
+"@types/styled-system__should-forward-prop@^5.1.2":
   version "5.1.2"
   resolved "https://registry.yarnpkg.com/@types/styled-system__should-forward-prop/-/styled-system__should-forward-prop-5.1.2.tgz#57a71acb9c85bdd6e47cbb7f645037c6858c1ee7"
   integrity sha512-xHTA+qeTkKw8bJ7O7UxkzgTkVtlcEV0NbVlGkTZqHK/0YIGAPBcvHKs2y3811UeeHbkW9H/qfy7HtqwvAvwCSQ==
@@ -9221,12 +9244,12 @@ pnp-webpack-plugin@1.6.4:
   dependencies:
     ts-pnp "^1.1.6"
 
-polished@4.1.3:
-  version "4.1.3"
-  resolved "https://registry.yarnpkg.com/polished/-/polished-4.1.3.tgz#7a3abf2972364e7d97770b827eec9a9e64002cfc"
-  integrity sha512-ocPAcVBUOryJEKe0z2KLd1l9EBa1r5mSwlKpExmrLzsnIzJo4axsoU9O2BjOTkDGDT4mZ0WFE5XKTlR3nLnZOA==
+polished@^4.2.2:
+  version "4.2.2"
+  resolved "https://registry.yarnpkg.com/polished/-/polished-4.2.2.tgz#2529bb7c3198945373c52e34618c8fe7b1aa84d1"
+  integrity sha512-Sz2Lkdxz6F2Pgnpi9U5Ng/WdWAUZxmHrNPoVlm3aAemxoy2Qy7LGjQg4uf8qKelDAUW94F4np3iH2YPf2qefcQ==
   dependencies:
-    "@babel/runtime" "^7.14.0"
+    "@babel/runtime" "^7.17.8"
 
 portfinder@^1.0.26:
   version "1.0.28"
@@ -10178,7 +10201,7 @@ react-app-polyfill@^2.0.0:
     regenerator-runtime "^0.13.7"
     whatwg-fetch "^3.4.1"
 
-react-day-picker@7.4.10:
+react-day-picker@^7.4.10:
   version "7.4.10"
   resolved "https://registry.yarnpkg.com/react-day-picker/-/react-day-picker-7.4.10.tgz#d3928fa65c04379ad28c76de22aa85374a8361e1"
   integrity sha512-/QkK75qLKdyLmv0kcVzhL7HoJPazoZXS8a6HixbVoK6vWey1Od1WRLcxfyEiUsRfccAlIlf6oKHShqY2SM82rA==
@@ -10394,10 +10417,10 @@ react-scripts@4.0.1:
   optionalDependencies:
     fsevents "^2.1.3"
 
-react-table@7.7.0:
-  version "7.7.0"
-  resolved "https://registry.yarnpkg.com/react-table/-/react-table-7.7.0.tgz#e2ce14d7fe3a559f7444e9ecfe8231ea8373f912"
-  integrity sha512-jBlj70iBwOTvvImsU9t01LjFjy4sXEtclBovl3mTiqjz23Reu0DKnRza4zlLtOPACx6j2/7MrQIthIK1Wi+LIA==
+react-table@^7.8.0:
+  version "7.8.0"
+  resolved "https://registry.yarnpkg.com/react-table/-/react-table-7.8.0.tgz#07858c01c1718c09f7f1aed7034fcfd7bda907d2"
+  integrity sha512-hNaz4ygkZO4bESeFfnfOft73iBUj8K5oKi1EcSHPAibEydfsX2MyU6Z8KCr3mv3C9Kqqh71U+DhZkFvibbnPbA==
 
 react@17.0.1:
   version "17.0.1"
@@ -10567,6 +10590,11 @@ regenerator-runtime@^0.11.0:
   version "0.11.1"
   resolved "https://registry.yarnpkg.com/regenerator-runtime/-/regenerator-runtime-0.11.1.tgz#be05ad7f9bf7d22e056f9726cee5017fbf19e2e9"
   integrity sha512-MguG95oij0fC3QV3URf4V2SDYGJhJnJGqvIIgdECeODCT98wSWDAJ94SSuVpYQUoTcGUIL6L4yNB7j1DFFHSBg==
+
+regenerator-runtime@^0.13.11:
+  version "0.13.11"
+  resolved "https://registry.yarnpkg.com/regenerator-runtime/-/regenerator-runtime-0.13.11.tgz#f6dca3e7ceec20590d07ada785636a90cdca17f9"
+  integrity sha512-kY1AZVr2Ra+t+piVaJ4gxaFaReZVH40AKNo7UCX6W+dEwBo/2oZJzqfuN1qLq1oL45o56cPaTXELwrTh8Fpggg==
 
 regenerator-runtime@^0.13.4, regenerator-runtime@^0.13.7:
   version "0.13.7"

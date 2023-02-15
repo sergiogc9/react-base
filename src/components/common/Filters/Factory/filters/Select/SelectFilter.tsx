@@ -2,8 +2,7 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 import * as Yup from 'yup';
 import { Flex, Select } from '@sergiogc9/react-ui';
-
-import Form from 'components/common/Form';
+import { Form } from '@sergiogc9/react-ui-form';
 
 import { FilterSelect, FilterFieldSelect } from '../../../types';
 import { FiltersFactoryFormProps } from '../../types';

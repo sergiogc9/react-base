@@ -2,10 +2,8 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { useUpdateEffect } from '@sergiogc9/react-hooks';
 import { Animation, Button, Divider, Flex, Icon, IconButton, Popover, Select, Title } from '@sergiogc9/react-ui';
-
-import Form from 'components/common/Form';
-import Responsive from 'components/common/Responsive';
-import useBackdrop from 'lib/hooks/useBackdrop';
+import { Form } from '@sergiogc9/react-ui-form';
+import { Responsive, useBackdrop } from '@sergiogc9/react-ui-utils';
 
 import FiltersContext from '../Context';
 import FiltersFactory from '../Factory';

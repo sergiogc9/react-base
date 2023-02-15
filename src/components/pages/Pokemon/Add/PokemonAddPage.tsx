@@ -5,8 +5,8 @@ import { useTranslation } from 'react-i18next';
 import { Helmet } from 'react-helmet-async';
 import { capitalize } from 'lib/imports/lodash';
 import { Flex, Grid, Select, Title } from '@sergiogc9/react-ui';
+import { Form } from '@sergiogc9/react-ui-form';
 
-import Form from 'components/common/Form';
 import { useAddPokemon } from 'queries/pokemon';
 import { pokemonTypes } from 'types/entities/pokemon';
 
