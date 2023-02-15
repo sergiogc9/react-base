@@ -9,7 +9,7 @@ import {
 	UseFormSetValue,
 	UseFormTrigger
 } from 'react-hook-form';
-import { BoxProps } from '@sergiogc9/react-ui';
+import { FlexProps } from '@sergiogc9/react-ui';
 
 import { RecursivePartial } from 'types/generics';
 
@@ -41,14 +41,14 @@ export type Props<FormValues extends Record<string, unknown> = Record<string, un
 };
 
 export type FormProps<FormValues extends Record<string, unknown> = Record<string, unknown>> = Props<FormValues> &
-	Omit<BoxProps<React.HTMLAttributes<HTMLFormElement>>, 'onChange' | 'onSubmit'>;
+	Omit<FlexProps<React.HTMLAttributes<HTMLFormElement>>, 'onChange' | 'onSubmit'>;
 
 export type FormErrors<FormValues extends Record<string, unknown> = Record<string, unknown>> = DeepMap<
 	DeepPartial<FormValues>,
 	FieldError
 >;
 
-export type StyledFormProps = BoxProps<React.HTMLAttributes<HTMLFormElement>>;
+export type StyledFormProps = FlexProps<React.HTMLAttributes<HTMLFormElement>>;
 
 export type FormEffectProps<FormValues extends Record<string, unknown> = Record<string, unknown>> = Pick<
 	FormProps<FormValues>,

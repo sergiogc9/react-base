@@ -1,7 +1,7 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { useUpdateEffect } from '@sergiogc9/react-hooks';
-import { Animation, Box, Button, Divider, Icon, IconButton, Popover, Select, Title } from '@sergiogc9/react-ui';
+import { Animation, Button, Divider, Flex, Icon, IconButton, Popover, Select, Title } from '@sergiogc9/react-ui';
 
 import Form from 'components/common/Form';
 import Responsive from 'components/common/Responsive';
@@ -38,9 +38,9 @@ const FiltersPopoverContent: React.FC<FiltersPopoverContentProps> = props => {
 
 	const buttonsContent = React.useMemo(
 		() => (
-			<Box flexDirection="column">
+			<Flex flexDirection="column">
 				<Divider my={4} />
-				<Box flexDirection={{ xs: 'column-reverse', md: 'row-reverse', lg: 'row' }}>
+				<Flex flexDirection={{ xs: 'column-reverse', md: 'row-reverse', lg: 'row' }}>
 					<Form.ButtonSubmit
 						aspectSize="l"
 						flexBasis={{ xs: '100%', md: '50%' }}
@@ -61,8 +61,8 @@ const FiltersPopoverContent: React.FC<FiltersPopoverContentProps> = props => {
 					>
 						{t('form.buttons.cancel')}
 					</Button>
-				</Box>
-			</Box>
+				</Flex>
+			</Flex>
 		),
 		[editFilterId, field.defaultValue, field.type, onClose, t]
 	);
@@ -172,17 +172,17 @@ const FiltersPopover: React.FC<FiltersPopoverProps> = React.forwardRef(
 						width="100vw"
 						zIndex={4}
 					>
-						<Box alignItems="center">
+						<Flex alignItems="center">
 							<Title aspectSize="s" color="neutral.900">
 								{editFilterId === 'new' ? t('filters.popover.add.title') : t('filters.popover.edit.title')}
 							</Title>
 							<IconButton aspectSize="l" data-testid="filtersPopoverMobileCloseBtn" ml="auto" onClick={onClose}>
 								<Icon aspectSize="l" styling="outlined" icon="close" />
 							</IconButton>
-						</Box>
-						<Box flexGrow={1} flexDirection="column" mt={4}>
+						</Flex>
+						<Flex flexGrow={1} flexDirection="column" mt={4}>
 							{content}
-						</Box>
+						</Flex>
 					</Animation.FadeIn>
 				</Responsive>
 			</>

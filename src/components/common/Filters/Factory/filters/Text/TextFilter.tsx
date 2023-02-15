@@ -1,7 +1,7 @@
 import React from 'react';
 import * as Yup from 'yup';
 import { useTranslation } from 'react-i18next';
-import { Box, Select } from '@sergiogc9/react-ui';
+import { Flex, Select } from '@sergiogc9/react-ui';
 
 import Form from 'components/common/Form';
 import i18n from 'i18n';
@@ -34,8 +34,8 @@ const TextFilterForm: React.FC<FiltersFactoryFormProps<FilterText, FilterFieldTe
 			useFormProps={{ mode: 'onChange' }}
 			validationSchema={validationSchema}
 		>
-			<Box flexDirection="column" height="100%" justifyContent="space-between">
-				<Box flexDirection="column" gap={4}>
+			<Flex flexDirection="column" height="100%" justifyContent="space-between">
+				<Flex flexDirection="column" gap={4}>
 					<Form.Select label={t('filters.filter.common.label.condition')} name="condition">
 						{TEXT_FILTER_CONDITIONS.map(condition => (
 							<Select.Option id={condition} key={condition}>
@@ -49,9 +49,9 @@ const TextFilterForm: React.FC<FiltersFactoryFormProps<FilterText, FilterFieldTe
 						maxLength={30}
 						name="value"
 					/>
-				</Box>
+				</Flex>
 				{children}
-			</Box>
+			</Flex>
 		</Form>
 	);
 };

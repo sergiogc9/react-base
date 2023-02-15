@@ -1,5 +1,5 @@
-import { Box, BoxProps } from '@sergiogc9/react-ui';
+import { Flex, FlexProps } from '@sergiogc9/react-ui';
 
-const Image: React.FC<BoxProps<React.ImgHTMLAttributes<HTMLImageElement>>> = Box;
+const Image: React.FC<FlexProps<React.ImgHTMLAttributes<HTMLImageElement>>> = Flex;
 
 export default Image;

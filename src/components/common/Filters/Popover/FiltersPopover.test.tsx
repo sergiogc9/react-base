@@ -1,7 +1,7 @@
 import React from 'react';
 import { fireEvent, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import { Box } from '@sergiogc9/react-ui';
+import { Flex } from '@sergiogc9/react-ui';
 
 import TestUtils from 'lib/tests';
 import { renderWithMockedStore } from 'lib/tests/redux';
@@ -26,7 +26,7 @@ const FakeComponent: React.FC<{
 	const containerRef = React.useRef(null);
 
 	return (
-		<Box ref={containerRef} height={100} width={100}>
+		<Flex ref={containerRef} height={100} width={100}>
 			<button onClick={() => setIsVisible(true)} type="button">
 				Open
 			</button>
@@ -39,7 +39,7 @@ const FakeComponent: React.FC<{
 			>
 				<FiltersPopover editFilterId={filter.id} isVisible={isVisible} onClose={mockOnClose} {...props} />
 			</FiltersProvider>
-		</Box>
+		</Flex>
 	);
 };
 

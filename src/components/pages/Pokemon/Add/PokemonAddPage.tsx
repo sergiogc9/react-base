@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { Helmet } from 'react-helmet-async';
 import { capitalize } from 'lib/imports/lodash';
-import { Box, Grid, Select, Title } from '@sergiogc9/react-ui';
+import { Flex, Grid, Select, Title } from '@sergiogc9/react-ui';
 
 import Form from 'components/common/Form';
 import { useAddPokemon } from 'queries/pokemon';
@@ -46,7 +46,7 @@ const PokemonItemPage: React.FC = () => {
 	);
 
 	return (
-		<Box alignItems="center" flexDirection="column" id="pokemonAddPage" width="100%">
+		<Flex alignItems="center" flexDirection="column" id="pokemonAddPage" width="100%">
 			<Helmet>
 				<title>Add new pokemon</title>
 			</Helmet>
@@ -89,7 +89,7 @@ const PokemonItemPage: React.FC = () => {
 					</Grid.Box>
 				</Grid>
 			</Form>
-		</Box>
+		</Flex>
 	);
 };
 

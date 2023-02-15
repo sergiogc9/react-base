@@ -1,7 +1,7 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import * as Yup from 'yup';
-import { Box, Select } from '@sergiogc9/react-ui';
+import { Flex, Select } from '@sergiogc9/react-ui';
 
 import Form from 'components/common/Form';
 
@@ -30,8 +30,8 @@ const SelectFilterForm: React.FC<FiltersFactoryFormProps<FilterSelect, FilterFie
 			useFormProps={{ mode: 'onChange' }}
 			validationSchema={validationSchema}
 		>
-			<Box flexDirection="column" height="100%" justifyContent="space-between">
-				<Box flexDirection="column" gap={4}>
+			<Flex flexDirection="column" height="100%" justifyContent="space-between">
+				<Flex flexDirection="column" gap={4}>
 					<Form.Select
 						data-testid="filtersSelectFilterValueSelect"
 						label={t('filters.filter.multi_select.label.value')}
@@ -43,9 +43,9 @@ const SelectFilterForm: React.FC<FiltersFactoryFormProps<FilterSelect, FilterFie
 							</Select.Option>
 						))}
 					</Form.Select>
-				</Box>
+				</Flex>
 				{children}
-			</Box>
+			</Flex>
 		</Form>
 	);
 };

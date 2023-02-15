@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import theme from '@sergiogc9/react-ui-theme';
-import { Avatar, Box, Button } from '@sergiogc9/react-ui';
+import { Avatar, Button, Flex } from '@sergiogc9/react-ui';
 import { UserMenu } from '@sergiogc9/react-ui-collections';
 
 import Responsive from 'components/common/Responsive';
@@ -34,8 +34,8 @@ const HeaderProfile: React.FC = () => {
 	}, []);
 
 	return (
-		<Box ml="auto">
-			<Box cursor="pointer" ref={avatarRef} onClick={() => setIsUserMenuVisible(isVisible => !isVisible)}>
+		<Flex ml="auto">
+			<Flex cursor="pointer" ref={avatarRef} onClick={() => setIsUserMenuVisible(isVisible => !isVisible)}>
 				<Avatar
 					aspectSize="s"
 					data-testid="headerProfileAvatar"
@@ -43,7 +43,7 @@ const HeaderProfile: React.FC = () => {
 				>
 					{fullName}
 				</Avatar>
-			</Box>
+			</Flex>
 			<UserMenu
 				boxShadow="down"
 				data-testid="headerProfileUserDropdownMenu"
@@ -81,7 +81,7 @@ const HeaderProfile: React.FC = () => {
 					</UserMenu.Footer>
 				</Responsive>
 			</UserMenu>
-		</Box>
+		</Flex>
 	);
 };
 

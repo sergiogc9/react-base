@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box } from '@sergiogc9/react-ui';
+import { Flex } from '@sergiogc9/react-ui';
 
 import HoverContext from 'components/ui/Hover/Context';
 import { HoverContextData } from 'components/ui/Hover/Context/types';
@@ -15,7 +15,7 @@ const Hover: React.FC<HoverProps> = props => {
 
 	return (
 		<HoverContext.Provider value={contextData}>
-			<Box height="min-content" position="relative" width="min-content" {...props} />
+			<Flex height="min-content" position="relative" width="min-content" {...props} />
 		</HoverContext.Provider>
 	);
 };

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box } from '@sergiogc9/react-ui';
+import { Flex } from '@sergiogc9/react-ui';
 
 import Loading from 'components/ui/Loading';
 
@@ -18,9 +18,9 @@ const FallbackLoader: React.FC = () => {
 	if (!show) return null;
 
 	return (
-		<Box width="100%" height="100%" justifyContent="center" alignItems="center">
+		<Flex width="100%" height="100%" justifyContent="center" alignItems="center">
 			<Loading />
-		</Box>
+		</Flex>
 	);
 };
 

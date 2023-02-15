@@ -1,11 +1,11 @@
 import React from 'react';
-import { Box, Spinner } from '@sergiogc9/react-ui';
+import { Flex, Spinner } from '@sergiogc9/react-ui';
 
 import { LoadingProps } from './types';
 
 const Loading: React.FC<LoadingProps> = props => {
 	return (
-		<Box
+		<Flex
 			alignItems="center"
 			color="primary.500"
 			height="100%"
@@ -20,7 +20,7 @@ const Loading: React.FC<LoadingProps> = props => {
 					<Spinner.Pulse key={index} index={index} mx="2.5px" size="8px" />
 				))}
 			</Spinner>
-		</Box>
+		</Flex>
 	);
 };
 

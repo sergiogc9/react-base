@@ -1,7 +1,6 @@
 import React from 'react';
-import { useTheme } from 'styled-components';
+import { DefaultTheme, useTheme } from 'styled-components';
 import { debounce, isEmpty } from 'lib/imports/lodash';
-import { Theme } from '@sergiogc9/react-ui-theme';
 
 // eslint-disable-next-line @typescript-eslint/ban-types
 const __listeners: Function[] = [];
@@ -10,9 +9,9 @@ const onDebouncedScreenResize = debounce(() => {
 	__listeners.forEach(fn => fn());
 }, 100);
 
-export type Breakpoint = Exclude<Extract<keyof Theme['breakpoints'], string>, keyof Array<any>>;
+export type Breakpoint = Exclude<Extract<keyof DefaultTheme['breakpoints'], string>, keyof Array<any>>;
 
-const getScreenSize = (screenWidth: number, theme: Theme): Breakpoint => {
+const getScreenSize = (screenWidth: number, theme: DefaultTheme): Breakpoint => {
 	if (screenWidth < parseInt(theme.breakpoints.sm!, 10)) return 'xs';
 	if (screenWidth < parseInt(theme.breakpoints.md!, 10)) return 'sm';
 	if (screenWidth < parseInt(theme.breakpoints.lg!, 10)) return 'md';

@@ -1,4 +1,4 @@
-import { BoxProps } from '@sergiogc9/react-ui';
+import { FlexProps } from '@sergiogc9/react-ui';
 
 type Props = {
 	/**
@@ -11,5 +11,5 @@ type Props = {
 	readonly to: string;
 };
 
-export type LinkProps = Props & Omit<BoxProps<React.AnchorHTMLAttributes<HTMLAnchorElement>>, 'href'>;
-export type LinkBoxProps = BoxProps<React.AnchorHTMLAttributes<HTMLAnchorElement>>;
+export type LinkProps = Props & Omit<FlexProps<React.AnchorHTMLAttributes<HTMLAnchorElement>>, 'href'>;
+export type LinkBoxProps = FlexProps<React.AnchorHTMLAttributes<HTMLAnchorElement>>;

@@ -1,7 +1,7 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
-import { Box, Content, Link, Title } from '@sergiogc9/react-ui';
+import { Flex, Link, Text, Title } from '@sergiogc9/react-ui';
 
 import config from 'config';
 import { actions } from 'store/ui/counter';
@@ -35,16 +35,16 @@ const MainPage: React.FC = () => {
 	}, [dispatch, value]);
 
 	return (
-		<Box alignItems="center" height="100%" id="mainPage" flexDirection="column" justifyContent="center">
-			<Content mt={3}>
+		<Flex alignItems="center" height="100%" id="mainPage" flexDirection="column" justifyContent="center">
+			<Text mt={3}>
 				Main Page. Edit <code>src/App.tsx</code> and save to reload.
-			</Content>
-			<Content mt={3}>{t('pages.main.example_text_without_interpolation')}</Content>
-			<Content>{t('pages.main.example_text_with_interpolation', { environment: config.environment })}</Content>
+			</Text>
+			<Text mt={3}>{t('pages.main.example_text_without_interpolation')}</Text>
+			<Text>{t('pages.main.example_text_with_interpolation', { environment: config.environment })}</Text>
 			<Link className="App-link" href="https://reactjs.org" target="_blank" rel="noopener noreferrer" mt={3}>
 				Learn React
 			</Link>
-			<Box borderRadius={1} bg="primary.100" flexDirection="column" height={200} p={4} mt={5} width={400}>
+			<Flex borderRadius={1} bg="primary.100" flexDirection="column" height={200} p={4} mt={5} width={400}>
 				{isLoading && <Loading />}
 				{!isLoading && (
 					<>
@@ -54,8 +54,8 @@ const MainPage: React.FC = () => {
 						<Counter defaultValue={value} onIncrement={onIncrementValue} onSetValue={onSetValue} />
 					</>
 				)}
-			</Box>
-		</Box>
+			</Flex>
+		</Flex>
 	);
 };
 

@@ -1,9 +1,9 @@
 import styled, { css } from 'styled-components';
-import { Box } from '@sergiogc9/react-ui';
+import { Flex } from '@sergiogc9/react-ui';
 
 import { HoverContentProps } from './types';
 
-const StyledHoverContentWrapper = styled(Box)<HoverContentProps & { isHover: boolean }>`
+const StyledHoverContentWrapper = styled(Flex)<HoverContentProps & { isHover: boolean }>`
 	height: 100%;
 	left: 0;
 	opacity: 0;
@@ -24,7 +24,7 @@ const StyledHoverContentWrapper = styled(Box)<HoverContentProps & { isHover: boo
 		`}
 `;
 
-const StyledHoverContentOverlay = styled(Box)<HoverContentProps>`
+const StyledHoverContentOverlay = styled(Flex)<HoverContentProps>`
 	height: 100%;
 	position: absolute;
 	width: 100%;
@@ -35,7 +35,7 @@ StyledHoverContentOverlay.defaultProps = {
 	opacity: 0.8
 };
 
-const StyledHoverContent = styled(Box)<HoverContentProps>`
+const StyledHoverContent = styled(Flex)<HoverContentProps>`
 	border-radius: inherit;
 	height: 100%;
 	width: 100%;

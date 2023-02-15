@@ -1,8 +1,8 @@
-import { Box } from '@sergiogc9/react-ui';
+import { Flex } from '@sergiogc9/react-ui';
 
 import styled from 'styled-components';
 
-const StyledHeader = styled(Box)``;
+const StyledHeader = styled(Flex)``;
 
 StyledHeader.defaultProps = {
 	alignItems: 'center',

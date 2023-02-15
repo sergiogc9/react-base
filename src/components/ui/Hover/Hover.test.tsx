@@ -1,7 +1,7 @@
 import React from 'react';
 import { cleanup, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import { Box } from '@sergiogc9/react-ui';
+import { Flex } from '@sergiogc9/react-ui';
 
 import TestUtils from 'lib/tests';
 import Hover from 'components/ui/Hover';
@@ -14,7 +14,7 @@ const text = 'Awesome text';
 const renderHover = (props?: Partial<HoverProps>) =>
 	TestUtils.renderWithMockedStore(
 		<Hover data-testid={hoverTestId} {...props}>
-			<Box>{text}</Box>
+			<Flex>{text}</Flex>
 			<Hover.Content>{contentText}</Hover.Content>
 		</Hover>
 	);

@@ -3,15 +3,15 @@ import { useNavigate } from 'react-router-dom';
 import { useTheme } from 'styled-components';
 import { Helmet } from 'react-helmet-async';
 import {
-	Box,
 	Button,
-	Content,
+	Flex,
 	Icon,
 	IconButton,
 	Popover,
 	Table,
 	TableCellProps,
 	TableColumn,
+	Text,
 	Title
 } from '@sergiogc9/react-ui';
 import { ActionMenu, Dialog } from '@sergiogc9/react-ui-collections';
@@ -63,14 +63,14 @@ const PokemonItemList: React.FC = () => {
 				accessor: 'id',
 				Header: '',
 				Cell: props => (
-					<Box justifyContent="flex-end" width="100%">
+					<Flex justifyContent="flex-end" width="100%">
 						<Button aspectSize="s" onClick={() => navigate(`/pokemon/${props.value}`)} variant="primary" {...props}>
 							See pokemon
 						</Button>
 						<IconButton ml={3} onClick={() => removePokemon({ pokemonId: props.cell.row.original.id })}>
 							<Icon icon="delete" fill="primary.700" styling="outlined" />
 						</IconButton>
-					</Box>
+					</Flex>
 				),
 				getCellWidthText: () => 'See pokemon'
 			},
@@ -115,7 +115,7 @@ const PokemonItemList: React.FC = () => {
 			<Table columns={columns} data={data} pb={4}>
 				<Table.Toolbar>
 					<Table.TotalResults
-						render={({ totalResults }) => <Content aspectSize="xs">Total pokemons: {totalResults}</Content>}
+						render={({ totalResults }) => <Text aspectSize="xs">Total pokemons: {totalResults}</Text>}
 					/>
 					<Table.Pagination ml="auto" />
 				</Table.Toolbar>
@@ -129,25 +129,25 @@ const PokemonItemList: React.FC = () => {
 
 	return (
 		<>
-			<Box id="pokemonListPage" flexDirection="column" px={{ md: 6, xs: 3 }} py={4}>
+			<Flex id="pokemonListPage" flexDirection="column" px={{ md: 6, xs: 3 }} py={4}>
 				{data ? (
 					<>
 						<Helmet>
 							<title>Your pokemons</title>
 						</Helmet>
-						<Box alignItems="center" justifyContent="space-between">
+						<Flex alignItems="center" justifyContent="space-between">
 							<Title aspectSize="s">Pokemons</Title>
 							<Button aspectSize="s" onClick={() => navigate('add')} variant="secondary">
-								<Button.Icon aspectSize="s" icon="add" styling="outlined" />
-								<Button.Text aspectSize="s">Add pokemon</Button.Text>
+								<Button.Icon icon="add" styling="outlined" />
+								<Button.Text>Add pokemon</Button.Text>
 							</Button>
-						</Box>
+						</Flex>
 						{tableContent}
 					</>
 				) : (
 					<PokemonsListSkeleton />
 				)}
-			</Box>
+			</Flex>
 			<Dialog
 				confirmBtnVariant="danger"
 				confirmText="Delete"

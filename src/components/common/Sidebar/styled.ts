@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components';
 import systemCSS from '@styled-system/css';
-import { Box } from '@sergiogc9/react-ui';
+import { Flex } from '@sergiogc9/react-ui';
 
 import { StyledSidebarItemProps, StyledSidebarProps } from './types';
 
@@ -17,7 +17,7 @@ const __getHoverBackgroundElementLeftPosition = (elementWidth: number, selectedI
 	return `${8 + (elementWidth + 16) * selectedIndex}px`;
 };
 
-const StyledSidebar: React.FC<StyledSidebarProps> = styled(Box)<StyledSidebarProps>`
+const StyledSidebar: React.FC<StyledSidebarProps> = styled(Flex)<StyledSidebarProps>`
 	${props =>
 		systemCSS({
 			boxShadow: props.isDesktop || props.isPageFullScrolled ? 'none' : 'up'
@@ -65,7 +65,7 @@ const getSelectedItemCss = () => css`
 	transition: opacity 0.15s ease-in-out 0.15s;
 `;
 
-const StyledSidebarItem = styled(Box)<StyledSidebarItemProps>`
+const StyledSidebarItem = styled(Flex)<StyledSidebarItemProps>`
 	& {
 		transition: opacity 0.15s ease-in-out;
 	}

@@ -1,7 +1,7 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
-import { Box, Content, Grid, Title } from '@sergiogc9/react-ui';
+import { Flex, Grid, Text, Title } from '@sergiogc9/react-ui';
 
 import Loading from 'components/ui/Loading';
 import { useGetPokemonItem } from 'queries/pokemon';
@@ -12,7 +12,7 @@ const PokemonItemPage: React.FC = () => {
 	const { data: pokemon, isLoading } = useGetPokemonItem(params.id!);
 
 	return (
-		<Box alignItems="center" flexDirection="column" id="pokemonItemPage" width="100%">
+		<Flex alignItems="center" flexDirection="column" id="pokemonItemPage" width="100%">
 			{pokemon && (
 				<Helmet>
 					<title>Pokemon: {pokemon.name}</title>
@@ -23,26 +23,26 @@ const PokemonItemPage: React.FC = () => {
 			{pokemon && (
 				<Grid columns={12} mt={5} width={300}>
 					<Grid.Box columns={6}>
-						<Content fontWeight="bold">ID:</Content>{' '}
+						<Text fontWeight="bold">ID:</Text>{' '}
 					</Grid.Box>
 					<Grid.Box columns={6} justifyContent="flex-end">
 						{pokemon.id}
 					</Grid.Box>
 					<Grid.Box columns={6}>
-						<Content fontWeight="bold">Name:</Content>{' '}
+						<Text fontWeight="bold">Name:</Text>{' '}
 					</Grid.Box>
 					<Grid.Box columns={6} justifyContent="flex-end">
 						{pokemon.name}
 					</Grid.Box>
 					<Grid.Box columns={6}>
-						<Content fontWeight="bold">Base experience:</Content>{' '}
+						<Text fontWeight="bold">Base experience:</Text>{' '}
 					</Grid.Box>
 					<Grid.Box columns={6} justifyContent="flex-end">
 						{pokemon.base_experience}
 					</Grid.Box>
 				</Grid>
 			)}
-		</Box>
+		</Flex>
 	);
 };
 

@@ -1,7 +1,7 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { Box, Divider, Image } from '@sergiogc9/react-ui';
+import { Flex, Divider, Image } from '@sergiogc9/react-ui';
 
 import { ReactComponent as PokeBallLogo } from 'assets/logos/poke-ball.svg';
 import uiSelectors from 'store/ui/selectors';
@@ -23,9 +23,9 @@ const Header: React.FC = () => {
 				<Image data-testid="headerLogo" src="/assets/images/pokemon-logo.png" height={40} />
 			</Responsive>
 			<Responsive visibility={['xs', 'sm']}>
-				<Box id="headerLogo" ml="20px" mr="auto" onClick={onLogoClicked} width="30px">
+				<Flex id="headerLogo" ml="20px" mr="auto" onClick={onLogoClicked} width="30px">
 					<PokeBallLogo />
-				</Box>
+				</Flex>
 			</Responsive>
 			<HeaderProfile />
 			<HeaderFullscreen />

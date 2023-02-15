@@ -1,7 +1,7 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import * as Yup from 'yup';
-import { Box, Select } from '@sergiogc9/react-ui';
+import { Flex, Select } from '@sergiogc9/react-ui';
 
 import i18n from 'i18n';
 import Form from 'components/common/Form';
@@ -33,8 +33,8 @@ const DateFilterForm: React.FC<FiltersFactoryFormProps<FilterDate, FilterFieldDa
 			useFormProps={{ mode: 'onChange' }}
 			validationSchema={validationSchema}
 		>
-			<Box flexDirection="column" height="100%" justifyContent="space-between">
-				<Box flexDirection="column" gap={4}>
+			<Flex flexDirection="column" height="100%" justifyContent="space-between">
+				<Flex flexDirection="column" gap={4}>
 					<Form.Select
 						data-testid="filtersDateFilterValueSelect"
 						label={t('filters.filter.date.label.value')}
@@ -46,9 +46,9 @@ const DateFilterForm: React.FC<FiltersFactoryFormProps<FilterDate, FilterFieldDa
 							</Select.Option>
 						))}
 					</Form.Select>
-				</Box>
+				</Flex>
 				{children}
-			</Box>
+			</Flex>
 		</Form>
 	);
 };

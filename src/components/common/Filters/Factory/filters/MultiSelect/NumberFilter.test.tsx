@@ -1,7 +1,7 @@
 import React from 'react';
 import { screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import { Box } from '@sergiogc9/react-ui';
+import { Flex } from '@sergiogc9/react-ui';
 
 import { renderWithMockedStore } from 'lib/tests/redux';
 
@@ -45,9 +45,9 @@ const FakeComponent: React.FC<{
 			fields={[multiSelectField]}
 			{...providerProps}
 		>
-			<Box ref={containerRef}>
+			<Flex ref={containerRef}>
 				<FiltersChips {...props} />
-			</Box>
+			</Flex>
 		</FilterProvider>
 	);
 };

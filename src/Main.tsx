@@ -3,10 +3,9 @@ import { BrowserRouter as Router } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import { QueryClientProvider, QueryClient } from 'react-query';
 import { ReactQueryDevtools } from 'react-query/devtools';
-import { ThemeProvider } from 'styled-components';
 import { useTranslation } from 'react-i18next';
 import { merge } from 'lib/imports/lodash';
-import theme from '@sergiogc9/react-ui-theme';
+import theme, { ReactUIProvider } from '@sergiogc9/react-ui-theme';
 
 import { store } from 'store';
 import App from 'components/App';
@@ -32,12 +31,12 @@ const Main: React.FC = () => {
 		<Provider store={store}>
 			<Router>
 				<QueryClientProvider client={queryClient}>
-					<ThemeProvider theme={finalTheme}>
+					<ReactUIProvider theme={finalTheme}>
 						<>
 							<App />
 							{config.isDevelopmentEnvironment() && <ReactQueryDevtools />}
 						</>
-					</ThemeProvider>
+					</ReactUIProvider>
 				</QueryClientProvider>
 			</Router>
 		</Provider>

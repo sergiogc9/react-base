@@ -1,6 +1,6 @@
 import React from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
-import { Content, Icon } from '@sergiogc9/react-ui';
+import { Icon, Text } from '@sergiogc9/react-ui';
 import { useSelector } from 'react-redux';
 
 import Responsive from 'components/common/Responsive';
@@ -73,9 +73,9 @@ const Sidebar: React.FC<SidebarProps> = () => {
 					onMouseLeave={() => setHoverElementIndex(undefined)}
 				>
 					<Icon icon={item.icon} styling={item.iconStyling} />
-					<Content aspectSize="xs" mt={{ xs: 0, lg: 1 }} overflow="hidden" textAlign="center" width="100%">
+					<Text aspectSize="xs" mt={{ xs: 0, lg: 1 }} overflow="hidden" textAlign="center" width="100%">
 						{item.label}
-					</Content>
+					</Text>
 				</StyledSidebarItem>
 			))}
 			<Responsive visibility={['md', 'lg', 'xl']}>
@@ -92,9 +92,9 @@ const Sidebar: React.FC<SidebarProps> = () => {
 						onMouseLeave={() => setHoverElementIndex(undefined)}
 					>
 						<Icon icon={item.icon} styling={item.iconStyling} />
-						<Content aspectSize="xs" mt={{ xs: 0, lg: 1 }} overflow="hidden" textAlign="center" width="100%">
+						<Text aspectSize="xs" mt={{ xs: 0, lg: 1 }} overflow="hidden" textAlign="center" width="100%">
 							{item.label}
-						</Content>
+						</Text>
 					</StyledSidebarItem>
 				))}
 			</Responsive>

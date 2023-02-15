@@ -1,7 +1,7 @@
 import React from 'react';
 import { screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import { Box } from '@sergiogc9/react-ui';
+import { Flex } from '@sergiogc9/react-ui';
 
 import { renderWithMockedStore } from 'lib/tests/redux';
 
@@ -67,11 +67,11 @@ const FakeComponent: React.FC<Partial<FiltersProviderProps>> = props => {
 	const containerRef = React.useRef(null);
 
 	return (
-		<Box ref={containerRef} height={100} width={100}>
+		<Flex ref={containerRef} height={100} width={100}>
 			<FiltersProvider containerRef={containerRef} defaultFilters={defaultFilters} fields={defaultFields} {...props}>
 				<ConsumerComponent />
 			</FiltersProvider>
-		</Box>
+		</Flex>
 	);
 };
 
