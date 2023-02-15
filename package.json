@@ -35,10 +35,11 @@
 		"eslint-plugin-react-hooks": "4.2.0",
 		"faker": "5.5.2",
 		"fox-awesome-cli": "1.1.0",
-		"husky": "4.3.8",
+		"husky": "^7.0.0",
 		"jest-junit": "12.0.0",
 		"jest-mock-axios": "4.2.1",
 		"jest-styled-components": "7.0.3",
+		"lint-staged": "^13.1.2",
 		"mockdate": "3.0.2",
 		"prettier": "2.2.1",
 		"react-is": "17.0.1",
@@ -99,13 +100,8 @@
 		"unlink:ui": "yarn unlink @sergiogc9/react-ui @sergiogc9/react-ui-collections @sergiogc9/react-ui-theme && yarn install --force",
 		"link:utils": "yarn link @sergiogc9/react @sergiogc9/react-utils @sergiogc9/react-hooks",
 		"unlink:utils": "yarn unlink @sergiogc9/react-ui @sergiogc9/react-ui-theme && yarn install --force",
-		"update-lang": "node src/scripts/updateLocales.js && prettier --write ./src/i18n/locales"
-	},
-	"husky": {
-		"hooks": {
-			"pre-commit": "yarn prettier:check && yarn lint && yarn typescript:check && yarn test",
-			"pre-push": "foxcli is-branch-synced"
-		}
+		"update-lang": "node src/scripts/updateLocales.js && prettier --write ./src/i18n/locales",
+		"prepare": "husky install"
 	},
 	"engines": {
 		"node": ">=14.x.x",
@@ -122,5 +118,8 @@
 			"last 1 firefox version",
 			"last 1 safari version"
 		]
+	},
+	"lint-staged": {
+		"*.{js,ts,tsx,css,json,md}": "prettier --write"
 	}
 }
