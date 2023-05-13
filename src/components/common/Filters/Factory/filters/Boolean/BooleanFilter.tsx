@@ -18,7 +18,7 @@ const SelectFilterForm: React.FC<FiltersFactoryFormProps<FilterBoolean, FilterFi
 	const validationSchema = React.useMemo(
 		() =>
 			Yup.object({
-				value: Yup.string().required(t('form.error.input_required'))
+				value: Yup.string().required(t('form.error.input_required')!)
 			}),
 		[t]
 	);
@@ -46,7 +46,7 @@ const SelectFilterForm: React.FC<FiltersFactoryFormProps<FilterBoolean, FilterFi
 				<Flex flexDirection="column" gap={4}>
 					<Form.Select
 						data-testid="filtersBooleanFilterValueSelect"
-						label={t('filters.filter.boolean.label.value')}
+						label={t('filters.filter.boolean.label.value')!}
 						name="value"
 					>
 						<Select.Option id="yes" key="yes">

@@ -1,6 +1,6 @@
 import { createSelector } from '@reduxjs/toolkit';
 
-import { State as RootState } from 'store/types';
+import { RootState } from 'store/types';
 import { selectors as BookSelectors } from 'store/entities/Book';
 import { entityAdapter } from './reducers';
 import { AuthorPopulated } from './types';

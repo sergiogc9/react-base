@@ -36,7 +36,7 @@ const NumberFilterForm: React.FC<FiltersFactoryFormProps<FilterNumber, FilterFie
 		>
 			<Flex flexDirection="column" height="100%" justifyContent="space-between">
 				<Flex flexDirection="column" gap={4}>
-					<Form.Select label={t('filters.filter.common.label.condition')} name="condition">
+					<Form.Select label={t('filters.filter.common.label.condition')!} name="condition">
 						{NUMBER_FILTER_CONDITIONS.map(condition => (
 							<Select.Option id={condition} key={condition}>
 								{t(`filters.filter.number.condition.${condition}`)}
@@ -45,7 +45,7 @@ const NumberFilterForm: React.FC<FiltersFactoryFormProps<FilterNumber, FilterFie
 					</Form.Select>
 					<Form.TextField
 						data-testid="filtersNumberFilterValueTextField"
-						label={t('filters.filter.number.label.value')}
+						label={t('filters.filter.number.label.value')!}
 						name="value"
 						type="number"
 					/>

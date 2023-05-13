@@ -21,7 +21,7 @@ const MultiSelectFilterForm: React.FC<FiltersFactoryFormProps<FilterMultiSelect,
 		() =>
 			Yup.object({
 				condition: Yup.string().oneOf(MULTI_SELECT_FILTER_CONDITIONS).required(),
-				value: Yup.array<string>().required(t('form.error.input_required'))
+				value: Yup.array<string>().required(t('form.error.input_required')!)
 			}),
 		[t]
 	);
@@ -36,7 +36,7 @@ const MultiSelectFilterForm: React.FC<FiltersFactoryFormProps<FilterMultiSelect,
 		>
 			<Flex flexDirection="column" height="100%" justifyContent="space-between">
 				<Flex flexDirection="column" gap={4}>
-					<Form.Select label={t('filters.filter.common.label.condition')} name="condition">
+					<Form.Select label={t('filters.filter.common.label.condition')!} name="condition">
 						{MULTI_SELECT_FILTER_CONDITIONS.map(condition => (
 							<Select.Option id={condition} key={condition}>
 								{t(`filters.filter.multi_select.condition.${condition}`)}
@@ -46,7 +46,7 @@ const MultiSelectFilterForm: React.FC<FiltersFactoryFormProps<FilterMultiSelect,
 					<Form.Select
 						data-testid="filtersMultiSelectFilterValueSelect"
 						isMultiSelect
-						label={t('filters.filter.multi_select.label.value')}
+						label={t('filters.filter.multi_select.label.value')!}
 						name="value"
 					>
 						{field.options.map(options => (

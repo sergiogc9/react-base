@@ -27,9 +27,15 @@ module.exports = {
 		}
 	},
 	webpack: {
-		alias: {
-			react: path.resolve('./node_modules/react'),
-			'styled-components': path.resolve('./node_modules/styled-components')
+		resolve: {
+			alias: {
+				react: path.resolve('./node_modules/react'),
+				'styled-components': path.resolve('./node_modules/styled-components')
+			}
 		}
+		// alias: {
+		// 	react: path.resolve('./node_modules/react'),
+		// 	'styled-components': path.resolve('./node_modules/styled-components')
+		// },
 	}
 };

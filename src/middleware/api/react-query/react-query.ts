@@ -1,5 +1,5 @@
-import { useEffect } from 'react';
-import { QueryKey, MutationFunction, QueryFunction, useQuery, useMutation } from 'react-query';
+import { useEffect, useRef } from 'react';
+import { QueryKey, MutationFunction, QueryFunction, useQuery, useMutation } from '@tanstack/react-query';
 import { useUpdateEffect } from '@sergiogc9/react-hooks';
 
 import { store } from 'store';
@@ -37,18 +37,25 @@ const useApiQuery = <T>(
 	queryFn: QueryFunction<T>,
 	queryConfig?: QueryConfig<T>
 ) => {
+	const isBarShown = useRef(false);
 	const config: QueryConfig<T> = {
 		...queryConfig,
 		onSuccess: data => {
 			const notification = __getSuccessNotification(actionKey, data);
 			if (notification) store.dispatch(notificationActions.addNotification(notification));
-			if (queryConfig?.showLoadingBar) store.dispatch(uiActions.removePendingLoadingBarApiCall());
+			if (queryConfig?.showLoadingBar) {
+				isBarShown.current = false;
+				store.dispatch(uiActions.removePendingLoadingBarApiCall());
+			}
 			if (queryConfig?.onSuccess) queryConfig.onSuccess(data);
 		},
 		onError: err => {
 			const notification = __getErrorNotification(actionKey, err);
 			if (notification) store.dispatch(notificationActions.addNotification(notification));
-			if (queryConfig?.showLoadingBar) store.dispatch(uiActions.removePendingLoadingBarApiCall());
+			if (queryConfig?.showLoadingBar) {
+				isBarShown.current = false;
+				store.dispatch(uiActions.removePendingLoadingBarApiCall());
+			}
 			if (queryConfig?.onError) queryConfig.onError(err);
 		}
 	};
@@ -56,7 +63,17 @@ const useApiQuery = <T>(
 
 	useEffect(() => {
 		if (queryConfig?.showLoadingBar) {
-			if (result.isFetching) store.dispatch(uiActions.addPendingLoadingBarApiCall());
+			if (result.isFetching) {
+				if (!isBarShown.current) {
+					isBarShown.current = true;
+					store.dispatch(uiActions.addPendingLoadingBarApiCall());
+				}
+			} else {
+				if (isBarShown.current) {
+					isBarShown.current = false;
+					store.dispatch(uiActions.removePendingLoadingBarApiCall());
+				}
+			}
 		}
 	}, [result.isFetching]); // eslint-disable-line react-hooks/exhaustive-deps
 
@@ -68,18 +85,25 @@ const useApiMutate = <TResult, TError, TVariables>(
 	mutateFn: MutationFunction<TResult, TVariables>,
 	mutateConfig?: MutationConfig<TResult, TError, TVariables>
 ) => {
+	const isBarShown = useRef(false);
 	const config: MutationConfig<TResult, TError, TVariables> = {
 		...mutateConfig,
 		onSuccess: (data, variables, context) => {
 			const notification = __getSuccessNotification(actionKey, data);
 			if (notification) store.dispatch(notificationActions.addNotification(notification));
-			if (mutateConfig?.showLoadingBar) store.dispatch(uiActions.removePendingLoadingBarApiCall());
+			if (mutateConfig?.showLoadingBar) {
+				isBarShown.current = false;
+				store.dispatch(uiActions.removePendingLoadingBarApiCall());
+			}
 			if (mutateConfig?.onSuccess) mutateConfig.onSuccess(data, variables, context);
 		},
 		onError: (err, variables, onMutateValue) => {
 			const notification = __getErrorNotification(actionKey, err);
 			if (notification) store.dispatch(notificationActions.addNotification(notification));
-			if (mutateConfig?.showLoadingBar) store.dispatch(uiActions.removePendingLoadingBarApiCall());
+			if (mutateConfig?.showLoadingBar) {
+				isBarShown.current = false;
+				store.dispatch(uiActions.removePendingLoadingBarApiCall());
+			}
 			if (mutateConfig?.onError) mutateConfig.onError(err, variables, onMutateValue);
 		}
 	};
@@ -88,7 +112,15 @@ const useApiMutate = <TResult, TError, TVariables>(
 	useUpdateEffect(() => {
 		if (mutateConfig?.showLoadingBar) {
 			if (result.isLoading) {
-				store.dispatch(uiActions.addPendingLoadingBarApiCall());
+				if (!isBarShown.current) {
+					isBarShown.current = true;
+					store.dispatch(uiActions.addPendingLoadingBarApiCall());
+				}
+			} else {
+				if (isBarShown.current) {
+					isBarShown.current = false;
+					store.dispatch(uiActions.removePendingLoadingBarApiCall());
+				}
 			}
 		}
 	}, [result.isLoading]);

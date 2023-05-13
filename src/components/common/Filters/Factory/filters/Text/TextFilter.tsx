@@ -21,7 +21,7 @@ const TextFilterForm: React.FC<FiltersFactoryFormProps<FilterText, FilterFieldTe
 		() =>
 			Yup.object({
 				condition: Yup.string().oneOf(TEXT_FILTER_CONDITIONS).required(),
-				value: Yup.string().required(t('form.error.input_required'))
+				value: Yup.string().required(t('form.error.input_required')!)
 			}),
 		[t]
 	);
@@ -36,7 +36,7 @@ const TextFilterForm: React.FC<FiltersFactoryFormProps<FilterText, FilterFieldTe
 		>
 			<Flex flexDirection="column" height="100%" justifyContent="space-between">
 				<Flex flexDirection="column" gap={4}>
-					<Form.Select label={t('filters.filter.common.label.condition')} name="condition">
+					<Form.Select label={t('filters.filter.common.label.condition')!} name="condition">
 						{TEXT_FILTER_CONDITIONS.map(condition => (
 							<Select.Option id={condition} key={condition}>
 								{t(`filters.filter.text.condition.${condition}`)}
@@ -45,7 +45,7 @@ const TextFilterForm: React.FC<FiltersFactoryFormProps<FilterText, FilterFieldTe
 					</Form.Select>
 					<Form.TextField
 						data-testid="filtersTextFilterValueTextField"
-						label={t('filters.filter.text.label.value')}
+						label={t('filters.filter.text.label.value')!}
 						maxLength={30}
 						name="value"
 					/>

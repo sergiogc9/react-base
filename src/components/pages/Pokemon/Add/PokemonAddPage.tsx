@@ -37,10 +37,10 @@ const PokemonItemPage: React.FC = () => {
 	const validationSchema = React.useMemo(
 		() =>
 			Yup.object({
-				baseExperience: Yup.number().min(0).required(t('form.error.input_required')),
-				description: Yup.string().required(t('form.error.input_required')),
-				name: Yup.string().required(t('form.error.input_required')),
-				type: Yup.string().oneOf(pokemonTypes).required(t('form.error.input_required'))
+				baseExperience: Yup.number().min(0).required(t('form.error.input_required')!),
+				description: Yup.string().required(t('form.error.input_required')!),
+				name: Yup.string().required(t('form.error.input_required')!),
+				type: Yup.string().oneOf(pokemonTypes).required(t('form.error.input_required')!)
 			}),
 		[t]
 	);

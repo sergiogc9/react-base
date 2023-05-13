@@ -6,7 +6,7 @@ import FallbackError from 'components/common/FallbackError';
 import { ErrorBoundaryProps } from './types';
 
 const ErrorBoundary: React.FC<ErrorBoundaryProps> = ({ children }) => {
-	const onError = React.useCallback(err => {
+	const onError = React.useCallback((err: any) => {
 		// eslint-disable-next-line no-console
 		console.error('ErrorBoundary - An error ocurred:', err);
 	}, []);

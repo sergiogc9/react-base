@@ -54,7 +54,7 @@ const FilterChipsChip: React.FC<FilterChipsChipProps> = ({
 						maxWidth={300}
 						mr={3}
 						onClick={onChipClick}
-						overlayContent={t('form.buttons.edit')}
+						overlayContent={t('form.buttons.edit')!}
 						variant="green"
 					>
 						<Chip.Label>{filter.renderChipText()}</Chip.Label>

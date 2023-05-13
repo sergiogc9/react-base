@@ -1,6 +1,6 @@
 import { createSelector } from '@reduxjs/toolkit';
 
-import { State as RootState } from 'store/types';
+import { RootState } from 'store/types';
 
 type EntityResource = 'author' | 'book';
 

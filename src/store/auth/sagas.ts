@@ -6,7 +6,7 @@ import authManager from 'lib/auth';
 
 import { actions, Payloads } from './reducers';
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
+//eslint-disable-next-line @typescript-eslint/no-unused-vars
 function* startAuth({ payload }: PayloadAction<Payloads['fetchAuth']>) {
 	try {
 		let user: UserProfile | null = yield authManager.getUser();

@@ -7,4 +7,4 @@ type Props = {
 	readonly onFiltersChange?: (filters: Filter[]) => void;
 };
 
-export type FiltersProviderProps = Props;
+export type FiltersProviderProps = React.PropsWithChildren<Props>;

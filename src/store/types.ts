@@ -1,12 +1,8 @@
-import { State as AuthState } from './auth';
-import { State as EntitiesState } from './entities';
-import { State as NotificationsState } from './notifications';
-import { State as UIState } from './ui';
+import { store } from './store';
 
-// export root store state interface
-export interface State {
-	auth: AuthState;
-	entities: EntitiesState;
-	notifications: NotificationsState;
-	ui: UIState;
-}
+// Infer the `RootState` and `AppDispatch` types from the store itself
+type RootState = ReturnType<typeof store.getState>;
+// Inferred type: {posts: PostsState, comments: CommentsState, users: UsersState}
+type AppDispatch = typeof store.dispatch;
+
+export type { RootState, AppDispatch };

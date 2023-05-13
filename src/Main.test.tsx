@@ -3,7 +3,7 @@ import { render, screen } from '@testing-library/react';
 
 import Main from 'Main';
 
-jest.mock('react-query/devtools', () => ({ ReactQueryDevtools: () => <></> }));
+jest.mock('@tanstack/react-query-devtools', () => ({ ReactQueryDevtools: () => <></> }));
 
 describe('Main', () => {
 	it('should render the app', () => {

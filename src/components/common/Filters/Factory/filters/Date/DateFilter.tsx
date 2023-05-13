@@ -20,7 +20,7 @@ const DateFilterForm: React.FC<FiltersFactoryFormProps<FilterDate, FilterFieldDa
 	const validationSchema = React.useMemo(
 		() =>
 			Yup.object({
-				value: Yup.string().oneOf(DATE_FILTER_VALUES).required(t('form.error.input_required'))
+				value: Yup.string().oneOf(DATE_FILTER_VALUES).required(t('form.error.input_required')!)
 			}),
 		[t]
 	);
@@ -37,7 +37,7 @@ const DateFilterForm: React.FC<FiltersFactoryFormProps<FilterDate, FilterFieldDa
 				<Flex flexDirection="column" gap={4}>
 					<Form.Select
 						data-testid="filtersDateFilterValueSelect"
-						label={t('filters.filter.date.label.value')}
+						label={t('filters.filter.date.label.value')!}
 						name="value"
 					>
 						{DATE_FILTER_VALUES.map(option => (

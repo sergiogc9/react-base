@@ -4,13 +4,13 @@ import { useTheme } from 'styled-components';
 import { Helmet } from 'react-helmet-async';
 import {
 	Button,
+	createColumnHelper,
 	Flex,
 	Icon,
 	IconButton,
 	Popover,
 	Table,
 	TableCellProps,
-	TableColumn,
 	Text,
 	Title
 } from '@sergiogc9/react-ui';
@@ -21,6 +21,8 @@ import { useGetPokemonList, useRemovePokemon } from 'queries/pokemon';
 import { ListPokemon } from 'types/entities/pokemon';
 
 import PokemonsListSkeleton from './skeleton';
+
+const columnHelper = createColumnHelper<ListPokemon>();
 
 const PokemonItemList: React.FC = () => {
 	const navigate = useNavigate();
@@ -37,46 +39,53 @@ const PokemonItemList: React.FC = () => {
 		setDeletingPokemonId(undefined);
 	}, []);
 
-	const columns = React.useMemo<TableColumn<ListPokemon>[]>(
+	const columns = React.useMemo(
 		() => [
-			{
-				accessor: 'id',
-				Cell: props => <Table.Cell.Default {...props} aspectSize="xs" color="neutral.600" />,
-				Header: 'ID'
-			},
-			{
-				accessor: 'name',
-				Cell: props => <Table.Cell.Default {...props} fontWeight="bold" />,
-				Header: 'Name'
-			},
-			{
-				accessor: 'url',
-				Header: 'Api url',
-				Cell: props => (
-					<Link to={props.value} {...props}>
-						<Link.Text>{props.value}</Link.Text>
+			columnHelper.accessor('id', {
+				id: 'id',
+				cell: (props: any) => <Table.Cell.Default {...props} aspectSize="xs" color="neutral.600" />,
+				header: 'ID',
+				size: 25
+			}),
+			columnHelper.accessor('name', {
+				id: 'name',
+				cell: (props: any) => <Table.Cell.Default {...props} fontWeight="bold" />,
+				header: 'Name'
+			}),
+			columnHelper.accessor('url', {
+				id: 'url',
+				cell: (props: TableCellProps<ListPokemon>) => (
+					<Link to={props.getValue()} {...(props as any)}>
+						<Link.Text>{props.getValue()}</Link.Text>
 					</Link>
-				)
-			},
-			{
-				id: 'button',
-				accessor: 'id',
-				Header: '',
-				Cell: props => (
-					<Flex justifyContent="flex-end" width="100%">
-						<Button aspectSize="s" onClick={() => navigate(`/pokemon/${props.value}`)} variant="primary" {...props}>
-							See pokemon
-						</Button>
-						<IconButton ml={3} onClick={() => removePokemon({ pokemonId: props.cell.row.original.id })}>
-							<Icon icon="delete" fill="primary.700" styling="outlined" />
-						</IconButton>
-					</Flex>
 				),
+				header: 'Api url'
+			}),
+			{
+				...columnHelper.accessor('id', {
+					id: 'button',
+					cell: (props: TableCellProps<ListPokemon>) => (
+						<Flex justifyContent="flex-end" width="100%">
+							<Button
+								aspectSize="s"
+								onClick={() => navigate(`/pokemon/${props.getValue()}`)}
+								variant="primary"
+								{...(props as any)}
+							>
+								See pokemon
+							</Button>
+							<IconButton ml={3} onClick={() => removePokemon({ pokemonId: props.cell.row.original.id })}>
+								<Icon icon="delete" fill="primary.700" styling="outlined" />
+							</IconButton>
+						</Flex>
+					),
+					header: ''
+				}),
 				getCellWidthText: () => 'See pokemon'
 			},
-			{
+			columnHelper.display({
 				id: 'actionMenu',
-				Cell: (props: TableCellProps<ListPokemon>) => (
+				cell: (props: TableCellProps<ListPokemon>) => (
 					<Popover>
 						<Popover.Trigger>
 							<IconButton aspectSize="l" data-testid="jobsListPageJobsActionMenuBtn">
@@ -100,10 +109,9 @@ const PokemonItemList: React.FC = () => {
 						</ActionMenu>
 					</Popover>
 				),
-				Header: '',
-				maxWidth: 70,
-				minWidth: 70
-			}
+				header: '',
+				size: 25
+			})
 		],
 		[deletingPokemonId, navigate, removePokemon]
 	);

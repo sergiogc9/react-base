@@ -1,13 +1,10 @@
-import { applyMiddleware, Middleware } from 'redux';
-import { getDefaultMiddleware } from '@reduxjs/toolkit';
+import { Middleware } from 'redux';
 import createSagaMiddleware from 'redux-saga';
 
 import apiMiddleware from './api/redux';
 
-const customMiddleware: Middleware[] = [apiMiddleware];
-
 /* istanbul ignore next */
-export const sagaMiddleware = createSagaMiddleware({
+const sagaMiddleware = createSagaMiddleware({
 	onError: (error: Error, { sagaStack }) => {
 		// This is the last resort to catch a saga error, it should never trigger
 		// eslint-disable-next-line no-console
@@ -19,6 +16,6 @@ export const sagaMiddleware = createSagaMiddleware({
 	}
 });
 
-export const getMiddleware = () => {
-	return applyMiddleware(...getDefaultMiddleware(), ...customMiddleware, sagaMiddleware);
-};
+const customMiddlewares: Middleware[] = [apiMiddleware, sagaMiddleware];
+
+export { customMiddlewares, sagaMiddleware };

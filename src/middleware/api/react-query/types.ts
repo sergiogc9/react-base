@@ -1,4 +1,4 @@
-import { UseMutationOptions, UseQueryOptions } from 'react-query';
+import { UseMutationOptions, UseQueryOptions } from '@tanstack/react-query';
 
 type CommonConfig = {
 	readonly showLoadingBar?: boolean;

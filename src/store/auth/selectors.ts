@@ -1,7 +1,7 @@
 import { createSelector } from 'reselect';
-import { State } from 'store/types';
+import { RootState } from 'store/types';
 
-const rootSelector = (state: State) => state.auth;
+const rootSelector = (state: RootState) => state.auth;
 
 export default {
 	getRootState: rootSelector,

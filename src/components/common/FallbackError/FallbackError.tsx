@@ -20,7 +20,7 @@ const FallbackError: React.FC<FallbackErrorProps> = () => {
 			width="100%"
 		>
 			<UserFeedback
-				buttonText={t('general.error.btn_text')}
+				buttonText={t('general.error.btn_text')!}
 				imageSrc="/assets/images/robot-404.png"
 				onButtonClick={onButtonClick}
 				text={t('general.error.text')}

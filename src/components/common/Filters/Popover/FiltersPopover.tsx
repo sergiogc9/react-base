@@ -70,7 +70,7 @@ const FiltersPopoverContent: React.FC<FiltersPopoverContentProps> = props => {
 			{editFilterId === 'new' && (
 				<Select
 					data-testid="filtersPopoverFieldsSelect"
-					label={t('filters.popover.add.field_label')}
+					label={t('filters.popover.add.field_label')!}
 					mb={4}
 					onOptionChange={option => setField(fields.find(currentField => currentField.field === option)!)}
 					value={field.field}

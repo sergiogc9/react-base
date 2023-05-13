@@ -14,7 +14,6 @@ const mockOnImageCropped = jest.fn();
 jest.mock('react-easy-crop', () => ({
 	__esModule: true,
 	default: (props: any) => (
-		// eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-static-element-interactions
 		<div onClick={() => props.onCropComplete({ x: 10, y: 10, width: 20, height: 30 })}>{text}</div>
 	)
 }));

@@ -1,5 +1,5 @@
 import Api from 'lib/ajax/api';
-import { useQueryClient } from 'react-query';
+import { useQueryClient } from '@tanstack/react-query';
 import { reject } from 'lib/imports/lodash';
 
 import { useApiMutate, useApiQuery } from 'middleware/api/react-query';
@@ -7,7 +7,7 @@ import { ListPokemon, Pokemon, PokemonType } from 'types/entities/pokemon';
 
 const apiActionBase = 'pokemon/';
 
-const getPokemonListQueryKey = () => 'getPokemonList';
+const getPokemonListQueryKey = () => ['getPokemonList'];
 export const useGetPokemonList = () => {
 	const getData = async () => {
 		const api = new Api();
@@ -43,7 +43,7 @@ export const useAddPokemon = () => {
 		// await Promise.reject(); // Simulate failure if wanted
 	};
 
-	return useApiMutate<any, any, Args>(`${apiActionBase}addPokemon`, addPokemon);
+	return useApiMutate<any, any, Args>(`${apiActionBase}addPokemon`, addPokemon, { showLoadingBar: true });
 };
 
 export const useRemovePokemon = () => {

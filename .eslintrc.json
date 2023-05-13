@@ -3,5 +3,9 @@
 	"extends": ["@sergiogc9/eslint-config/all"],
 	"parserOptions": {
 		"project": "./tsconfig.json"
+	},
+	"rules": {
+		// Necessary to avoid an error when running locally
+		"@typescript-eslint/no-empty-function": "off"
 	}
 }
