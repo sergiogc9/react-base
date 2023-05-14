@@ -101,8 +101,8 @@
 		"prepare": "husky install"
 	},
 	"engines": {
-		"node": ">=14.x.x",
-		"npm": ">=6.0.0"
+		"node": ">=16.x.x",
+		"npm": ">=8.0.0"
 	},
 	"browserslist": {
 		"production": [
