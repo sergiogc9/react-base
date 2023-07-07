@@ -2,8 +2,8 @@ import React from 'react';
 
 import ErrorBoundary from 'components/common/ErrorBoundary';
 
-const withErrorBoundary = (Component: React.FC) => {
-	return React.memo(props => (
+const withErrorBoundary = <T extends React.ComponentType<any>>(Component: T) => {
+	return React.memo<React.ComponentProps<T>>(props => (
 		<ErrorBoundary>
 			<Component {...props} />
 		</ErrorBoundary>

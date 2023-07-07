@@ -2093,7 +2093,15 @@
     eslint-config-airbnb-typescript "17.0.0"
     eslint-config-prettier "8.8.0"
 
-"@sergiogc9/react-hooks@0.3.2", "@sergiogc9/react-hooks@^0.3.2":
+"@sergiogc9/react-hooks@0.3.3":
+  version "0.3.3"
+  resolved "https://registry.yarnpkg.com/@sergiogc9/react-hooks/-/react-hooks-0.3.3.tgz#13d8e42a6ae32659763b5445f0b447082a3c1ec0"
+  integrity sha512-18mWylzoaJZHNSiI2fYoa/YeEgRKcqIVSrLBXUczX3btOUn0XXkuorEM/eLnreI0fMN+NDpe8KEKUj4XlVnPAA==
+  dependencies:
+    "@sergiogc9/react-utils" "^0.0.11"
+    screenfull "5.1.0"
+
+"@sergiogc9/react-hooks@^0.3.2":
   version "0.3.2"
   resolved "https://registry.yarnpkg.com/@sergiogc9/react-hooks/-/react-hooks-0.3.2.tgz#e698e816a5f2c10c27f712cc54c81df227ef1a75"
   integrity sha512-USr9ahGPFrhuMz0Wd24OABpIuLpe3ATbW/XZEc7xlVraTr8QYAeuaYE+dMTFnuoJn63CUOMO4WPrzihXLtfErQ==
@@ -2162,7 +2170,17 @@
     react-day-picker "^7.4.10"
     styled-system "^5.1.5"
 
-"@sergiogc9/react-utils@0.0.10", "@sergiogc9/react-utils@^0.0.10":
+"@sergiogc9/react-utils@0.0.11", "@sergiogc9/react-utils@^0.0.11":
+  version "0.0.11"
+  resolved "https://registry.yarnpkg.com/@sergiogc9/react-utils/-/react-utils-0.0.11.tgz#13e53c1aa2e1eac30244c92c77ab4459534c3e33"
+  integrity sha512-K6He2XAX9yB2W7sri8CD5EM5tWv4ggxvxdcC4MaWLOJKGpcxon6xalx3EnH0W0VEFuphpl3zlw7bCRwdtEdqrg==
+  dependencies:
+    "@reduxjs/toolkit" "^1.9.5"
+    events "3.3.0"
+    lodash "4.17.21"
+    luxon "1.26.0"
+
+"@sergiogc9/react-utils@^0.0.10":
   version "0.0.10"
   resolved "https://registry.yarnpkg.com/@sergiogc9/react-utils/-/react-utils-0.0.10.tgz#1fef95b7185f1202df307a7be3a3c8267a742374"
   integrity sha512-DmmUUJGkvywyCwUfHRfS862uH904Tdve2jyzORen7miqyosQnClSQ27P6QzUYLT4BuDwzJCDa5sWxNFv12g2mQ==
