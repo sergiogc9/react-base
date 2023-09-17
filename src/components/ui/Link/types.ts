@@ -11,5 +11,5 @@ type Props = {
 	readonly to: string;
 };
 
-export type LinkProps = Props & Omit<FlexProps<React.AnchorHTMLAttributes<HTMLAnchorElement>>, 'href'>;
-export type LinkBoxProps = FlexProps<React.AnchorHTMLAttributes<HTMLAnchorElement>>;
+export type LinkProps = Props & Omit<FlexProps<'a'>, 'href'>;
+export type LinkBoxProps = FlexProps<'a'>;

@@ -2109,56 +2109,56 @@
     "@sergiogc9/react-utils" "^0.0.10"
     screenfull "5.1.0"
 
-"@sergiogc9/react-ui-collections@1.2.0", "@sergiogc9/react-ui-collections@^1.2.0":
-  version "1.2.0"
-  resolved "https://registry.yarnpkg.com/@sergiogc9/react-ui-collections/-/react-ui-collections-1.2.0.tgz#63cc2abdce0969aa3a2cb0b8a4dcb30e762608ff"
-  integrity sha512-jl672wDoU1PxQRHqf3c5PkQtoGAT1/x63KjQh4pHx0KYX9YG7DevnElhH2MAZC4T9K/XRteFkH3a8E+9saUfIQ==
+"@sergiogc9/react-ui-collections@1.3.0", "@sergiogc9/react-ui-collections@^1.3.0":
+  version "1.3.0"
+  resolved "https://registry.yarnpkg.com/@sergiogc9/react-ui-collections/-/react-ui-collections-1.3.0.tgz#c1d46816eb96e3e5bfe83af64f8a31176f28d9c9"
+  integrity sha512-l/8LVbR6Eztj1EFl6QQ7Ssv3/zTrMpjOaKXYQNlEHL2aQc9zJ4zh2C2zlhLiDn1bE3et0eqEg6miwkAlWcFshg==
   dependencies:
     "@sergiogc9/react-hooks" "^0.3.2"
-    "@sergiogc9/react-ui" "^1.2.0"
-    "@sergiogc9/react-ui-theme" "^1.0.0"
-    "@sergiogc9/react-ui-utils" "^1.2.0"
+    "@sergiogc9/react-ui" "^1.3.0"
+    "@sergiogc9/react-ui-theme" "^1.3.0"
+    "@sergiogc9/react-ui-utils" "^1.3.0"
     "@sergiogc9/react-utils" "^0.0.10"
 
-"@sergiogc9/react-ui-form@1.2.0":
-  version "1.2.0"
-  resolved "https://registry.yarnpkg.com/@sergiogc9/react-ui-form/-/react-ui-form-1.2.0.tgz#3d0f784a611386c8f2019e9a3943a4801f16dc96"
-  integrity sha512-vDXBr3KrlcLDHvRsBEqHmMkPnSGsCohcyE/52/ZEToad074IAr50DKPWHRhz2KJdLRcwc1DtXNQTt8Gwx0IAKQ==
+"@sergiogc9/react-ui-form@1.3.0":
+  version "1.3.0"
+  resolved "https://registry.yarnpkg.com/@sergiogc9/react-ui-form/-/react-ui-form-1.3.0.tgz#f7d5696752a2466cee7db3d1b2a742593e115e50"
+  integrity sha512-PsHQIdazGJDGVP9hp3DtPem972o8iripEMkpKSJF1c7KtA6g/Y0K9RFP1ATchG6GelCyIEyMPYdGyj/Ada0Npg==
   dependencies:
     "@hookform/resolvers" "2.7.1"
-    "@sergiogc9/react-ui" "^1.2.0"
-    "@sergiogc9/react-ui-collections" "^1.2.0"
-    "@sergiogc9/react-ui-theme" "^1.0.0"
+    "@sergiogc9/react-ui" "^1.3.0"
+    "@sergiogc9/react-ui-collections" "^1.3.0"
+    "@sergiogc9/react-ui-theme" "^1.3.0"
     lodash "^4.17.21"
     react-hook-form "7.15.0"
     yup "0.29.3"
 
-"@sergiogc9/react-ui-theme@1.0.0", "@sergiogc9/react-ui-theme@^1.0.0":
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/@sergiogc9/react-ui-theme/-/react-ui-theme-1.0.0.tgz#16f484567018a9aa4b3c23a7b142515c8b344853"
-  integrity sha512-c2X3auvhQuwEeKL8Q5KwWAIOyBzDBMInTU/ZCXqaL2ks41SfPTOalhOCQlnZq2SB9k4JpJTwrxbJ1UNt+IXeAQ==
+"@sergiogc9/react-ui-theme@1.3.0", "@sergiogc9/react-ui-theme@^1.3.0":
+  version "1.3.0"
+  resolved "https://registry.yarnpkg.com/@sergiogc9/react-ui-theme/-/react-ui-theme-1.3.0.tgz#9c9eb759b77baced0a6051f0631fbedbe8046514"
+  integrity sha512-Wxq9xokzbaZmDPEl3QQV1URe/io7dh6PY1SJfQXEClCRf3zRSBwNyn9oJVNOa8RTmonSoleq96U2hD8Nv2TnhQ==
   dependencies:
     lodash "^4.17.21"
 
-"@sergiogc9/react-ui-utils@1.2.0", "@sergiogc9/react-ui-utils@^1.2.0":
-  version "1.2.0"
-  resolved "https://registry.yarnpkg.com/@sergiogc9/react-ui-utils/-/react-ui-utils-1.2.0.tgz#8010adaa244a1f208dbdf27ed3ac189008bc7a1c"
-  integrity sha512-gG3UPn7vdWuAHS0qHRmweutwV1ckfP/4gOxJqXKp5GAWJga5+ytfcWupvtkoRf6UWji7g8jXnHkBUy1HdaUoXA==
+"@sergiogc9/react-ui-utils@1.3.0", "@sergiogc9/react-ui-utils@^1.3.0":
+  version "1.3.0"
+  resolved "https://registry.yarnpkg.com/@sergiogc9/react-ui-utils/-/react-ui-utils-1.3.0.tgz#70f19ad4bbabea567aeffaa174d70c35c0a20296"
+  integrity sha512-7uupr8KfrVn7U+4oOwhmnfHFiQyzRU5QOSzDSv96ICv90EhhgT076rTt/rmdEhq5jycsh7N2vkhL5vBQtwcq9A==
   dependencies:
-    "@sergiogc9/react-ui" "^1.2.0"
-    "@sergiogc9/react-ui-theme" "^1.0.0"
+    "@sergiogc9/react-ui" "^1.3.0"
+    "@sergiogc9/react-ui-theme" "^1.3.0"
     lodash "^4.17.21"
 
-"@sergiogc9/react-ui@1.2.0", "@sergiogc9/react-ui@^1.2.0":
-  version "1.2.0"
-  resolved "https://registry.yarnpkg.com/@sergiogc9/react-ui/-/react-ui-1.2.0.tgz#fd1e27efed7f400a26b7be277b7bb1d0a1e25412"
-  integrity sha512-Qh5Ow6LgelJp6PZJdAn5IaPrEZrmAM97dBqRQMHdhHXYwQKnG4y1Z27G8eh6vXoWh6GmP0FGtVzIq95UccVV7g==
+"@sergiogc9/react-ui@1.3.0", "@sergiogc9/react-ui@^1.3.0":
+  version "1.3.0"
+  resolved "https://registry.yarnpkg.com/@sergiogc9/react-ui/-/react-ui-1.3.0.tgz#c87e609c82c1efe78dd3b362f1be1b237378749d"
+  integrity sha512-yabtwrHbrJx7pKc4Av5lPhUfZgD0AuyCiWaAgkyyJCrq6Qbb9VWizJPzglqaWJo0E0Ujs8j95/RyvjjiXySGyg==
   dependencies:
     "@fortawesome/fontawesome-svg-core" "^6.4.0"
     "@fortawesome/free-solid-svg-icons" "^6.4.0"
     "@fortawesome/react-fontawesome" "^0.2.0"
     "@sergiogc9/react-hooks" "^0.3.2"
-    "@sergiogc9/react-ui-theme" "^1.0.0"
+    "@sergiogc9/react-ui-theme" "^1.3.0"
     "@sergiogc9/react-utils" "^0.0.10"
     "@styled-system/css" "^5.1.5"
     "@styled-system/should-forward-prop" "^5.1.5"

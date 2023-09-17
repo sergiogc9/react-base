@@ -26,12 +26,12 @@ const MainCounter: React.FC<ComponentProps> = props => {
 				/>
 			</Grid.Row>
 			<Grid.Box columns={6}>
-				<Button name="value" onClick={() => onSetValue(value)} width="100%">
+				<Button as="button" name="value" onClick={() => onSetValue(value)} width="100%">
 					Set value
 				</Button>
 			</Grid.Box>
 			<Grid.Box columns={6}>
-				<Button name="increment" onClick={onIncrement} width="100%">
+				<Button as="button" name="increment" onClick={onIncrement} width="100%">
 					Increment by 1
 				</Button>
 			</Grid.Box>

@@ -41,7 +41,7 @@ const MainPage: React.FC = () => {
 			</Text>
 			<Text mt={3}>{t('pages.main.example_text_without_interpolation')}</Text>
 			<Text>{t('pages.main.example_text_with_interpolation', { environment: config.environment })}</Text>
-			<Link className="App-link" href="https://reactjs.org" target="_blank" rel="noopener noreferrer" mt={3}>
+			<Link as="a" className="App-link" href="https://reactjs.org" target="_blank" rel="noopener noreferrer" mt={3}>
 				Learn React
 			</Link>
 			<Flex borderRadius={1} bg="primary.100" flexDirection="column" height={200} p={4} mt={5} width={400}>

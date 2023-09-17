@@ -65,7 +65,7 @@ const PokemonItemPage: React.FC = () => {
 						<Form.TextField name="name" label="Name" />
 					</Grid.Box>
 					<Grid.Box columns={{ xs: 12, md: 6 }}>
-						<Form.TextField name="baseExperience" label="Experience" type="number" />
+						<Form.TextField name="baseExperience" label="Experience" min={0} type="number" />
 					</Grid.Box>
 					<Grid.Row>
 						<Form.Select name="type" label="Type">

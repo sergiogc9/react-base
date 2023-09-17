@@ -45,7 +45,7 @@ describe('Link', () => {
 	});
 
 	it('should set href as null if we set the link as button', () => {
-		getComponent({ as: 'button' });
+		getComponent({ as: 'button' as any });
 		const link = screen.getByTestId(linkTestId);
 		expect(link).not.toHaveAttribute('href');
 	});

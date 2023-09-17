@@ -17,7 +17,7 @@ const __getHoverBackgroundElementLeftPosition = (elementWidth: number, selectedI
 	return `${8 + (elementWidth + 16) * selectedIndex}px`;
 };
 
-const StyledSidebar: React.FC<StyledSidebarProps> = styled(Flex)<StyledSidebarProps>`
+const StyledSidebar = styled(Flex)<StyledSidebarProps>`
 	${props =>
 		systemCSS({
 			boxShadow: props.isDesktop || props.isPageFullScrolled ? 'none' : 'up'
